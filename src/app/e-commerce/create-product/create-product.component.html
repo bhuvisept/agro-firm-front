@@ -1,0 +1,61 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title"> {{'seller.category_display.category' | translate}} </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-cus-box mb-4 cus-from-stapper cus-box-with-radio">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row mt-2 mb-2 d-flex align-items-center d-flex justify-content-center">
+                                    <mat-label class="col-sm-12 mb-4 mt-1">{{'seller.category_display.heading' | translate}}</mat-label>
+                                    <div *ngFor="let list of categoryList; let i=index"
+                                        class="col-sm-2 cus-box-with-radio cus-slt-cat"
+                                        [ngClass]="{active: isActive(list)}"> <label for="{{list._id}}"> <input
+                                                id="{{list._id}}" [value]='list.constant_name' type="radio" name="list"
+                                                (click)="getValue($event, list)"> <img *ngIf="!list.image"
+                                                src="assets/truckListImg.png" class="img-fluid" /> <img
+                                                *ngIf="list.image" src="{{product_catagory_image + list.image}}"
+                                                class="img-fluid" /> <span class="cus-bk-bg"></span> </label>
+                                        <div class="text-center cus-slt-cat-tit text-capitalize">{{list.category_name}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

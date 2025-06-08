@@ -1,0 +1,55 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="direct"><h4>{{ 'seller.manage_team.Invite_Member' | translate }}</h4></div>
+<form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+    <div class="row cus-box cus-seller-popup-invite-box cus-from-stapper">
+        <div class="col-sm-6">
+            <mat-label>{{ 'seller.manage_team.form.First_Name' | translate }}<span>*</span> </mat-label>
+            <mat-form-field> <input type="text" formControlName="firstName" matInput required maxlength="30" /> <mat-error *ngIf="driverForm.get('firstName').hasError('required')"> Please enter first name </mat-error> </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <mat-label>{{ 'seller.manage_team.form.Last_Name' | translate }} <span>*</span> </mat-label>
+            <mat-form-field> <input type="text" formControlName="lastName" matInput required maxlength="30" /> <mat-error *ngIf="driverForm.get('lastName').hasError('required')"> Please enter last name </mat-error> </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <mat-label>{{ 'seller.manage_team.form.Email' | translate }} <span>*</span> </mat-label>
+            <mat-form-field>
+                <input type="text" formControlName="email" matInput required maxlength="30" /> <mat-error *ngIf="driverForm.get('email').hasError('required')"> Please enter email </mat-error>
+                <mat-error *ngIf="driverForm.get('email').hasError('pattern')"> Please enter valid email</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <mat-label>{{ 'seller.manage_team.form.Phone_Number' | translate }}<span>*</span> </mat-label>
+            <mat-form-field class="example-full-width cus-pin-with-no">
+                <span class="cus-pin-code" style="top:0px;">+1</span>
+                <input type="text" mask="(000) 000-0000" formControlName="mobileNumber" matInput required maxlength="30" /> <mat-error *ngIf="driverForm.get('mobileNumber').hasError('required')"> Please enter number </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <mat-label>{{ 'seller.manage_team.form.Access_Level' | translate }}<span>*</span></mat-label>
+            <mat-form-field class="example-full-width">
+                <mat-select formControlName="accessLevel"> <mat-option *ngFor="let list of sellerTypeCategorie" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                <mat-error *ngIf="driverForm.get('accessLevel').hasError('required')">Please select access level</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 mt-2">
+            <button class="e-comm-btn" [disabled]="btn_disabled">{{ 'seller.manage_team.Invite_Member' | translate }}&nbsp;<i *ngIf="btn_disabled" class="fa fa-circle-o-notch fa-spin cu-fa-wt loader-color"></i></button> &nbsp;
+            <button (click)="close()" class="e-comm-btn">{{ 'seller.manage_team.form.Cancel' | translate }}</button>
+        </div>
+        <div class="row">&nbsp;</div>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+<ngx-spinner>
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<section class="mob-top-spc">
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-sm-12 text-center mb-4 pt-2 pb-2">
+                <h2 class="text-uppercase">{{'blog_detail' | translate}}</h2> <span class="cus-tit-bor"></span>
+            </div>
+            <div class="col-sm-12 text-center mb-2"> <img src="{{BLOGIMAGE}}{{blogDetailsImage}}" class="img-fluid">
+            </div>
+            <div class="col-sm-12">
+                <h2>{{blogDetails.title | titlecase}}</h2>
+            </div>
+            <div class="col-sm-12">
+                <p innerHtml='{{blogDetails.description}}'></p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+.product-cus-box {
+    padding: 25px;
+    margin: 0 3px;
+}
+
+.cus-img-upload>.upload-icon {
+    font-size: 4rem;
+    color: #b9b9b9;
+    margin-bottom: 15px;
+}
+
+.cus-img-upload h2 {
+    color: #b9b9b9;
+}
+.cus-e-commerce-mail ::ng-deep .mat-horizontal-stepper-header
+{
+ pointer-events: none;
+}

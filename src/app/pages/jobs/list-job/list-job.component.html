@@ -1,0 +1,231 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="job-list view-job mob-top-spc">
+    <div class="container">
+        <div class="row box-set">
+            <div class="col-md-12 mont navmain">
+                <div class="ml-2 float-left">
+                    <h4 class="">{{ 'jobs.title' | translate }}</h4>
+                </div>
+                <button class="btn common-btn float-right d-md-none" (click)="openNav()">Filter</button>
+            </div>
+            <div class="col-md-12 pb-3 mt-3 clearfix">
+                <div class="row">
+                    <div class="col-md-5 cu-gap mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            </div>
+                            <input type="text" name="" [(ngModel)]="title" class="form-control inputs"
+                                placeholder="{{ 'form_lables.job.search_job.by_title' | translate }}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class='fas fa-map-marker-alt'></i></span>
+                            </div>
+                            <input type="text" name="" #location class="form-control inputs"
+                            placeholder="{{ 'form_lables.job.search_job.by_location' | translate }}" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2 mt-md-0" style="display: flex; align-items: center; justify-content: end">
+                        <button class="btn common-btn mr-2" (click)="getJobLists(1)">{{ 'buttons.search' | translate }}</button> <button
+                            (click)="reset()" class="btn common-btn ml-1">{{ 'buttons.reset' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-sm-3 bor-set cus-round-with-bg d-none d-md-block" id="filter">
+                <div class="days-range box" style="display: flex; justify-content: center">
+                    <p>
+                        <span><i class="fa fa-filter"></i></span> <span style="font-size: 17px">{{ 'jobs.all_fil' | translate }}</span>
+                    </p>
+                </div>
+                <div class="position-relative">
+                    <div style="width: 100%; height: 1px; background: lightgrey; margin-top: 8px"></div>
+                </div>
+                <div class="all-filter"></div>
+                <div class="all-filter">
+                    <div class="days-range">
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-description>
+                                        <p class="mt-2"> {{ 'labels.job.search_job.education' | translate }} </p>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-checkbox class="example-margin" [checked]="Checked" [value]="qualifications._id"
+                                    *ngFor="let qualifications of qualificationList"
+                                    (change)="checkEducation(qualifications._id, $event)">{{
+                                    qualifications.qualification | uppercase }}</mat-checkbox>
+                                <br />
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+                <div class="all-filter">
+                    <div class="days-range">
+                        <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-description>
+                                        <p>{{ 'labels.job.search_job.Industry' | translate }}</p>
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-checkbox class="example-margin" [checked]="Checked" [value]="industries._id"
+                                    *ngFor="let industries of industryList"
+                                    (change)="checkIndustry(industries._id, $event)">{{ industries.name | uppercase }}
+                                </mat-checkbox>
+                                <br />
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <div class="cus-small-btn float-right"><button class="btn common-btn mr-2"
+                                (click)="getJobLists(1)">{{ 'buttons.search' | translate }}</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 mt-sm-3 mt-md-1 col-md-9 relevanse pr-0">
+                <ul class="descri">
+                    <li
+                        *ngFor="let job of jobsList | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index">
+                        <div class="list profile-detail cus-round-with-bg">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h4>
+                                        <a [routerLink]="['/pages/search-job/view-job', job._id]">{{ job.title | slice:
+                                            0:40 }}</a>
+                                    </h4>
+                                    <h6 class="mb-3">{{ job.companyName | titlecase }}</h6>
+                                </div>
+                                <div class="col-sm-2 text-right" *ngIf="job.companyImg">
+                                    <img class="cus-profile-img job-logo" style="margin-top: 0" src="{{ image_enduser_profile }}{{ job.companyImg }}" />
+                                </div>
+                            </div>
+                            <p>
+                                <i class="fa fa-briefcase"
+                                    *ngIf="job.minimumExperience >= 0 && job.maximumExperience >= 0"></i>&nbsp;{{
+                                job.minimumExperience }}&nbsp;Yrs&nbsp;{{
+                                job.maximumExperience
+                                }}&nbsp;Months&nbsp;
+                            </p>
+                            <div class="location-list">
+                                <span>{{ 'labels.job.job_view.salary_type' | translate }} :{{job.salaryType}}</span>
+                                <ul class="breif">
+                                    <li *ngIf="job.salaryRang[0].min != null && job.salaryRang[0].max != null">
+                                        {{ 'labels.job.job_view.min' | translate }} : {{ job.salaryRang[0].currency }}&nbsp;{{ job.salaryRang[0].min }}
+                                    </li>
+
+                                </ul>
+                                <ul class="breif">
+                                   
+                     
+                                    <li *ngIf="job.salaryRang[0].min != null && job.salaryRang[0].max != null">
+                                        {{ 'labels.job.job_view.max' | translate }} :  {{ job.salaryRang[0].currency }}&nbsp;{{job.salaryRang[0].max}}
+                                    </li>
+
+                                   
+                                </ul>
+                                <ul>
+                                    <li class="mt-2">
+                                        <span>{{ 'labels.job.job_location' | translate }} :</span>
+                                        <p class=""><i class="fa fa-map-marker"></i>{{ job.fullAddress }}</p>
+                                    </li>
+                                </ul>
+                                <ul class="mt-2">
+                                    <li class="min-p">
+                                        <span>{{ 'labels.job.job_description' | translate }} :</span>
+                                        <p class="card-text text-left text-lowercase ml-0 mr-0 edit-desc"
+                                            innerHtml="{{ job.description | slice: 0:150 }}"></p>
+                                    </li>
+                                </ul>
+                                <p class="mt-2 cus-job-hed">{{ 'labels.job.key_skills' | translate }} :</p>
+                                <ul class="key-skills skills" *ngIf="job.skillData">
+                                    <li *ngFor="let skill of job.skillData">
+                                        <p>{{ skill | titlecase }}</p>
+                                    </li>
+                                </ul>
+                                <p class="card-text text-left"><strong>{{'form_lables.validFrom' | translate}} :</strong>&nbsp;{{
+                                    job.walkInDetails[0].startDate | date: 'MMM-dd-yyyy':'UTC' }}</p>
+                                <p class="card-text text-left"><strong>{{'form_lables.validUpto' | translate}}:</strong>&nbsp;{{
+                                    job.walkInDetails[0].endDate | date: 'MMM-dd-yyyy':'UTC' }}</p>
+                                <hr />
+                                <div class="float-right">
+                                    <a [routerLink]="['/pages/search-job/view-job', job._id]"
+                                        class="text-primary"><strong>{{ 'jobs.view_detail' | translate }} </strong></a>
+                                </div>
+                                <p><strong>{{ 'labels.job.posted' | translate }} :</strong>&nbsp;{{ job.postedAt }}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div *ngIf="totalCount > itemsPerPage" style="text-align: center" class="text-center">
+                    <pagination-controls (pageChange)="pageChanged($event)" responsive="true" directionLinks="true">
+                    </pagination-controls>
+                </div>
+                <div *ngIf="!noRecordFound" class="text-center">
+                    <p>No Records Found</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <div class="inner_div">
+        <div class="all-filter">
+            <div class="days-range">
+                <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-description>
+                                <p class="mt-2">Education</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-checkbox class="example-margin" [checked]="Checked" [value]="qualifications._id"
+                            *ngFor="let qualifications of qualificationList"
+                            (change)="checkEducation(qualifications._id, $event)">{{ qualifications.qualification |
+                            uppercase }}</mat-checkbox>
+                        <br />
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+        <div class="all-filter">
+            <div class="days-range">
+                <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-description>
+                                <p>Industry</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <mat-checkbox class="example-margin" [checked]="Checked" [value]="industries._id"
+                            *ngFor="let industries of industryList" (change)="checkIndustry(industries._id, $event)">
+                            {{ industries.name | uppercase }}</mat-checkbox>
+                        <br />
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <div class="cus-small-btn float-right"><button class="btn common-btn mr-2"
+                        (click)="getJobLists(1)">Search</button></div>
+            </div>
+        </div>
+    </div>
+</div>

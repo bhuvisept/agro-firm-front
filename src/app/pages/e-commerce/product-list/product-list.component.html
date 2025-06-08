@@ -1,0 +1,172 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class='cus-product-list mb-4 mob-top-spc'>
+    <div class="container">
+        <div class="row"> </div>
+    </div>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class="col-sm-12 mt-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/pages/e-commerce">Category</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{categoryName | titlecase}}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class='filter-list col-sm-2 mt-2'
+                [ngClass]="operProductFilter ? 'operProductFilter' : 'closeProductFilter'">
+                <div class="text-right"> <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+                </div>
+                <div class="group-filter-item">
+                    <div>
+                        <h4 class='text-center mt-3 filter-head'>{{categoryName | titlecase}}</h4>
+                    </div>
+                    <div class='mt-4'>
+                        <h5 class='mb-0 mt-2'>{{'e-commerce.filters.fil_by_key' | translate}}</h5>
+                        <div class="cus-search-input mb-3"> <input autocomplete="off" class="cus-input"
+                                [(ngModel)]='searchText'> </div>
+                    </div>
+                    <div class='mt-3 count-filter mb-3'>
+                        <div class="country-drop mt-3">
+                            <h5 class='p-0 mt-2'>{{'e-commerce.filters.fil_by_subCat' | translate}}</h5>
+                            <div class="brand-drop mt-2"> <mat-form-field> <mat-select [formControl]='subCategory'>
+                                        <mat-option *ngFor='let subCategory of subcategoryList'
+                                            [value]="subCategory._id">{{subCategory.category_name |
+                                            titlecase}}</mat-option> </mat-select> </mat-form-field> </div>
+                            <div class="brand-drop mt-3 mb-3">
+                                <h5 class='mb-0 mt-2'>{{'e-commerce.filters.fil_by_brand' | translate}}</h5>
+                                <mat-form-field> <mat-select [formControl]="brand" multiple> <mat-option
+                                            *ngFor="let brands of allBrands"
+                                            [value]="brands._id">{{brands.brand}}</mat-option> </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="brand-drop mt-3">
+                                <h5 class='mb-0 mt-2'>{{'e-commerce.filters.fil_by_model' | translate}}</h5>
+                                <mat-form-field> <mat-select [formControl]='model'> <mat-option
+                                            *ngFor='let model of allModels' [value]="model._id">{{model.title |
+                                            titlecase}}</mat-option> </mat-select> </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='mt-4 mb-2 accordian'> <mat-accordion> <mat-expansion-panel
+                                (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+                                <mat-expansion-panel-header> <mat-panel-title>
+                                        <h5>{{'e-commerce.filters.prod_condi' | translate}}</h5>
+                                    </mat-panel-title> </mat-expansion-panel-header>
+                                <div class='price-filter col-sm-12 pl-0 pr-0'> <span
+                                        *ngFor='let condition of conditionList; let i=index'> <mat-checkbox
+                                            class="example-margin mr-3" [(ngModel)]='condition.checked'
+                                            (change)='conditionCheck(condition.value,$event)'>{{condition.name}}</mat-checkbox>
+                                    </span> </div>
+                            </mat-expansion-panel> </mat-accordion> </div>
+                    <div class='mt-4 mb-2 accordian'> <mat-accordion> <mat-expansion-panel
+                                (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+                                <mat-expansion-panel-header> <mat-panel-title>
+                                        <h5>{{'e-commerce.filters.price' | translate}}</h5>
+                                    </mat-panel-title> </mat-expansion-panel-header>
+                                <div class='price-filter mb-4 col-sm-12 pl-0 pr-0'>
+                                    <div class="row"> <span class='col'><input type="number" class="price-min"
+                                                placeholder="min" [(ngModel)]='minValue' readonly></span> <span
+                                            class='col text-right'><input type="number" placeholder="max"
+                                                class="price-max" [(ngModel)]='maxValue' readonly></span> </div>
+                                    <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options">
+                                    </ngx-slider> <span class='float-left'>Min</span><span
+                                        class='float-right'>Max</span>
+                                </div>
+                            </mat-expansion-panel> </mat-accordion> </div>
+                    <div class='mt-4 mb-2 accordian'> <mat-accordion> <mat-expansion-panel
+                                (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+                                <mat-expansion-panel-header> <mat-panel-title>
+                                        <h5>{{'e-commerce.filters.year' | translate}}</h5>
+                                    </mat-panel-title> </mat-expansion-panel-header>
+                                <div class='year-filter mb-4 col-sm-12 pl-0 pr-0'>
+                                    <div class="row"> <span class='col'><input type="number" class="price-min"
+                                                placeholder="min" [(ngModel)]='minvalue' readonly></span> <span
+                                            class='col text-right'><input type="number" class="price-max"
+                                                placeholder="max" [(ngModel)]='maxvalue' readonly></span> </div>
+                                    <ngx-slider [(value)]="minvalue" [(highValue)]="maxvalue" [options]="Options">
+                                    </ngx-slider> <span class='float-left'>Min</span><span
+                                        class='float-right'>Max</span>
+                                </div>
+                            </mat-expansion-panel> </mat-accordion> </div>
+                </div>
+                <div class='row mt-4 mb-4'>
+                    <div class='col-sm-12 text-center'> <button (click)='productlist(1)'
+                            (click)="operProductFilter=!operProductFilter " class='btn common-btn'>{{'buttons.search' |
+                            translate}}</button> <button (click)='reset()' class='btn common-btn ml-3'>{{'buttons.reset'
+                            | translate}}</button> </div>
+                </div>
+            </div>
+            <div class='product-list mt-2 col-sm-9' style='padding-bottom: 50px;'>
+                <div class="row result-box mt-3 mb-3 ml-1 mr-2 p-2 ">
+                    <div class='col-12 p-0'> <span
+                            class='total-result float-left mt-3'><strong>{{'e-commerce.total_results' |
+                                translate}}</strong> ({{totalResult}})</span> <button
+                            class='btn common-btn float-right visible-phone visible-phone-sx'
+                            (click)="productSearch()">Filters </button> </div>
+                </div>
+                <div class="row product-detail ml-1 mr-1">
+                    <div class="col-sm-6 mb-4"
+                        *ngFor='let products of allProducts| paginate:{itemsPerPage: 10, currentPage: page, totalItems: totalResult}; let i=index'>
+                        <div class="row result-box p-3">
+                            <div class='product-image col-sm-3 pl-0'> <a
+                                    [routerLink]="['../../product-view/'+products._id]">
+                                    <div class='cus_img h-100'> <img *ngIf='!products.images?.length' loading="lazy"
+                                            src="assets/no.jpg" class='img-fluid h-100'>
+                                        <div *ngFor='let items of products.images | slice:0:1'> <img
+                                                *ngIf='products.images?.length' loading="lazy"
+                                                src='{{productImgPath}}{{items.name}}' class='img-fluid h-100'> </div>
+                                    </div>
+                                </a> </div>
+                            <div class='detail col-sm-7 p-0'>
+                                <h5 class="text-capitalize"> <a
+                                        [routerLink]="['../../product-view/'+products._id]">{{products.productName
+                                        |slice:0:20}}</a> </h5>
+                                <p>{{products.currency}}&nbsp;{{products.price }}</p>
+                                <ul class='key-skills specification'>
+                                    <li *ngIf="products.height">{{products.height?products.height:'-'}}m</li>
+                                    <li *ngIf="products.width">{{products.width?products.width:'-'}}m</li>
+                                    <li *ngIf="products.netWeight">{{products.netWeight?products.netWeight:'-'}}kg</li>
+                                    <li *ngIf="products.enginePoweroutput">
+                                        {{products.enginePoweroutput?products.enginePoweroutput:'-'}}hp</li>
+                                    <li *ngIf="products.condition">{{products.condition?products.condition:'-'}}</li>
+                                </ul>
+                                <div class='truck-weight' *ngIf="products.netWeight">Net Weight: {{products.netWeight}}
+                                </div>
+                            </div>
+                            <div class="col-sm-2 btn_bottom position-relative">
+                                <div class='cart-items upper-btn'> <span class='cus-add-crt'
+                                        *ngIf='!products.iswishList' (click)='addToWishList(products._id , i)'><i
+                                            class="far fa-heart text-danger"></i></span> <span class='cus-add-crt'
+                                        *ngIf='products.iswishList' (click)='removeFromWishList(products._id,i)'> <i
+                                            class="far fa-heart text-danger"
+                                            style="color: red; font-weight: 600!important"></i></span> </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div *ngIf='totalResult==0' class='text-center col-sm-12 mt-5'>
+                        <h6>{{'No_Records_Found' | translate}}</h6>
+                    </div>
+                    <div class="text-center mt-5 col-sm-12" *ngIf='totalResult >itemsPerPage'
+                        style='position: absolute;bottom: 0px;left: 0;'> <pagination-controls
+                            (pageChange)="pagechange($event)"></pagination-controls> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

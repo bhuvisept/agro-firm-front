@@ -1,0 +1,1473 @@
+{
+  "navigationCompanyMenuSeller": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/e-commerce/dashboard",
+      "navitem": "Casa"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    }
+  ],
+  "navigationCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Casa"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Trabajos"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    }
+  ],
+  "navigationUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Casa",
+      "showPopUp": false
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat",
+      "showPopUp": false
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red",
+      "showPopUp": false
+    }
+  ],
+  "navigationHrMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Casa"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Administrar equipo"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    }
+  ],
+  "navigationDispatcherMenu": [
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/pages/services",
+      "navitem": "Servicio"
+    }
+  ],
+  "navigationMobileCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Casa"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    },
+    {
+      "navimg": "fal fa-calendar-alt pl-2",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Eventos"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Planificador de viajes"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Trabajos"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Lista de deseos"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Gerente de la flota"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Administrar equipo"
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Servicios"
+    }
+  ],
+  "navigationMobileUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Casa"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "../chat-window",
+      "navitem": "chat"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "Mis eventos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "Mis trabajos"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Lista de deseos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/pages/search-job/jobs",
+      "navitem": "Publicar Trabajos",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "/pages/events",
+      "navitem": "Publicar Eventos",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Planificador de viajes",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "agregar Servicios",
+      "showPopUp": true
+    }
+  ],
+  "Block":"Block",
+  "UnBlock":"UnBlock",
+  "Delete_conversation":"Delete Conversation",
+
+  "Truck_News": "Noticias de camiones",
+  "My_event": "mi evento",
+  "My_Jobs": "Mis trabajos",
+  "Notification": "Notificación",
+  "Language": "Idioma",
+  "My_community": "Mi comunidad",
+  "Blogs": "blogs",
+  "Services": "Servicios",
+  "Like": "Me gusta",
+  "Comments": "Comentarios",
+  "Share": "Cuota",
+  "Edit": "Editar",
+  "Delete": "Borrar",
+  "Report": "Reporte",
+  "blog_detail": "detalles del blog",
+  "view_all_notifi": "Ver todas las notificaciones",
+  "Price": "Precio",
+  "dashboard": {
+    "post": "Ecrire un message",
+    "photo": "Foto",
+    "video": "Video",
+    "grp_post": "Iniciar una conversación en este grupo"
+  },
+  "navigationCompanySideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    },
+    {
+      "navimg": "fal fa-calendar-alt mr-3",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Eventos"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Planificador de viajes"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Lista de deseos"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Gerente de la flota"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Administrar equipo"
+    },
+    {
+      "navimg": "fal fa-tools ml-1",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Servicios"
+    }
+  ],
+  "navigationHRSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    },
+    {
+      "navimg": "fal fa-calendar-alt ",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Eventos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Trabajos"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "navigationEnduserSideMenu": [
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "Mis eventos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "Mis trabajos"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Fleet manager"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Lista de deseos"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Planificador de viajes",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "agregar Servicios",
+      "showPopUp": true
+    }
+  ],
+  "navigationDriverSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "Mi red"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "Mis eventos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "Mis trabajos"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Lista de deseos"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/driver/planned-trip",
+      "navitem": "Detalle de viajes"
+    }
+  ],
+  "navigationDispatcherSideMenu": [
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Planificador de viajes"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Gerente de la flota"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/manage-team",
+      "navitem": "Administrar equipo"
+    },   {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "../chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "Switch_to_seller": "Cambiar al vendedor",
+  "gps_navigation": "Navegacion GPS",
+  "Advertisement": "Anuncio publicitario",
+  "No_Records_Found": "No se encontraron registros",
+  "About_us": "Sobre nosotros",
+  "see_more": "ver más",
+  "Read_more": "Lee mas",
+  "Are_archive_job": "¿Estás seguro de que quieres archivar este trabajo?",
+
+  "Are_deactive_job": "¿Estás seguro de que quieres desactivar este trabajo?",
+  "Are_active_job": "¿Estás seguro de que quieres activar este trabajo?",
+
+  "Are_delete_job": "¿Estás seguro de que quieres eliminar este trabajo?",
+
+  "Are_archive_information": "¿Está seguro de que desea archivar esta información??",
+
+  "Are_you_leave": "¿Estás segura de que quieres irte?",
+
+  "Sign_up_as_company_plan": "Regístrese como empresa para comprar este plan",
+
+  "Sign_up_as_company_feature": "Regístrese como empresa para acceder a esta función",
+
+  "Are_you_sure_remove_from_company": "¿Está seguro de que desea eliminar a este miembro de su empresa?",
+
+  "Assign_Group_admin": "Asignar un administrador de grupo",
+
+  "Remove_Connection": "Eliminar conexión",
+  "Are_sure_remove_connection": "¿Está seguro de que desea eliminar esta conexión?",
+
+  "leave_company": "Ya no podrá trabajar como conductor para esta empresa. Seleccione un motivo para irse",
+
+  "plan_exceed": {
+    "compny_exceed": "Ha excedido el límite máximo permitido de acciones en su plan",
+    "company_upgrade": "Para continuar con los beneficios, actualice su plan.",
+    "user_exceed": "Se excede el límite máximo permitido de acción del plan de su Compañía.",
+    "user_upgrade": "Por favor póngase en contacto con ellas."
+  },
+
+  "buttons": {
+    "Post_job": "Publicar trabajos",
+    "trip_plan": "plan de viaje",
+    "click_here": "haga clic aquí",
+    "search": "búsqueda",
+    "reset": "Reiniciar",
+    "cont_seller": "Contacte al vendedor",
+    "connect": "conectar",
+    "create_group": "Crea un grupo",
+    "invite_conne": "Invitar conexiones",
+    "see_all": "Ver todo",
+    "share_grp": "Compartir grupo",
+    "create_event": "Crear evento",
+    "add_vehicle": "Añadir vehículo",
+    "back": "atrás",
+    "submit": "Enviar",
+    "invite_member": "Miembro invitado",
+    "add_service": "Agregar servicio",
+    "read_more": "Lee mas",
+    "contact_us": "Contacta nosotros",
+    "buy_now": "comprar ahora",
+    "add_cart": "Añadir al carrito",
+    "go_cart": "ir al carrito",
+    "send_message": "enviar mensaje",
+    "manage_event": "Administrar eventos",
+    "edit_event": "Editar evento",
+    "reopen_event": "Reabrir evento",
+
+    "book": "Libro",
+    "booked": "Reservado",
+    "book_now": "Reservar ahora",
+    "create": "Crear",
+    "update": "Actualizar",
+    "post_job": "Trabajo posterior",
+    "update_job": "Actualizar trabajo",
+    "favorite_job": "trabajo favorito",
+    "favorited": "Favorito",
+    "apply": "Aplicar",
+    "applied": "Aplicado",
+    "unfavorite_job": "trabajo de Me gusta",
+    "Update_Profile": "Actualización del perfil",
+    "add_product": "Agregar producto",
+    "cancel": "Cancelar",
+    "Next": "Próximo",
+    "post": "Correo",
+    "yes": "sí",
+    "no": "no",
+    "post_event": "Publicar Eventos",
+    "btn_invite_member": "Miembro invitado",
+    "leave": "Abandonar",
+    "accept": "Aceptar",
+    "ignore": "Pasar por alto",
+    "Direction": "Direcciones",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "view_profile": "Ver Perfil",
+    "Requested" : "Solicitado",
+    "Join_group":"Unirse al grupo",
+    "Pending":"Pendiente",
+    "close":"cerca",
+    "Register":"Registro"
+  },
+  "Chats": {
+    "Chats": "charlas",
+    "Groups": "Grupos",
+    "Seller": "Vendedor",
+    "New_Conversation": "Nueva conversación",
+    "UserChat":"Chat de usuario",
+    "SalesPerson":"Vendedor"
+  },
+  "homeLinks": {
+    "Home": "Casa",
+    "About_us": "Sobre nosotros",
+    "Services": "Servicios",
+    "Trip_planner": "planificador viajes",
+    "E-Commerce": "e-comercio",
+    "Blogs": "blogs",
+    "Jobs": "Trabajos",
+    "Events": "Eventos",
+    "Pricing": "Comprar ahora",
+    "Contact_us": "Contacta nosotros",
+    "Logout": "Cerrar sesión",
+    "My_account": "Mi cuenta"
+  },
+  "homeContent": {
+    "we_give": "TE DAMOS <span class='text-primary'>LO MEJOR</span>",
+    "content_1": "Mytruck.one es la solución integral para todas las necesidades de la industria del transporte, desde comprar un camión hasta ayudar a su conductor con varias funciones de ruta, como seguimiento, pronóstico del tiempo y marcadores en la ruta.",
+    "content_2": "La plataforma Mytruck.one está diseñada para proporcionar varios servicios como encontrar y publicar trabajos, organizar eventos,Planificación de viajes, gestión de flotas, meteorología de rutas, comercio electrónico de camiones y piezas de camiones y servicios de redes sociales paratodos los actores de la industria.",
+    "fourContent": {
+      "first": "comercio electrónico",
+      "first_des": "Un lugar donde puede encontrar y publicar ofertas para comprar/vender camiones, repuestos y accesorios para camiones.",
+      "second": "Empleos y eventos",
+      "second_des": "Aquí puede capturar y proporcionar los trabajos lucrativos y los eventos de moda de la industria del transporte por carretera.",
+      "third": "planificador de viajes",
+      "third_des": "La mejor plataforma web y de aplicaciones para planificar las rutas de camiones adecuadas y la navegación en mapas para sus conductores.",
+      "forth": "Redes",
+      "forth_des": "Una interfaz para conectarse, chatear y compartir sus pensamientos, actividades y momentos con sus seres queridos también en forma de medios."
+    },
+    "download_app": "Descarga la aplicación ahora",
+    "download_des": "Una plataforma de camiones que incluye recopilación de recursos, organización de eventos, compras y especialmente para ayudar a los conductores con toda la información vital de las rutas de navegación de camiones.",
+    "who_we": "quienes<span class='text-primary'>somos</span> ",
+    "who_we_des": "Mytruck.one le facilita una amplia gama de servicios relacionados con camiones, remolques y accesorios para camiones. Aquí puede buscar y elegir servicios para camiones según sus requisitos de carga. Es una plataforma incomparable diseñada con novedad, su singularidad radica en su enfoque futurista ya que aquí puedes publicar un trabajo, programar eventos relacionados con el camión y agregar los servicios que ofrece también."
+  },
+  "About_us_sec": {
+    "heading": "SOBRE NOSOTROS",
+    "content_1_a": "Mytruck.one es una plataforma y aplicación de camiones increíblemente avanzada y tecnológicamente desarrollada que puede contribuir a impulsar su negocio de camiones. Es una plataforma con múltiples usos y funciones integradas en ella. Ofrecemos servicios confiables y orientados al cliente. Opte por Mytruck.one para disfrutar de una experiencia de transporte única.",
+    "content_1_b": "Los usuarios pueden reservar eventos, solicitar trabajos, comprar/alquilar/arrendar un camión, un remolque y una unidad tractora (usados/nuevos), pueden comprar accesorios, repuestos (usados/nuevos). El vendedor puede agregar cualquier camión/remolque/tractor/accesorios/piezas de repuesto nuevos/antiguos para vender/alquilar/arrendar. También puede planificar el viaje con la ayuda del planificador de viajes que sirve como guía de ruta de acuerdo con el tamaño y el peso del tráiler, será predictivo de los obstáculos que se esperan en el camino, de modo que la ruta pueda modificarse y las mercancías puedan ser transportadas. entregado a tiempo. Proporcionamos los mejores mapas de rutas de camiones y navegación GPS para camiones para conductores y empresas para ayudar en los viajes de carga.",
+    "content_1_c": "El servicio de comercio electrónico le facilita los servicios de compra/venta y alquiler, aquí puede comprar un camión/remolque en línea, alquilar un camión, arrendar un camión/remolque, vender un remolque de camión en línea, tendrá acceso a accesorios para camiones (nuevos o usados), piezas de repuesto para camiones (nuevas o usadas), etc. Puede vender camiones/remolques nuevos o usados, etc. Esta es una sección personalizada que puede ayudarlo a aumentar las ventas de su negocio y lo ayuda a alcanzar la cima del éxito.",
+    "sub_head": "La empresa en la que puede confiar",
+    "content_2_a": "Mytruck.one le facilita una amplia gama de servicios relacionados con camiones, remolques y accesorios para camiones. Aquí puede buscar y elegir servicios de camiones según sus requisitos de carga. Es una plataforma incomparable diseñada con novedad, su singularidad radica en su enfoque futurista ya que aquí puedes publicar un trabajo, programar eventos relacionados con el camión y agregar los servicios que ofrece también.",
+    "content_2_b": "Mytruck.one es la solución integral para todas las necesidades de la industria de camiones, desde comprar un camión hasta ayudar a su conductor a encontrar la mejor ruta. O el objetivo es proporcionar puestos de trabajo a los conductores, ayudar a las empresas a planificar el viaje y decidir la ruta, organizar eventos, así como los servicios de compra/venta/arrendamiento para cada parte interesada en la industria.",
+    "img_cnt": "Esta plataforma ofrece conectividad a familiares, amigos a través de chat, compartir videos, imágenes, administrar grupos, etc. Esto también funcionará como planificador de viajes para el conductor del camión con respecto a las paradas y descansos a tomar según las horas de servicio."
+  },
+  "e-commerce": {
+    "what_deals": "¿Qué oferta te interesa?",
+    "Names": {
+      "Trucks": "Camiones",
+      "Trailers": "Remolques",
+      "Tractor_Units": "Unidades Tractoras",
+      "Spare_Parts": "Piezas de repuesto",
+      "Accessories": "Accesorios"
+    },
+    "filters": {
+      "fil_by_key": "Filtrar por palabra clave",
+      "fil_by_subCat": "Seleccionar subcategoría",
+      "fil_by_brand": "Seleccionar marca",
+      "fil_by_model": "Seleccionar modelo",
+      "prod_condi": "Condición del producto",
+      "price": "Precio",
+      "year": "año"
+    },
+    "total_results": "Resultados totales",
+    "have_que": "¿Tengo una pregunta?",
+    "cus_qa": "Preguntas y respuestas de los clientes",
+    "simi_pro": "productos similares",
+    "abt_item": "Acerca de este artículo",
+    "first_ask_ques": "Sé el primero en hacer una pregunta."
+  },
+  "trip_planner": {
+    "heading": "Planificador de viajes",
+    "driver_left": "Conductor salió de la empresa",
+    "anothr_left": "Conductor suplente izquierda",
+    "table_head": {
+      "origin": "Origen",
+      "destination": "Destino",
+      "driver": "Conductora",
+      "load_number": "Número de carga",
+      "action": "Acción"
+    },
+    "actions": {
+      "track": "Pista",
+      "add_stop": "Añadir parada",
+      "trip_detail": "Detalle del viaje",
+      "cancel": "Cancelar",
+      "mark_start": "Marcar como inicio",
+      "mark_complete": "Marcar como completo",
+      "reassign_driver": "Reasignar conductor",
+      "assign_driver": "Asignar conductor"
+    }
+  },
+  "footer": {
+    "content": "¿QUIERES SABER MÁS SOBRE NUESTROS SERVICIOS?",
+    "sub_cnt": "Siempre estamos esperando con placer escuchar sus valiosas consultas."
+  },
+  "jobs": {
+    "title": "Busque su próximo trabajo",
+    "all_fil": "Todo filtro",
+    "view_detail": "Ver Detalle"
+  },
+  "activity": "Actividad",
+  "myNetwork": {
+    "invitations": "Invitaciones",
+    "members": "miembros",
+    "tabber": {
+      "invitations": "Invitaciones",
+      "groups_invitations": "Invitaciones de grupos",
+      "job_invitations": "Invitaciones de trabajo",
+      "your_groups": "Tus Grupos"
+    },
+    "no_invitations": "Aún no hay invitaciones",
+    "recommended_people": "Personas recomendadas para ti",
+    "sideMenu": {
+      "heading": "Administrar mi red",
+      "my_friend": "Mis amigos",
+      "groups": "Grupos"
+    },
+    "connections": "Conexiones",
+    "grp_detail": {
+      "edit_grp": "Editar grupo",
+      "groups": "Grupos",
+      "members": "miembros",
+      "about": "Acerca de este grupo",
+      "group_name": "Nombre del grupo",
+      "description": "Descripción",
+      "Please_enter_description":"Por favor ingrese la descripción"
+
+    },
+
+    "create_grp_post": {
+      "create": "Crear una publicación de grupo",
+      "Share_group": "compartir un grupo"
+    },
+    "you_are_invite": "Usted está invitado para el papel de",
+    "grp_req": "Solicitud de grupo",
+    "Create_post": "crear una publicación",
+    "what_talk": "¿De qué quieres hablar?",
+    "Edit_post": "editar una publicación",
+    "Report_post": "Reportar una publicación",
+    "Share_post": "Comparte una publicación",
+
+    "Delete_Group_Post": "Eliminar publicación de grupo",
+    "Delete_Post": "Eliminar mensaje",
+    "delete_post_des": "¿Estás segura de que quieres eliminar esta publicación?"
+  },
+  "events": {
+    "tabber": {
+      "top": "parte superior",
+      "weekly": "Semanalmente",
+      "all": "Todos",
+      "booked": "Reservado"
+    }
+  },
+  "wish_list": "Mi lista de deseos",
+  "fleet_manager": {
+    "heading": "Gerente de la flota",
+    "vehicle_type": "tipo vehiculo",
+    "name": "Nombre",
+    "weight": "Peso",
+    "height": "Altura",
+    "Image": "imagen",
+    "action": "Acción",
+    "detail": "Información detallada",
+    "edit": "editar informacion",
+    "info": "Información del vehículo"
+  },
+  "manage_team": {
+    "manage_team": "Administrar equipo",
+    "separated_employees": "Empleados separados",
+    "headings": {
+      "name": "Nombre",
+      "Email": "Correo electrónico",
+      "phone": "Telefono no.",
+      "access": "Acceso",
+      "joining_date": "Dia de ingreso",
+      "documents": "Documentos",
+      "action": "Acción",
+      "reason": "Razón",
+      "separation": "Fecha de separación"
+    }
+  },
+  "my_tickets": {
+    "heading": "My Tickets",
+    "ticket_id": "Ticket ID",
+    "name": "Name",
+    "project": "Project",
+    "subject": "Subject",
+    "created_by": "Created By",
+    "status": "Status",
+    "action": "Action",
+    "add_ticket":{
+      "heading":"Add Ticket",
+      "labels":{
+        "subject":"Subject"
+      }
+    }
+  },
+  "trip_detail": {
+    "heading": "Detalle de viajes",
+    "titles": {
+      "origin": "Origen",
+      "destination": "Destino",
+      "load_number": "Número de carga",
+      "running_status": "Estado de ejecución",
+      "action": "Acción"
+    }
+  },
+  "subscription_plan": {
+    "heading": "plan de suscripción",
+    "select_plan": "selecciona tu plan",
+    "get_cutom_plan": "Obtenga un plan personalizable según sus requisitos",
+    "upgrade_plan": "mejora",
+    "plan": "Plan"
+  },
+  "contact_us": {
+    "heading": "¡Solo escríbenos aquí!",
+    "sub_head": "¿Interesado en un plan personalizado o alguna pregunta?",
+    "qry_abt": {
+      "head": "¿A qué se refiere su consulta?",
+      "item_1": "Plan de Suscripción",
+      "item_2": "Otra"
+    },
+    "side_items": {
+      "head": "Información del contacto",
+      "sub_head": "Complete el formulario y nuestro equipo se comunicará con usted dentro de las 24 horas."
+    }
+  },
+  "labels": {
+    "event": {
+      "event_by": "Evento por",
+      "speaker": "Orador",
+      "interested_people": "Personas interesadas",
+      "event_fee": "Tarifa de evento",
+      "about": "Sobre",
+      "address": "Dirección",
+      "venue": "Evento",
+      "event_link": "Enlace de evento"
+    },
+    "job": {
+      "job_location": "locación de trabajo",
+      "job_description": "Descripción del trabajo",
+      "key_skills": "Habilidades clave",
+      "end_date": "Fecha final",
+      "posted": "Al corriente",
+      "status": "Estado",
+
+      "view_applicants": "Ver solicitantes",
+      "view_detail": "Ver Detalle",
+      "manage_jobs": "Administrar trabajos",
+      "edit_job": "Editar trabajo",
+      "reopen_job": "Reabrir trabajo",
+
+      "deactivate_job": "Desactivar trabajo",
+      "archive_job": "Archivar trabajo",
+      "active_job": "Trabajo activo",
+      "delete_job": "Eliminar trabajo",
+      "salary": "Salario",
+      "job_view": {
+        "job_title": "Título profesional",
+        "company_name": "nombre de empresa",
+        "salary_type": "Tipo de salario",
+        "min": "mínimo",
+        "max": "máx.",
+        "openings": "Aperturas",
+        "job_applicants": "Candidatos para trabajo",
+        "job_description": "Descripción del trabajo",
+        "qualifications": "Calificaciones",
+        "key_skills": "Habilidades clave",
+        "functional_area": "área funcional",
+        "industry": "Industria",
+        "employment_type": "Tipo de empleo",
+        "contact_person": "Persona de contacto",
+        "phone_number": "Número de teléfono",
+        "start_date": "Fecha de inicio",
+        "end_date": "Fecha final",
+        "venue": "Evento",
+        "company_website": "Página Web de la compañía",
+        "company_details": "Detalles de la compañía",
+        "Walk_in_details": "Detalles de la entrada"
+      },
+      "search_job": {
+        "education": "Educación",
+        "Industry": "Industria"
+      }
+    },
+    "service": {
+      "heading": "Detalles del servicio",
+      "service_cost": "costo del servicio",
+      "location": "Ubicación",
+      "view": "Vista",
+      "archive": "Archivo",
+      "phone_number": "Número de teléfono",
+      "description": "Descripción"
+    },
+    "ecommerce": {
+      "brand": "Marca",
+      "model": "Modelo",
+      "year_of_production": "Ano de produccion",
+      "condition": "Condición",
+      "price": "Precio",
+      "location": "Ubicación",
+      "sub_category": "Subcategoría",
+      "product_type": "tipo de producto",
+      "brakes": "Frenos",
+      "color": "Color",
+      "engine_make": "Marca del motor",
+      "engine_displacement": "Desplazamiento del motor",
+      "engine_power_output": "Potencia de salida del motor",
+      "fuel_capacity": "Capacidad de combustible",
+      "fuel_type": "Tipo de combustible",
+      "gross_weight": "Peso bruto",
+      "height": "Altura",
+      "width": "Ancho",
+      "load_capacity": "Capacidad de carga",
+      "mileage": "Kilometraje",
+      "net_weight": "Peso neto",
+      "suspension": "Suspensión",
+      "transmission_type": "Tipo de transmisión",
+      "wheel_base": "Distancia entre ejes",
+      "description": "Descripción",
+      "sold_by": "Vendido por",
+      "seller_rating": "Calificación del vendedor",
+      "seller_location": "Ubicación",
+      "length": "Longitud",
+      "engine_hours": "Horas de motor",
+      "no_of_miles": "Número de millas",
+      "weight": "Peso"
+    },
+    "trip_planner": {
+      "Trip_Details": "Detalles del viaje",
+      "load_number": "Número de carga",
+      "Running_Status": "Estado de ejecución",
+      "Source": "Punto de partida",
+      "Destination": "Destino final",
+      "Depart_Date": "Fecha de salida",
+      "Arrive_Date": "Fecha de llegada",
+      "Alternate_Routes": "Rutas alternativas",
+      "Name": "Nombre",
+      "Email": "Correo electrónico",
+      "Phone_Number": "Número de teléfono",
+      "heading": "Detalles del conductor",
+      "heading_2": "Detalles de otro conductor",
+      "truck_details": {
+        "heading": "Detalles del camión",
+        "Nick_Name": "Apodo",
+        "Brand": "Marca",
+        "Model_Number": "Número de modelo",
+        "Weight": "Peso",
+        "Height": "Altura",
+        "Width": "Ancho",
+        "Power": "Energía",
+        "Engine_Number": "Número de motor",
+        "Fuel_Type": "Tipo de combustible",
+        "Fuel_Capacity": "Capacidad de combustible",
+        "Number_Of_Tyres": "Número de neumáticos",
+        "Wheelbase": "distancia entre ejes"
+      },
+      "Trailer_Details": {
+        "heading": "Detalles del tráiler",
+        "Nick_Name": "Apodo",
+        "Trailer_Type": "Tipo de remolque",
+        "Height": "Altura",
+        "Weight": "Peso",
+        "Width": "Ancho",
+        "Load_Capacity": "Capacidad de carga"
+      }
+    },
+    "fleet_manage": {
+      "Nick_Name": "Apodo",
+      "Brand": "Marca",
+      "Model_Number": "Número de modelo",
+      "Weight": "Peso",
+      "Height": "Altura",
+      "Width": "Ancho",
+      "Power": "Energía",
+      "Engine_Number": "Número de motor",
+      "Fuel_Type": "Tipo de combustible",
+      "Fuel_Capacity": "Capacidad de combustible",
+      "Number_Of_Tyres": "Número de neumáticos",
+      "Wheelbase": "distancia entre ejes",
+      "Trailer_Type": "Tipo de remolque",
+      "Load_Capacity": "Capacidad de carga"
+    },
+    "profile_view": {
+      "name": "Nombre",
+      "about": "Sobre",
+      "email": "Correo electrónico",
+      "city": "Ciudad",
+      "workplace": "Lugar de trabajo"
+    }
+  },
+  "form_lables": {
+    "select_archived_status": "Seleccionar estado archivado",
+    "event": {
+      "event_name": "Nombre del evento",
+      "timezone": "Zona horaria",
+      "start_date": "Fecha de inicio/Hora de inicio",
+      "end_date": "Fecha de finalización/Hora de inicio",
+      "speaker": "Orador",
+      "Select_curr": "Seleccione el tipo de moneda",
+      "event_fee": "Tarifa del evento",
+      "visibility": "Visibilidad",
+      "location": "Ubicación",
+      "is_virtual": "Este es un evento virtual.",
+      "address": "Dirección",
+      "venue": "Evento",
+      "event_link": "Enlace de registro o transmisión"
+    },
+    "job": {
+      "heading_create": "Anunciar un trabajo",
+      "heading_edit": "Editar un trabajo",
+      "job_title": "Título profesional",
+      "employment_type": "Tipo de empleo",
+      "job_description": "Descripción del trabajo",
+      "key_skills": "Habilidades clave",
+      "educational_qualification": "Cualificación Educativa",
+      "work_experience_years": "Experiencia Laboral (Años)",
+      "work_experience_months": "Experiencia Laboral (Meses)",
+      "select_currency": "Seleccione el tipo de moneda",
+      "salary_range": "Rango compensación",
+      "salary_type": "Tipo de compensación",
+      "min_salary": "Mínimo",
+      "max_salary": "Máximo",
+      "location": "Ubicación",
+      "industry": "Industria",
+      "functional_area": "área funcional",
+      "company_website": "Agregar sitio web de la empresa",
+      "number_of_vacancies": "numero de vacantes",
+      "company_name": "nombre de empresa",
+      "start_date": "Fecha de inicio/Hora de inicio",
+      "end_date": "Fecha de finalización/Hora de finalización",
+      "contact_person": "Persona de contacto",
+      "phone_number": "Número de teléfono",
+      "venue": "Evento",
+      "company_details": "Detalles de la compañía",
+      "address": "Dirección",
+      "include_walk_in": "Incluir detalles de la visita",
+      "search_job": {
+        "by_title": "Búsqueda por título y empresa",
+        "by_location": "Buscar por ubicación"
+      }
+    },
+    "service": {
+      "title": "Título",
+      "phone_number": "Número de teléfono",
+      "description": "Descripción",
+      "select_currency": "Seleccione el tipo de moneda",
+      "service_cost": "Costo del servicio",
+      "location": "Ubicación",
+      "update_service": "servicio de actualización"
+    },
+    "fleet_manager": {
+      "vehicle_type": "tipo de vehiculo",
+      "Nick_Name": "Apodo",
+      "Brand": "Marca",
+      "Model_number": "Número de modelo",
+      "Weight": "Peso libras)",
+      "Height": "Altura en)",
+      "Width": "Ancho (pulgadas)",
+      "Fuel_Type": "Tipo de combustible",
+      "Engine_number": "Número de motor",
+      "Fuel_capacity": "Capacidad de combustible (gl)",
+      "Number_of_tyres": "Número de neumáticos",
+      "Wheelbase": "Distancia entre ejes (en)",
+      "Power": "Potencia (CV)",
+      "Trailer_Type": "Tipo de remolque",
+      "Load_Capacity": "Capacidad de carga (libras)"
+    },
+    "trip_planner": {
+      "add_truck": "Agregar camión",
+      "search_truck": "Buscar camión",
+      "Nick_Name": "Apodo",
+      "Brand": "Marca",
+      "Model_Number": "Número de modelo",
+      "Weight": "Peso",
+      "Height": "Altura",
+      "Width": "Ancho",
+      "Power": "Energía",
+      "Engine_Number": "Número de motor",
+      "Fuel_Type": "Tipo de combustible",
+      "Fuel_Capacity": "Capacidad de combustible",
+      "Number_Of_Tyres": "Número de neumáticos",
+      "Wheelbase": "distancia entre ejes",
+      "Add_Trailer": "Añadir tráiler",
+      "Search_Trailer": "Buscar tráiler",
+      "Trailer_Type": "Tipo de remolque",
+      "Load_Capacity": "Capacidad de carga",
+      "Source": "Punto de partida",
+      "Destination": "Destino final",
+      "Date_Time": "Fecha y hora",
+      "Alternate_Routes": "Rutas alternativas",
+      "Gross_Weight": "Peso bruto",
+      "Load_Number": "Número de carga",
+      "Type": "Escribe",
+      "Skip_Driver": "Omitir asignación de conductor",
+      "Add_Driver": "Agregar conductor",
+      "Search_First_Driver": "Buscar primer conductor",
+      "Name": "Nombre",
+      "Phone_Number": "Número de teléfono",
+      "Email": "Correo electrónico",
+      "Search_Second_Driver": "Buscar segundo conductor"
+    },
+    "edit_profile": {
+      "Company_Name": "nombre de empresa",
+      "Incorporation_Date": "Fecha de incorporación",
+      "Director_Name": "Nombre del director",
+      "First_Name": "Primer nombre",
+      "Last_Name": "Apellido",
+      "Email": "Correo electrónico",
+      "Phone_Number": "Número de teléfono",
+      "Address": "Dirección",
+      "Country": "País",
+      "Postal_Code": "Código postal",
+      "City": "Ciudad",
+      "State": "Estado",
+      "About_Company": "Acerca de la compañía",
+      "Gender": "Género",
+      "Date_of_Birth": "Fecha de nacimiento",
+      "Corresponding_Address": "Direccion correspondiente",
+      "Permanent_Address": "Dirección permanente",
+      "Workplace": "Lugar de trabajo",
+      "Designation": "Designacion",
+      "Educational_Qualification": "Cualificación Educativa",
+      "Key_Skills": "Habilidades clave",
+      "Marital_Status": "Estado civil",
+      "Experience": "Experiencia",
+      "monthExperience": "Mes Experiencia",
+      "Languages_Known": "Idiomas Conocido",
+      "About": "Sobre",
+      "Documents": "Documentos",
+      "default_language": "Idioma de visualización del perfil predeterminado"
+    },
+    "change_pass": {
+      "heading": "Cambia la contraseña",
+      "Old_Password": "Contraseña anterior",
+      "New_Password": "Nueva contraseña",
+      "Confirm_Password": "Confirmar contraseña"
+    },
+    "manage_team": {
+      "heading": "Miembro invitado",
+      "first_name": "Primer nombre",
+      "last_name": "Apellido",
+      "email": "Correo electrónico",
+      "phone_num": "Número de teléfono",
+      "access_level": "Seleccione Nivel de acceso"
+    },
+    "network": {
+      "group": {
+        "heading": "Crea un grupo",
+        "group_name": "Nombre del grupo",
+        "group_type": "Tipo de grupo",
+        "description": "Descripción",
+        "Total_Members": "Miembros totales"
+      }
+    }
+  },
+  "notification": {
+    "Notification": "Notificación",
+    "all": "Todos",
+    "unread": "No leído",
+    "mark_all": "marcar todo como leido"
+  },
+  "team_manage": {
+    "heading": "Administrar equipo",
+    "name": "Nombre",
+    "Email": "Correo electrónico",
+    "access": "Acceso",
+    "phone": "Telefono no.",
+    "trip_status": "Estado del viaje"
+  },
+  "profile_view": {
+    "Contact": "Contacto",
+    "mail": "Correo electrónico",
+    "Phone_Number": "Número de teléfono",
+    "Company_Info.": "Información de la compañía.",
+    "Incorporation_Date": "Fecha de incorporación",
+    "Director_name": "nombre del director",
+    "Work": "Trabajar",
+    "Qualifications": "Calificaciones",
+    "Skills": "Habilidades",
+    "Languages": "Idiomas",
+    "Experience": "Experiencia",
+    "Documents": "Documentos",
+    "See_All_Posts": "Ver todas las publicaciones",
+    "no_files": "No se han subido archivos",
+    "menu": {
+      "Edit_profile": "Editar perfil",
+      "Activity_logs": "Registros de actividad",
+      "Change_password": "Cambia la contraseña",
+      "Leave_company": "dejar la empresa",
+      "Delete_Account":"Borrar cuenta",
+      "Are_you_sure_want_to_delete_your_account":"¿Estás seguro de que quieres eliminar tu cuenta?"
+
+      
+    },
+    "companyName":"nombre de empresa"
+  },
+  "seller": {
+    "navigationSellerSideMenu": [
+      {
+        "navimg": "assets/dashboard.png",
+        "navimghov": "assets/dashboardhov.png",
+        "navlink": "/layout/e-commerce/dashboard",
+        "navitem": "Tablero"
+      },
+      {
+        "navimg": "assets/product.png",
+        "navimghov": "assets/producthov.png",
+        "navlink": "/layout/e-commerce/manage-products-list",
+        "navitem": "Administrar productos"
+      },
+      {
+        "navimg": "assets/question.png",
+        "navimghov": "assets/questionhov.png",
+        "navlink": "/layout/e-commerce/questions",
+        "navitem": "preguntas y respuestas"
+      },
+      {
+        "navimg": "assets/Master-settings.png",
+        "navimghov": "assets/Master-settingshov.png",
+        "navitem": "Configuración maestra",
+        "navdropdown": [
+          {
+            "navitem": "Lista de marcas",
+            "navlink": "/layout/e-commerce/brand-list"
+          },
+          {
+            "navitem": "Lista de categoría",
+            "navlink": "/layout/e-commerce/category-list"
+          },
+          {
+            "navitem": "Lista de modelos",
+            "navlink": "/layout/e-commerce/model-list"
+          }
+        ]
+      },
+      {
+        "navimg": "assets/ticketInactive.svg",
+        "navimghov": "assets/ticketActive.png",
+        "navlink": "/layout/e-commerce/my-tickets",
+        "navitem": "My Tickets"
+      },
+     
+      {
+        "navimg": "assets/support.png",
+        "navimghov": "assets/supporthov.png",
+        "navlink": "/chat-window",
+        "navitem": "Charlar"
+      }
+    ],
+   
+    "My_Ratings": "Mis calificaciones",
+    "Invite_Team": "Invitar equipo",
+    "Switch_to_company": "Cambiar a empresa",
+    "Logout": "Cerrar sesión",
+
+    "Answered_Queries": "Consultas respondidas",
+    "Total_queries": "Consultas totales",
+    "UnAnswered_queries": "Consultas no respondidas",
+    "Queries": "Consultas",
+
+    "product_list": {
+      "heading": "Administrar productos",
+      "Search_category": "Buscar por categoría",
+      "Brand": "Marca",
+      "Condition": "Condición",
+      "Product_Number": "Número de producto",
+      "Gross_weight": "Peso bruto",
+      "Suspension": "Suspensión"
+    },
+    "qes_ans": {
+      "Q&A": "preguntas y respuestas",
+      "Product_Name": "nombre del producto",
+      "Person_Name": "Nombre de la persona",
+      "Question": "Pregunta",
+      "Action": "Acción"
+    },
+    "product_view": {
+      "Brand": "Marca",
+      "Model": "Modelo",
+      "Year_of_production": "Ano de produccion",
+      "Engine_make": "Marca del motor",
+      "Brakes": "Frenos",
+      "fuel_type": "Tipo de combustible",
+      "Engine_power_output": "Salida de potencia del motor",
+      "Engine_displacement": "Desplazamiento del motor",
+      "Sub_Category": "Subcategoría",
+      "Listing_Type": "Tipo de listado",
+      "condition": "Condición",
+      "Miles_Driven": "Millas recorridas",
+      "Engine_Hours": "Horas de motor",
+      "Location": "Ubicación",
+      "Price": "Precio",
+      "Color": "Color",
+      "width": "Ancho",
+      "height": "Altura",
+      "length": "Longitud",
+      "mileage": "Kilometraje",
+      "suspension": "Suspensión",
+      "transmission_type": "Tipo de transmisión",
+      "fuel_capacity": "capacidad de combustible",
+      "wheel_base": "distancia entre ejes",
+      "net_weight": "Peso neto",
+      "Front_Axle_Weight": "Peso del eje delantero",
+      "Rear_Axle_Weight": "Peso del eje trasero",
+      "description": "Descripción"
+    },
+    "brand": {
+      "heading": "Lista de marcas",
+      "add_brand": "Agregar marca",
+      "Total_Brands": "Marcas totales",
+      "Brand_Name": "Nombre de la marca",
+      "Brand_Logo": "Logotipo",
+      "Status": "Estado",
+      "form": {
+        "heading": "Agregar marca",
+        "note": "Nota:- Todos los campos son obligatorios marcados como",
+        "Brand_Name": "Nombre de la marca",
+        "Select_logo": "Seleccione el logotipo de la marca"
+      }
+    },
+    "category": {
+      "heading": "Lista de categoría",
+      "Add_Category": "añadir categoría",
+      "Total_Category": "Categoría total",
+      "Category_Name": "nombre de la categoría",
+      "Parent_Category": "Categoría principal",
+      "Status": "Estado"
+    },
+    "model": {
+      "heading": "Lista de modelos",
+      "Add_Model": "Agregar modelo",
+      "Total_Models": "Modelos totales",
+      "Brand_Name": "Nombre de la marca",
+      "Model_Name": "Nombre del modelo",
+      "Status": "Estado"
+    },
+    "suuport": {
+      "heading": "Contacta con nosotros"
+    },
+    "my_rating": {
+      "heading": "Mis calificaciones",
+      "User_name": "Nombre de usuario",
+      "User_email": "Correo electrónico usuario",
+      "Rating": "Clasificación",
+      "Product_name":"Nombre del producto"  ,
+      "Seller_name": "Seller name"
+    },
+    "manage_team": {
+      "heading": "Administrar equipo",
+      "Invite_Member": "Miembro invitado",
+      "Name": "Nombre",
+      "Email": "Correo electrónico",
+      "Phone_Number": "Número de teléfono",
+      "Status": "Estado",
+      "form": {
+        "First_Name": "Primer nombre",
+        "Last_Name": "Apellido",
+        "Email": "Correo electrónico",
+        "Phone_Number": "Número de teléfono",
+        "Access_Level": "Nivel de acceso",
+        "Cancel": "Cancelar"
+      }
+    },
+    "my_tickets": {
+      "heading": "Mis entradas",
+      "ticket_id": "Identificación de entradas",
+      "name": "nombre",
+      "project": "Proyecto",
+      "subject": "Sujeta",
+      "created_by": "Creado por",
+      "status": "Estado",
+      "action": "Acción",
+      "add_ticket":{
+        "heading":"Agregar boleto",
+        "labels":{
+          "subject":"Sujeta"
+        }
+      }
+    },
+    "add_truck": {
+      "heading": "Información del camión",
+      "vin": "número de identificación del vehículo",
+      "Brand": "Marca",
+      "Model": "Modelo",
+      "Year_Of_Production": "Ano de produccion",
+      "Engine_Make": "Marca del motor",
+      "Brakes": "Frenos",
+      "Fuel_Type": "Tipo de combustible",
+      "Engine_Power_Output": "Potencia de salida del motor",
+      "Engine_Displacement": "Desplazamiento del motor",
+      "Product_Name": "nombre del producto",
+      "Sub_Category": "Subcategoría",
+      "Listing_Type": "Tipo de listado",
+      "Condition": "Condición",
+      "Miles_Driven": "Millas recorridas",
+      "Engine_Hours": "Horas de motor",
+      "Location": "Ubicación",
+      "Select_Currency": "Seleccione el tipo de moneda",
+      "Price": "Precio",
+      "Description": "Descripción",
+      "Color": "Color",
+      "Width": "Ancho",
+      "Height": "Altura",
+      "Mileage": "Kilometraje",
+      "Suspension": "Suspensión",
+      "Transmission_Type": "Tipo de transmisión",
+      "Fuel_Capacity": "Capacidad de combustible",
+      "Wheelbase": "distancia entre ejes",
+      "Net_Weight": "Peso neto",
+      "Front_Axle_Weight": "Peso del eje delantero",
+      "Rear_Axle_Weight": "Peso del eje trasero",
+      "Drag_and_drop": "Arrastra y suelta imágenes para cargar"
+    },
+    "add_trailer": {
+      "heading": "Trailer Information",
+      "vin": "número de identificación del vehículo",
+      "Brand": "Marca",
+      "Model": "Modelo",
+      "Year_Of_Production": "Ano de produccion",
+      "length": "Longitud",
+      "axles": "ejes",
+      "Product_Name": "nombre del producto",
+      "Sub_Category": "Subcategoría",
+      "Listing_Type": "Tipo de listado",
+      "Condition": "Condición",
+      "Location": "Ubicación",
+      "Select_Currency": "Seleccione el tipo de moneda",
+      "Price": "Precio",
+      "Description": "Descripción",
+      "Width": "Ancho",
+      "Height": "Altura",
+      "Suspension": "Suspensión",
+      "wheels": "Ruedas",
+      "Net_Weight": "Peso neto",
+      "Front_Axle_Weight": "Peso del eje delantero",
+      "Rear_Axle_Weight": "Peso del eje trasero",
+      "Drag_and_drop": "Arrastra y suelta imágenes para cargar"
+    },
+
+    "add_unit": {
+      "heading": "Información de la unidad tractora",
+      "vin": "número de identificación del vehículo",
+      "Brand": "Marca",
+      "Model": "Modelo",
+      "Year_Of_Production": "Ano de produccion",
+      "Engine_Make": "Marca del motor",
+      "Brakes": "Frenos",
+      "Fuel_Type": "Tipo de combustible",
+      "Engine_Power_Output": "Potencia de salida del motor",
+      "Engine_Displacement": "Desplazamiento del motor",
+      "Product_Name": "nombre del producto",
+      "Sub_Category": "Subcategoría",
+      "Listing_Type": "Tipo de listado",
+      "Condition": "Condición",
+      "Miles_Driven": "Millas recorridas",
+      "Engine_Hours": "Horas de motor",
+      "Location": "Ubicación",
+      "Select_Currency": "Seleccione el tipo de moneda",
+      "Price": "Precio",
+      "Description": "Descripción",
+      "Color": "Color",
+      "Width": "Ancho",
+      "Height": "Altura",
+      "Mileage": "Kilometraje",
+      "Suspension": "Suspensión",
+      "Transmission_Type": "Tipo de transmisión",
+      "Fuel_Capacity": "Capacidad de combustible",
+      "Wheelbase": "distancia entre ejes",
+      "Net_Weight": "Peso neto",
+      "Front_Axle_Weight": "Peso del eje delantero",
+      "Rear_Axle_Weight": "Peso del eje trasero",
+      "Drag_and_drop": "Arrastra y suelta imágenes para cargar"
+    },
+
+    "Upload_Images": "Subir imágenes",
+
+    "category_display": {
+      "category": "Categoría",
+      "heading": "¿Qué trato quieres mostrar?"
+    }
+  },
+  "sub_plan": {
+    "heading": "Tus planes",
+    "des": "todos sus suscritos se muestran aquí.",
+    "features": "características del plan",
+    "Purchased": "Comprado en",
+    "Expired": "Caducado el",
+    "Total": "Total"
+  },
+  "home_trip_planner": {
+    "heading_1": "PLANIFICADOR VIAJE",
+    "first_content": "El objetivo de la planificación de rutas de camiones es encontrar la mejor ruta entre dos o más paradas.<br> La planificación optimizada es crucial para que el viaje reduzca costos, maximice la eficiencia,<br> y para mantener márgenes de beneficio saludables",
+    "heading_2": "CARACTERISTICAS",
+    "second_content": "El planificador de viajes le brinda las mejores funciones, lo que le permite ser más eficiente, reducir costos y mantener márgenes de ganancias saludables",
+    "second_content_features": {
+      "Waze_Map": "Waze Mapa",
+      "Trip_Plan": "Plan de viaje",
+      "Markers": "marcadores",
+      "Live_GPS": "GPS en vivo",
+      "Weather_Forecast": "Pronóstico tiempo"
+    },
+    "cancel_Trip":"Cancelar viaje",
+    "start_Trip":"iniciar viaje",
+  "Are_you_sure_you_want_to_cancel_this_trip":"¿Está seguro de que desea cancelar este viaje?",
+  "Are_you_sure_to_mark_trip_as_Active":"¿Estás seguro de marcar el viaje como Activo?",
+    "heading_3": "bloqueadores de carreteras",
+    "third_content": "Obtenga actualizaciones de tráfico y carreteras en tiempo real a través de nuestro mapa WAZE interactivo.",
+    "third_content_features": {
+      "Road_Object": "Objeto carretera",
+      "Closure": "Cierre",
+      "Crash": "Choque",
+      "Hazard": "Peligro",
+      "Police": "Policía",
+      "Traffic": "Tráfico",
+      "Road_Block": "bloqueo carretera",
+      "Weigh_Station": "Estación pesas",
+      "Roadside_Help": "Ayuda carretera",
+      "Roadside_work": "trabajo carretera",
+      "Staller_Vehicle": "Vehículo estancado"
+    },
+    "heading_4": "HAZMAT LOAD",
+    "forth_content": "Hazmat Load lo ayudará con la ruta que permite a los conductores de camiones navegar de manera segura y reducir los riesgos en el camino y estar atento a los cambios dentro de la ruta propuesta y hacer ajustes."
+  },
+
+  "price": "Precio",
+  "Location": "Ubicación",
+  "comment_edit_popup_heading": "editar un comentario",
+
+  "delete_cmnt": {
+    "heading": "Eliminar comentario",
+    "des": "¿Estás seguro de que quieres eliminar este comentario?"
+  },
+  "edit_group_post": "Editar una publicación de grupo",
+  "applicants": {
+    "Name": "Nombre",
+    "Email": "Correo electrónico",
+    "Phone_Number": "Número de teléfono",
+    "Resume_Description": "Currículum/Descripción"
+  },
+
+  "gps_form": {
+    "show_weather": "Mostrar pronóstico del tiempo",
+    "All": "Todos",
+    "Snow": "Nieve",
+    "Precipitation": "Precipitación",
+    "Freezing_Rain": "Lluvia helada",
+    "Thunderstorm": "Tormenta",
+    "Temperature": "La temperatura",
+    "Origin": "Origen",
+    "Destination": "Destino",
+    "Gross_Weight": "Peso bruto",
+    "Select_Truck": "Seleccionar camión",
+    "Select_Trailer": "Seleccionar tráiler",
+    "Load_Type": "Tipo de carga"
+  },
+  "Attach_Resume":"Adjuntar curriculum vitae",
+  "Supported_formats":"Formatos admitidos",
+  "formate":"docx, pdf y doc",
+  "brif_desc":"Si no tiene un documento de hoja de vida, puede escribir su breve perfil profesional",
+  "here":"Aquí",
+  "Write_Profile":"Escribir perfil",
+  "You_are_not_logged_in":"Usted no se ha identificado",
+  "test":"test",
+  "QuestionAnswer":{
+    "Answer_Question":"Responder pregunta",
+    "Question": "Pregunta",
+  "Answer": "Respuesta"
+  },
+  "modal": {
+    "Add_Model":"Agregar modelo",
+    "SelectBrand": "Seleccionar marca",
+    "ModelName": "Nombre del modelo",
+    "noteText":"Nota:- Todos los campos son obligatorios marcados como"
+  },
+  "category": {
+    "Addcategory":"Añadir categoría",
+    "SelectCategory":"selecciona una categoría",
+    "Category/SubcategoryName": "Categoría/Subcategoría Nombre",
+    "noteText":"Nota:- Todos los campos son obligatorios marcados como"
+  },
+  "my-plan":"Mi plan",  
+  "profile":{
+    "profile":"perfil",
+    "Business_details":"Detalles del negocio",
+    "Seller_Account":"Cuenta de vendedor",
+    "SSN":"SSN o ITIN",
+    "Dob":"Fecha de Nacimiento / Incorporación"
+  }
+
+}

@@ -1,0 +1,15 @@
+.table-head{
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    background: #fff;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+.heading{
+    background: #e5e5e5b0;
+}
+
+.dustbin.pending{
+    color: #8fa4b5;
+}

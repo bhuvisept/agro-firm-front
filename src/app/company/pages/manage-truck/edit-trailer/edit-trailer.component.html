@@ -1,0 +1,134 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="edit-truck cus-round-with-bg"> 
+    <div class="container vehicle-name-form pb-3">
+        <h4 class="text-left mt-2">{{ 'fleet_manager.edit' | translate }}</h4>
+        <form [formGroup]='editTrailerForm' (ngSubmit)='editTruck()'>
+            
+            <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+              <div class="banner-upload">
+                <div *ngIf="!editTruckImage && !isLoading">
+                  <img *ngIf="img == true" src="assets/Truck-banne-bg.png" width="100%" height="300px" />
+                  <img *ngIf="image" src="{{truckPath}}{{ image }}" width="100%" height="300px" />
+                </div>
+                <div class="col-12 d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+                    <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                    </mat-progress-bar>
+                </div>
+                <div *ngIf="editTruckImage && !isLoading" >
+                    <img src="{{truckPath}}{{editTruckImage}}" width="100%" height="300px" />
+                </div>
+                
+              </div>
+              <div class="float-right cus-edit-cover-icon mt-1">
+                <input required type="file" class="fa fa-pencil" accept="image/png, image/jpeg" (change)="onChange($event)" />
+                <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                <div id='open-diaLog' data-toggle="modal" data-target="#banner-image-dialog"></div>
+              </div>
+            </div>
+            <div class="row mt-5 p-4">
+               
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Nick_Name" | translate }}</mat-label>
+                        <input matInput type="text" formControlName='name' required name='name' maxlength="15">
+                        <mat-error *ngIf="editTrailerForm.get('name').hasError('required')">Please enter nickName</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('name').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >Trailer Vin Number</mat-label>
+                        <input matInput type="text" formControlName='trailerVinNumber' (change)="vinDetailTrailer($event)" required name='trailerVinNumber' required  min="0" maxlength="17">
+                        <mat-error *ngIf="editTrailerForm.get('trailerVinNumber').hasError('required')">Please enter width</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('trailerVinNumber').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Weight" | translate }}</mat-label>
+                        <input matInput type="number" formControlName='weight' required name='weight' min="0" onKeyPress="if(this.value.length==6) return false;">
+                        <mat-error *ngIf="editTrailerForm.get('weight').hasError('required')">Please enter weight</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('weight').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Height" | translate }}</mat-label>
+                        <input matInput type = "number" formControlName='height' required name='height' min="0" onKeyPress="if(this.value.length==4) return false;">
+                        <mat-error *ngIf="editTrailerForm.get('height').hasError('required')">Please enter height</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('height').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Width" | translate }}</mat-label>
+                        <input matInput type="number" formControlName='width' required name='width' min="0" onKeyPress="if(this.value.length==4) return false;">
+                        <mat-error *ngIf="editTrailerForm.get('width').hasError('required')">Please enter width</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('width').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >length</mat-label>
+                        <input matInput type="number" formControlName='length' required name='length' min="0" onKeyPress="if(this.value.length==4) return false;">
+                        <mat-error *ngIf="editTrailerForm.get('length').hasError('required')">Please enter width</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('length').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Trailer_Type" | translate }}</mat-label>
+                        <mat-select formControlName="trailerType" required>
+                            <mat-option *ngFor="let trailer of trailerList" [value]="trailer.value">{{ trailer.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="editTrailerForm.get('trailerType').hasError('required')">Please select trailer type</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-md-6" *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ "form_lables.fleet_manager.Load_Capacity" | translate }}</mat-label>
+                        <input matInput formControlName="loadCapacity" type="number" required min="0" onKeyPress="if(this.value.length==5) return false;"/>
+                        <mat-error *ngIf="editTrailerForm.get('loadCapacity').hasError('required')">Please enter loadCapacity</mat-error>
+                        <mat-error *ngIf="editTrailerForm.get('loadCapacity').hasError('pattern')">Please enter valid input</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6"  *ngIf="vehicleType == 'TRAILER'">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label >{{ 'form_lables.select_archived_status' | translate }} </mat-label>
+                      <mat-select formControlName="isDeleted" required>
+                        <mat-option *ngFor="let list of deleteArray" [value]="list.value">
+                         {{ list.name }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                <div class='text-center col-md-12 mt-3'>
+                <button class="btn common-btn" type="button"
+                 (click)='back()'>{{ 'buttons.back' | translate}}</button>
+                <button type="submit" class="btn common-btn ml-2" >{{ 'buttons.submit' | translate}}</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+

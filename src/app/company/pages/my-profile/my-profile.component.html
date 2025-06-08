@@ -1,0 +1,250 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cus-round-with-bg-profile">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <form [formGroup]="editCompanyProfileForm" *ngIf="roleName=='COMPANY'">
+          <div class="row">
+            <div class="cus-upload col-sm-12 pl-0 pr-0">
+              <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                <img *ngIf="!bannerImage" src="assets/Truck-banne-bg.png" width="100%" class="banner-common-height" />
+                <img *ngIf="bannerImage" src="{{ image_url_profile + bannerImage }}" width="100%"
+                  class="banner-common-height" />
+              </div>
+              <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                <div class="row mr-3">
+                  <div class="col-sm-2">
+                    <div class="cus-profile-img">
+                      <img *ngIf="!companyLogo" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                      <img *ngIf="companyLogo" src="{{ image_enduser_profile + companyLogo }}" class="img-fluid" />
+                    </div>
+                  </div>
+                  <div class="col-sm-9 mt-3 text-right dropdown">
+                    <i class="fa fa-ellipsis-v " data-toggle="dropdown" style="font-size:22px;padding: 5px;"></i>
+                    <ul class="dropdown-menu setmains cus_profile_drop">
+                      <li><a [routerLink]="['/layout/myaccount/edit-profile']">{{ 'profile_view.menu.Edit_profile' |
+                          translate }}</a></li>
+                      <li><a [routerLink]='["/layout/myaccount/activity-log"]'>{{ 'profile_view.menu.Activity_logs' |
+                          translate }}</a></li>
+                      <li><a [routerLink]='["/change-password"]'>{{ 'profile_view.menu.Change_password' | translate
+                          }}</a></li>
+                          <li (click)="deleteAccount()"><a >{{ 'profile_view.menu.Delete_Account' | translate}}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 cus_profile_top" *ngIf='CompanyData'>
+              <div class="about_sec col-sm-6">
+                <h4 style="color: #226389;">{{CompanyData?.companyName | titlecase}}</h4>
+                <div class="cus_address mt-2">
+                  <p> {{CompanyData?.city+' , '+CompanyData?.stateName+' , '+CompanyData?.countryName}}</p>
+                </div>
+
+              </div>
+              <div class="cus_about col-sm-12 mt-2" style="word-wrap: break-word;" *ngIf='CompanyData?.aboutCompany'>
+                {{CompanyData?.aboutCompany}}
+              </div>
+              <div class="row">
+                <div class="cus_details col-sm-5">
+                  <span class="cus_profile_headings">{{ 'profile_view.Contact' | translate }}</span>
+                  <div class="cus_about" *ngIf='CompanyData?.email'>
+                    <p class="m-0">{{ 'profile_view.mail' | translate }} : {{CompanyData?.email}}</p>
+                    <p class="m-0"> {{ 'profile_view.Phone_Number' | translate }} : +1 ({{CompanyData?.mobileNumber |
+                      slice:0:3}})-{{CompanyData?.mobileNumber | slice:3:6}}-{{CompanyData?.mobileNumber | slice:6:10}}
+                    </p>
+                  </div>
+                  <div class="cus_about" *ngIf='CompanyData?.mobileNumber'>
+                  </div>
+                </div>
+                <div class="cus_details col-sm-5">
+                  <span class="cus_profile_headings">{{ 'profile_view.Company_Info.' | translate }}</span>
+                  <div class="cus_about " *ngIf='CompanyData?.incorporationDate'>
+                    {{ 'profile_view.Incorporation_Date' | translate }} : {{CompanyData?.incorporationDate | date:
+                    'MMM-dd-yyyy':'UTC'}}
+                  </div>
+                  <!-- <div class="cus_about" *ngIf='CompanyData?.directorName'>
+                    {{ 'profile_view.Director_name' | translate }} : {{CompanyData?.directorName}}
+                  </div> -->
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </form>
+        <form [formGroup]="viewUserProfileForm" *ngIf="roleName=='ENDUSER'">
+          <div class="row">
+            <div class="cus-upload col-sm-12 pl-0 pr-0">
+              <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                <img *ngIf="!bannerImage" src="assets/Truck-banne-bg.png" width="100%" class="banner-common-height" />
+                <img *ngIf="bannerImage" src="{{ image_url_profile + bannerImage }}" width="100%" width="100%"
+                  class="banner-common-height" />
+              </div>
+              <div class="col-sm-12">
+                <div class="row m-0">
+                  <div class="col-sm-2">
+                    <div class="cus-profile-img   mb-2">
+                      <div>
+                        <img *ngIf="!userProfileLogo" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                        <img *ngIf="userProfileLogo" src="{{ image_enduser_profile + userProfileLogo }}"
+                          class="img-fluid" />
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-9 mt-3 text-right dropdown">
+
+                    <i class="fa fa-ellipsis-v " data-toggle="dropdown" style="font-size:22px;padding: 5px;"></i>
+
+                    <ul class="dropdown-menu setmains cus_profile_drop">
+                      <li><a [routerLink]="['/layout/myaccount/edit-profile']">{{ 'profile_view.menu.Edit_profile' |
+                          translate }}</a></li>
+                      <li><a [routerLink]='["/change-password"]'>{{ 'profile_view.menu.Change_password' | translate
+                          }}</a></li>
+                      <li><a [routerLink]='["/layout/myaccount/activity-log"]'>{{ 'profile_view.menu.Activity_logs' |
+                          translate }}</a></li>
+                      <li *ngIf="roleName=='ENDUSER' && acceLevel=='DRIVER' && companyId "><a
+                          (click)='leaveCompany()'>{{ 'profile_view.menu.Leave_company' | translate }}</a></li>
+                      <li (click)="deleteAccount()"><a>{{ 'profile_view.menu.Delete_Account' | translate}}</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row pt-4">
+            <div class="col-sm-12 cus_profile_top" *ngIf='UserData'>
+              <div class="about_sec col-sm-6">
+                <h4 style="color: #226389;" *ngIf='UserData?.personName' class="m-0">{{UserData?.personName |
+                  titlecase}}</h4>
+              </div>
+              <div class="cus_address col-sm-12 mt-2" style="word-wrap: break-word;" *ngIf='UserData?.aboutUser'>
+                {{UserData?.aboutUser}}
+              </div>
+              <div class="cus_about col-sm-12 mt-2" style="word-wrap: break-word;" *ngIf='UserData?.aboutCompany'>
+                {{UserData?.aboutCompany}}
+              </div>
+              <div class="row">
+                <div class="cus_details col-sm-5" *ngIf='acceLevel != "ENDUSER" '>
+                  <span class="cus_profile_headings">{{ 'profile_view.Work' | translate }}</span>
+                  <div class="cus_about" *ngIf='UserData?.email'>
+                   
+                    <p class="m-0">Company name : {{UserData?.companyName}}</p>
+                    <p class="m-0"> Work place : {{UserData?.workPlace}}</p>
+                  </div>
+                </div>
+                <div class="cus_details col-sm-5">
+                  <span class="cus_profile_headings">{{ 'profile_view.Contact' | translate }}</span>
+                  <div class="cus_about" *ngIf='UserData?.email'>
+                    <p class="m-0">{{ 'profile_view.mail' | translate }} : {{UserData?.email}}</p>
+                    <p class="m-0"> {{ 'profile_view.Phone_Number' | translate }}: +1 ({{UserData?.mobileNumber |
+                      slice:0:3}})-{{UserData?.mobileNumber |
+                      slice:3:6}}-{{UserData?.mobileNumber | slice:6:10}}</p>
+                  </div>
+                </div>
+                <!-- <div class="cus_details col-sm-5" *ngIf='acceLevel != "ENDUSER" '>
+                  <span class="cus_profile_headings">{{ 'profile_view.companyName' | translate }}</span>
+                  <div class="cus_about" *ngIf='UserData?.email'>
+                    Company name : {{UserData?.companyName}}
+                  </div>
+                </div> -->
+                <div class="cus_details col-sm-5">
+                  <span class="cus_profile_headings">{{ 'profile_view.Qualifications' | translate }}</span>
+                  <div class="cus_about " *ngIf='UserData?.qualification.length'>
+                    <p *ngFor='let quali of UserData.qualification' class='m-0'>
+                      {{quali.qualification }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="cus_details col-sm-5" *ngIf='UserData?.skillData.length'>
+                  <span class="cus_profile_headings">{{ 'profile_view.Skills' | translate }}</span>
+                  <div class="cus_about ">
+                    <p *ngFor='let skil of UserData.skillData' class="m-0">
+                      {{skil.skill }}
+                    </p>
+                  </div>
+                </div>
+                <div class="cus_details col-sm-5" *ngIf='UserData?.language.length'>
+                  <span class="cus_profile_headings">{{ 'profile_view.Languages' | translate }}</span>
+                  <div class="cus_about ">
+                    <p *ngFor='let language of UserData.language' class="m-0">
+                      {{language }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="cus_details col-sm-5">
+                  <span class="cus_profile_headings">{{ 'profile_view.Experience' | translate }}</span>
+                  <div class="cus_about " *ngIf='UserData && UserData?.experience'>
+                    <p class="m-0">
+                  {{UserData.experience}} years {{UserData.monthsExperience}} months
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="up_docs ml-1 col-sm-12" *ngIf='acceLevel =="DRIVER" '>
+              <div class="col-sm-12 cus_docs_head w-100">
+                <h4 style='color:#5c5c5c'>{{ 'profile_view.Documents' | translate }}</h4>
+              </div>
+              <div class="row main_docs">
+                <div class="col-sm-12" *ngIf='!driverDocs.length'>
+                  <p class="text-center" style="font-size: 17px;">{{ 'profile_view.no_files' | translate }}</p>
+                </div>
+                <div class="col-sm-6 mb-3 mt-3 driver_docs " *ngFor='let doctype of driverDocs; let i = index'>
+
+                  <div class="row">
+                    <div class="m-0 col-sm-7 view_docs" style="font-size:15px"> <a target="_blank"
+                        href='{{docs}}{{ doctype?.fileName}}' download="{{doctype?.name}}"><i
+                          class="fa fa-file-archive-o" style="color: #009ad9;"></i>
+                        {{doctype.name}}
+                      </a>
+
+                    </div>
+                    <div class="col-sm-5 mt-1 ">
+                      <i class="fas fa-trash fa-lg dustbin " (click)='delete(doctype?._id,doctype?.fileName , i)'
+                        style="font-size:22px;font-weight:600;color:#4e85b3;"></i>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+        <div class="row" *ngIf=" acceLevel !='DISPATCHER'">
+          <div class="col-12 mt-3 mb-3" >
+            <button class="button_post" (click)="redirectPost()"> {{ 'profile_view.See_All_Posts' | translate
+              }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus_payment_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 cus-pay-wrapper">
+                <div class="payment">
+                    <div class="row price_head">
+                        <div class="col-sm-6 text-center">
+                            <p class="price">Price</p>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <p class="price">${{finalPrice}}</p>
+                        </div>
+                    </div>
+                    <h3 class="col-sm-12 d-flex justify-content-center card_detail m-b-2">Card Details</h3>
+                    <div class="col-sm-12 mb-3 p-l-0 p-r-0 d-flex justify-content-around"> <img
+                            oncontextmenu="return false;" src="/assets/card-1.png" width="60"> <img
+                            oncontextmenu="return false;" src="/assets/card-2.png" width="60"> 
+                            <!-- <img
+                            oncontextmenu="return false;" src="/assets/card-3.png" width="80">  -->
+                            <img
+                            oncontextmenu="return false;" src="/assets/card-4.png" width="60"> </div>
+                    <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+                        <div class="col-sm-12 text-center">
+                            <div class="col-sm-12"> <mat-form-field appearance="outline"> <mat-label>Cardholder
+                                        name</mat-label> <input type="text" autocomplete="off" formControlName="name"
+                                        matInput /> <mat-error *ngIf="stripeTest.get('name').hasError('required')">
+                                        Please enter name </mat-error> </mat-form-field> </div>
+                            <div class="col-sm-12"> <mat-form-field appearance="outline"> <mat-label>Billing
+                                        address</mat-label> <input type="text" autocomplete="off"
+                                        formControlName="billingAddress" matInput /> <mat-error
+                                        *ngIf="stripeTest.get('billingAddress').hasError('required')"> Please enter
+                                        billing address</mat-error> </mat-form-field> </div>
+                            <div class="col-sm-12"> <mat-form-field appearance="outline" class="cus-pin-with-no">
+                                    <mat-label>Phone number</mat-label> <span class="cus-pin-code">+1</span> <input
+                                        type="text" mask="(000) 000-0000" autocomplete="off"
+                                        formControlName="phoneNumber" matInput /> <mat-error
+                                        *ngIf="stripeTest.get('phoneNumber').hasError('required')"> Please enter phone
+                                        number</mat-error> <mat-error
+                                        *ngIf="stripeTest.get('phoneNumber').hasError('minlength')"> Please enter valid
+                                        number</mat-error> </mat-form-field> </div>
+                        </div>
+                        <div class="card-border cus-stripe-card mt-3 mb-3"> <ngx-stripe-card [options]="cardOptions"
+                                [elementsOptions]="elementsOptions"> </ngx-stripe-card> </div>
+                        <div class="col-sm-12 text-center"> <button
+                                class="btn btn-continue btn-primary text-center mt-4" type="submit"
+                                [disabled]='!finalPrice'>Continue</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

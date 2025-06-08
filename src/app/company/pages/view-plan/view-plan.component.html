@@ -1,0 +1,79 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cusMobSpc">
+  <div class="row">
+    <div class="col-sm-12 text-center mb-4 pt-2 pb-2">
+      <h2 class="text-uppercase"> {{'sub_plan.heading' | translate}} </h2>
+      <p class="text-center">{{'sub_plan.des' | translate}}</p>
+      <span class="cus-tit-bor"></span>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12 cus-plan-list p-4" *ngFor="let list of planData">
+      <div *ngFor="let group of list.group" class="mt-4">
+       
+        <div class="row">
+          <div class="col-sm-10">
+            <p class="plan_heading">Your {{group.data?.validity | lowercase}} {{group.data?.title}} plan ({{group.data?.plan_name | titlecase}})
+            </p>
+          </div>
+          <div class="col-sm-2 text-right">
+            <button class="btn cus-up-btn" *ngIf="group.data.title != 'CUSTOM PLAN' && group.paymentMode=='WEB' && group.isInstallments != true" (click)="upgradePlan( group.data._id)"> Upgrade </button>
+          </div>
+        </div>
+        <!-- <div class="cusPlanTit">
+          <span>{{group.data.title}}</span>
+        </div> -->
+        <div class="row d-flex align-items-center">
+          <div class="col-sm-6">
+            <h4 class="text-capitalize">{{'sub_plan.features' | translate}}</h4>
+            <ul class="mb-4">
+              <li *ngFor="let feature of group.data.features" class="mb-2">
+                <span class="pln-act">{{feature.keyName}}</span> :
+                <span class="pln-inAct ml-1">{{feature.keyValue}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <p class="m-0"><span class="pln-act">{{'sub_plan.Purchased' | translate}} :</span> <span
+                class="pln-inAct ml-4">{{group.startDate}}</span></p>
+            <p class="m-0"><span class="pln-act">{{'sub_plan.Expired' | translate}} : </span> <span
+                class="pln-inAct ml-4">{{group.endDate}}</span></p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <span class="pln-act">{{'sub_plan.Total' | translate}} :</span> 
+            <span class="pln-inAct ml-4"
+              style="font-size: 20px;">{{(group.data && group.data.finalPrice? group.data?.finalPrice:0.0) | currency}}  </span>
+          </div>
+          
+        </div>
+        <div class="row pt-4 mt-3" style="border-top: 1px solid lightgrey;"></div>
+      </div>
+      <div class="col-sm-12 mt-2 p-0 text-right">
+        <!-- <button class="btn cus-up-btn" [disabled]="checkPlan(list) > 7" (click)="cancelPlan(list)"> Cancel
+        </button> {{list.group[0].chargeId}}--> 
+        <button *ngIf="list.group[0].chargeId && !planRefunded && list.group[0].paymentMode=='WEB'"  class="btn cus-up-btn"  (click)="cancelPlan(list)"> Cancel</button>
+      </div>
+    </div>
+    <div class="col-sm-12 text-center" *ngIf="!planData?.length">{{ 'No_Records_Found' | translate }}</div>
+  </div>
+</section>
+<!-- || planData. -->

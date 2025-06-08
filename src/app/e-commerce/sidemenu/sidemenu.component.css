@@ -1,0 +1,189 @@
+.cus-e-comm-sidemenu {
+  background: #ececec;
+  height: 100vh;
+  box-shadow: 0 0 2rem 0 rgb(0 0 0 / 5%);
+  z-index: 99;
+  position: relative;
+  min-height: 100%;
+  max-height: 100%;
+}
+button {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+ul.nav.cus-left-navbar > li {
+  width: 100%;
+}
+.cus-e-comm-sidemenu ul.cus-side-menu > li.active > a > img.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li:hover > a > img.cus-hov-img,
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown > button > img.cus-hov-img,
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show > button > img.cus-hov-img {
+  display: inline-block;
+}
+
+
+.cus-e-comm-sidemenu ul.cus-side-menu > li.active > a > svg.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li:hover > a > svg.cus-hov-img,
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown > button > svg.cus-hov-img,
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show > button > svg.cus-hov-img {
+  display: inline-block;
+}
+
+
+ul.nav.cus-left-navbar > li.active > a > img.cus-nav-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li > a > img.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li > .dropdown > button > img.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li:hover > a > img.cus-nav-img,
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown > button > img.cus-nav-img,
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show > button > img.cus-nav-img,
+i.cus-hov-img {
+  display: none;
+}
+
+
+ul.nav.cus-left-navbar > li.active > a > svg.cus-nav-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li > a > svg.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li > .dropdown > button > svg.cus-hov-img,
+.cus-e-comm-sidemenu ul.cus-side-menu > li:hover > a > svg.cus-nav-img,
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown > button > svg.cus-nav-img,
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show > button > svg.cus-nav-img,
+i.cus-hov-img {
+  display: none;
+}
+
+
+.cus-e-comm-sidemenu ul.cus-side-menu > li.active > a,
+.cus-e-comm-sidemenu ul.cus-side-menu > li:hover > a,
+ul.nav.cus-left-navbar > li:nth-last-child(2):hover > a > i,
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown {
+  background: #005aa4;
+  color: #fff !important;
+}
+ul.nav.cus-left-navbar > li:last-child:hover > a > i {
+  color: #fff !important;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc:hover > .dropdown > button {
+  color: #fff !important;
+}
+.cus-e-comm-sidemenu ul.cus-side-menu > li.active > a > i {
+  color: #fff !important;
+}
+.cus-e-comm-sidemenu ul.cus-side-menu > li > a,
+.cus-e-comm-sidemenu ul.cus-side-menu > ul > li.nav-item.abc > .dropdown {
+  display: flex;
+  margin: 5px 10px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: flex-start;
+}
+ul.nav.cus-left-navbar > li > a > img,
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown > button > img {
+  width: 16px;
+  position: absolute;
+}
+ul.nav.cus-left-navbar > li > .dropdown > button > img {
+  top: 11px;
+  left: 15px;
+}
+ul.nav.cus-left-navbar > li > .dropdown > button.dropdown-toggle::after {
+  right: 11px;
+  position: absolute;
+  top: 20px;
+}
+ul.nav.cus-left-navbar > li > a > label {
+  margin: 0;
+  cursor: pointer;
+  padding-left: 30px;
+}
+ul.nav.cus-left-navbar > li > .dropdown > button > label {
+  padding-left: 32px;
+}
+ul.nav.cus-left-navbar > li:hover > ul.dropdown-menu {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown {
+  margin: 5px 10px;
+  border-radius: 6px;
+  height: 38px;
+  line-height: 38px;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show {
+  background: #005aa4;
+  height: 38px;
+  line-height: 36px;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown.show > button {
+  color: #fff !important;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown > button {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  box-shadow: none;
+  cursor: pointer;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown > .dropdown-menu.show {
+  position: relative !important;
+  transform: inherit !important;
+  background: transparent;
+  border: none;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > a {
+  display: none !important;
+}
+.dropdown-menu.show {
+  width: 100%;
+}
+.dropdown-menu.show > li {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+ul.nav.cus-left-navbar > li:nth-last-child(2) > a,
+ul.nav.cus-left-navbar > li:last-child > a {
+  color: #000 !important;
+  font-weight: 500;
+  width: auto !important;
+}
+ul.nav.cus-left-navbar > li:nth-last-child(2) > a > i,
+ul.nav.cus-left-navbar > li:last-child > a > i {
+  color: #0f63a9 !important;
+  font-size: 15px;
+  margin-right: 5px;
+  margin-left: 4px;
+}
+ul.nav.cus-left-navbar > li.nav-item.abc > .dropdown > button > label {
+  margin: 0;
+}
+ul.nav.cus-left-navbar > li:nth-child(2) > a > img,
+ul.nav.cus-left-navbar > li:nth-child(3) > a > img {
+  width: 21px !important;
+  margin-right: 7px;
+}
+ul.nav.cus-left-navbar > li .dropdown-menu {
+  padding-left: 16px;
+}
+.dropdown-menu > li {
+  line-height: 24px;
+  padding: 0;
+}
+.nav-item .dropdown-item:hover,
+.nav-item .dropdown-item:hover.fa-toggle-on {
+  color: #fff;
+}
+
+
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+

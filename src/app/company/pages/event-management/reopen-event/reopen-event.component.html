@@ -1,0 +1,275 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="create-event ">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 cus-round-with-bg pb-4">
+        <form [formGroup]="editEventForm" (ngSubmit)="updateEventInfo()" class="created">
+          <div class="event-name">
+            <div class="modal-body p-0">
+              <div class="row cus-upload">
+                <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                  <div *ngIf="!this.uploadedBannerImage && !isLoadingBanner"> <img *ngIf="!bannerImage" src="assets/Truck-banne-bg.png"
+                      width="100%" style="height: 300px;" /> <img *ngIf="bannerImage"
+                      src="{{banner_img_path}}{{this.uploadedBannerImage}}" width="100%" class="banner-common-height" />
+                  </div>
+                  <div class="col-12 d-flex justify-content-center align-items-center my-5" >
+                    <mat-progress-bar  *ngIf="isLoadingBanner " class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                    </mat-progress-bar>
+                   </div>
+                  <div *ngIf="this.uploadedBannerImage && !isLoadingBanner" style="height: 300px; overflow: hidden"> <img
+                      src="{{banner_img_path}}{{this.uploadedBannerImage}}" width="100%" class="cfsac"
+                      class="banner-common-height" /> </div>
+                  <div *ngIf="!isLoadingBanner" class="float-right cus-edit-cover-icon"> <input required type="file" title=""
+                      class="fa fa-pencil" accept="image/*" (change)="fileChangeEvent($event)"
+                      (click)="InputFile.value=null" #InputFile /> <span><i class="fa fa-pencil"
+                        aria-hidden="true"></i></span>
+                    <div id='open-diaLog' data-toggle="modal" data-target="#banner-image-dialog"></div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="cus-profile-img">
+                    <div *ngIf="!this.uploadedBrandLogo && !isLoadingLogo" class="profile-set"> <img *ngIf="!companyLogo"
+                        src="assets/Truck-banne-profile.png" width="100%" /> <img *ngIf="companyLogo"
+                        src="{{banner_img_path}}{{this.uploadedBrandLogo}}" /> </div>
+                        <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                          <mat-spinner [diameter]="35"></mat-spinner>
+                         </div>
+                    <div *ngIf="this.uploadedBrandLogo" class="profile-set"> <img
+                        src="{{brandLogo_path}}{{this.uploadedBrandLogo}}" class="img-fluid" /> </div>
+                    <div class="cus-edit-profile-icon" *ngIf="!isLoadingLogo"> <input required type="file" title="" class="fa fa-pencil"
+                        (change)="logoChangeEvent($event)" accept="image/*" (click)="InputFileLogo.value=null"
+                        #InputFileLogo /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                      <div id='open-diaLog-logo' data-toggle="modal" data-target="#logo-image-dialog"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{'form_lables.event.event_name' | translate}}</mat-label> <input required type="text"
+                    formControlName="name" matInput placeholder="Event name" required maxlength="50" />
+                  <mat-error *ngIf="editEventForm.get('name').hasError('required')">Please enter event name </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-select formControlName="timezoneId" placeholder="Timezone" required
+                    (selectionChange)='calcTime(timeZoneList)'>
+                    <mat-option *ngFor="let list of timeZoneList" [value]="list._id">{{list.name}}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="editEventForm.get('timezoneId').hasError('required')"> Please select timezone
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>{{'form_lables.event.start_date' | translate}}</mat-label> <input readonly
+                        (click)="pickerStartDate.open()" (focus)="pickerStartDate.open()" matInput
+                        [ngxMatDatetimePicker]="pickerStartDate" formControlName="startDate"
+                        placeholder="StartDate/StartTime" [min]="min" [max]="maxDate" [disabled]="disabled"
+                        (dateChange)="change()" />
+                      <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+                      <ngx-mat-datetime-picker #pickerStartDate [showSpinners]="showSpinners" [stepHour]="stepHour"
+                        [stepMinute]="stepMinute" [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
+                      </ngx-mat-datetime-picker>
+                      <mat-error *ngIf="editEventForm.get('startDate').hasError('required')">Please enter event start
+                        date </mat-error>
+                    </mat-form-field> <small
+                      *ngIf='timeZone?.name && editEventForm.value?.startDate'>({{timeZone?.name}}:-{{startTimeDis}})
+                    </small>
+                  </div>
+                  <div class="col-sm-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>{{'form_lables.event.end_date' | translate}}</mat-label> <input readonly
+                        (click)="pickerEndDate.open()" (focus)="pickerEndDate.open()" matInput
+                        [ngxMatDatetimePicker]="pickerEndDate" formControlName="endDate" placeholder="EndDate/EndTime"
+                        [min]="min" [max]="maxDate" [disabled]="disabled" (dateChange)="change()" />
+                      <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+                      <ngx-mat-datetime-picker #pickerEndDate [showSpinners]="showSpinners" [stepHour]="stepHour"
+                        [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+                        [enableMeridian]="enableMeridian"> </ngx-mat-datetime-picker>
+                      <mat-error *ngIf="editEventForm.get('endDate').hasError('required')">Please enter event end date
+                      </mat-error>
+                    </mat-form-field> <small
+                      *ngIf='timeZone?.name && editEventForm.value?.endDate'>({{timeZone?.name}}:-{{endTimeDis}})
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 common_CK_editior mb-4">
+                <ckeditor [editor]="editor" formControlName="description" required class="cus-job-diss"
+                  data-maxlength="5"></ckeditor>
+                <mat-error style="font-size: 75%;"
+                  *ngIf="editEventForm.get('description').hasError('required') && editEventForm.get('description').touched">
+                  Please enter Description </mat-error>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{'form_lables.event.speaker' | translate}}</mat-label> <input required type="text"
+                    formControlName="speaker" matInput placeholder="Speaker" maxlength="50" />
+                  <mat-error *ngIf="editEventForm.get('speaker').hasError('required')"> Please enter speaker name
+                  </mat-error>
+                  <mat-error *ngIf="editEventForm.get('speaker').hasError('pattern')"> Please enter valid speaker name
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <mat-form-field style="width: 100%" class="example-full-width" appearance="outline">
+                      <mat-label>{{'form_lables.event.Select_curr' | translate}}</mat-label>
+                      <mat-select formControlName="currency" class="p-0" placeholder="select miles">
+                        <mat-option *ngFor="let list of currency" value="{{list.currency}}">{{list.currency}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="editEventForm.get('currency').hasError('required')">Please select currency
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-sm-8">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>{{'form_lables.event.event_fee' | translate}}</mat-label> 
+                      <!-- <input required
+                        formControlName="eventFee" matInput data-mask="#,##" /> -->
+                        <input matInput formControlName="eventFee"  />
+                      <mat-error *ngIf="editEventForm.get('eventFee').hasError('required')"> Please enter event fee
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field style="width: 100%" class="example-full-width" appearance="outline">
+                  <mat-label>{{'form_lables.event.visibility' | translate}}</mat-label>
+                  <mat-select formControlName="visibility" placeholder="Visibility" required>
+                    <mat-option *ngFor="let eventlist of eventTypesList" value="{{eventlist.Type}}">{{eventlist.Type}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="editEventForm.get('visibility').hasError('required')"> Please select visibility
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <mat-label>{{'form_lables.event.location' | translate}}</mat-label>
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" id="checkedEvent" [checked]='onlineEvent' color="primary"
+                    (change)="setOnlineEventValue($event)">This is a virtual event</mat-checkbox>
+                </section>
+              </div>
+              <div [style.display]="!onlineEvent ? 'block' : 'none'">
+                <div class="col-sm-12">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label class="cus-log-lab">{{'form_lables.event.address' | translate}}</mat-label> <input
+                      matInput formControlName="address" #search />
+                    <mat-error *ngIf="editEventForm.get('address').hasError('pattern')"> Unwanted space </mat-error>
+                    <mat-error *ngIf="editEventForm.get('address').hasError('required')">Please enter address
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label class="cus-log-lab">{{'form_lables.event.venue' | translate}}</mat-label> <input matInput
+                      formControlName="venue" maxlength="30" />
+                    <mat-error *ngIf="editEventForm.get('venue').hasError('pattern')">Invalid venue name</mat-error>
+                    <mat-error *ngIf="editEventForm.get('venue').hasError('required')">Please enter venue </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12" *ngIf="onlineEvent==true">
+              <mat-form-field class="example-full-width" appearance="outline"> <input type='url' matInput
+                  formControlName="brodcastLink" placeholder="Registration or broadcast link" />
+                <mat-error *ngIf="editEventForm.get('brodcastLink').hasError('required')">Please enter url </mat-error>
+                <mat-error *ngIf="editEventForm.get('brodcastLink').hasError('pattern')"> Please enter valid url
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 mt-1">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>{{'form_lables.select_archived_status' | translate}}</mat-label>
+                <mat-select formControlName="isDeleted">
+                  <mat-option *ngFor="let list of deleteArray" [value]="list.value">{{list.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12">
+              <section class="example-section">
+                <div class="float-right"> <a class="btn common-btn m-2"
+                    routerLink="/layout/myaccount/event-management">{{'buttons.back' | translate}}</a> <button
+                    class="btn common-btn m-2" type="submit">{{'buttons.update' | translate}}</button> </div>
+              </section>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal" id="banner-image-dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"> <strong>
+          <h5>Crop event Banner</h5>
+        </strong> <button type="button" class="close" data-dismiss="modal">&times;</button> </div>
+      <div class="modal-body ">
+        <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+          <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+          </mat-progress-bar>
+         </div>
+        <div #cropContainer class='image_cropper' style="display: block; width: 600px;max-height:60%; margin: auto;">
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [cropperMinHeight]="10600"
+            [cropperMinWidth]="10800" [cropperMaxHeight]="700" [cropperMaxWidth]="799" [aspectRatio]="8 / 3"
+            [resizeToHeight]="300" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+        </div>
+      </div>
+      <div class='col-md-12 text-right mt-2 mb-2'> <button class='btn common-btn' data-dismiss="modal"
+          (click)='uploadBannerImage()'>Upload</button> </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="logo-image-dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"> <strong>
+          <h5>Crop event logo</h5>
+        </strong> <button type="button" class="close" data-dismiss="modal">&times;</button> </div>
+      <div class="modal-body ">
+        <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+          <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+          </mat-progress-bar>
+         </div>
+        <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+          <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+          </mat-progress-bar>
+         </div>
+        <div #cropContainer class='image_cropper' style="display: block; width: 600px;max-height:60%; margin: auto;">
+          <image-cropper [imageChangedEvent]="logoChangedEvent" [maintainAspectRatio]="true" [roundCropper]='true'
+            [cropperMinHeight]="10600" [cropperMinWidth]="10800" [cropperMaxHeight]="700" [cropperMaxWidth]="799"
+            [hideResizeSquares]="true" [aspectRatio]="4 / 4" [resizeToHeight]="300" format="png"
+            (imageCropped)="logoCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"></image-cropper>
+        </div>
+      </div>
+      <div class='col-md-12 text-right mt-2 mb-2'> <button class='common-btn btn' data-dismiss="modal"
+          (click)='uploadBrandLogo()'>Upload</button> </div>
+    </div>
+  </div>
+</div>

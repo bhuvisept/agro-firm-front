@@ -1,0 +1,155 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="view-job mon cus-round-with-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 modal-body">
+                <div class="job-detail">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>{{ 'labels.job.job_view.job_title' | translate }} :&nbsp;{{jobData.title}}</h4>
+                        </div>
+                    </div>
+                    <h6>{{ 'labels.job.job_view.company_name' | translate }} :&nbsp;{{jobData.companyName | titlecase}}</h6>
+                    <ul class="breif" *ngIf="jobData.minimumExperience >=0 && jobData.maximumExperience >=0">
+                        <li><i
+                                class="fa fa-briefcase"></i>&nbsp;{{jobData.minimumExperience}}&nbsp;Yrs&nbsp;{{jobData.maximumExperience}}&nbsp;Months&nbsp;
+                        </li>
+                        <li *ngIf="jobData.salaryType">{{ 'labels.job.job_view.salary_type' | translate }} :&nbsp;{{jobData.salaryType}}</li>
+                        <li *ngIf="jobData.salaryRang[0].min !=null && jobData.salaryRang[0].max !=null"> 
+                            <span> {{ 'labels.job.job_view.min' | translate }} 
+                                :&nbsp;{{jobData.salaryRang[0].min
+                                >=0?jobData.salaryRang[0].currency:''}}&nbsp;
+                                <span *ngIf="jobData.salaryRang[0].min !=null && jobData.salaryRang[0].min >=0">
+                                    {{ jobMinSalary | number:'1.0':'en-US' }} 
+                                </span>
+                                <span *ngIf="jobData.salaryRang[0].max == null">
+                                    "N/A"
+                                </span>
+                                <br /> 
+                                {{ 'labels.job.job_view.max' | translate }}  :&nbsp;{{jobData.salaryRang[0].max >=0?
+                                jobData.salaryRang[0].currency :''}}&nbsp;
+                                <span *ngIf="jobData.salaryRang[0].max !=null && jobData.salaryRang[0].max >=0">
+                                    {{ jobMaxSalary | number:'1.0':'en-US' }} 
+                                </span>
+                                <span *ngIf="jobData.salaryRang[0].max == null">
+                                  "N/A"
+                                </span>
+                            </span> 
+                        </li>
+                        <li><i class="fa fa-map-marker"></i>&nbsp;{{jobData.address ? jobData.fullAddress : ''}}
+                        </li>
+                    </ul>
+                    <div class="float-right"></div>
+                    <ul class="job-profile">
+                        <li>
+                            <p>{{ 'labels.job.posted' | translate }} :</p><span>&nbsp;{{jobData.postedAt}}</span>
+                        </li>&nbsp;|&nbsp; <li>
+                            <p>{{ 'labels.job.job_view.openings' | translate }} :</p><span>&nbsp;{{jobData.vacancy}}</span>
+                        </li>&nbsp;|&nbsp; <li>
+                            <p>{{ 'labels.job.job_view.job_applicants' | translate }} :</p><span>&nbsp;{{jobData.applicantCount}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mat-box">
+                    <div class="profile-detail">
+                        <h5>{{ 'labels.job.job_view.job_description' | translate }}</h5>
+                        <p class="card-text text-left" innerHtml="{{jobData.description}}"></p>
+                        <span>{{ 'labels.job.job_view.qualifications' | translate }}</span>
+                        <ul class="key-skills mt-2">
+                            <li *ngFor="let qualifications of jobData.qualificationData">
+                                {{qualifications.qualification}}</li>
+                        </ul>
+                        <hr />
+                        <div class="font-weight-bold text-dark">{{ 'labels.job.job_view.key_skills' | translate }}</div>
+                        <ul class="key-skills">
+                            <li *ngFor="let skill of jobData.skillData">{{skill | titlecase}}</li>
+                        </ul>
+                        <hr />
+                        <div class="row mt-2">
+                            <div class="col-sm-6"> <span class="mt-2"> {{ 'labels.job.job_view.functional_area' | translate }}</span>
+                                <ul class="key-skills">
+                                    <li *ngIf="jobData.functionalArea">{{jobData.functionalArea.name | titlecase}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row mt-2">
+                            <div class="col-sm-6"> <span class="mt-2">{{ 'labels.job.job_view.industry' | translate }}</span>
+                                <ul class="key-skills">
+                                    <li *ngIf="jobData.industry">{{jobData.industryData.name | titlecase}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6"> <span>{{ 'labels.job.job_view.employment_type' | translate }}</span>
+                                <ul class="key-skills">
+                                    <li>{{jobData.employmentType | titlecase}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-detail">
+                    <div class="row">
+                        <div class="col-sm-6 mt-2">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.contact_person' | translate }}
+                                    :</strong>&nbsp;{{jobData.walkInDetails[0].contactPerson ?
+                                jobData.walkInDetails[0].contactPerson : "N/A"}}</p>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.phone_number' | translate }}
+                                :</strong>&nbsp;{{jobData.walkInDetails[0].number ? "+1" : ""}}{{jobData.walkInDetails[0].number ? jobData.walkInDetails[0].number  : "N/A" }}
+                            </p>
+                            <!-- <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.phone_number' | translate }}
+                                    :</strong>&nbsp;+1 ({{jobData.walkInDetails[0].number | slice:0:3}})-{{jobData.walkInDetails[0].number | slice:3:6}}-{{jobData.walkInDetails[0].number | slice:6:10}}
+                            </p>
+                                <p class="card-text text-left" *ngIf="!jobData.walkInDetails"><strong>{{ 'labels.job.job_view.phone_number' | translate }}
+                                    :</strong>&nbsp;{{"N/A"}}</p> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{'form_lables.validFrom' | translate}}
+                                    :</strong>&nbsp;{{!jobData.walkInDetails[0].startDate ? "N/A" :
+                                jobData.walkInDetails[0].startDate | date: 'MMM-dd-yyyy':'UTC'}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{'form_lables.validUpto' | translate}}
+                                    :</strong>&nbsp;{{!jobData.walkInDetails[0].endDate ? "N/A" :
+                                jobData.walkInDetails[0].endDate | date: 'MMM-dd-yyyy':'UTC'}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.venue' | translate }}
+                                    :</strong>&nbsp;{{jobData.walkInDetails[0].venue ? jobData.walkInDetails[0].venue
+                                :'N/A'}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.company_website' | translate }}
+                                    :</strong>&nbsp;{{!jobData.companyWebsite ? "N/A" : jobData.companyWebsite}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-detail mt-2">
+                    <div class="mt-2"><span>{{ 'labels.job.job_view.company_details' | translate }}</span></div>
+                    <p class="card-text text-left" innerHtml="{{jobData.companyDetails}}"></p>
+                    <div class="float-right"><button class="btn common-btn mr-2" (click)="goBack()">{{ 'buttons.back' | translate }}</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,116 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row pl-4 pr-4">
+                        <div class="col-sm-6 p-0">
+                            <div class="page-title-box">
+                                <h4 class="page-title"> {{ 'seller.manage_team.heading' | translate }} </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3 pl-4 pr-4 cus-box-with-radio cus-wrap-pro">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-sm-2 p-0 pl-sm-0 cus-search-input wt-100-on-mobile-flx">
+                                    <mat-form-field class="p-0 searchByCategory">
+                                        <div class="drop_down_design_active">
+                                            <mat-select class="p-0" [(ngModel)]='isAccepted'>
+                                                <mat-option *ngFor="let list of invitationList" value="{{list.value}}">
+                                                    {{list.show}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-2 cus-search-input wt-100-on-mobile-flx">
+                                    <mat-form-field class="p-0 searchByCategory">
+                                        <div class="drop_down_design_active">
+                                            <mat-select class="p-0" [(ngModel)]='accessLevel'>
+                                                <mat-option *ngFor="let type of typeCategorie" value="{{type.value}}">
+                                                    {{type.name}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 p-0 mt-sm-2 mb-2 ">
+                                    <div class="cus-search-input wt-100-on-mobile-flx mt-2 mt-sm-0"> <input
+                                            autocomplete="off" [(ngModel)]="search" class="mat-input-element"
+                                            matinput="" placeholder="Search by product" id="mat-input-3"
+                                            aria-invalid="false" aria-required="false">
+                                        <div class="cus-search-input wt-100-on-mobile-btn"> 
+                                            <button class="btn"
+                                                type="button" (click)="searchData()"><i
+                                                    class="fa fa-search"></i></button> 
+                                                    <button class="btn btn-res"
+                                                label="Reset" title="Reset" (click)="reset()"> <i class="fa fa-refresh"
+                                                    title="reset"></i></button> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-sm-5 text-right'> <button class='e-comm-btn' (click)='openDialog()'><i
+                                            class="fa fa-plus"></i> {{ 'seller.manage_team.Invite_Member' | translate }} </button> </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 p-0">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col"> {{ 'seller.manage_team.Name' | translate }}</th>
+                                        <th scope="col">{{ 'seller.manage_team.Email' | translate }}</th>
+                                        <th scope="col">{{ 'seller.manage_team.Phone_Number' | translate }}</th>
+                                        <th scope='col'>{{ 'seller.manage_team.Status' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tr *ngIf="noData">
+                                    <td class="text-center mt-2 ng-star-inserted" colspan="7">
+                                        <p>{{ 'No_Records_Found' | translate }}</p>
+                                    </td>
+                                </tr>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let list of inviteList | paginate:{itemsPerPage: itemsPerPage, currentPage: userListPage, totalItems: totalcount}; let i=index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{list.personName}}</td>
+                                        <td>{{list.email}}</td>
+                                        <td>+1 ({{list.mobileNumber | slice:0:3}})-{{list.mobileNumber | slice:3:6}}-{{list.mobileNumber | slice:6:10}}</td>
+                                        <td>{{list.isAccepted | titlecase}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-sm-12 text-center" *ngIf="totalcount > itemsPerPage">
+                                <pagination-controls (pageChange)="savePageChangedList($event)" responsive="true" directionLinks="true">
+                                </pagination-controls>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

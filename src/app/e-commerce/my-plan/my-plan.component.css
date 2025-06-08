@@ -1,0 +1,42 @@
+.cus-plan-list{
+    background: #fff;
+    -webkit-filter: drop-shadow(-4.243px -4.243px 3px #fff) drop-shadow(4.243px 4.243px 3px rgba(171, 194, 212, 0.6));
+    filter: drop-shadow(-1.243px -1.243px 3px #dfdfdf) drop-shadow(4.243px 4.243px 3px #dfdfdf);
+    border-radius: 8px;
+    padding: 0;
+    margin: 0 auto 20px;
+    z-index: 1;
+    margin-bottom: 45px;
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+.cusPlanTit>span{
+    position: absolute;
+    right: -67px;
+    top: 17px;
+    font-size:18px;
+    color: white;
+    z-index: 1;
+    transform: rotate(45deg);
+    text-transform: capitalize;
+    background: url('../../../assets/titBg.png') no-repeat center center /100% auto;
+    width: 250px;
+    height: 83px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 25px;
+    padding: 20px 0 0 0;
+}
+.pln-act{
+    font-size: 18px;
+    color: #626b70;
+}
+.pln-inAct{
+    color: #bbbbbb;
+    font-size: 15px;
+}
+.btn.cus-up-btn {
+    background: #285280;
+    color: white;
+}

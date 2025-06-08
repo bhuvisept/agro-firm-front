@@ -1,0 +1,104 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<form [formGroup]="createGroupPostForm" (ngSubmit)="onSubmitGroupPostForm()" class="cus-create-post">
+  <div class="modal-header">
+    <h4 *ngIf="data.type != 'share'" class="modal-title mfont">{{ 'myNetwork.create_grp_post.create' | translate }}</h4>
+    <h4 *ngIf="data.type == 'share'" class="modal-title mfont">{{ 'myNetwork.create_grp_post.Share_group' | translate }}</h4>
+    <button type="button" class="close cus-close-post" (click)="onNoClick()">&times;</button>
+  </div>
+  <div class="modal-body p-t-1 p-b-1">
+    <div class="row cus_pop_Profile">
+      <div class="col-sm-2 col-xs-2">
+        <div *ngIf="!uploadedEventLogo"><img *ngIf="!eventLogo" src="assets/Truck-banne-profile.png" class="cus-round-with-img" /></div>
+        <div *ngIf="uploadedEventLogo"><img src="{{ companyLogo_path }}{{ uploadedEventLogo }}" class="cus-round-with-img 2" /></div>
+      </div>
+      <span class="col-sm-6 col-xs-6 p-l-0">
+        <h6 class="font-weight-bold pt-2">{{ userName | titlecase }}</h6>
+      </span>
+    </div>
+    <div class="col-sm-12 p-l-0 p-r-0 mt-2">
+      <textarea
+        matInput
+        formControlName="caption"
+        class="cus-post-textarea"
+        placeholder="{{ 'myNetwork.what_talk' | translate }}"
+        id="autoresizing"
+        style="max-height: 120px !important"
+        class="text-design"
+      ></textarea>
+      <mat-error *ngIf="!createGroupPostForm.controls['caption'].dirty && createGroupPostForm.controls['caption'].invalid && createGroupPostForm.controls['caption'].touched">
+        Please enter caption
+      </mat-error>
+      <div *ngIf="this.createGroupPostForm.value.caption.length > 3000">
+        <mat-error *ngIf="this.createGroupPostForm.value.caption.length > 3000" class="w-100">Maximum character limit 3000 </mat-error>
+        <span class="text-danger" style="float: right; margin-right: 31px">{{ this.createGroupPostForm.value.caption.length }}</span>
+      </div>
+    </div>
+    <div class="col-sm-12 p-l-0 p-r-0 mt-2">
+      <div class="position-relative cus_height_slide">
+        <owl-carousel-o [options]="customOptions" class="cus-event-slider">
+          <ng-template carouselSlide *ngFor="let img of filesImg">
+            <div class="post_cross_icon" (click)="deleteImageFile(img)" *ngIf="img.type == 'IMAGE'"><i class="fas fa-times-circle"></i></div>
+            <div class="post_cross_icon" (click)="deleteVideoFile(img)" *ngIf="img.type == 'VIDEO'"><i class="fas fa-times-circle"></i></div>
+            <div *ngIf="img.type == 'IMAGE'"><img src="{{ productImgPath + img.name }}" /></div>
+            <div *ngIf="img.type == 'VIDEO'"><video src="{{ postVideo_path + img.name }}" alt="" height="100%" width="100%" controls autoplay></video></div
+          ></ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+    <div *ngIf="data.type === 'share'" class="col-sm-12">
+      <div class="p-2">
+        <div class="d-flex p-2 cus_border_network">
+          <div>
+            <img *ngIf="data.groupDetails.groupImage" src="{{ banner_img_path }}{{ data.groupDetails.groupImage }}" style="max-width: 85px; max-height: 85px" />
+            <img *ngIf="!data.groupDetails.groupImage" src="assets/network_group.png" style="max-width: 85px" />
+          </div>
+          <div class="d-flex justify-content-center align-items-center ml-2">
+            <div>
+              <h5 class="text-capitalize m-0 p-0" style="font-size: 18px">{{ data.groupDetails?.name }}</h5>
+              <p class="m-0 p-0">{{ data.groupDetails?.totalMembers }} members</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="col-sm-6 d-flex p-l-0 p-r-0" *ngIf="data.type === 'post'">
+      <span>
+        <div class="cus-upload-icon">
+          <input required type="file" (click)="InputFiless.value = null" #InputFiless (change)="uploadPostImage($event)" multiple accept="image/*" />
+          <span><i class="fa fa-picture-o" aria-hidden="true"></i></span></div
+      ></span>
+      <span>
+        <div class="cus-upload-icon">
+          <input required type="file" (change)="uploadPostVideo($event)" (click)="InputFiled.value = null" #InputFiled accept="video/*" />
+          <span><i class="fa fa-play" aria-hidden="true"></i></span></div
+      ></span>
+    </div>
+    <div class="col-sm-6 text-right p-l-0 p-r-0">
+      <button class="btn common-btn" type="button" (click)="onNoClick()">{{ 'buttons.cancel' | translate }}</button>
+      <button
+        type="submit"
+        class="btn common-btn ml-2"
+        [class.my-spinner]="loading"
+        [disabled]="createGroupPostForm.value.caption?.length > 3000 || loading || !createGroupPostForm.value.caption?.trim()"
+      >
+        {{ 'buttons.post' | translate }}
+      </button>
+    </div>
+  </div>
+</form>

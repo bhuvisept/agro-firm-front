@@ -1,0 +1,158 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<div class="cus-top-spc"></div>
+<section>
+  <div class="container">
+    <div class="trip row">
+      <div class="col-sm-12 col-md-9 offset-sm-0 offset-md-3 cus-middelbar">
+        <div class="cus-round col-11">
+          <div class="modal-header pb-0" style="border-bottom: none !important">
+            <h4 class="mt-2 col-sm-2 pl-0" style="font-size: 18px;">{{ 'trip_planner.heading' | translate }}</h4>
+            <div class="col-sm-7" style="font-size: 15px;margin-top: 10px;text-align: center;">
+              <span class="cus_circleColor cu_clrDriver"></span>{{ 'trip_planner.driver_left' | translate }}<span class="cus_circleColor cu_clrAnotherDriver"></span
+              >{{ 'trip_planner.anothr_left' | translate }}
+            </div>
+            <div class="col-sm-2 text-right" style="max-width: none !important">
+              <button class="btn common-btn text-dark" (click)="createTripPlan()"><i class="fa fa-plus"></i> {{ 'buttons.trip_plan' | translate }}</button>
+            </div>
+          </div>
+          <div class="modal-body pt-0">
+            <div class="cus-search-input row search-filter-mobile">
+              <div class="row search-filter-mobile m-0" style="width: 90%;">
+                <div class="col-sm-3 wt-100-on-mobile">
+                  <mat-form-field>
+                    <div class="cus-search-dropown text-center" style="margin: 0px 5px 0 5px">
+                      <mat-select [(ngModel)]="tripStatusShow">
+                        <mat-option *ngFor="let list of tripStatus" [value]="list.value"> {{ list.show }}</mat-option>
+                      </mat-select>
+                    </div>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 wt-100-on-mobile">
+                  <mat-form-field>
+                    <div class="cus-search-dropown text-center" style="margin: 0px 5px 0 0">
+                      <mat-select [(ngModel)]="routeFlag">
+                        <mat-option value="" default selected disabled>Select type</mat-option>
+                        <mat-option value="arriveBy">Arrive by</mat-option>
+                        <mat-option value="departAt">Depart at</mat-option>
+                      </mat-select>
+                    </div>
+                  </mat-form-field>
+                </div>
+                <div *ngIf="routeFlag" class="col-sm-3 wt-100-on-mobile">
+                  <div class="cus-search-dropown text-center m-t-2" style="margin: 0px 5px 0 0">
+                    <mat-form-field>
+                      <mat-label *ngIf="!filterDate">Choose date</mat-label>
+                      <input matInput [matDatepicker]="myDatepicker" [(ngModel)]="filterDate" readonly (click)="myDatepicker.open()" style="cursor: pointer" />
+                      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                      <mat-datepicker #myDatepicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-3 cus-search-input mt-sm-4 pl-0 mob-pl-0" style="padding-left: 5px">
+                  <input matInput placeholder="Search Trip" [(ngModel)]="searchText" autocomplete="off" class="main" maxlength="30" />
+                  <div class="cus-search-input wt-100-on-mobile-btn">
+                    <button type="button" class="btn" (click)="searchData()"><i class="fa fa-search"></i></button>
+                    <button (click)="reset()" class="btn btn-res" label="Reset" title="Reset"><i class="fa fa-refresh" title="reset"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <div class="modal-body col-sm-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col" (click)="sort('address')" style="width:16%"><i class="fa fa-map-marker"></i>&nbsp; {{ 'trip_planner.table_head.origin' | translate }} <i class="fa fa-sort grab"></i></th>
+                    <th scope="col" (click)="sort('address')" style="width:40%"><i class="fa fa-map-marker"></i>&nbsp;{{ 'trip_planner.table_head.destination' | translate }} <i class="fa fa-sort grab"></i> </th>
+                    <th scope="col" (click)="sort('personName')">{{ 'trip_planner.table_head.driver' | translate }} <i class="fa fa-sort grab"></i></th>
+                    <th scope="col" (click)="sort('loadNumber')">{{ 'trip_planner.table_head.load_number' | translate }} <i class="fa fa-sort grab"></i></th>
+                    <th scope="col" >{{ 'trip_planner.table_head.action' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="text-center"
+                    *ngFor="let list of tripPlannerList  | orderBy: key: reverse |  paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index"
+                    [ngClass]="{
+                      cu_clrDriver: list.isDriverLeft === true && list.runningStatus != 'COMPLETED',
+                      cu_clrAnotherDriver: list.isAnotherDriverLeft === true && list.runningStatus != 'COMPLETED'
+                    }"
+                  >
+                    <td class="pt-4 tripPlanner tripPlanner">{{ list.source.address | slice: 0:15 }}</td>
+                    <!-- <td class="pt-4 tripPlanner" >{{ list.destination.address | slice: 0:15 }}</td> -->
+                    <td class="pt-4 tripPlanner">
+                      <span class="multidestination">
+                    
+                        <table *ngFor="let dest of list.destination_address; let i = index">
+                          <tbody>
+                            <tr class="destinations">
+                              <td>{{dest}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </span>
+                    
+                    </td>
+
+                    <td class="pt-4 tripPlanner" *ngIf="list.driverData" >{{ list.driverData.personName }}</td>
+                    <td class="pt-4 tripPlanner" *ngIf="!list.driverData" >{{ '-' }}</td>
+                    <td class="pt-4 tripPlanner" >{{ list.loadNumber }}</td>
+                    <td class="tripPlanner" >
+                      <div class="dropdown">
+                        <i class="fa fa-ellipsis-v dropbtn"></i>
+                        <div class="dropdown-content">
+                          <a *ngIf="(list.runningStatus == 'ACTIVE' || list.runningStatus == 'UPCOMING') && !list.isExpired" routerLink="/layout/myaccount/trip-planner/live-track/{{ list._id }}">{{
+                            'trip_planner.actions.track' | translate
+                          }}</a>
+                          <a *ngIf="(list.runningStatus == 'ACTIVE' || list.runningStatus == 'UPCOMING') && !list.isExpired" routerLink="/layout/myaccount/trip-planner/add-stopage/{{ list._id }}">{{
+                            'trip_planner.actions.add_stop' | translate
+                          }}</a>
+                          <a routerLink="/layout/myaccount/trip-planner/trip-details/{{ list._id }}">{{ 'trip_planner.actions.trip_detail' | translate }}</a>
+                          <a
+                            *ngIf="list.runningStatus == 'UPCOMING' && (list.isDriverLeft == true || list.isAnotherDriverLeft == true) && !list.isExpired"
+                            routerLink="/layout/myaccount/trip-planner/edit-driver/{{ list._id }}"
+                            >{{ 'trip_planner.actions.reassign_driver' | translate }}</a
+                          >
+                          <a *ngIf="(list.runningStatus == 'UNASSINGED' || list.runningStatus == 'UPCOMING' )&& !list.isExpired" (click)="cancelTrip(list._id, list)">{{ 'trip_planner.actions.cancel' | translate }} </a>
+                          <a *ngIf="list.runningStatus == 'ACTIVE' && !list.isExpired" (click)="completeTrip(list._id)">{{ 'trip_planner.actions.mark_complete' | translate }}</a>
+                          <a *ngIf="list.runningStatus == 'UNASSIGNED' || (list.runningStatus == 'UPCOMING' && !list.isDriverLeft) && !list.isExpired" (click)="startTrip(list._id)">{{
+                            'trip_planner.actions.mark_start' | translate
+                          }}</a>
+                          <a *ngIf="list.runningStatus == 'UNASSINGED' && !list.isExpired" routerLink="/layout/myaccount/trip-planner/add-driver/{{ list._id }}">{{ 'trip_planner.actions.assign_driver' | translate }}</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="truckData mt-3">
+                <div class="col-md-12 noInfo" *ngIf="noRecordFound">
+                  <p class="text-center">No Records Found</p>
+                </div>
+                <div class="col-md-8 m-auto text-center mt-3">
+                  <pagination-controls (pageChange)="savePageChanged($event)" autoHide="true" responsive="true" directionLinks="true"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

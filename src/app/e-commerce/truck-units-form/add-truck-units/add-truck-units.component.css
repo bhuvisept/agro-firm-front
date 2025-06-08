@@ -1,0 +1,46 @@
+.product-cus-box {
+    padding: 25px;
+    margin: 0 3px;
+}
+
+.cus-from-stapper .custom-dropzone {
+    border-color: #72ade1;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-dropzone-photo {
+    margin: 10px 0;
+    overflow-y: auto;
+}
+
+.custom-dropzone-photo>.col-sm-2 {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    position: relative;
+    background: #fff;
+    padding: 0;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.custom-dropzone-photo>.col-sm-2>div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #055aa4;
+    width: 29px;
+    height: 29px;
+    font-size: 1.3rem;
+    color: #ccc;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cus-e-commerce-mail ::ng-deep .mat-horizontal-stepper-header
+{
+ pointer-events: none;
+}

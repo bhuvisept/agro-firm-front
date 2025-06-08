@@ -1,0 +1,44 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="cus_activity">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="heading">{{'activity' | translate}}</p>
+        </div>
+        <div class="container">
+            <div class="cus_log_list row mb-3" *ngFor='let logs of activityLogs'>
+                <div class="col-sm-12 mt-3 mb-3 "> <strong>{{logs._id | date:'MMM-d-y'}}</strong> </div>
+                <div class="col-sm-12 cus-list" *ngFor='let log of logs.list'>
+                    <div class="row mt-3 mb-1">
+                        <div class="col-sm-3">
+                            <p>Signed in on <strong>{{log.source | slice:0:7}}</strong> </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>IP:{{log.clientIp}}</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p><strong>login at:-</strong>{{log.loginDate | date:'h:mm a'}}</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p><strong>logout at:-</strong>{{log.logoutDate | date:'h:mm a'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

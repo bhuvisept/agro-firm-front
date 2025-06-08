@@ -1,0 +1,602 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="network-view navmain cusMobSpc">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 cus-fix-sid">
+        <div class="cus-round-with-bg pt-2">
+          <div class="text-center mb-2">
+            <a routerLink="/layout/myaccount/my-profile">
+              <div *ngIf="roleName == 'COMPANY'" class="img-pro">
+                <img *ngIf="!userObj.userInfo.image" src="assets/Truck-banne-profile.png" class="img-fluid profilephoto" />
+                <img *ngIf="userObj.userInfo.image" src="{{ endUser_profile + userObj.userInfo.image }}" class="cus-round-with-img profilephoto" />
+              </div>
+              <div *ngIf="roleName == 'ENDUSER'" class="img-pro">
+                <img *ngIf="!userObj.userInfo.image" src="assets/Truck-banne-profile.png" class="img-fluid profilephoto" />
+                <img *ngIf="userObj.userInfo.image" src="{{ endUser_profile + userObj.userInfo.image }}" class="cus-round-with-img profilephoto" /></div
+            ></a>
+          </div>
+          <a routerLink="/layout/myaccount/my-profile" class="text-center setuptitle text-center">
+            <h5 class="text-center ml-3 text-capitalize">{{ userObj.userInfo.personName }}</h5>
+          </a>
+          <div class="text-center gp-link mt-2" *ngIf="getGroupDetails?.isAdmin == true">
+            <p class="bor">
+              <a routerLink="/layout/social-media/edit-group/{{ groupId }}" class="editgroup">{{ 'myNetwork.grp_detail.edit_grp' | translate }}</a>
+            </p>
+          </div>
+        </div>
+        <div class="cus-round-with-bg" *ngIf="getGroupTotleList?.length">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.grp_detail.groups' | translate }}</h3>
+          <ul class="cus_height">
+            <li *ngFor="let list of getGroupTotleList" class="nav-item">
+              <a routerLink="/layout/social-media/group-view/{{ list.group_Id }}" (click)="refreshapi(list.group_Id)" class="nav-link text-capitalize">
+                <i class="fa fa-users"></i> {{ list.name | slice: 0:20 }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-3 visible-phone-sx">
+        <div class="cus-round-with-bg" *ngIf="getGroupDetails?.isMember">
+          <h3 class="cus-cart-tit-box">{{ getGroupDetails?.memberCount }} {{ 'myNetwork.members' | translate }}</h3>
+          <ul class="d-flex">
+            <span *ngFor="let memberList of getGroupDetails?.memberData">
+              <div *ngIf="memberList.roleTitle == 'COMPANY'">
+                <img *ngIf="memberList.image" src="{{ endUser_profile + memberList.image }}" class="groupimg" />
+                <img *ngIf="!memberList.image" src="assets/Truck-banne-profile.png" class="groupimg" /></div
+            ></span>
+          </ul>
+          <div class="text-center mt-2 mb-2 group_btn">
+            <button type="button" class="btn mt-2" data-toggle="modal" data-target="#myModal-invite-network1" *ngIf="getGroupDetails?.type == 'Public'" (click)="getInvitedListButton()">
+              {{ 'buttons.invite_conne' | translate }}</button
+            ><button
+              type="button"
+              class="btn mt-2"
+              data-toggle="modal"
+              data-target="#myModal-invite-network1"
+              *ngIf="getGroupDetails?.type == 'Private' && this.getGroupDetails?.isAdmin"
+              (click)="getInvitedListButton()"
+            >
+              {{ 'buttons.invite_conne' | translate }}
+            </button>
+            <button type="button" class="btn mt-2" data-toggle="modal" data-target="#myModal-seell-network" (click)="getGroupListView()">{{ 'buttons.see_all' | translate }}</button>
+            <button type="button" class="btn mt-2" *ngIf="getGroupDetails.isAdmin || getGroupDetails.isMember" (click)="createPostInfo('share')">{{ 'buttons.share_grp' | translate }}</button>
+            <button
+              type="button"
+              class="btn mt-2"
+              *ngIf="getGroupDetails.isAdmin && getGroupDetails?.type == 'Private' && getGroupDetails?.totalRequests"
+              data-toggle="modal"
+              data-target="#GroupRequest"
+              (click)="groupRequestListPageUpdate()"
+            >
+              {{ 'myNetwork.grp_req' | translate }}({{ getGroupDetails?.totalRequests }})
+            </button>
+            <br />
+          </div>
+        </div>
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.grp_detail.about' | translate }}</h3>
+          <p class="m-2">
+            {{ getGroupDetails?.description | slice: 0:150
+            }}<span class="text-primary" data-toggle="modal" data-target="#myModal-invite-network2" style="cursor: pointer; font-weight: 500"> {{ 'see_more' | translate }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6 offset-sm-0 offset-sm-3">
+        <div class="cus-round-with-bg">
+          <div class="cus-upload col-sm-12 pl-0 pr-0">
+            <div class="col-sm-12 cus-cover-img p-l-0 p-r-0 banner-image-group">
+              <img *ngIf="!getGroupDetails?.coverImage" src="assets/Truck-banne-bg.png" width="100%" height="150px" />
+              <img *ngIf="getGroupDetails?.coverImage" src="{{ banner_img_path + getGroupDetails?.coverImage }}" width="100%" height="150px" />
+            </div>
+            <div class="col-sm-2">
+              <div class="cus-profile-img profiletwo">
+                <img *ngIf="!getGroupDetails?.groupImage" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                <img *ngIf="getGroupDetails?.groupImage" src="{{ group_Image_path + getGroupDetails?.groupImage }}" width="100%" />
+              </div>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-sm-10">
+              <p class="cus-group-tit heading-title text-capitalize">{{ getGroupDetails?.name }}</p>
+              <p class="cus-group-tit text-capitalize">{{ getGroupDetails?.description | slice: 0:120 }}</p>
+              <p class="cus-group-tit text-capitalize">{{ 'form_lables.network.group.Total_Members' | translate }}: {{ getGroupDetails?.totalMembers }}</p>
+              <p class="cus-group-tit text-capitalize">{{ 'form_lables.network.group.group_type' | translate }}: {{ getGroupDetails?.type }}</p>
+            </div>
+            <div class="col-sm-2 text-right">
+              <div *ngIf="getGroupDetails?.isAdmin">
+                <a routerLink="/layout/social-media/edit-group/{{ groupId }}"><i class="fa fa-edit"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex float-right">
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'JOIN' && getGroupDetails?.type == 'Private'" (click)="requestToJoin()">Request to join</button>
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'JOIN' && getGroupDetails?.type == 'Public'" (click)="joinGroupPublic()">{{ 'buttons.Join_group' | translate }} </button>
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'REQUESTED'" style="opacity: 0.75">{{ 'buttons.Requested' | translate }}</button>
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'REQUESTED'" (click)="acceptGroupJoinRequest(loggedInUser, 'DECLINE', '')">{{ 'buttons.cancel' | translate }}</button>
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'ACCEPT_DECLINE'" (click)="onAcceptInvitation()">{{ 'buttons.accept' | translate }}</button>
+            <button class="btn m-2" *ngIf="getGroupDetails?.status == 'ACCEPT_DECLINE'" (click)="onIgnoreInvitation()">{{ 'buttons.ignore' | translate }}</button>
+          </div>
+        </div>
+        <div class="network-post cus-round-with-bg" *ngIf="getGroupDetails?.isMember">
+          <div class="row">
+            <form class="col-sm-12">
+              <div class="form-group d-flex">
+                <span>
+                  <div class="cus-round-with-img">
+                    <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="cus-round-with-img" />
+                    <img *ngIf="userImage" src="{{ enduser_url_profile + userImage }}" class="cus-round-with-img" /></div
+                ></span>
+                <span (click)="createPostInfo('post')" class="cus-post-form-control ml-1"
+                  ><span>{{ 'dashboard.grp_post' | translate }}</span></span
+                >
+              </div>
+              <div class="form-group m-auto text-center">
+                <button class="cus-post-btn-share" (click)="File.value = null" #File (click)="createPostInfo('post')"><img src="assets/photo.svg" />{{ 'dashboard.photo' | translate }}</button>
+                <button class="cus-post-btn-share" (click)="InputFile.value = null" #InputFile (click)="createPostInfo('post')">
+                  <img src="assets/image-gallery.svg" />{{ 'dashboard.video' | translate }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+          <div *ngFor="let posts of postList; let i = index">
+            <div class="cus-round-with-bg">
+              <div class="cus-real-post">
+                <div class="row cus-hed-post">
+                  <div class="col-sm-1">
+                    <div class="pro-round-img">
+                      <div>
+                        <img *ngIf="!posts.userData.image" class="cus-round-with-img" src="assets/Truck-banne-profile.png" />
+                        <img *ngIf="posts.userData.image" src="{{ enduser_url_profile + posts.userData.image }}" class="img-fluid" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 post-listing p-0 pl-4">
+                    <p class="mb-0">{{ posts.userData.personName }}</p>
+                    <p class="mb-0">{{ posts.postedAt }}</p>
+                  </div>
+                  <!-- <div class="col-sm-6 text-right" *ngIf="loggedInUser == posts.userData._id || getGroupDetails.isAdmin === true"> -->
+                    <div class="col-sm-6 text-right" > <!-- Changes by shivam kashyap 26-12-2022 -->
+                    <span class="cus-dot-toggle" type="button" data-toggle="dropdown">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                        <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                      </svg>
+                    </span>
+                    <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                      <li (click)="editPostInfo(posts, i)" *ngIf="loggedInUser == posts.userData._id">{{ 'Edit' | translate }}</li>
+                       <li *ngIf="loggedInUser == posts.userData._id || getGroupDetails.isAdmin === true" (click)="deletePostList(posts, i)">{{ 'Delete' | translate }}</li>
+                      <li *ngIf="loggedInUser != posts.userData._id" (click)="reportPostInfo(posts._id, i)">{{ 'Report' | translate }}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row cus-body-post">
+                  <div class="col-sm-12">
+                    <!-- <p class="m-b-0 post_caption" id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p> -->
+                    <p class="m-b-0 post_caption"  *ngIf="posts.media.length==0"  (click)="imagesViewForText('',posts,i)"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                  <p class="m-b-0 post_caption" *ngIf="posts.media.length>0"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                    <span class="text-primary" id="more{{ i }}" *ngIf="posts.caption?.length > 545" (click)="readMore(i, 'MORE')" style="cursor: pointer; float: right"
+                      >...{{ 'see_more' | translate }}</span
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 cus_height_post">
+                    <div class="image_gallery">
+                      <div *ngIf="!posts.media"><img src="assets/spinnernew.gif" alt="" /></div>
+                      <div
+                        *ngFor="let img of posts.media"
+                        [ngClass]="{
+                          post_img_one: posts.media?.length == 1,
+                          post_img_two: posts.media?.length == 2,
+                          post_img_three: posts.media?.length == 3,
+                          post_img_four: posts.media?.length == 4,
+                          post_img_five: posts.media?.length == 5
+                        }"
+                        style="cursor: pointer"
+                        (click)="imagesView(posts.media, img,posts,i)"
+                      >
+                        <video *ngIf="img.type == 'VIDEO'" src="{{ postVideo_path + img.name }}" height="100%" width="100%" controls></video>
+                        <img *ngIf="img.type == 'IMAGE'" src="{{ networkImages + img.name }}" alt="kkj" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cus-share-comt-post">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <span class="col-sm-2 cursor_pointer" (click)="totalLikeInfo(posts._id, posts)"> <img src="assets/like.svg" alt="" /> {{ posts.totalLike }}</span>
+                    <span class="col-sm-2">{{ posts.totalCommentWithReComment }} {{ 'Comments' | translate }}</span>
+                  </div>
+                </div>
+                <div class="row mt-1">
+                  <ul class="like">
+                    <li (click)="likePostInfo(posts, i)">
+                      <span *ngIf="posts.isLiked == true" style="color: #005aa4">
+                        <img src="assets/like_blue.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                      </span>
+                      <span *ngIf="posts.isLiked == false">
+                        <img src="assets/like.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                      </span>
+                    </li>
+                    <li (click)="getPostCommentList(posts, i)">
+                      <img src="assets/comments.svg" alt="" /> <span class="d-none d-md-block">{{ 'Comments' | translate }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row p-0">
+                  <div class="col-sm-12">
+                    <div class="row d-flex justify-content-center align-items-center cus-border-top">
+                      <div class="col-1 mr-2">
+                        <div class="pro-round-img">
+                          <div>
+                            <img *ngIf="userImage" src="{{ endUser_profile + userImage }}" class="img-fluid" />
+                            <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" width="100%" height="150px" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        <form [formGroup]="createPostCommentForm" class="row cus-comment-form">
+                          <div class="col-10 p-l-0 p-r-0">
+                            <input type="text" class="cus-comment-input" autocomplete="off" formControlName="comment" matInput placeholder="Add a comment…" required />
+                          </div>
+                          <div class="col-2 p-r-0">
+                            <button class="btn post_icon d-block" (click)="commentPostInfo(posts, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div *ngIf="isCommentShow">
+                      <div class="col-sm-12 mt-1" *ngFor="let list of posts.comments; let commentIndex = index">
+                        <div class="row cus_comment_sec">
+                          <div class="col-sm-1 col-xs-2 mr-4">
+                            <div class="cus-com-img-network cmt-pro-round-img">
+                              <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="list.image" src="{{ enduser_url_profile + list.image }}" class="img-fluid" />
+                            </div>
+                          </div>
+                          <div class="col-sm-10 col-xs-10 cus-comm-bg ml-1">
+                            <p class="m-0 com-name">{{ list.personName }}<span *ngIf="list.isEdited" style="color: #919191">(Edited)</span></p>
+                            <div class="m-0" class="list_comment_time" *ngIf="list.postedAt">
+                              <span style="color: #919191">{{ list.postedAt }}</span>
+                            </div>
+                            <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment" *ngIf="list.isMyComment || posts.isMyPost">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                                <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                              </svg>
+                            </span>
+                            <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                              <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, '', list, 'COMMENT')">Edit</li>
+                              <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, '', list._id, 'COMMENT')">Delete</li>
+                            </ul>
+                            <div class="post_caption_two" id="Relist{{ commentIndex }}">
+                              <p class="m-0 com-comment">{{ list.comment }}</p>
+                            </div>
+                            <span
+                              class="text-primary"
+                              id="RelistComment{{ commentIndex }}"
+                              *ngIf="list.comment?.length > 100"
+                              (click)="readMoreRecomment(commentIndex, 'MORE')"
+                              style="cursor: pointer; float: right"
+                              >...{{ 'see_more' | translate }}</span
+                            >
+                          </div>
+                          <div class="col-sm-10 offset-md-1 Re_comment">
+                            <div class="row cus_comment_sec mt-1" *ngFor="let Relist of list.reCommentArr; let reIndex = index">
+                              <div class="col-sm-1 col-xs-2 mr-4">
+                                <div class="cus-com-img-network cmt-pro-round-img">
+                                  <img *ngIf="!Relist.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                                  <img *ngIf="Relist.image" src="{{ enduser_url_profile + Relist.image }}" class="1 img-fluid" />
+                                </div>
+                              </div>
+                              <div class="col-sm-10 col-xs-10 cus-comm-bg ml-1">
+                                <p class="m-0 com-name">{{ Relist.personName }}<span *ngIf="Relist.isEdited" style="color: #919191">(Edited)</span></p>
+                                <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment">
+                                  <svg
+                                    *ngIf="Relist.isMyComment || posts.isMyPost"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    data-supported-dps="24x24"
+                                    fill="currentColor"
+                                    class="mercado-match"
+                                    width="18"
+                                    height="18"
+                                    focusable="false"
+                                  >
+                                    <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                  </svg>
+                                </span>
+                                <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                  <li *ngIf="Relist.isMyComment" (click)="editComment(posts._id, i, commentIndex, reIndex, Relist, 'RECOMMENT')">Edit</li>
+                                  <li *ngIf="Relist.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, reIndex, Relist._id, 'RECOMMENT')">Delete</li>
+                                </ul>
+                                <div class="post_caption_two" id="innerRecomment{{ reIndex }}">
+                                  <p class="m-0 com-comment">{{ Relist.comment }}</p>
+                                </div>
+                                <span
+                                  class="text-primary"
+                                  id="innerRecommentID{{ reIndex }}"
+                                  *ngIf="Relist.comment?.length > 100"
+                                  (click)="innerRecomment(reIndex, 'MORE')"
+                                  style="cursor: pointer; float: right"
+                                  >...{{ 'see_more' | translate }}</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="com-comment replay_css col-10 offset-1">
+                            <span (click)="getId(list)">Reply</span>
+                            <span (click)="reCommentList(list, i, commentIndex)" *ngIf="list.totalReComment > 0 && list.totalReComment > list.reCommentArr?.length"
+                              >{{ 'see_more' | translate }}({{ list?.totalReComment - list.reCommentArr?.length }})</span
+                            >
+                          </div>
+                          <div class="col-10 ml-auto Recomment_Input_icon">
+                            <div class="row d-flex justify-content-center align-items-center cus-border-top" *ngIf="reCommentForm === list._id">
+                              <div class="col-1 mr-2">
+                                <div class="pro-round-img cmt-pro-round-img">
+                                  <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                                  <img *ngIf="userImage" src="{{ enduser_url_profile + userImage }}" class="img-fluid" />
+                                </div>
+                              </div>
+                              <div class="col-10">
+                                <form [formGroup]="RePostCommentForm" class="row cus-comment-form">
+                                  <div class="col-10 p-l-0 p-r-0">
+                                    <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                                  </div>
+                                  <div class="col-2 p-r-0">
+                                    <button class="btn post_icon" (click)="RecommentPostInfo(posts, commentIndex, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="postIdComment == posts._id && posts.totalComment > posts.comments?.length">
+                        <div class="col-10 offset-1 mt-2 Recomment_Input_icon">
+                          <span class="replay_css" (click)="getPostCommentListmore(posts, i)" style="cursor: pointer">Load more comments </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 hidden-phone-sx">
+        <div class="cus-round-with-bg" *ngIf="getGroupDetails?.isMember">
+          <h3 class="cus-cart-tit-box">{{ getGroupDetails?.memberCount }} {{ 'myNetwork.members' | translate }}</h3>
+          <ul class="d-flex">
+            <span *ngFor="let memberList of getGroupDetails?.memberData">
+              <div *ngIf="memberList.roleTitle == 'COMPANY'">
+                <img *ngIf="memberList.image" src="{{ endUser_profile + memberList.image }}" class="groupimg" />
+                <img *ngIf="!memberList.image" src="assets/Truck-banne-profile.png" class="groupimg" /></div
+            ></span>
+          </ul>
+          <div class="text-center mt-2 mb-2 group_btn">
+            <button type="button" class="btn mt-2" data-toggle="modal" data-target="#myModal-invite-network1" *ngIf="getGroupDetails?.type == 'Public'" (click)="getInvitedListButton()">
+              {{ 'buttons.invite_conne' | translate }}</button
+            ><button
+              type="button"
+              class="btn mt-2"
+              data-toggle="modal"
+              data-target="#myModal-invite-network1"
+              *ngIf="getGroupDetails?.type == 'Private' && this.getGroupDetails?.isAdmin"
+              (click)="getInvitedListButton()"
+            >
+              {{ 'buttons.invite_conne' | translate }}
+            </button>
+            <button type="button" class="btn mt-2" data-toggle="modal" data-target="#myModal-seell-network" (click)="getGroupListView()">{{ 'buttons.see_all' | translate }}</button>
+            <button type="button" class="btn mt-2" *ngIf="getGroupDetails.isAdmin || getGroupDetails.isMember" (click)="createPostInfo('share')">{{ 'buttons.share_grp' | translate }}</button>
+            <button
+              type="button"
+              class="btn mt-2"
+              *ngIf="getGroupDetails.isAdmin && getGroupDetails?.type == 'Private' && getGroupDetails?.totalRequests"
+              data-toggle="modal"
+              data-target="#GroupRequest"
+              (click)="groupRequestListPageUpdate()"
+            >
+              {{ 'myNetwork.grp_req' | translate }}({{ getGroupDetails?.totalRequests }})
+            </button>
+            <br />
+          </div>
+        </div>
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.grp_detail.about' | translate }}</h3>
+          <p class="m-2">
+            {{ getGroupDetails?.description | slice: 0:150
+            }}<span class="text-primary" data-toggle="modal" data-target="#myModal-invite-network2" style="cursor: pointer; font-weight: 500"> {{ 'see_more' | translate }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal" id="myModal-invite-network1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="row pl-5 pr-5 pt-4">
+        <div class="col-sm-12 pr-0">
+          <h4 class="modal-title float-left">{{ 'buttons.invite_conne' | translate }}</h4>
+          <button type="button" class="close float-right" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="col-sm-12 pl-0 mt-2">
+          <div class="cus-search-input mt-2 row wt-100-on-mobile-flx">
+            <input matInput placeholder="Enter Name" [(ngModel)]="inviteSearch" autocomplete="off" />
+            <div class="cus-search-input wt-100-on-mobile-btn">
+              <button class="btn" (click)="getInvitedListSearch()"><i class="fa fa-search"></i></button>
+              <button class="btn btn-res" (click)="reset()"><i class="fa fa-refresh" title="reset"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-body modal_scrool"
+        infinite-scroll
+        [infiniteScrollDistance]="modalScrollDistance"
+        [infiniteScrollThrottle]="modalScrollThrottle"
+        [scrollWindow]="false"
+        (scrolled)="onModalScrollDown()"
+      >
+        <ul class="cus-code-list" *ngIf="invitedList?.length">
+          <li *ngFor="let list of invitedList; let i = index" class="">
+            <mat-checkbox color="primary" class="col-sm-1" (change)="sendInviteList($event, list._id)" *ngIf="list.isMember == false"> </mat-checkbox>
+            <span [ngStyle]="{ 'margin-left': list.isMember ? '7.333%' : '0px' }">{{ list.firstName | titlecase }} {{ list.lastName | titlecase }}</span>
+            <span *ngIf="list.isMember" class="float-right" style="color: #4c4c4c">{{ list.status }}</span>
+          </li>
+        </ul>
+        <div *ngIf="!invitedList?.length" class="text-center">
+          <p>{{ 'No_Records_Found' | translate }}</p>
+        </div>
+      </div>
+      <div class="modal-footer"><button type="button" class="btn common-btn" (click)="onSubmit()" *ngIf="selectedInvitedPersonArr?.length" data-dismiss="modal">Invite</button></div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal-seell-network">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>{{ 'myNetwork.members' | translate }}</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body modal_scrool">
+        <div class="col-sm-12 p-l-0 p-r-0 delet-btn">
+          <span class="row" *ngFor="let memberList of groupPostList">
+            <span class="col-sm-1">
+              <span>
+                <a routerLink="/layout/social-media/connection-profileview/{{ memberList.userId }}" data-dismiss="modal">
+                  <img *ngIf="memberList.image" src="{{ endUser_profile + memberList.image }}" class="groupimg" />
+                  <img *ngIf="!memberList.image" src="assets/Truck-banne-profile.png" class="groupimg" />
+                </a>
+              </span>
+            </span>
+            <span class="text-capitalize col-sm-9 pl-0 pr-0 mt-2"
+              >{{ memberList.personName }}
+              <p *ngIf="memberList.role == 'owner'">(Admin)</p></span
+            >
+            <span class="col-sm-1">
+              <button
+                mat-raised-button
+                *ngIf="memberList.isMyself == false && this.ownerId === loggedInUser"
+                (click)="removemember(memberList)"
+                matTooltip="Remove this group"
+                aria-label="Button that displays a tooltip when focused or hovered over"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal-invite-network2">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-sm-12">
+          <h6>{{ 'myNetwork.grp_detail.group_name' | translate }}</h6>
+          <p>{{ getGroupDetails ? getGroupDetails.name : 'N/A' }}</p>
+        </div>
+        <div class="col-sm-12">
+          <h6>{{ 'myNetwork.grp_detail.description' | translate }}</h6>
+          <p>{{ getGroupDetails ? getGroupDetails.description : 'N/A' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="group-post" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Create a post</h4>
+        <button type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="profile-img">
+          <img src="assets/user1.png" />
+          <h4>Amit kumar</h4>
+        </div>
+        <mat-form-field class="example-full-width"> <mat-label>What do you want to talk about</mat-label> <textarea matInput></textarea></mat-form-field>
+      </div>
+      <div class="col-sm-12">
+        <ul class="pull-left">
+          <li class="d-inline-block">
+            <div class="custom-file-upload">
+              <label for="file-upload" class="custom-file-upload1"> <i class="fa fa-image"></i> </label> <input id="file-upload" type="file" />
+            </div>
+          </li>
+          <li class="d-inline-block">
+            <div class="custom-file-upload">
+              <label for="file-upload" class="custom-file-upload1"> <i class="fa fa-youtube-play"></i> </label> <input id="file-upload" type="file" />
+            </div>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-primary pull-right">Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="GroupRequest">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content mb-3 pb-2">
+      <div class="modal-header">
+        <div class="col-4 pr-0"><h4 class="modal-title">Group Request</h4></div>
+        <div class="col-2"><button type="button" class="close" data-dismiss="modal">&times;</button></div>
+      </div>
+      <div
+        class="modal-body modal_scrool"
+        infinite-scroll
+        [infiniteScrollDistance]="modalScrollDistance"
+        [infiniteScrollThrottle]="modalScrollThrottle"
+        [scrollWindow]="false"
+        (scrolled)="onModalScrollDownGroupRequest()"
+      >
+        <ul class="cus-code-list" *ngIf="groupRequestLists?.length">
+          <li class="d-flex align-items-center mt-2 position-relative pl-4 pr-4" *ngFor="let item of groupRequestLists; let i = index">
+            <img
+              *ngIf="item.userData.image"
+              src="{{ enduser_url_profile }}{{ item.userData.image }}"
+              style="width: 40px; height: 40px; margin-right: 5px; border: 1px solid #d9d9d9; border-radius: 50%"
+            />
+            <img *ngIf="!item.userData.image" src="assets/Truck-banne-profile.png" style="width: 40px; height: 40px; margin-right: 5px; border: 1px solid #d9d9d9; border-radius: 50%" />
+            <p class="m-0">{{ item.userData.personName }}</p>
+            <div class="ml-auto">
+              <button class="btn ml-2" (click)="acceptGroupJoinRequest(item.userId, 'ACCEPT', i)">Accept</button>
+              <button class="btn ml-2" (click)="acceptGroupJoinRequest(item.userId, 'DECLINE', i)">Decline</button>
+            </div>
+          </li>
+        </ul>
+        <div *ngIf="!groupRequestLists?.length" class="text-center">
+          <p>{{ 'No_Records_Found' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

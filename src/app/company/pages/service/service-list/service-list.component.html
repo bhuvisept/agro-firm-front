@@ -1,0 +1,83 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="mine-mar-set bgnew">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 offset-sm-0 offset-md-3 cus-middelbar">
+                <div class="row cus-round-with-bg p-3 mb-3">
+                    <div class="col-sm-12 p-0 text-right visible-phone-sx" *ngIf="roleName=='COMPANY' "> <button
+                            type="button" class="btn common-btn" (click)="createServices()"><i class="fa fa-plus"></i>
+                            {{ 'buttons.add_service' | translate }} </button> </div>
+                    <div class="col-sm-3 cus-search-dropown mb-3">
+                        <mat-form-field appearance="none">
+                            <mat-select style="position: absolute; top:0px;" [(ngModel)]="deleted" class="text-center">
+                                <mat-option *ngFor="let list of deleteArray" [value]="list.value">{{list.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6 p-0 pl-sm-2 cus-search-input">
+                        <input placeholder="Enter name" [(ngModel)]="searchText" autocomplete="off"
+                            class="cus-input col-4" />
+                        <div class="cus-search-input wt-100-on-mobile-btn">
+                            <button type="submit" class="btn" (click)="searchData()"> <i class="fa fa-search"
+                                    aria-hidden="true"></i> </button>
+                            <button class="btn btn-res" label="Reset" title="Reset" (click)="resetbutton()"><i
+                                    class="fa fa-refresh" title="reset"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-right hidden-phone-sx" *ngIf="roleName=='COMPANY' "> <button type="button"
+                            class="btn common-btn" (click)="createServices()"><i class="fa fa-plus"></i>    {{ 'buttons.add_service' | translate }} 
+                        </button> </div>
+                </div>
+                <div class="">
+                    <div class="card-main mt-2 cus-round-with-bg row"
+                        *ngFor="let list of minelist | paginate:{itemsPerPage: itemsPerPage, currentPage: pageNew, totalItems: newtotalCount}; let i=index">
+                        <div class="col-md-6 p-2">
+                            <div class="service-img"> <img src="{{SERVICEIMAGE + list.serviceImage}}" alt="img"
+                                    class="img-fluid cus-round-with-bg" /> </div>
+                            <div class="service-img" *ngIf="!list.serviceImage"> <img src="assets/Truck-banne-bg.png"
+                                    alt="img"> </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div>
+                                <h5 class="mt-2 text-capitalize">{{list.serviceName | slice: 0:40}}</h5>
+                                <!-- <P class="mt-2 mb-0"> <span class="font-weight-bold">{{ 'labels.service.service_cost' | translate }}</span>
+                                    :&nbsp;{{list.currency}}&nbsp;{{list.serviceCost | currency:'':''}}</P> -->
+                                <P> <span class="font-weight-bold">{{ 'labels.service.location' | translate }}</span> :&nbsp;{{list.address}}</P>
+                                <div> <a routerLink="/layout/myaccount/service/view-service/{{list._id}}"
+                                        class="text-primary"> {{ 'labels.service.view' | translate }} </a> <span class="font-weight-bolder"
+                                        *ngIf="this.roleName=='COMPANY' && list.isDeleted===false">|</span> <button
+                                        class="text-primary btn-for-delet" (click)="deleteServices(list._id)"
+                                        *ngIf="this.roleName=='COMPANY' && list.isDeleted===false"
+                                        style="cursor: pointer;">{{ 'labels.service.archive' | translate }}</button> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" *ngIf="newtotalCount==0">
+                        <p class="text-center"> No Records Found </p>
+                    </div>
+                    <div class="text-center mainpagination m-auto" *ngIf="newtotalCount > itemsPerPage">
+                        <pagination-controls (pageChange)="savePageChanged($event)" class="custom-pagination-designe">
+                        </pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

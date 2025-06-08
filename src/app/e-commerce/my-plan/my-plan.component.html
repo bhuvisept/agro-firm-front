@@ -1,0 +1,99 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+  <div class="container-fluid">
+    <div class="row p-0">
+      <div class="col-sm-12 p-0">
+        <app-e-commerce-header></app-e-commerce-header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 p-0">
+        <app-sidemenu></app-sidemenu>
+      </div>
+      <div class="col-sm-10 p-0">
+        <div class="cus-main-section p-3">
+          <div class="row pl-4 pr-4">
+            <div class="col-sm-6 p-0">
+              <div class="page-title-box">
+                <h4 class="page-title">{{'my-plan' | translate}}</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 mt-3 pl-4 pr-4" *ngIf="length !=0">
+            <div class="col-sm-12 cus-box-with-radio cus-wrap-pro p-4" *ngFor="let list of planData">
+              <div class="row">
+                <div class="col-sm-10">
+                  <p class="plan_heading">Your {{list.group[0].data?.validity | lowercase}}
+                    {{list.group[0].data?.title}} plan ({{list.group[0].data?.plan_name | titlecase}})
+                  </p>
+                </div>
+                <!-- <div class="col-sm-2 text-right">
+                  <button class="btn cus-up-btn" (click)="upgradePlan( list.data.title )"> Upgrade </button>
+                </div> -->
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="text-capitalize">{{'sub_plan.features' | translate}}</h4>
+                  <ul class="mb-4">
+                    <li *ngFor="let feature of list.group[0].data.features" class="mb-2">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <span class="pln-act">{{feature.keyName}}</span>
+                        </div>
+                        <div class="col-sm-2">
+                          <span class="pln-inAct ml-1">{{feature.keyValue}}</span>
+                        </div>
+                      </div>
+
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <p class="m-0"><span class="pln-act">{{'sub_plan.Purchased' | translate}} :</span> <span
+                      class="pln-inAct ml-4">{{list.group[0].startDate}}</span></p>
+                  <p class="m-0"><span class="pln-act">{{'sub_plan.Expired' | translate}} : </span> <span
+                      class="pln-inAct ml-4">{{list.group[0].endDate}}</span></p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <span class="pln-act">{{'sub_plan.Total' | translate}}</span> <span class="pln-inAct ml-4"
+                    style="font-size: 20px;">{{list.group[0].data?.finalPrice | currency}}</span>
+                </div>
+
+              </div>
+              <div class="row pt-4 mt-3" style="border-top: 1px solid lightgrey;"></div>
+              <div class="col-sm-12 mt-2 p-0 text-right">
+
+                <button class="btn cus-up-btn" *ngIf="list.group[0].paymentMode=='WEB'"  (click)="upgradePlan(list.group[0].data._id)">{{'subscription_plan.upgrade_plan' | translate}} </button>&nbsp;
+                <button *ngIf="list.group[0].chargeId && !planRefunded && list.group[0].paymentMode=='WEB'" class="btn cus-up-btn" (click)="cancelPlan(list)">
+                  {{'buttons.cancel' | translate}}</button>
+              </div>
+              <div class="pri-plan-grp text-center">
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3 mt-3 pl-4 pr-4" *ngIf="length ==0">
+            <div class="col-sm-12 text-center">{{'No_Records_Found' | translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

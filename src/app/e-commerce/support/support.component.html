@@ -1,0 +1,53 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0 cus-slide-sidemenu">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0 cus-slide-main-wrapper">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title"> {{ 'seller.suuport.heading' | translate }} </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cus-pro-filter cus-box-with-radio">
+                        <p>You can write us at <strong><a href="mailto:support@mytruck.one">Send mail for admin</a></strong> in case
+                            you have any queries or suggestions related to this platform. We will get back to you.</p>
+                    </div>
+                    <!-- <div class='mt-5'>
+                        <div class='col-sm-9 mb-3'>
+                            <input type="text" class='col-sm-9' [disabled]='true' [(ngModel)]='ratingLink' #userinput>
+                        </div>
+                        <button class='e-comm-btn mr-2' (click)="generateLink()" value="click to copy">Link</button>
+                        <button class='e-comm-btn' (click)="copy()" *ngIf='ratingLink'
+                            value="click to copy">Copy</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

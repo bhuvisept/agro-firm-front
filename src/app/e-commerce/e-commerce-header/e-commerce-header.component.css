@@ -1,0 +1,71 @@
+.cus-e-comm-header {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 5px rgb(0 0 0 / 23%);
+}
+.cus-dash-logo {
+  margin: 5px 0;
+}
+.cus-dash-logo img {
+  width: 55px;
+  margin: 0;
+}
+button {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+.profile-updation {
+  padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
+  text-align: left !important;
+  position: relative;
+  background-color: #fafbfd;
+  border: 1px solid #f1f3fa;
+  border-width: 0 1px;
+  min-height: 70px;
+  margin: 0 0 0 10px;
+  position: relative;
+}
+span.account-user-avatar.ml-1 {
+  position: absolute;
+  top: calc(38px / 2);
+  left: 15px;
+}
+span.account-user-name {
+  font-size: 15px;
+  display: block;
+  color: #6c757d;
+  font-weight: 600;
+}
+span.account-position {
+  display: block;
+  font-size: 12px;
+  margin-top: -3px;
+}
+.dropdown-toggle::after {
+  content: none !important;
+}
+@media (max-width: 767px) {
+  .profile-updation {
+    padding: calc(31px / 2) 5px calc(31px / 2) 35px !important;
+  }
+}
+.notiDrop {
+  transform: translate3d(-200px, 38px, 0px) !important;
+}
+.icons-noti {
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+  font-size: 13px;
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  width: 17px;
+  display: flex;
+  height: 17px;
+  align-items: center;
+  justify-content: center;
+}

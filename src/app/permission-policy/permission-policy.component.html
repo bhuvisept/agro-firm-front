@@ -1,0 +1,60 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class='main_outter'>
+    <div class='back'>
+        <div class='container'>
+            <div class=""><button type="button" class="close cus-close-post" (click)="onNoClick()">&times;</button></div>
+            <div class="row">
+                <div class='col-sm-12 header' style="display: flex; justify-content: center;">
+                    
+                    <h4>Warning UGC</h4>
+                </div>
+                <div class='col-sm-12 roles' style="display: flex;align-items: center;height: 45px;">
+                    [User-Generated CONTENT POLICY (UGC). IF you are going to use this Web then
+                    accepts these policies.
+                </div>
+                <div class="col-sm-12 roles" *ngFor='let permission of permissionList'
+                    style="display: flex;align-items: center;height: 45px;">
+                   <ul>
+                    <li>
+                       <h6>{{permission.list}}</h6> 
+                    </li>
+                   </ul>
+                </div>
+                <div class="col-sm-12 roles"  style="display: flex;align-items: center;height: 45px;">
+                  <form style="display: flex;">
+                    <div>
+                        <input class="termsCondition" type="checkbox" [(ngModel)]="TermsAndCondition" [ngModelOptions]="{standalone: true}" /> 
+                        
+                    </div>
+                    <div class="termsConditionText" >
+                       <h6 >Terms And Conditions</h6>    
+                    </div>
+                  </form>
+                </div>
+                <div class='col-sm-12 roles' style="display: flex;align-items: center;height: 45px;">
+                    If you accept the above condition then use the web
+                </div>
+                <div class='col-sm-12 ' style="display: flex;justify-content:flex-end;height: 45px;">
+                   
+                   <button class="btn cus-lg-btn" style="width: 60px;height: 35px;margin-top: 20px;" [disabled]="!TermsAndCondition"  (click)="termAndCondition()">OK</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

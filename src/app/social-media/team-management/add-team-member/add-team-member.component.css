@@ -1,0 +1,9 @@
+.connection h4 {
+  font-size: 20px;
+}
+
+.sha {
+  /* box-shadow: 2px 2px 2px #d3d3d3e8; */
+  -webkit-filter: drop-shadow(-4.243px -4.243px 3px #fff) drop-shadow(4.243px 4.243px 3px rgba(171, 194, 212, 0.6));
+  filter: drop-shadow(-1.243px -1.243px 3px rgba(171, 194, 212, 0.6)) drop-shadow(4.243px 4.243px 3px rgba(171, 194, 212, 0.6));
+}

@@ -1,0 +1,170 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container">
+        <div class="row p-0 mb-3 mt-2">
+            <div class="col-sm-12 p-0">
+                <div class="p-3">
+                    <div class="row cus-box-with-radio product-cus-box-outer ml-1 mr-1">
+                        <div class="col-sm-12 product-cus-box-slider p-0 text-center"> <img
+                                *ngIf='!productImages?.length' src="assets/no-product-img.jpg"> <owl-carousel-o
+                                [options]="customOptions" class="slider_mine"> <ng-container
+                                    *ngFor="let slide of productImages; let i=index"> <ng-template carouselSlide
+                                        [id]="slide.id"> <img src="{{productImgPath}}{{imageData}}"> </ng-template>
+                                </ng-container> </owl-carousel-o>
+                            <div class="product_view_thumb">
+                                <div class="button secondary url" *ngFor="let slide of productImages; let i=index"> <img
+                                        (click)='getImage(slide.name)' src="{{productImgPath}}{{slide.name}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 m-1">
+                        <div class="col-sm-8 details cus-box-with-radio">
+                            <h3 class="text-capitalize mb-2 mt-4">{{product.productName |titlecase}}</h3>
+                            <ul class="cus-productdetail">
+                                <li class="row" *ngIf="product.brand_name"> <span
+                                        class="col-sm-6 p-0 field-head">brand</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.brand_name}}</span> </li>
+                                <li class="row" *ngIf="product.model_name"> <span
+                                        class="col-sm-6 p-0 field-head">model</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.model_name}}</span> </li>
+                                <li class="row" *ngIf="product.vin"> <span class="col-sm-6 p-0 field-head">VIN</span>
+                                    <span class="col-sm-6 p-0 field-head">{{product.vin}}</span> </li>
+                                <li class="row" *ngIf="product.productionYear"> <span
+                                        class="col-sm-6 p-0 field-head">year of production</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.productionYear}}</span> </li>
+                                <li class="row" *ngIf="product.mileage"> <span
+                                        class="col-sm-6 p-0 field-head">mileage</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.mileage}}lbs</span> </li>
+                                <li class="row" *ngIf="product.netWeight"> <span class="col-sm-6 p-0 field-head">net
+                                        weight</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.netWeight}}lbs</span> </li>
+                                <li class="row" *ngIf="product.length"> <span
+                                        class="col-sm-6 p-0 field-head">length</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.length}}m</span> </li>
+                                <li class="row" *ngIf="product.width"> <span
+                                        class="col-sm-6 p-0 field-head">width</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.width}}m</span> </li>
+                                <li class="row" *ngIf="product.height"> <span
+                                        class="col-sm-6 p-0 field-head">height</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.height}}m</span> </li>
+                                <li class="row" *ngIf="product.engineBrand"> <span
+                                        class="col-sm-6 p-0 field-head">Engine make</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.engineBrand}}</span> </li>
+                                <li class="row" *ngIf="product.displacement"> <span
+                                        class="col-sm-6 p-0 field-head">engine displacement</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.engineDisplacement}}cc</span> </li>
+                                <li class="row" *ngIf="product.enginePoweroutput"> <span
+                                        class="col-sm-6 p-0 field-head">engine power output</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.enginePoweroutput}}hp</span> </li>
+                                <li class="row" *ngIf="product.fuelCapacity"> <span class="col-sm-6 p-0 field-head">fuel
+                                        capacity</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.fuelCapacity}}</span> </li>
+                                <li class="row" *ngIf="product.fuelType"> <span class="col-sm-6 p-0 field-head">fuel
+                                        type</span> <span class="col-sm-6 p-0 field-head">{{product.fuelType}}</span>
+                                </li>
+                                <li class="row" *ngIf="product.grossWeight"> <span class="col-sm-6 p-0 field-head">gross
+                                        weight</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.grossWeight}}lbs</span> </li>
+                                <li class="row" *ngIf="product.loadCapacity"> <span class="col-sm-6 p-0 field-head">load
+                                        capacity</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.loadCapacity}}</span> </li>
+                                <li class="row" *ngIf="product.manufacture_name"> <span
+                                        class="col-sm-6 p-0 field-head">manufacturer</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.manufacture_name}}</span> </li>
+                                <li class="row" *ngIf="product.payLoad"> <span
+                                        class="col-sm-6 p-0 field-head">payload</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.payLoad}}kg</span> </li>
+                                <li class="row" *ngIf="product.price"> <span
+                                        class="col-sm-6 p-0 field-head">price</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.price | currency}}</span> </li>
+                                <li class="row" *ngIf="product.condition"> <span
+                                        class="col-sm-6 p-0 field-head">condition</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.condition | titlecase}}</span> </li>
+                                <li class="row" *ngIf="product.location"> <span
+                                        class="col-sm-6 p-0 field-head">location</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.location | titlecase}}</span> </li>
+                                <li class="row" *ngIf="product.suspension"> <span
+                                        class="col-sm-6 p-0 field-head">suspension</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.suspension}}</span> </li>
+                                <li class="row" *ngIf='product.constant_name=="TRUCKS"'> <span
+                                        class="col-sm-6 p-0 field-head">transmission type</span> <span
+                                        class="col-sm-6 p-0 field-head">{{product.transmissionType}}</span> </li>
+                                <li class="row" *ngIf="product.wheelBase"> <span class="col-sm-6 p-0 field-head">wheel
+                                        base</span> <span class="col-sm-6 p-0 field-head">{{product.wheelBase}}mm</span>
+                                </li>
+                                <li class="row" *ngIf="product.description"> <span
+                                        class="col-sm-12 p-0 mb-3 field-head"><strong>Description</strong></span> <span
+                                        class="col-sm-12 p-0 field-head" innerHtml="{{product.description}}"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class='col-sm-4 pr-0'>
+                            <div class='cus-box-with-radio Contact-form'>
+                                <div class='col-sm-11 ml-3 pt-4 text-center'>
+                                    <h4 class="text-capitalize mb-2 pt-2 pb-2 sell-head"> <i
+                                            class="fa fa-address-book-o" style="font-size:24px; color:white;"></i>
+                                        Contact seller </h4>
+                                </div>
+                                <form [formGroup]='contactSeller' (ngSubmit)='onSubmit()'>
+                                    <div class='form-inner p-4'>
+                                        <div class='row'>
+                                            <div class="col-sm-12 mb-2">
+                                                <div class='mb-2 field-head'>Your name or company name<span
+                                                        style="color:red">*</span></div><input type='text'
+                                                    autocomplete="off" readonly [(ngModel)]="userName"
+                                                    formControlName='name' class="form-control sellInput"
+                                                    placeholder="abc" maxlength="15">
+                                            </div>
+                                            <div class='col-sm-12 mb-2'>
+                                                <div class='mb-2 field-head'>E-mail</div><input autocomplete="off"
+                                                    formControlName="email" type='text' class="form-control sellInput"
+                                                    placeholder="abc@gmail.com">
+                                            </div>
+                                            <div class='col-sm-12 mb-2'>
+                                                <div class='mb-2 field-head'>Phone</div><input autocomplete="off"
+                                                    formControlName="phone" class="form-control sellInput"
+                                                    mask="(000) 000-0000" placeholder="(123) 456-7890">
+                                            </div>
+                                            <div class='col-sm-12 mb-2'>
+                                                <div class='mb-2 field-head'>Description<span style="color:red">*</span>
+                                                </div><textarea rows="3" class="form-control sellInput" type='text'
+                                                    placeholder="Write here..." formControlName='description'
+                                                    maxlength="5000"> </textarea> <span> <mat-error
+                                                        *ngIf="contactSeller.get('description').hasError('required') && contactSeller.get('description').touched">
+                                                        <small>Please enter description</small> </mat-error> </span>
+                                            </div>
+                                            <div class="col-md-12 p-md-0 ml-4">
+                                                <div class="space-btw-inputext" id="captcha"> <re-captcha
+                                                        formControlName="recaptchaReactive" id="capDiv">
+                                                    </re-captcha><!-- <p class="form_error red-class" *ngIf="validRecaptcha">Please select recaptcha validation</p>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=' mt-3 text-center'> <button type='submit'
+                                                class='btn btn-sell-submit'>Send Message</button> </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

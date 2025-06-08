@@ -1,0 +1,199 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+        <div class="cus-search-input row"  >
+
+            <mat-form-field class="col-sm-2 wt-100-on-mobile">
+                <div class="drop_down_design_active">
+                    <mat-select [(ngModel)]="isStatus"> <mat-option *ngFor="let list of statusList" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                </div>
+            </mat-form-field>
+            <mat-form-field class="col-sm-2 sm-p-0 wt-100-on-mobile">
+                <div class="drop_down_design_active">
+                    <mat-select [(ngModel)]="isRead"> <mat-option *ngFor="let list of readArray" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                </div>
+            </mat-form-field>
+
+            <mat-form-field class="col-sm-3" >
+              <div class="row" style="background-color:#e7edf2 ;border-radius: 39px !important;">
+                <div class="col-sm-8">
+               
+                  <input matInput placeholder="Search by Date" [(ngModel)]="searchDate"[matDatepicker]="picker">
+     
+                </div> 
+                <div class="col-sm-4">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker" class="mat-icon-button" ></mat-datepicker-toggle>
+                  <mat-datepicker #picker ></mat-datepicker>
+                </div>
+              </div>
+          
+           
+            </mat-form-field>
+            <div class="col-sm-5 cus-search-input mt-sm-4 pl-0 mob-pl-0" style="padding-left: 5px">
+              <input matInput placeholder="Search Email/Name" [(ngModel)]="searchText" autocomplete="off" class="main" maxlength="30" />
+              <div class="cus-search-input wt-100-on-mobile-btn">
+                <button type="button" class="btn" (click)="searchData()"><i class="fa fa-search"></i></button>
+                <button (click)="reset()" class="btn btn-res" label="Reset" title="Reset"><i class="fa fa-refresh" title="reset"></i></button>
+              </div>
+            </div>
+        </div>
+    </div>
+      <div class="col-sm-12 modal-body">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <th scope="col" (click)="sort('personName')"> {{ 'applicants.Name' | translate }} <i class="fa fa-sort grab"></i>    </th>
+            <th scope="col" (click)="sort('email')">{{ 'applicants.Email' | translate }}    <i class="fa fa-sort grab"></i></th>
+            <th scope="col">{{ 'applicants.Phone_Number' | translate }}</th>
+            <th scope="col">DOC</th>
+            <th scope="col">Status</th>
+            <th scope="col">View</th>
+            <th scope="col" style="text-align: center" >{{ 'applicants.Action' | translate }}</th>  
+            <th scope="col">Mark Read</th> 
+          </thead>
+          <tbody>
+            <tr  *ngIf="noRecordFound">
+              <td class="text-center" colspan="8">{{ 'No_Records_Found' | translate }}</td>
+            </tr>
+        
+            <tr  class="cursorPointer" *ngFor="let data of userData | orderBy: key: reverse | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index" >
+             <td [ngClass]="data.isReaded==true ? 'readed' : ''" >{{ data.userData.personName | titlecase }}</td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''"><span [matTooltip]="data.userData.email" matTooltipPosition="below">{{data.userData.email.length > 8 ? (data.userData.email | slice:0:8) : data.userData.email }}</span>    </td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''">+1 {{data.userData.mobileNumber}}</td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''">
+                <div class="col-sm-2 " *ngIf='data.resume' >
+                  <span>
+                    <a  title="Resume" target="_blank" href='{{docs_url}}{{data.resume}}' class="mr-2"> <i class="fa fa-file-pdf-o " style="color: red"></i></a>
+                  </span>
+                  
+                  <span *ngFor ='let docs of data?.driverDocument' >
+                    <a target="_blank" href="{{driverDocs}}{{docs?.fileName}}" [title]="docs.name"><i class="fa fa-file-archive-o" style="color: #009ad9;"></i></a>
+                  </span>
+                </div>
+                <div class="col-sm-2 " *ngIf='data.description'  >
+                  <i class="fa fa-file ml-1" style="color: red" data-toggle="modal" (click)='description(data.description)'
+                    data-target="#i"></i>
+                </div>
+              </td>
+              <!-- <td class='d-flex' style="width:92px" [ngClass]="data.isReaded==true ? 'readed' : ''"> -->
+                <td  style="width:92px" [ngClass]="data.isReaded==true ? 'readed' : ''">
+                
+                <p *ngIf="data.status=='accept'">Accepted</p>  
+                <p *ngIf="data.status=='reject'">Rejected</p> 
+                 <p *ngIf="data.status=='onHold'">On hold</p>
+              </td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''">
+                <i class="fa fa-eye"  data-toggle="modal" (click)='detail(data)'
+                data-target="#details"></i>
+              </td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''">
+                <div  style="display: flex; justify-content: space-between;">
+                  <div *ngIf="data.status != 'accept' " >
+                    <i class="fa fa-check" matTooltip="ACCEPT" matTooltipPosition="right"
+                      (click)='statusUpdate(data._id,"accept")'></i>
+                  </div>
+                  <div *ngIf="data.status != 'reject' ">
+                    <span><i class="fa fa-close" matTooltip="REJECT" matTooltipPosition="right"
+                        (click)='statusUpdate(data._id,"reject")'></i></span>
+                  </div>
+                </div>
+              </td>
+              <td [ngClass]="data.isReaded==true ? 'readed' : ''">
+               <i *ngIf="data.isReaded==false" class="fa fa-eye" (click)="Readjob(data._id)"></i>
+               <i *ngIf="data.isReaded==true" class="fa fa-eye-slash" ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col-sm-12 text-right">
+          <button class="btn common-btn" (click)="goBack()"> {{ 'buttons.back' | translate }} </button>
+        
+          </div>
+          <div class="col-sm-12">
+            <div class="col-md-12 text-center" *ngIf="totalCount > itemsPerPage">
+
+              <pagination-controls (pageChange)="savePageChanged($event)" autoHide="true" responsive="true"
+                directionLinks="true"></pagination-controls>
+          
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="i">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>{{ 'labels.service.description' | translate }}</h3>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-sm-12 p-l-0 p-r-0  delet-btn">
+          <p innerHtml="{{dataMain}}">
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="details"> 
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color: #1467AB;">Applicant Detail</h3>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body ">
+        <div class="col-sm-12  delet-btn">
+          <div class="row">
+            <div class="col-sm-3">Name:</div>
+            <div class="col-sm-9">{{personName  | titlecase}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">Email:</div>
+            <div class="col-sm-9">{{Email}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">Mobile:</div>
+            <div class="col-sm-9">{{mobileNumber}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">Status:</div>
+            <div class="col-sm-9"> <span *ngIf="statusType=='accept'">Accepted</span>  
+                <span *ngIf="statusType=='reject'">Rejected</span> 
+                 <span *ngIf="statusType=='onHold'">On hold</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">Applied Date:</div>
+            <div class="col-sm-9">{{createdAt  | date: 'dd-MM-yyyy , h:mm a'}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

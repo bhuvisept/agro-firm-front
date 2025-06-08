@@ -1,0 +1,58 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-login-section d-flex justify-content-center align-items-center">
+    <div class="row cus-final-login">
+        <div class="d-flex align-items-center cus-mar-med" style="flex-direction: column"> <a [routerLink]="['/']"><img
+                    src="assets/truck-logo.png" class="cus-login-logo" /></a>
+            <div class="cus-log-outer">
+                <h4 class="text-dark">Login</h4>
+                <form [formGroup]="loginForm" (ngSubmit)="submitData(loginForm.value)" id="loginForm"> <mat-form-field
+                        class="example-full-width" appearance="outline"> <mat-label>Email Address</mat-label> <input
+                            matInput formControlName="email" maxlength="50" required /> <mat-error
+                            *ngIf="loginForm.get('email').hasError('required')"> Please enter email</mat-error>
+                        <mat-error *ngIf="loginForm.get('email').hasError('pattern')"> Please enter valid email
+                            address</mat-error> </mat-form-field> <mat-form-field class="example-full-width"
+                        appearance="outline"> <mat-label>Password</mat-label> <input matInput type="{{textType}}"
+                            formControlName="password" maxlength="50" autocomplete="off" required /> <span
+                            class="cus-view-pass cus-right-pos-vies"><i class="{{eye}}" (click)="showType(textFlag)"
+                                aria-hidden="true"></i></span> <mat-error
+                            *ngIf="loginForm.get('password').hasError('required')">Please enter password </mat-error>
+                    </mat-form-field>
+                    <div class="col-md-12 p-md-0">
+                        <div class="space-btw-inputext" id="captcha"> <re-captcha formControlName="recaptchaReactive"
+                                id="capDiv"> </re-captcha>
+                            <p class="form_error red-class" *ngIf="validRecaptcha">Please select recaptcha validation
+                            </p>
+                        </div>
+                    </div>
+                    <div class=" custom_login_set mt-1 mt-md-2"> <button class="btn cus-lg-btn" type="submit"
+                            color="primary">Login</button> <a [routerLink]="['/forgot-password']"
+                            style="color : #005aa4 !important ; font-size: 14px; padding: 5px;" class="mt-2">Forgot
+                            Password ?</a> </div>
+                    <div class="d-flex align-items-center"
+                        style="justify-content: center; margin-top: 15px; flex-direction: column"> <span>Or</span>
+                        <p style="margin-top: 20px">Don't have an account ? <strong> Sign up </strong></p>
+                    </div>
+                    <div class="d-flex" style="justify-content: space-around; align-items: baseline"> <a
+                            class="btn cus-lg-btn" routerLink="/signup/company-signup">Company</a> <a
+                            class="btn cus-lg-btn" routerLink="/signup/user-signup">User</a> <a class="btn cus-lg-btn"
+                            routerLink="/signup/seller-signup">Seller</a> </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

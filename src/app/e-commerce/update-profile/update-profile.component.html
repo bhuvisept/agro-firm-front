@@ -1,0 +1,210 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title">{{'buttons.view_profile' | translate}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-cus-box cus-box-with-radio cus-from-stapper">
+                        <form [formGroup]="formTwo" class="cus-seller-check-opt">
+                            <ng-template matStepLabel>{{'profile.Seller_Account' | translate}}</ng-template>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3 cus-review">
+                                    <h4 class="mt-3 mb-3">{{'profile.Business_details' | translate}}</h4>
+                                    <h5 class="m-0" >{{legalentity == "yes" ? 'Yes, my business is a legal entity.' : ' No, I manage my business as a sole proprietor or owner. ' }} </h5>
+                                    <p class="m-0" *ngIf='sellerData?.legalEntityOption'>{{sellerData?.legalEntityOption}} </p>
+                                </div>
+                                <div class="col-sm-6" *ngIf="sellerData?.companyName">
+                                    <mat-label>{{ 'labels.job.job_view.company_name' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="companyName" readonly matInput maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('companyName').hasError('required')"> Please enter company name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('companyName').hasError('pattern')"> Please enter Invalid Name </mat-error>
+                                        
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'form_lables.manage_team.first_name' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="firstName"  matInput required
+                                            maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('firstName').hasError('required')"> Please enter first name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('firstName').hasError('pattern')"> Please enter valid first name </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'seller.manage_team.form.Last_Name' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="lastName"  matInput required
+                                            maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('lastName').hasError('required')"> Please enter last name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('lastName').hasError('pattern')"> Please enter valid last name </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'applicants.Email' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="email" matInput readonly required />
+                                        <mat-error *ngIf="formTwo.get('email').hasError('required')"> Please enter
+                                            email address </mat-error>
+                                        <mat-error *ngIf="formTwo.get('email').hasError('pattern')"> Please enter
+                                            correct email </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'labels.job.job_view.phone_number' | translate }}</mat-label>
+                                    <mat-form-field class="cus-pin-with-no">
+                                        <span class="cus-pin-code">+1</span>
+                                        <input type="text" formControlName="mobileNumber" readonly matInput mask="(000) 000-0000" required />
+                                        <mat-error *ngIf="formTwo.get('mobileNumber').hasError('required')">Please enter phone number </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6 cus-seller-dob">
+                                    <mat-label>{{'profile.Dob' | translate}}</mat-label>
+                                    <mat-form-field>
+                                        <input readonly matInput [matDatepicker]="picker" readonly  [max]="minDateOfBirth"  formControlName="dateOfBirth" [disabled]="disabled" required />
+                                        <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+                                        <mat-error *ngIf="formTwo.get('dateOfBirth').hasError('required')"> Please select date </mat-error>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <!-- <div class="col-sm-6 d-flex">
+                            
+                               
+                                        <div class="col-sm-10">
+                                            <mat-label>{{ 'profile.SSN' | translate }}</mat-label>
+                                            <mat-form-field  *ngIf="viewSSN" >
+                                                <input type="text" formControlName="ssn" readonly matInput required maxlength="20" />
+                                                
+                                            </mat-form-field>
+                                        
+                                            <mat-form-field  *ngIf="!viewSSN" >
+                                                <input type="text" [(ngModel)]="ssnrandom"  [ngModelOptions]=" 
+                                                {standalone: true}" readonly matInput />
+                                                
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <i class="fa fa-eye viewSSNCSS"  (click)="showSSN() "></i>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-sm-6 ">
+                                            <mat-label>{{ 'profile.SSN' | translate }}</mat-label>
+                                            <mat-form-field *ngIf="viewSSN">
+                                                <div class="position-relative">
+                                                    <input type="text" formControlName="ssn" readonly matInput required maxlength="20" />
+                                                    <span class="icon-right">
+                                                        <i class="fa fa-eye" (click)="showSSN()"></i>
+                                                    </span>
+                                                </div>
+                                            </mat-form-field>
+                                            <mat-form-field *ngIf="!viewSSN">
+                                                <div class="position-relative">
+                                                    <input type="text" [(ngModel)]="ssnrandom" [ngModelOptions]="{ standalone: true }" readonly matInput>
+                                                    <span class="icon-right">
+                                                        <i class="fa fa-eye" (click)="showSSN()"></i>
+                                                    </span>
+                                                </div>
+                                            </mat-form-field>
+                                   
+                                    </div>
+                                <div class="col-sm-6 pro-country">
+                                    <mat-label>{{ 'form_lables.edit_profile.Country' | translate }} </mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="country" readonly (valueChange)="getselectval($event)" required>
+                                            <mat-option *ngFor="let list of countryList" [value]="list._id" (click)="getName(list.countryName)">
+                                                {{ list.countryName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('country').hasError('required')"> Pleas select country </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6 pro-country">
+                                    <mat-label>{{ 'form_lables.edit_profile.State' | translate }} </mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="state" readonly required>
+                                            <mat-option *ngFor="let list of stateList" [value]="list._id" (click)="State(list.stateName)">
+                                                {{ list.stateName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('state').hasError('required')"> Please select state </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'form_lables.edit_profile.Postal_Code' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input formControlName="postalCode"  readonly matInput [(ngModel)]="zipcode" required  (focusout)="getCityByZipcode()" />
+                                        <mat-error *ngIf="formTwo.get('postalCode').hasError('required')"> Please enter postal code </mat-error>
+                                        <mat-error *ngIf="formTwo.get('postalCode').hasError('minlength')"> Minimum length should be 3 </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'form_lables.edit_profile.City' | translate }} </mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="city" readonly type="text" matInput required
+                                            maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('city').hasError('required')"> Please enter city </mat-error>
+                                        <mat-error *ngIf="formTwo.get('city').hasError('pattern')"> Please enter valid city </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'form_lables.edit_profile.Address' | translate }}</mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="address" readonly matInput required maxlength="50" />
+                                        <mat-error *ngIf="formTwo.get('address').hasError('required')"> Please enter address </mat-error>
+                                        <mat-error *ngIf="formTwo.get('address').hasError('pattern')"> Please enter valid address </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>{{ 'form_lables.edit_profile.default_language' | translate }} <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="defaultLanguage" required>
+                                            <mat-option *ngFor="let list of defaultLanguages" [value]="list.code">
+                                                {{ list.language }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('defaultLanguage').hasError('required')"> Pleas select country </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-12 text-right mt-3">
+                                    <a routerLink="/layout/e-commerce/dashboard" class="btn common-btn" >{{'buttons.back' | translate}}</a>
+                                    <a  routerLink="/layout/e-commerce/edit-profile" class="btn common-btn ml-3" >{{ 'Edit' | translate }}</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

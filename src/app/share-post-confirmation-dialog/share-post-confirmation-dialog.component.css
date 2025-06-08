@@ -1,0 +1,17 @@
+.cus_height_shared{
+
+    max-height: 350px;
+    overflow-y: scroll;
+
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cus_height_shared::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.cus_height_shared {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

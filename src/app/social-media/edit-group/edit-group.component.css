@@ -1,0 +1,13 @@
+.aspect-ratio {
+    width: 100%;
+    padding-top: 66.67%; /* 2:3 aspect ratio (height:width) */
+    position: relative;
+  }
+
+  .image {
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+  }
+  
+  
+  
+  

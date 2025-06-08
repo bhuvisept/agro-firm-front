@@ -1,0 +1,5 @@
+<section>
+    <div mat-dialog-content> {{ 'Are_archive_information' | translate }} </div>
+    <div mat-dialog-actions> <button class="btn common-btn" (click)="onNoClick()"> {{ 'buttons.no' | translate}} </button> <button
+            class="btn common-btn ml-2" [mat-dialog-close]="true" cdkFocusInitial>{{ 'buttons.yes' | translate}}</button> </div>
+</section>

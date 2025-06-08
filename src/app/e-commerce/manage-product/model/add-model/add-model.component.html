@@ -1,0 +1,71 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0 cus-slide-sidemenu">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-12" > 
+                            <div class="page-title-box">
+                                <h4 class="page-title text-left">{{'modal.Add_Model' | translate}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manage-product-cus-box  cus-box-with-radio cus-from-stapper" > 
+                        <form [formGroup]='addForm' (ngSubmit)='submit()' class="row"> 
+                            <div class="col-sm-12 cus-str-field">
+                                <p>{{'modal.noteText' | translate}} <span>*</span></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-label>{{'modal.SelectBrand' | translate}}<span>*</span></mat-label>
+                                <mat-form-field>
+                                    <mat-select formControlName='brandId'>
+                                        <mat-option *ngFor="let item of listData" [value]="item._id" >
+                                            {{item.brand}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="addForm.get('brandId').hasError('required')">Please select brand </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-label>{{'modal.ModelName' | translate}}  <span>*</span></mat-label>
+                                <mat-form-field>
+                                    <input matInput formControlName="Model" maxlength="70"/>
+                                    <mat-error *ngIf="addForm.get('Model').hasError('required')">Please enter model name </mat-error>
+                                    <mat-error *ngIf="addForm.get('Model').hasError('pattern')"> Please enter valid name </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 text-right">
+                                <button class="btn e-comm-btn">{{'buttons.submit' | translate}}</button>
+                                <a class="btn e-comm-btn ml-2" routerLink="/layout/e-commerce/model-list">{{'buttons.cancel' | translate}}</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

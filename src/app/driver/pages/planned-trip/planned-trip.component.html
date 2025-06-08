@@ -1,0 +1,108 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section>
+    <div class="container">
+        <div class="trip row">
+            <div class="col-sm-12 ">
+                <div class="cus-round ">
+                    <div class="modal-header" style="border-bottom: none !important">
+                        <h4 class="mt-2 col-6 pl-0">{{'trip_detail.heading' | translate}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cus-search-input row search-filter-mobile">
+                            <div class="row pl-sm-3">
+                                <div class="col-sm-4 in-half wt-100-on-mobile">
+                                    <mat-form-field>
+                                        <div class="cus-search-dropown">
+                                            <mat-select [(ngModel)]="tripStatusShow">
+                                                <mat-option *ngFor="let list of tripStatus" [value]="list.value">
+                                                    {{list.show}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-5 cus-search-input mt-sm-4 mob-pl-0"> <input matInput
+                                        placeholder="Search Trip" [(ngModel)]="searchText" autocomplete="off"
+                                        class="main" maxlength="30" />
+                                    <div class="cus-search-input wt-100-on-mobile-btn"> <button type="button"
+                                            class="btn" (click)="searchData()"> <i class="fa fa-search"></i> </button>
+                                        <button (click)="reset()" class="btn btn-res" label="Reset" title="Reset"> <i
+                                                class="fa fa-refresh" title="reset"></i> </button> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" w-100">
+                        <div class="modal-body col-sm-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col"><i
+                                                class="fa fa-map-marker"></i>&nbsp;{{'trip_detail.titles.origin' |
+                                            translate}}</th>
+                                        <th scope="col" ><i
+                                                class="fa fa-map-marker"></i>&nbsp;{{'trip_detail.titles.destination' |
+                                            translate}}</th>
+                                        <th scope="col">{{'trip_detail.titles.load_number' | translate}}</th>
+                                        <th scope="col">{{'trip_detail.titles.running_status' | translate}}</th>
+                                        <th scope="col">{{'trip_detail.titles.action' | translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-center"
+                                        *ngFor="let list of tripPlannerList | paginate:{itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount}; let i=index"
+                                        class="text-center">
+                                        <td class="pt-4">{{list.source.address | slice: 0:15}}</td>
+                                        <td class="pt-4">
+                                            <span *ngFor="let dest of list.destination; let i = index">
+                                               {{dest.address}}
+                                            </span>
+                                        </td>
+                                        <td class="pt-4">{{list.loadNumber}}</td>
+                                        <td class="pt-4">{{list.runningStatus | titlecase}}</td>
+                                        <td>
+                                            <div class="dropdown"><i class="fa fa-ellipsis-v dropbtn"></i>
+                                                <div class="dropdown-content"> <a
+                                                        *ngIf="(list.runningStatus=='ACTIVE' || list.runningStatus=='UPCOMING') && !list.isExpired"
+                                                        [routerLink]="['/layout/driver/display-route', list._id]">Track</a>
+                                                    <a
+                                                        [routerLink]="['/layout/myaccount/trip-planner/trip-details', list._id]">Trip
+                                                        Detail</a> <a *ngIf="list.runningStatus=='ACTIVE' && !list.isExpired "
+                                                        (click)="completeTrip(list._id)">Mark As Complete </a> <a
+                                                        *ngIf="list.runningStatus=='UPCOMING' && !list.isExpired "
+                                                        (click)="startTrip(list._id)">Mark As Start </a> </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="truckData mt-3">
+                                <div class="col-md-12 noInfo" *ngIf="noRecordFound">
+                                    <p class="text-center">{{'No_Records_Found' | translate}}</p>
+                                </div>
+                                <div class="col-md-8 m-auto text-center mt-3">
+                                    <pagination-controls (pageChange)="savePageChanged($event)" autoHide="true"
+                                        responsive="true" directionLinks="true"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

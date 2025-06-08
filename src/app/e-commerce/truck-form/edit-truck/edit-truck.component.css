@@ -1,0 +1,5 @@
+.product-cus-box{padding: 25px;margin: 0 3px;}
+.cus-e-commerce-mail ::ng-deep .mat-horizontal-stepper-header
+{
+ pointer-events: none;
+}

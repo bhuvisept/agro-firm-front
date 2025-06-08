@@ -1,0 +1,56 @@
+
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<h3 mat-dialog-title class="cus-color">Add New Card</h3>
+<div mat-dialog-content>
+  <div class="cus-card-box">
+    <div class="d-flex justify-content-between w100">
+      <div class="chip"></div>
+    </div>
+    <div class="number">
+      <label>{{ cardNumber | mask : '0000 0000 0000 0000' }}</label>
+    </div>
+    <div class="d-flex">
+      <div class="card-holder">
+        <label>Card holder</label>
+        <div>{{ cardHolderName }}</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="add-card-form row">
+    <label for="cardHolderName">Card Holder Name</label>
+    <input type="text" [(ngModel)]="cardHolderName" maxlength="30" class="form-control m-1" />
+    <label for="cardNumber">Card Number</label>
+    <input type="text" [(ngModel)]="cardNumber" class="form-control" mask="0000 0000 0000 0000" />
+    <div class="col-sm-6 p-l-0">
+      <label class="mt-1" for="cardHolderName">Expiry Month / Year</label><br />
+      <div class="d-flex">
+        <input type="text" [(ngModel)]="expiryMonth" class="form-control w50 m-1" mask="00" />
+        <input type="text" [(ngModel)]="expiryYear" class="form-control w50 m-1" mask="00" />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label class="mt-1" for="cvv">CVV</label>
+      <input type="text" [(ngModel)]="cvv" class="form-control m-1" mask="0000" />
+    </div>
+  </div>
+  <div class="col-sm-12 text-right mt-2" >
+    <button type="submit" (click)="addCard()" class="btn cus-tm-btn">Add</button>
+    <button mat-dialog-close class="btn cus-tm-btn btn-close m-l-1">Cancel</button>
+  </div>
+</div>

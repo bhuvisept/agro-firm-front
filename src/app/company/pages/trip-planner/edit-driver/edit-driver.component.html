@@ -1,0 +1,88 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="container add_trip cus-round-with-bg">
+    <section class="trip-info">
+        <h4 class="text-center">Reassign Driver</h4>
+        <form [formGroup]="thirdForm" (ngSubmit)="onUpdate()">
+            <div class="row">
+                <div class="col-sm-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search First Driver</mat-label> <input matInput aria-label="Driver"
+                            [matAutocomplete]="auto" formControlName='driver' [(ngModel)]="rDriver"
+                            (keyup)="removedDriver($event)" required />
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="getName.bind(this)">
+                            <mat-option *ngFor="let driver of filteredDriver | async" [value]="driver._id">
+                                <span>{{driver.personName}}({{driver.email}})</span> </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="thirdForm.controls['driver'].hasError('required')">Please enter driver's name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row cus-round-with-bg ">
+                <div class="col-sm-3 for_img_center border-right "> <img src="assets/Truck-banne-profile.png"
+                        style="width: 130px;"> </div>
+                <div class="col-sm-9 pl-0 cus-driver-detail">
+                    <ul class="mt-2 mb-2">
+                        <li class="bus_drop"> <span class="cus_width">Name</span>:<span class="text-grey cus_wid"
+                                *ngIf="selectedDriver && !selectedDriver.isLeft">{{selectedDriver.personName}}</span>
+                        </li>
+                        <li class="bus_drop"> <span class="cus_width">Phone Number</span>:<span class="text-grey cus_wid"
+                                *ngIf="selectedDriver && !selectedDriver.isLeft">+1 ({{selectedDriver.mobileNumber | slice:0:3}})-{{selectedDriver.mobileNumber | slice:3:6}}-{{selectedDriver.mobileNumber | slice:6:10}}</span>
+                        </li>
+                        <li style=" padding: 10px "> <span class="cus_width">Email</span>:<span
+                                class="text-grey cus_wid"
+                                *ngIf="selectedDriver && !selectedDriver.isLeft">{{selectedDriver.email}}</span> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search Second Driver (Optional)</mat-label> <input id="inputVaule" matInput
+                            aria-label="anotherDriver" [matAutocomplete]="auto1" [(ngModel)]="rAnotherDriver"
+                            (keyup)="removedAnotherDriver($event)" formControlName='anotherDriver' />
+                        <mat-autocomplete #auto1="matAutocomplete" [displayWith]="getAnotherName.bind(this)">
+                            <mat-option *ngFor="let driver of filteredanotherDriver | async" [value]="driver._id">
+                                <span>{{driver.personName}}({{driver.email}})</span> </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row cus-round-with-bg ">
+                <div class="col-sm-3 for_img_center border-right "> <img src="assets/Truck-banne-profile.png"
+                        style="width: 130px;"> </div>
+                <div class="col-sm-9 pl-0">
+                    <ul class="mt-2 mb-2">
+                        <li class="bus_drop"> <span class="cus_width">Name</span>:<span class="text-grey cus_wid"
+                                *ngIf="selectedsecondDriver && !selectedsecondDriver.isLeft">{{selectedsecondDriver.personName}}</span>
+                        </li>
+                        <li class="bus_drop"> <span class="cus_width">Phone Number</span>:<span class="text-grey cus_wid"
+                                *ngIf="selectedsecondDriver && !selectedsecondDriver.isLeft">+1 ({{selectedsecondDriver.mobileNumber | slice:0:3}})-{{selectedsecondDriver.mobileNumber | slice:3:6}}-{{selectedsecondDriver.mobileNumber | slice:6:10}}</span>
+                        </li>
+                        <li style=" padding: 10px "> <span class="cus_width">Email</span>:<span
+                                class="text-grey cus_wid"
+                                *ngIf="selectedsecondDriver && !selectedsecondDriver.isLeft">{{selectedsecondDriver.email}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center"> <button mat-button class=" btn common-btn m-2" (click)="Back()">Back</button>
+                <button mat-button type="submit" class=" btn common-btn m-2">Update</button> </div>
+        </form>
+    </section>
+</div>

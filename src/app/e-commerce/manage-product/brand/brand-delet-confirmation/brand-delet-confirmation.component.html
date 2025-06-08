@@ -1,0 +1,8 @@
+<!-- <p>confirmation-dialog works!</p> -->
+<!-- <div mat-dialog-title>Delete Group</div> -->
+<!-- <div mat-dialog-content>Are you sure you want to delete? </div> -->
+<div mat-dialog-content>{{data=='ECOMMERCE'?'Are you sure you want to Archive?':data}}</div>
+<div mat-dialog-actions>
+  <button [mat-dialog-close]="true" cdkFocusInitial class="btn e-comm-btn">{{'buttons.yes' | translate}}</button>
+  <button (click)="onNoClick()" class="btn e-comm-btn ml-2">{{'buttons.no' | translate}}</button>
+</div>

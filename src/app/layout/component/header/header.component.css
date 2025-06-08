@@ -1,0 +1,135 @@
+.heads li {
+  padding: 0 6px;
+  margin: 0 10px;
+}
+.heads li a,
+ul.navbar-nav.heads > li > .dropdown > button {
+  font-size: 14px !important;
+  cursor: pointer;
+}
+.heads li a > i,
+ul.navbar-nav.heads > li > .dropdown > button > i {
+  font-size: 18px;
+}
+.heads li.active > a,
+.heads li.active > a > i,
+ul.navbar-nav.heads > li:hover > .dropdown > button,
+ul.navbar-nav.heads > li:hover > .dropdown > button > i {
+  color: #005aa4 !important;
+}
+.login-header i {
+  font-weight: 800;
+  font-size: 16px !important;
+  color: #2a6f97 !important;
+}
+.login-header a {
+  color: #000 !important;
+}
+.icons-noti {
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+  font-size: 13px;
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  width: 17px;
+  display: flex;
+  height: 17px;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown-toggle.noti::after {
+  opacity: 0;
+}
+button.dropdown-toggle.dis {
+  color: #0c0c0c;
+}
+@media (max-width: 768px) {
+  .heads li {
+    margin-top: 11px;
+    margin-left: 3px;
+  }
+  .heads button {
+    padding: 0;
+  }
+  .heads i {
+    margin-right: 10px;
+  }
+}
+.dropdown-toggle::after {
+  content: none !important;
+}
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.cus-e-comm-header {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 5px rgb(0 0 0 / 23%);
+}
+.cus-dash-logo {
+  margin: 5px 0;
+}
+.cus-dash-logo img {
+  width: 55px;
+  margin: 0;
+}
+button {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.profile-updation {
+  padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
+  text-align: left !important;
+  position: relative;
+  background-color: #fafbfd;
+  border: 1px solid #f1f3fa;
+  border-width: 0 1px;
+  min-height: 70px;
+  margin: 0 0 0 10px;
+  position: relative;
+}
+span.account-user-avatar.ml-1 {
+  position: absolute;
+  top: calc(38px / 2);
+  left: 15px;
+}
+span.account-user-name {
+  font-size: 15px;
+  display: block;
+  color: #6c757d;
+  font-weight: 600;
+}
+.notiDrop {
+  transform: translate3d(-200px, 38px, 0px) !important;
+}
+.icons-noti-seller {
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+  font-size: 13px;
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  width: 17px;
+  display: flex;
+  height: 17px;
+  align-items: center;
+  justify-content: center;
+}
+
+.userName{
+  padding: 8px !important;
+    font-size: 15px !important;
+    /* display: block; */
+    color: #6c757d !important;
+    font-weight: 600 !important;
+
+}

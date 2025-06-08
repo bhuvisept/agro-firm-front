@@ -1,0 +1,44 @@
+.topheading {
+    text-align: center;
+    font-size: 30px;
+    line-height: 56px;
+    color: #1c1c1c;
+  }
+  .topheading2 {
+    text-align: left;
+    font-size: 30px;
+    line-height: 56px;
+    color: #1c1c1c;
+  }
+  .toppera {
+    line-height: 1.7em;
+    color: #070707c4 !important;
+    white-space: normal;
+    text-align: justify;
+  }
+  .subheading {
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 25px;
+  }
+  .subpera {
+    color: #070707c4 !important;
+    white-space: normal;
+    text-align: justify;
+  }
+  .thirdheading {
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 25px;
+  }
+  .boldtext {
+    border-bottom: 1px solid #000;
+  }
+  
+  a{
+   color: #0c6be3 !important
+  }

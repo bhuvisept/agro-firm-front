@@ -1,0 +1,25 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus_news">
+    <div class="row cus-round-with-bg p-3">
+        <div class="col-sm-12  mb-3 cus_shadow_news p-3" *ngFor='let news of truckNews' >
+           <a [href]="news.link" target="_blank"> <h4 style="margin-bottom: 0px !important ;">{{news.title}}</h4></a>
+           <small class="mt-1 mb-2">{{news.pubDate | date:'MMM d, y, h:mm a'}}</small>
+            <p class="news_text" innerHtml="{{news.description}}"></p>
+        </div>
+    </div>
+</section>

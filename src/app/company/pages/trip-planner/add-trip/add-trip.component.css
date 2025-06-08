@@ -1,0 +1,32 @@
+.trip-info {
+  margin-top: 7%;
+  height: auto;
+}
+.bus_drop {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+.flex-ul .bus_drop {
+  margin-left: unset;
+}
+ul.flex-ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+ul.mt-2.mb-2.flex-ul > li {
+  flex-basis: 50%;
+}
+ul.mt-2.mb-2.flex-ul > li:last-child,
+ul.mt-2.mb-2.flex-ul > li:nth-last-child(2) {
+  border-bottom: none;
+}
+.trip-info ::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none;
+}
+.m-b-m{
+    margin-bottom: -20px;
+}
+.max-width-field{
+    max-width: 540px !important;
+}

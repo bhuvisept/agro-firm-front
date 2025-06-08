@@ -1,0 +1,98 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row pl-4 pr-4">
+                        <div class="col-sm-6 p-0">
+                            <div class="page-title-box">
+                                <h4 class="page-title"> {{'seller.my_rating.heading' | translate}} </h4>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="row mb-3 mt-3">
+                        <div class="col-sm-12">
+                            <div class="row cus-pro-filter cus-search-input cus-box-with-radio search-filter-mob align-items-end">
+                               
+                                <div class="col-sm-2">
+                                    <mat-form-field class="p-0 searchByCategory">
+                                        <div class="drop_down_design_active">
+                                            <mat-select [(ngModel)]="ratingType" class="p-0"> <mat-option *ngFor="let list of ratingTypes" value="{{list.value}}">{{list.name}}</mat-option> </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-2 p-0 align-items-end cus-search-input wt-100-on-mobile-flx">
+                                    <input autocomplete="off" class="mt-2 mt-sm-0" style="width: 100%;" [(ngModel)]="search" matinput="" placeholder="Search by title" id="mat-input-3" aria-invalid="false" aria-required="false" />
+                                    <div class="cus-search-input wt-100-on-mobile-btn">
+                                        <button class="btn" type="button" (click)="searchData()"><i class="fa fa-search" title="Search"></i></button>
+                                        <button class="btn btn-res" label="Reset" title="Reset" (click)="reset()"><i class="fa fa-refresh" title="Reset"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3 pl-4 pr-4 cus-box-with-radio cus-wrap-pro">
+                        <div class="col-sm-12 p-0 star_rating">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">{{'seller.my_rating.User_name' | translate}}</th>
+                                    <th scope="col" *ngIf="currentRating=='PRODUCT' "> {{'seller.my_rating.Product_name' | translate}}  </th>
+                                    <th scope="col" *ngIf="currentRating=='SELLER' "> {{'seller.my_rating.Seller_name' | translate}}  </th>
+                                    <th scope="col">{{'seller.my_rating.User_email' | translate}}</th>
+                                    <th scope="col">{{'seller.my_rating.Rating' | translate}}</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let star of ratings | paginate :{itemsPerPage: 10, currentPage: pageNumber, totalItems: totalCount}; let i=index">
+                                     <td>{{  i + 1 }}</td>
+                                    <td>{{star.personName ? star.personName:' N/A'}}</td>
+                                    <td *ngIf="currentRating=='PRODUCT' "><a href="javascript:void(0)" (click)="productView(star.productId)" >{{star.personName ? star.productName:' N/A'}}</a></td>
+                                    <td *ngIf="currentRating=='SELLER' ">{{star.sellerName}}</td>
+                                    <td>{{star.email ? star.email:' N/A'}}</td>
+                                    <!-- <td class='d-flex'> <ngx-star-rating  [(ngModel)]='star.rating' [id]="3" [disabled]='true' ></ngx-star-rating ></td> -->
+                                    <td class='d-flex'>   <rating [(ngModel)]='star.rating' [max]="5">
+                                    </rating></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                       
+                              <div class="d-flex justify-content-center" *ngIf="totalCount >itemsPerPage">
+                                <pagination-controls class="pagination" autoHide="true" (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+   

@@ -1,0 +1,94 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="direct" *ngIf="type !== 'REMOVE-USER' &&  type !=='DELETE-USER' ">
+  <h4>{{ 'form_lables.manage_team.heading' | translate }}</h4>
+  <h4 *ngIf="accessID != '' && accessID != null">Edit Team Member</h4>
+</div>
+<form [formGroup]="driverForm" (ngSubmit)="onSubmit()" *ngIf="type !== 'REMOVE-USER' &&  type !=='DELETE-USER' ">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width col-md-12" appearance="outline">
+        <mat-label>{{ 'form_lables.manage_team.first_name' | translate }}</mat-label>
+        <input type="text" autocomplete="off" formControlName="firstName" matInput placeholder="{{ 'form_lables.manage_team.first_name' | translate }}" required />
+        <mat-error *ngIf="driverForm.controls['firstName'].hasError('required')">Please enter first name</mat-error>
+        <mat-error *ngIf="driverForm.controls['firstName'].hasError('pattern')">Please enter a valid first name </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width col-md-12" appearance="outline">
+        <mat-label>{{ 'form_lables.manage_team.last_name' | translate }}</mat-label>
+        <input type="text" autocomplete="off" formControlName="lastName" matInput placeholder="{{ 'form_lables.manage_team.last_name' | translate }}" required />
+        <mat-error *ngIf="driverForm.controls['lastName'].hasError('required')">Please enter last name</mat-error>
+        <mat-error *ngIf="driverForm.controls['lastName'].hasError('pattern')">Please enter a valid last name </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width col-md-12" appearance="outline">
+        <mat-label>{{ 'form_lables.manage_team.email' | translate }}</mat-label>
+        <input type="text" formControlName="email" matInput placeholder="{{ 'form_lables.manage_team.email' | translate }}" required />
+        <mat-error *ngIf="driverForm.controls['email'].hasError('required')">Please enter email</mat-error>
+        <mat-error *ngIf="driverForm.controls['email'].hasError('pattern')">Please enter a valid email</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width col-md-12 cus-pin-with-no phonenumber" appearance="outline">
+        <mat-label>{{ 'form_lables.manage_team.phone_num' | translate }}</mat-label> <span class="cus-pin-code">+1</span>
+        <input type="text" autocomplete="off" formControlName="mobileNumber" matInput placeholder="{{ 'form_lables.manage_team.phone_num' | translate }}" mask="(000) 000-0000" required />
+        <mat-error *ngIf="driverForm.controls['mobileNumber'].hasError('required')">Please enter phone number </mat-error>
+        <mat-error *ngIf="driverForm.controls['mobileNumber'].hasError('pattern')">Please enter a valid phone number </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width col-md-12" appearance="outline">
+        <mat-label>{{ 'form_lables.manage_team.access_level' | translate }}</mat-label>
+        <mat-select formControlName="accessLevel" required>
+          <mat-option *ngFor="let list of typeCategorie" [value]="list.value" class="fggydf">{{ list.name }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="driverForm.controls['accessLevel'].hasError('required')">Please select access level </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row col-md-12 mt-2">
+    <button class="btn common-btn" [disabled]="btn_disabled" type="submit">
+      {{ 'buttons.btn_invite_member' | translate }}
+      <!-- &nbsp;<i *ngIf="btn_disabled" class="fa fa-circle-o-notch fa-spin cu-fa-wt loader-color"></i> -->
+    </button>
+    &nbsp; <button (click)="onNoClick()" [mat-dialog-close]="true" class="btn common-btn">{{ 'buttons.cancel' | translate }}</button>
+  </div>
+  <div class="row">&nbsp;</div>
+</form>
+<div class="confirmation" *ngIf="type == 'REMOVE-USER'">
+  <div mat-dialog-content>{{ 'Are_you_sure_remove_from_company' | translate }}</div>
+  <div mat-dialog-actions class="actions">
+    <button class="btn common-btn mr-3" (click)="onNoClick()">{{ 'buttons.no' | translate }}</button>
+    <button class="btn common-btn" [mat-dialog-close]="true" cdkFocusInitial>{{ 'buttons.yes' | translate }}</button>
+  </div>
+</div>
+
+<div class="confirmation" *ngIf="type == 'DELETE-USER'">
+
+  <div mat-dialog-content>{{ 'Are_you_sure_delete_from_company' | translate }}</div>
+  <!-- <div *ngIf="type?.isDeleted == false" mat-dialog-content>{{ 'Are_you_sure_delete_from_company' | translate }}</div> -->
+  
+  <div mat-dialog-actions class="actions">
+    <button class="btn common-btn mr-3" (click)="onNoClick()">{{ 'buttons.no' | translate }}</button>
+    <button class="btn common-btn" [mat-dialog-close]="true" cdkFocusInitial>{{ 'buttons.yes' | translate }}</button>
+  </div>
+</div>

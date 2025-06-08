@@ -1,0 +1,316 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="cus-my-network" *ngIf="accessLevel !='DISPATCHER'">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.sideMenu.heading' | translate }}</h3>
+          <ul class="nav cus-left-navbar">
+            <li class="nav-item">
+              <a routerLink="connections" class="nav-link text-capitalize"> <i class="far fa-chart-network"></i>{{ 'myNetwork.sideMenu.my_friend' | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="group-list" class="nav-link text-capitalize"> <i class="far fa-users-medical"></i>{{ 'myNetwork.sideMenu.groups' | translate }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9 sm-pr-0">
+        <div class="modal-content cus-round-with-bg">
+          <div class="row p-3">
+            <div class="col-md-6 col-12">
+              <h4>
+                {{ 'myNetwork.invitations' | translate }}<span> ({{ connectionsTotalCount }}) </span>
+              </h4>
+            </div>
+            <div class="col-md-6 col-12 d-flex sm-justify-content-end">
+              <div class="cus-search-input network_connection">
+                <input matInput placeholder="Enter Email" [(ngModel)]="searchKey" autocomplete="off" />
+                <div class="cus-search-input wt-100-on-mobile-btn">
+                  <button class="btn" (click)="searchUser()"><i class="fa fa-search"></i></button> <button class="btn btn-res" (click)="reset()"><i class="fa fa-refresh" title="reset"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <mat-tab-group (selectedTabChange)="getTabChangeValue($event)">
+              <mat-tab label="Invitations">
+                <div class="modal-body p-0">
+                  <div class="netword-request-list" *ngFor="let list of connectionsLits | slice: 0:3; let i = index">
+                    <div class="row mb-2 p-2" style="border-bottom: 1px solid #ccc">
+                      <div class="col-sm-1 p-r-0">
+                        <div class="rou">
+                          <a routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">
+                            <div>
+                              <img *ngIf="!list.image" src="assets/network_profile.jpg" class="img-fluid cus-round-with-img" />
+                              <img *ngIf="list.image" src="{{ endUser + list.image }}" class="cus-round-with-img" />
+                            </div>
+                            <div *ngIf="list.groupImage"></div>
+                            {{ list.groupImage }}</a
+                          >
+                        </div>
+                      </div>
+                      <div class="col-sm-6 p-l-0 p-r-0 for_center">
+                        <p class="text-capitalize ml-2 list_name">
+                          <a routerLink="connection-profileview/{{ list.userId }}">{{ list.personName }}</a>
+                        </p>
+                        <div class="ml-2">
+                          <p *ngIf="list.groupName">{{ list.groupName }}</p>
+                          <p class="ml-2 mb-0">{{ list.workPlace }}</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-5 text-right">
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="onAcceptInvitation(list._id, i)">{{ 'buttons.accept' | translate }}</button>
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="onIgnoreInvitation(list, i)">{{ 'buttons.ignore' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center" *ngIf="!connectionsLits?.length">
+                    <p>{{ 'myNetwork.no_invitations' | translate }}</p>
+                  </div>
+                </div>
+                <span style="cursor: pointer" *ngIf="connectionsTotalCount > 3" class="text-primary float-right mt-3 border-bottom" data-toggle="modal" data-target="#myModal-invite-network1"
+                  >See All</span
+                >
+              </mat-tab>
+              <mat-tab label="Groups invitations">
+                <div class="modal-body p-0">
+                  <div class="netword-request-list" *ngFor="let list of connectionsLits | slice: 0:3; let i = index">
+                    <div class="row mb-2 p-2" style="border-bottom: 1px solid #ccc">
+                      <div class="col-sm-1 p-r-0">
+                        <div class="rou">
+                          <div>
+                            <img *ngIf="!list?.groupImage" src="assets/network_profile.jpg" class="img-fluid cus-round-with-img" />
+                            <img *ngIf="list?.groupImage" src="{{ group + list.groupImage }}" class="cus-round-with-img" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 p-l-0 p-r-0">
+                        <h5 class="text-capitalize ml-2">
+                          <a routerLink="/layout/social-media/group-view/{{ list.groupId }}">{{ list.groupName }}</a>
+                        </h5>
+                        <div class="ml-2">
+                          <p *ngIf="list.personName">{{ list.personName }}</p>
+                          <p class="ml-2 mb-0">{{ list.workPlace }}</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-5 text-right">
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="onAcceptInvitation(list._id, i)">{{ 'buttons.accept' | translate }}</button>
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="onIgnoreInvitation(list, i)">{{ 'buttons.ignore' | translate }}</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center" *ngIf="!connectionsLits?.length">
+                    <p>{{ 'myNetwork.no_invitations' | translate }}</p>
+                  </div>
+                </div>
+                <span
+                  style="cursor: pointer"
+                  type="button"
+                  *ngIf="connectionsTotalCount > 3"
+                  class="text-primary float-right mt-3 border-bottom"
+                  data-toggle="modal"
+                  data-target="#myModal-invite-network1"
+                  >See All
+                </span>
+              </mat-tab>
+              <mat-tab label="Job invitations" *ngIf="accessLevel != 'COMPANY'">
+                <div class="modal-body p-0">
+                  <div class="netword-request-list" *ngFor="let job of jobInvitationLists | slice: 0:3; let i = index">
+                    <div class="row mb-2 p-2" style="border-bottom: 1px solid #ccc">
+                      <div class="col-sm-1 p-r-0">
+                        <div class="rou">
+                          <a routerLink="/layout/social-media/connection-profileview/{{ job.companyId }}">
+                            <div>
+                              <img *ngIf="!job.image" src="assets/network_profile.jpg" class="img-fluid cus-round-with-img" />
+                              <img *ngIf="job.image" src="{{ endUser + job.image }}" class="cus-round-with-img" /></div
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-8 p-l-0 p-r-0 for_center">
+                        <p class="ml-2 list_name">
+                          {{ 'myNetwork.you_are_invite' | translate }} {{ job.AccessLevel | titlecase }} by <a routerLink="connection-profileview/{{ job.companyId }}">{{ job.companyName }}</a>
+                        </p>
+                        <div class="ml-2">
+                          <p *ngIf="job.groupName">{{ job.groupName }}</p>
+                          <p class="ml-2 mb-0">{{ job.workPlace }}</p>
+                        </div>
+                      </div>
+                      <div class="col-sm-3 text-right" *ngIf="job.resetkey">
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="acceptJobInvitation(job.resetkey, i)">Accept</button>
+                        <button class="btn cus-acptandignor-btn m-t-1" (click)="ignoreJobInvitation(job.resetkey, i)">Reject</button>
+                      </div>
+                      <div class="col-sm-3 text-right" *ngIf="!job.resetkey">{{ job.status }}</div>
+                    </div>
+                  </div>
+                  <div class="text-center" *ngIf="!jobInvitationLists?.length">
+                    <p>{{ 'myNetwork.no_invitations' | translate }}</p>
+                  </div>
+                </div>
+                <span style="cursor: pointer" *ngIf="jobInvitationLists?.length > 3" class="text-primary float-right mt-3 border-bottom" data-toggle="modal" data-target="#myModal2">See All</span>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class="modal-body" *ngIf="MySuggestionLits?.length">
+            <h4 *ngIf="!searchKey">{{ 'myNetwork.recommended_people' | translate }}</h4>
+            <h4 *ngIf="searchResults">Search Results</h4>
+            <div class="container mt-2">
+              <div class="row">
+                <div class="col-sm-12 p-0">
+                  <div class="card-network-profile row">
+                    <div class="col-12 col-sm-6 col-md-4" *ngFor="let list of MySuggestionLits | paginate: { itemsPerPage: itemsPerPage, currentPage: interestPage, totalItems: count }; let i = index">
+                      <div class="network-profile">
+                        <div class="avatar">
+                          <div class="profileImg">
+                            <div class="cus_img_profile">
+                              <a routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">
+                                <div class="round_name_center">
+                                  <span *ngIf="!list.image" class="text-capitalize">{{ list.personName | slice: 0:1 }}</span> <img *ngIf="list.image" src="{{ image_url_profile + list.image }}" /></div
+                              ></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cus-card-desc">
+                          <div>
+                            <h5 class="text-dark">
+                              <a routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">{{ list.personName | slice: 0:15 }}</a>
+                            </h5>
+                            <div class="round_name" *ngIf="list.city && list.roleTitle == 'COMPANY'">
+                              <p class="p-0 m-0">{{ list.city | slice: 0:15 }}</p>
+                            </div>
+                            <div class="round_name" *ngIf="list.designation && list.roleTitle == 'ENDUSER'">
+                              <p class="p-0 m-0">{{ list.designation | slice: 0:15 }}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center card-network-profile-footer">
+                          <button type="button" *ngIf="!list.inConnection" class="btn cus-send-connect-btn text-center" (click)="sendConnectionIvite(list, i)">
+                            {{ 'buttons.connect' | translate }}
+                          </button>
+                          <button type="button" class="btn cus-send-connect-btn text-center" *ngIf="list.inConnection" routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">
+                            {{ 'buttons.view_profile' | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mainpagination mt-3 col-sm-12" *ngIf="count > itemsPerPage">
+                  <pagination-controls (pageChange)="currentPagenew($event)" class="custom-pagination-designe"> </pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal" id="myModal-invite-network1" *ngIf="accessLevel !='DISPATCHER'" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ inviteDefine }}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div
+        class="modal-body modal_scrool"
+        infinite-scroll
+        [infiniteScrollDistance]="modalScrollDistance"
+        [infiniteScrollThrottle]="modalScrollThrottle"
+        [scrollWindow]="false"
+        (scrolled)="onModalScrollDown()"
+      >
+        <div class="" *ngFor="let list of connectionsLits; let i = index">
+          <div class="row mb-2 p-2" style="border-bottom: 1px solid #ccc">
+            <div class="col-sm-1 p-r-0">
+              <div class="rou">
+                <a data-dismiss="modal" routerLink="/layout/social-media/connection-profileview/{{ list.userId }}" *ngIf="inviteDefine == 'INVITES'">
+                  <img *ngIf="!list.image" src="assets/network_profile.jpg" class="cus-round-with-img" />
+                  <img *ngIf="list.image" src="{{ endUser + list.image }}" class="cus-round-with-img" />
+                </a>
+                <a data-dismiss="modal" routerLink="/layout/social-media/group-view/{{ list.groupId }}" *ngIf="inviteDefine == 'Groups invitations'">
+                  <img *ngIf="!list.groupImage" src="assets/network_profile.jpg" class="cus-round-with-img" />
+                  <img *ngIf="list.groupImage" src="{{ group + list.groupImage }}" class="cus-round-with-img" />
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-8 p-l-0 p-r-0">
+              <p class="text-capitalize m-0 ml-2">
+                <a *ngIf="inviteDefine == 'INVITES'" routerLink="/layout/social-media/connection-profileview/{{ list.userId }}" data-dismiss="modal">{{ list.personName }}</a>
+                <a *ngIf="inviteDefine == 'Groups invitations'" routerLink="/layout/social-media/group-view/{{ list.groupId }}" data-dismiss="modal">{{ list.personName }}</a>
+              </p>
+              <div class="ml-2">
+                <p *ngIf="list.groupName">{{ list.groupName }}</p>
+                <p class="ml-2 mb-0">{{ list.workPlace }}</p>
+              </div>
+            </div>
+            <div class="col-sm-3 text-right">
+              <button class="btn cus-acptandignor-btn m-t-1" (click)="onAcceptInvitation(list._id, i)">Accept</button>
+              <button class="btn cus-acptandignor-btn m-t-1" (click)="onIgnoreInvitation(list, i)">Ignore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal2" *ngIf="accessLevel !='DISPATCHER'" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ 'myNetwork.tabber.job_invitations' | translate }}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div
+        class="modal-body modal_scrool"
+        infinite-scroll
+        [infiniteScrollDistance]="modalScrollDistance"
+        [infiniteScrollThrottle]="modalScrollThrottle"
+        [scrollWindow]="false"
+        (scrolled)="onJobModalScroll()"
+      >
+        <div class="" *ngFor="let list of jobInvitationLists; let i = index">
+          <div class="row mb-2 p-2" style="border-bottom: 1px solid #ccc">
+            <div class="col-sm-1 p-r-0">
+              <div class="rou">
+                <a routerLink="/layout/social-media/connection-profileview/{{ list.companyId }}">
+                  <div>
+                    <img *ngIf="!list?.image" src="assets/network_profile.jpg" class="img-fluid cus-round-with-img" />
+                    <img *ngIf="list?.image" src="{{ endUser + list.image }}" class="cus-round-with-img" /></div
+                ></a>
+              </div>
+            </div>
+            <div class="col-sm-8 p-l-0 p-r-0 for_center">
+              <p class="ml-2 list_name">
+                {{ 'myNetwork.you_are_invite' | translate }} {{ list.AccessLevel | titlecase }} by
+                <a data-dismiss="modal" routerLink="connection-profileview/{{ list.companyId }}">{{ list.companyName }}</a>
+              </p>
+            </div>
+            <div class="col-sm-3 text-right" *ngIf="list.resetkey">
+              <button class="btn cus-acptandignor-btn m-t-1" (click)="acceptJobInvitation(list.resetkey, i)">{{ 'buttons.accept' | translate }}</button>
+              <button class="btn cus-acptandignor-btn m-t-1" (click)="ignoreJobInvitation(list.resetkey, i)">{{ 'buttons.ignore' | translate }}</button>
+            </div>
+            <div class="col-sm-3 text-right" *ngIf="!list.resetkey">{{ list.status }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+.text_color {
+  color: #9e9e9e !important;
+}
+.text_color.aboutDetails {
+  border: 1px solid #e5e5e5 !important;
+  padding: 3px;
+  border-radius: 6px;
+}
+.works_at > span {
+  font-weight: 500;
+}
+.cus-round-with-bg-profile {
+  background: #fff;
+  -moz-filter: drop-shadow(-4.243px -4.243px 3px #fff) drop-shadow(4.243px 4.243px 3px rgba(171, 194, 212, 0.6));
+  -webkit-filter: drop-shadow(-4.243px -4.243px 3px #fff) drop-shadow(4.243px 4.243px 3px rgba(171, 194, 212, 0.6));
+  filter: drop-shadow(-1.243px -1.243px 3px #dfdfdf) drop-shadow(4.243px 4.243px 3px #dfdfdf);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.cus_profile_drop {
+  padding: 5px !important;
+  left: -140px !important;
+  top: 0 !important;
+}
+.cus_details,
+.cus_profile_top {
+  padding: 10px;
+  position: relative;
+  margin: 0 20px;
+}
+.cus_about,
+.cus_address {
+  font-size: 14px;
+  color: #4c4c4c;
+  margin: 10px 0;
+}
+.cus_profile_headings {
+  color: #226389;
+  font-size: 15px;
+  font-weight: 500;
+}
+.cus_profile_headings::after {
+  content: '';
+  height: 1px;
+  top: 20px;
+  width: 115px;
+  position: absolute;
+  background-color: #22638959;
+  margin-left: 5px;
+}
+.cus_docs_head {
+  border-bottom: 1px solid #a19696;
+  padding: 5px 15px;
+  margin: 23px -8;
+}
+.up_docs {
+  padding: 30px 30px 10px 15px;
+}
+.view_docs {
+  background: #ebebeb;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+.main_docs {
+  margin-left: 20px;
+  padding: 20px;
+}
+.button_post {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #c9c9c9;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.button_post:hover {
+  border: 2px solid #c9c9c9;
+  background: #e5e5e5;
+  color: #4e4e4e;
+}

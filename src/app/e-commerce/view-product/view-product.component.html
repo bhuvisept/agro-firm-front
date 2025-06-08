@@ -1,0 +1,211 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+
+            <div class="col-sm-10 p-0">
+                <div class="col-sm-12 mt-3">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a routerLink="/layout/e-commerce/manage-products-list">{{productDetail?.category_name | titlecase}}</a></li>
+                          <li class="breadcrumb-item active" aria-current="page"> {{productDetail?.productName | titlecase}}</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="cus-main-section p-3 container">
+                    <div class="row product-cus-box cus-box-with-radio product-cus-box-outer">
+                        <div class="preview-pic tab-content product-cus-box-slider col-sm-12 p-0">
+                            <img *ngIf='!productImages?.length' src="assets/no-product-img.jpg">
+                            <div  *ngIf="productImages?.length == 1" >
+                                <img [src]="galleryImages[0].big" />
+                            </div>
+                            <div class="tab-pane active fade show" *ngIf='productImages?.length >1 '>
+                                <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row product-cus-box cus-box-with-radio mt-4">
+                        <div class="col-sm-12">
+                            <h4 class="text-capitalize mb-2">{{productDetail?.productName}}</h4>
+                            <ul class="cus-productdetail">
+                                <li class="row" *ngIf="productDetail?.vin">
+                                    <span class="col-sm-6 p-0">VIN</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.vin}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.brand_name">
+                                    <span class="col-sm-6 p-0"> {{ 'seller.product_view.Brand' | translate }} </span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.brand_name}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.model_name">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Model' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.model_name}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.brandName">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Brand' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.brandName}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.modelName">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Model' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.modelName}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.productionYear">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Year_of_production' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.productionYear}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.engineBrand">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Engine_make' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.engineBrand}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.breaks">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Brakes' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.breaks}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.fuelType">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.fuel_type' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.fuelType}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.enginePoweroutput">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Engine_power_output' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.enginePoweroutput}} Hp</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.productEngineDisplacement">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Engine_displacement' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.engineDisplacement}} Cc</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.subCategory">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Sub_Category' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.subCategory}} Cc</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.productType">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Listing_Type' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.productType}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.condition">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.condition' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.condition}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.noOfMiles">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Miles_Driven' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.noOfMiles}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.engineHours">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Engine_Hours' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.engineHours}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.location">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Location' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.location}}</span>
+                                </li>
+                                <li class="row">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Price' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.currency}} {{productDetail?.price | number}}</span>
+                                </li>
+                                <li class="row" *ngIf="productnNewColor">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Color' | translate }}</span>
+                                    <span class="col-sm-6 p-0">
+                                        <span *ngFor="let list of productColor">
+                                            <span class="cus-color-code cus-color-code2" [ngStyle]="{'background-color':list}"></span>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.width">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.width' | translate }}</span> <span class="col-sm-6 p-0">{{productDetail?.width}}
+                                        {{fieldValue == 'USA' ? 'In' : 'M' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.height">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.height' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.height}} {{fieldValue == 'USA' ? 'In' : 'M' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.length">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.length' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.length}} {{fieldValue == 'USA' ? 'In' : 'M' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.mileage">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.mileage' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.mileage}} {{fieldValue == 'USA' ? 'Mi' : 'KM' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.suspension">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.suspension' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.suspension}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.transmissionType">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.transmission_type' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.transmissionType}}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.fuelCapacity">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.fuel_capacity' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.fuelCapacity}} {{fieldValue == 'USA' ? 'Gal' : 'L' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.wheelBase">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.wheel_base' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.wheelBase}} {{fieldValue == 'USA' ? 'In' : 'M' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.netWeight">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.net_weight' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.netWeight}} {{fieldValue == 'USA' ? 'Lbs' : 'KG' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.grossWeight">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Front_Axle_Weight' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.grossWeight}} {{fieldValue == 'USA' ? 'Lbs' : 'KG' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.loadCapacity">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Rear_Axle_Weight' | translate }}</span> 
+                                    <span class="col-sm-6 p-0">{{productDetail?.loadCapacity}} {{fieldValue == 'USA' ? 'Lbs' : 'KG' }}</span>
+                                </li>
+                                <li class="row" *ngIf="productDetail?.engineHours">
+                                    <span class="col-sm-6 p-0">{{ 'seller.product_view.Engine_Hours' | translate }}</span> <span
+                                        class="col-sm-6 p-0">{{productDetail?.engineHours}}</span>
+                                </li>
+
+                                <li class="row" *ngIf="productDetail?.description">
+                                    <span class="col-sm-12 p-0 mb-3">{{ 'seller.product_view.description' | translate }}</span> <span class="col-sm-12 p-0">
+                                        <span innerHtml="{{productDetail.description}}"></span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12 text-center mt-3">
+                            <a (click)=back() class="btn e-comm-btn">Back</a>
+                            <a *ngIf="productDetail?.constant_name== 'TRUCKS'" routerLink="../../edit-truck/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                            <a *ngIf="productDetail?.constant_name== 'TRAILERS'" routerLink="../../edit-trailer/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                            <a *ngIf="productDetail?.constant_name== 'TRUCKUNITS'" routerLink="../../edit-truckunits/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                            <a *ngIf="productDetail?.constant_name== 'SPAREPARTS'" routerLink="../../edit-spareparts/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                            <a *ngIf="productDetail?.constant_name== 'ACCESSORIES'" routerLink="../../edit-accessories/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                                <a *ngIf="productDetail?.constant_name== 'OTHERS'" routerLink="../../edit-miscellaneous/{{productDetail?._id}}"
+                                class="btn e-comm-btn ml-2">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

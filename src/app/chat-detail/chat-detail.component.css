@@ -1,0 +1,82 @@
+li.cus-add-user-list {
+  height: 50px;
+  margin: 5px 3px;
+  width: 95%;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 7px;
+  box-shadow: 0 0 4px rgb(204 204 204 / 80%);
+}
+.cus-add-user-chat {
+  height: 450px;
+  overflow-y: auto;
+}
+.img-fluid {
+  height: 100%;
+  width: auto;
+}
+.h50 {
+  height: 70vh;
+}
+.user-list-scroll {
+  height: 87%;
+  overflow: auto;
+}
+.cus-admin-box {
+  font-size: 10px;
+  background: #e7fce3;
+  color: #1b8748;
+  padding: 1px 5px;
+  border-radius: 5px;
+  line-height: 12px;
+  height: 14px;
+}
+.cus-member-box {
+  font-size: 10px;
+  background: #e5f7ff;
+  color: #297eb3;
+  padding: 1px 5px;
+  border-radius: 5px;
+  line-height: 12px;
+  height: 14px;
+}
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+  outline: 0;
+}
+.cus-add_added-btn {
+  padding: 0 6px;
+  border-radius: 5px;
+  background: #18568a;
+  border: 0.13rem solid #18568a;
+  color: #fff !important;
+  font-size: 12px;
+  line-height: 22px;
+  width: 60px;
+  outline: 0 !important;
+}
+span.col-sm-12.cus-added-span {
+  font-size: 11px;
+  font-style: italic;
+  font-family: sans-serif;
+  color: #888;
+}
+.cus-tm-btn {
+  margin-top: 10px !important;
+}
+p {
+  margin: 0;
+}
+.cus-upload-icon-outise-chat {
+  position: absolute;
+  left: 10px;
+}
+.overflowgroup {
+  overflow-y: auto;
+}
+.fa .fa-plus{
+  font-size: 15px;
+}

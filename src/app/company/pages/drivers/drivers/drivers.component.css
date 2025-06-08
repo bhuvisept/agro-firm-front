@@ -1,0 +1,132 @@
+.cus-dash-section > .container-fluid > .row > .col-sm-10,
+.cus-dash-section > .container-fluid > .row > .col-sm-2 {
+  transition: all 0.4s ease;
+}
+.background {
+  width: 50vw;
+}
+.cus-dash-section {
+  margin-left: 4%;
+}
+.cus-dash-section.changestyle > .container-fluid > .row > .col-sm-2 {
+  -ms-flex: 0 0 0;
+  flex: 0 0 0;
+  max-width: 0;
+}
+section.cus-dash-section.changestyle > .container-fluid > .row > .col-sm-10 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.cus-dashbord {
+  position: relative;
+  z-index: 1;
+}
+.cus-ds-main-bg {
+  background: #eff3f9;
+  overflow: hidden;
+  padding-bottom: 95px;
+}
+.cus-ds-bx-weight-bg-2 {
+  background: #fff;
+  margin: 39px 3%;
+  position: relative;
+  top: -38px;
+  border-radius: 5px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15);
+}
+.cus-dash-card-header {
+  padding: 1rem 1.35rem;
+  margin-bottom: 0;
+  background-color: rgba(31, 45, 65, 0.03);
+  border-bottom: 1px solid rgba(31, 45, 65, 0.125);
+  display: block;
+  width: 100%;
+}
+.table {
+  height: auto;
+}
+.table thead th {
+  vertical-align: inherit;
+  border-bottom: 2px solid #dee2e6;
+}
+.direct {
+  background-color: #0a549e;
+  background-image: linear-gradient(135deg, #6aa1ee 0, rgb(213 212 282) 100%);
+  min-height: 180px;
+  padding: 15px 28px;
+}
+.cus-box-wrapper {
+  padding: 0 5%;
+}
+.text-box {
+  position: relative;
+  top: -18px;
+  z-index: 2;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1.35rem;
+}
+.text-box > h5 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.text-box > h5 > a {
+  color: #0061f2 !important;
+}
+.table td,
+.table th {
+  padding: 0.45rem;
+}
+button#sidebarToggle {
+  background-color: transparent;
+  border-color: transparent;
+  color: #fff !important;
+  outline: 0;
+  box-shadow: none;
+  display: inline-block;
+  margin-top: -10px;
+  display: inline-block;
+  margin: -3px 10px 10px 10px;
+  border-radius: 100%;
+  flex-shrink: 0;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 43px;
+}
+button#sidebarToggle:hover {
+  background-color: rgba(31, 45, 65, 0.1);
+  border-color: transparent;
+}
+h4.cus-dash-tit {
+  display: inline-block;
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #fff;
+}
+button.btn.btn-primary {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  z-index: 99999999;
+}
+.main-for-padding {
+  background: #fff;
+  padding: 2% 1px;
+}
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  margin: -9px 0;
+}
+.cus-search-dropown.drop {
+  width: 50%;
+}
+.cus-search-input > button {
+  margin-top: -2px !important;
+  height: 42px;
+}
+.manageTeamWidth{
+width: 1000px;
+}

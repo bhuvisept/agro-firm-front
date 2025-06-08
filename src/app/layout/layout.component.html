@@ -1,0 +1,3 @@
+<app-header></app-header>
+<app-sidemenu *ngIf="userInfo?.userInfo?.accessLevel !=='SALESPERSON' && userInfo?.userInfo?.accessLevel !=='SELLER'"></app-sidemenu>
+<router-outlet></router-outlet>

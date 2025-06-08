@@ -1,0 +1,126 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center mt-4 mb-2 mob-top-spc">
+        <h2 class="text-uppercase">plan cart</h2>
+        <span class="cus-tit-bor"></span>
+      </div>
+      <div class="col-sm-12">
+        <div class="cart">
+          <div class="row">
+            <div class="col-sm-12 col-md-8">
+              <div class="table-responsive">
+                <table class="table table-borderless table-centered mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Title</th>
+                      <th>Type</th>
+                      <th>Duration</th>
+                      <th>Final Price($)</th>
+                      <th style="width: 50px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="list" *ngFor="let plan of planList; let i = index">
+                      <td>
+                        <p class="d-inline-block align-middle font-16">
+                          <a class="m-0">{{ plan.title }}</a>
+                          <br />
+                        </p>
+                      </td>
+                      <td>
+                        <p>{{ plan.plan_name }}</p>
+                      </td>
+                      <td>
+                        <p>{{ plan.validity }}</p>
+                      </td>
+                      <td>
+                        <p>{{ plan.finalPrice }}</p>
+                      </td>
+                      <td>
+                        <a href="javascript:void(0);" class="action-icon"> <i class="far fa-trash-alt" (click)="removeProduct(i, plan._id)"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="col-12 text-center mt-3" *ngIf="!planList?.length">Your cart is empty</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <div class="p-3 row mt-lg-0 rounded">
+                <h4 class="header-title col-sm-7 mb-3">Apply Promo</h4>
+                <p class="col-sm-5 mb-3" style="font-size: 12px; text-decoration: underline; cursor: pointer" (click)="openPromo()">Available Promos</p>
+                <div class="col-sm-9 cus-removepadding mb-2 mb-sm-0">
+                  <input type="text" style="text-transform: uppercase" class="form-control" [(ngModel)]="promoCode" />
+                </div>
+
+                <div class="col-sm-2 mb-2 cus-padding p-0">
+                  <button class="btn btn-e-commerce" [disabled]="!promoCode || !planList?.length" (click)="applyPromoCode()">Apply</button>
+                </div>
+                <div class="col-sm-12 mt-2" *ngIf="appliedPromo?.code">
+                  <p class="applied_promo">{{ appliedPromo.code }} <i class="fa fa-close ml-2" style="font-size: 18px" (click)="removePromo()"></i></p>
+                </div>
+
+                <div class="col-sm-12 cus-tot-amount" *ngIf="finalPrice">
+                  <ul class="cus-tot-amount">
+                    <li>
+                      <span class="float-left"
+                        ><strong> {{ discountPrice || (appliedPromo && discountPrice == 0) ? 'Subtotal' : 'Total' }} </strong></span>
+                      <span class="float-right">$ {{ finalPrice }}</span>
+                    </li>
+                    <li *ngIf="discountValue > finalPrice">
+                      <span class="text-red">Coupon could not be applied, because of discounted price ${{ discountValue }} is greater the plan price ${{ finalPrice }}</span>
+                    </li>
+                    <li *ngIf="(discountValue >= 0 && discountValue <= finalPrice && discountPrice) || discountValue == finalPrice">
+                      <span class="float-left"><strong>Discount</strong></span>
+                      <span class="float-right"
+                        >$ {{ discountValue }}
+                        <p></p>
+                      </span>
+                    </li>
+                    
+                    <li style="border-top: 1px solid lightgray">
+                      <span class="float-left"><strong>Total </strong></span>
+                      <span class="float-right">$ {{ discountPrice }}</span>
+                    </li>
+                    <li>
+                      <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedOption">
+                        <mat-radio-button value="INSTALLMENT"> Installment </mat-radio-button>
+                        <mat-radio-button value="FULLPAYMENT" class="ml-3 mt-3"> Full Payment</mat-radio-button>
+                      </mat-radio-group>
+                    </li>
+                    <!-- <li style="border-top: 1px solid lightgray" *ngIf="appliedPromo && discountPrice == 0">
+                      <span class="float-left"><strong>Total</strong></span>
+                      <span class="float-right">$ {{ discountPrice }}</span>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <button routerLink="/pages/pricing-page" class="btn btn-e-commerce">Back</button>
+                <button (click)="payment()" class="btn btn-e-commerce ml-2" [disabled]="!planList?.length">Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

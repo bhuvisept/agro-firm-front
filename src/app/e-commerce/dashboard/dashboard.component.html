@@ -1,0 +1,111 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+  <div class="container-fluid">
+    <div class="row p-0">
+      <div class="col-sm-12 p-0">
+        <app-e-commerce-header></app-e-commerce-header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 p-0 cus-slide-sidemenu">
+        <app-sidemenu></app-sidemenu>
+      </div>
+      <div class="col-sm-10 p-0 cus-slide-main-wrapper">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="outer-wrap">
+                <div class="wrap">
+                  <img class="image truck-img" src="../../../assets/truck.png" /> <img class="image box-img" src="../../../assets/box.png" />
+                  <img class="image box-img box-img-with-man" src="../../../assets/banner-man.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row cus-seller-groth-chart">
+            <div class="col-sm-4 pr-0">
+              <ul class="cus-productGrowth-info">
+                <!-- <li class="card-body"> <span>
+                                        <div class="img-wt-rad"> <img src="assets/eye.png" width="25" /> </div>
+                                    </span> <span>
+                                        <p class="mt-2 mb-2">26% <i class="far fa-arrow-up"></i>
+                                        </p>
+                                        <p class="mt-3 mb-3"><strong>3,26,255,103</strong></p>
+                                        <a>
+                                            <p class="mt-2 mb-2 text-primary">Total visitors</p>
+                                        </a>
+                                    </span> </li> -->
+
+                <li class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6" style="display: flex; justify-content: flex-start;">
+                      <p class="mt-2 mb-2">
+                        {{ totalAnsweredQueries }}% <span style="font-size: small">( {{ 'seller.Answered_Queries' | translate }} )</span>
+                      </p>
+                    </div>
+                    <div class="col-sm-6" style="display: flex; justify-content: flex-end;">
+                      <span>
+                        <div class="img-wt-rad"><img src="assets/sales.png" width="25" /></div>
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                     <div class="col-sm-6">
+                      <span>
+                       
+                        <p class="mt-3 mb-3">
+                          <strong>{{ totalQueriesCount }}</strong>
+                        </p>
+                        <a routerLink="/layout/e-commerce/questions">
+                          <p class="mt-2 mb-2 text-primary">{{ 'seller.Total_queries' | translate }}</p>
+                        </a>
+                      </span>
+                     </div>
+                     <div class="col-sm-6" style="display:flex;align-items: flex-end;">
+                      <span>
+                        <p class="mt-3 mb-3" *ngIf = "totalUnAnsweredCount>0">
+                          <strong>{{ totalUnAnsweredCount }}</strong>
+                        </p>
+                        <p class="mt-3 mb-3" *ngIf = "totalUnAnsweredCount == 0">
+                          <strong>0</strong>
+                        </p>
+                        <a routerLink="/layout/e-commerce/questions">
+                          <p class="mt-2 mb-2 text-primary">{{ 'seller.UnAnswered_queries' | translate }}</p>
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                  
+                 
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-sm-8">
+              <div class="card-body">
+                <h4 class="header-title">{{ 'seller.Queries' | translate }}</h4>
+                <canvas id="linechart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

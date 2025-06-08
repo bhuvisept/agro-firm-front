@@ -1,0 +1,293 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="create-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 cus-round-with-bg p-3 job-name-form">
+                <h3 class="m-0">{{ 'form_lables.job.heading_edit' | translate }}</h3>
+                <hr />
+                <form [formGroup]="jobCreateForm" (ngSubmit)="onSubmitJobEditForm()">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.job_title' | translate }}</mat-label> <input type="text" formControlName="title" placeholder="Use a title that best describes the role in your company" matInput required maxlength="75" />
+                                <mat-error *ngIf="jobCreateForm.get('title').hasError('required')">Please enter Job posting headline</mat-error>
+                                <mat-error *ngIf="jobCreateForm.get('title').hasError('pattern')"> Please enter valid job posting headline </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.employment_type' | translate }}</mat-label>
+                                <mat-select formControlName="employmentType" placeholder="Employment Type" required> <mat-option *ngFor="let list of employees" [value]="list.employees">{{list.employees}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('employmentType').hasError('required')"> Please select employment type </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 pro-description">
+                            <h6 class="mb-4 switch">{{ 'form_lables.job.job_description' | translate }}<span>*</span></h6>
+                            <ckeditor [editor]="editor" formControlName="description" required class="cus-job-diss" ></ckeditor>
+                            <mat-error style="font-size: 75%;" *ngIf="jobCreateForm.get('description').hasError('required') && jobCreateForm.get('description').touched"> Please enter Job Description </mat-error>
+                            <mat-error *ngIf="jobCreateForm.get('description').hasError('pattern')">Only 10000 character should be allowed </mat-error>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.key_skills' | translate }}</mat-label>
+                                <mat-select multiple [ngModel]="jobskills" formControlName="skills" placeholder="Key Skills" required multiple>
+                                    <mat-option *ngFor="let list of skillList" [value]="list._id">{{list.skill}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('skills').hasError('required')"> Please select skills </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.educational_qualification' | translate }} </mat-label>
+                                <mat-select multiple [ngModel]="qualifications" formControlName="qualification" placeholder="Qualification" required multiple>
+                                    <mat-option *ngFor="let list of qualificationList" [value]="list._id">{{list.qualification}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('qualification').hasError('required')"> Please select educational qualification </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.work_experience_years' | translate }}</mat-label>
+                                <mat-select formControlName="minWorkExp" placeholder="Min" required> <mat-option *ngFor="let list of maxexperience" [value]="list.value">{{list.value}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('minWorkExp').hasError('required')"> Please select years experience </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.work_experience_months' | translate }}</mat-label>
+                                <mat-select formControlName="maxWorkExp" placeholder="Max" required> <mat-option *ngFor="let list of minexperience" [value]="list.value">{{list.value}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('maxWorkExp').hasError('required')"> Please select months experience </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-4">
+                            <mat-form-field style="width: 100%;" class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.select_currency' | translate }}</mat-label>
+                                <mat-select formControlName="currency" class="p-0" placeholder="select miles"> <mat-option *ngFor="let list of currency" value="{{list.currency}}">{{list.currency}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('currency').hasError('required')">Please select currency </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><h6 class="switch">{{ 'form_lables.job.salary_range' | translate }}</h6></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.salary_type' | translate }}</mat-label>
+                                <mat-select formControlName="salaryType" placeholder="Min Annual Salary"> <mat-option *ngFor="let list of salaryTypeList" [value]="list.name">{{list.name}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('salaryType').hasError('required')"> Please select salary type </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.min_salary' | translate }}</mat-label> <input type="text" formControlName="minSalary" placeholder="Min Annual Salary" matInput  />
+                                <mat-error *ngIf="jobCreateForm.get('minSalary').hasError('required')"> Please select minimum salary </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.max_salary' | translate }}</mat-label> <input type="text" formControlName="maxSalary" placeholder="Max Annual Salary" matInput  />
+                                <mat-error *ngIf="jobCreateForm.get('maxSalary').hasError('required')"> Please select maximum salary </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="switch">{{ 'form_lables.job.location' | translate }}</h6>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label class="cus-log-lab">{{ 'form_lables.job.address' | translate }}</mat-label> <input matInput formControlName="location" #search />
+                                <mat-error *ngIf="jobCreateForm.get('location').hasError('required')"> Please enter location </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="switch">{{ 'form_lables.job.industry' | translate }}</h6>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.industry' | translate }}</mat-label>
+                                <mat-select formControlName="industry" placeholder="Industry" required> <mat-option *ngFor="let list of industryList" [value]="list._id">{{list.name}}</mat-option> </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('industry').hasError('required')"> Please select industry </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h6 class="switch">{{ 'form_lables.job.functional_area' | translate }}</h6>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.functional_area' | translate }}</mat-label>
+                                <mat-select formControlName="functionalArea" placeholder="Functional Area" required>
+                                    <mat-option *ngFor="let list of functionalAreaList" (click)="getselectval(list._id)" [value]="list._id">{{list.name}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="jobCreateForm.get('functionalArea').hasError('required')"> Please select functional area </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="switch">{{ 'form_lables.job.number_of_vacancies' | translate }}</h6>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.number_of_vacancies' | translate }}</mat-label> <input matInput type="text" placeholder="Enter no of Vacancies" formControlName="vacancy" mask="00" required id="myText" (keypress)="isInteger($event)" />
+                                <mat-error *ngIf="jobCreateForm.get('vacancy').hasError('required')"> Please enter no. of vacancies </mat-error>
+                                <mat-error *ngIf="jobCreateForm.get('vacancy').hasError('minlength')"> Maximum vacancy should be 1 </mat-error>
+                                <mat-error *ngIf="jobCreateForm.get('vacancy').hasError('maxlength')"> Maximum vacancy should be 99 </mat-error>
+                                <mat-error *ngIf="jobCreateForm.get('vacancy').dirty && jobCreateForm.get('vacancy').hasError('pattern')"> Only number is allowed </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="switch">{{ 'form_lables.job.company_name' | translate }}</h6>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.company_name' | translate }}</mat-label> <input matInput placeholder="Company Name" readonly formControlName="companyName" required />
+                                <mat-error *ngIf="jobCreateForm.get('companyName').hasError('required')"> Please enter company name </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.start_date' | translate }}</mat-label>
+                                <input
+                                    matInput
+                                    readonly
+                                    (click)="pickerStartDate.open()"
+                                    (focus)="pickerStartDate.open()"
+                                    [ngxMatDatetimePicker]="pickerStartDate"
+                                    formControlName="startDate"
+                                    placeholder="StartDate/StartTime"
+                                    [min]="min"
+                                    [max]="maxDate"
+                                    [disabled]="disabled"
+                                    required
+                                />
+                                <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+                                <ngx-mat-datetime-picker
+                                    #pickerStartDate
+                                    [showSpinners]="showSpinners"
+                                    [showSeconds]="showSeconds"
+                                    [stepHour]="stepHour"
+                                    [stepMinute]="stepMinute"
+                                    [stepSecond]="stepSecond"
+                                    [touchUi]="touchUi"
+                                    [color]="color"
+                                    [enableMeridian]="enableMeridian"
+                                >
+                                </ngx-mat-datetime-picker>
+                                <mat-error *ngIf="jobCreateForm.get('startDate').hasError('required')">Please select Walk-in Start Date/Time </mat-error>
+                            </mat-form-field>
+
+                            <!-- <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label> </mat-label>
+                                <input matInput readonly [matDatepicker]="picker" placeholder="StartDate/StartTime" formControlName="startDate" required />
+                                <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+                                <mat-error *ngIf="jobCreateForm.get('startDate').hasError('required')">Please select Walk-in Start Date </mat-error>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field> -->
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.end_date' | translate }}</mat-label>
+                                <input
+                                    matInput
+                                    readonly
+                                    (click)="pickerEndDate.open()"
+                                    (focus)="pickerEndDate.open()"
+                                    [ngxMatDatetimePicker]="pickerEndDate"
+                                    formControlName="endDate"
+                                    placeholder="EndDate/EndTime"
+                                    [min]="min"
+                                    [max]="maxDate"
+                                    [disabled]="disabled"
+                                    required
+                                />
+                                <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+                                <ngx-mat-datetime-picker
+                                    #pickerEndDate
+                                    [showSpinners]="showSpinners"
+                                    [showSeconds]="showSeconds"
+                                    [stepHour]="stepHour"
+                                    [stepMinute]="stepMinute"
+                                    [stepSecond]="stepSecond"
+                                    [touchUi]="touchUi"
+                                    [color]="color"
+                                    [enableMeridian]="enableMeridian"
+                                >
+                                </ngx-mat-datetime-picker>
+                                <mat-error *ngIf="jobCreateForm.get('endDate').hasError('required')">Please select Walk-in End Date/Time </mat-error>
+                            </mat-form-field>
+
+                            <!-- <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label> </mat-label>
+                                <input matInput readonly [matDatepicker]="pickerEndDate" placeholder="EndDate/EndTime" formControlName="endDate" required />
+                                <mat-datepicker-toggle matSuffix [for]="pickerEndDate"> </mat-datepicker-toggle>
+                                <mat-error *ngIf="jobCreateForm.get('endDate').hasError('required')">Please select Walk-in End Date </mat-error>
+                                <mat-datepicker #pickerEndDate></mat-datepicker>
+                              </mat-form-field> -->
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.job.company_website' | translate }}</mat-label> <input matInput placeholder="e.g; www.google.com" formControlName="companyWebsite" />
+                                <mat-error *ngIf="jobCreateForm.get('companyWebsite').hasError('pattern')"> Please enter website url </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>{{ 'form_lables.select_archived_status' | translate }} </mat-label> <mat-select formControlName="isDeleted"> <mat-option *ngFor="let list of deleteArray" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-label>&nbsp;</mat-label>
+                            <section class="example-section mt-4"><mat-checkbox class="example-margin" formControlName="walkinchk" color="primary" (change)="setWalkInDetails($event)">{{ 'form_lables.job.include_walk_in' | translate }}</mat-checkbox></section>
+                        </div>
+                        <div class="p-3" *ngIf="walkInDetails==true">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="switch">{{ 'form_lables.job.contact_person' | translate }}</h6>
+                                    <mat-form-field class="example-full-width" appearance="outline"> <input matInput placeholder="Recruiter name(if available)" formControlName="contactPerson" maxlength="20" /> </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6 class="switch">{{ 'form_lables.job.phone_number' | translate }}<span class="cus_redclr">*</span></h6>
+                                    <mat-form-field class="example-full-width cus-pin-with-no" appearance="outline">
+                                        <span class="cus-pin-code">+1</span>
+                                        <input matInput placeholder="(000) 000-0000" mask="(000) 000-0000" formControlName="contactNumber" />
+                                        <mat-error *ngIf="jobCreateForm.get('contactNumber').hasError('pattern')">Please enter a valid phone number </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-12">
+                                    <h6 class="switch">{{ 'form_lables.job.venue' | translate }}<span class="cus_redclr">*</span></h6>
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <textarea matInput placeholder="Type address here" formControlName="venue"></textarea> <mat-error *ngIf="jobCreateForm.get('venue').hasError('pattern')"> Please enter valid input </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="mb-4">{{ 'form_lables.job.company_details' | translate }}<span></span></h6>
+                            <ckeditor [editor]="editor" formControlName="companyDetails" required></ckeditor> <mat-error *ngIf="jobCreateForm.get('companyDetails').hasError('required')"> Please enter Job Description </mat-error>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right"><a type="submit" class="btn common-btn mt-4 mr-4" routerLink="/layout/myaccount/jobs"> {{ 'buttons.back' | translate }} </a> <button type="submit" class="btn common-btn mt-4"> {{ 'buttons.update_job' | translate }} </button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0"><app-e-commerce-header></app-e-commerce-header></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0 cus-slide-sidemenu"><app-sidemenu></app-sidemenu></div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="page-title-box"><h4 class="page-title text-left">{{'QuestionAnswer.Answer_Question' | translate}}</h4></div>
+                    <div class="manage-product-cus-box cus-box-with-radio cus-from-stapper">
+                        <div class="col-sm-12 p-0">
+                            <div class="question">
+                                <div class="mb-1"><strong>{{'QuestionAnswer.Question' | translate}}</strong> :</div>
+                                <span>{{question}}</span>
+                            </div>
+                        </div>
+                        <form [formGroup]="addForm" (ngSubmit)="submit()" class="row">
+                            <div class="col-sm-12 mt-4">
+                                <mat-label><strong>{{'QuestionAnswer.Answer' | translate}}</strong> :</mat-label>
+                                <mat-form-field>
+                                    <textarea style="border: 1px solid #6b6b6b;" rows="3" matInput class="form-control" formControlName="answer" maxlength="150"> </textarea>
+                                    <mat-error *ngIf="addForm.get('answer').hasError('required')">Please enter your answer</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 text-right"><button class="btn e-comm-btn">{{'buttons.submit' | translate}}</button> <a class="btn e-comm-btn ml-2" (click)="goBack()">{{'buttons.cancel' | translate}}</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,219 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Spare Parts Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-cus-box  cus-box-with-radio cus-from-stapper">
+                        <mat-horizontal-stepper #stepper linear>
+                            <mat-step [stepControl]="formOne">
+                                <form [formGroup]="formOne">
+                                    <ng-template matStepLabel>Basic Details</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 cus-str-field">
+                                            <p>Note:- All fields are mandatory marked as <span>*</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Product name <span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="text" formControlName="productName" matInput required maxlength="30"/>
+                                                <mat-error *ngIf="formOne.get('productName').hasError('required')"> Please enter product name </mat-error>
+                                                <mat-error *ngIf="formOne.get('productName').hasError('pattern')"> Invalid Name </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Sub category</mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="subCategoryId">
+                                                    <mat-option *ngFor="let list of subCategoryList" [value]="list._id">
+                                                        {{ list.category_name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Condition <span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="condition" required>
+                                                  <mat-option *ngFor="let list of conditionList" [value]="list.name">{{ list.name }}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formOne.get('condition').hasError('required')">
+                                                    Please select condition </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Replaces OEM</mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <input type="text" formControlName="OEM" matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Product Brand<span>*</span> </mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <input type="text" formControlName="brandName" matInput required maxlength="30"/>
+                                                <mat-error *ngIf="formOne.get('brandName').hasError('required')">
+                                                    Please enter brand </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Suitable for models<span>*</span> </mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <input type="text" formControlName="suitableForModels" matInput required>
+                                                <mat-error *ngIf="formOne.get('suitableForModels').hasError('required')">
+                                                    Please enter model </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Year of production</mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="productionYear" required>
+                                                  <mat-option *ngFor="let list of timeDuration" [value]="list">{{ list }}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Price <span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="price" matInput required onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">$</span>
+                                                <mat-error *ngIf="formOne.get('price').hasError('required')"> Please enter price </mat-error>
+                                                <mat-error *ngIf="formOne.get('price').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>    
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Quantity<span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input formControlName="quantity" matInput required mask="000"/>
+                                                <mat-error *ngIf="formOne.get('quantity').hasError('required')"> Please enter quantity </mat-error>
+                                            </mat-form-field>
+                                        </div>    
+                                        <div class="col-sm-6">
+                                            <mat-label>Location <span>*</span></mat-label>
+                                            <mat-form-field>
+                                                <input type="text" formControlName="location" matInput required  #search/>
+                                                <mat-error
+                                                    *ngIf="formOne.get('location').hasError('required')">
+                                                    Please enter location  </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-12 pro-description">
+                                            <mat-label class="mb-3 d-flex">Description <span>*</span> </mat-label>
+                                            <ckeditor [editor]="editor" formControlName="description" required class="cus-job-diss"></ckeditor>
+                                            <mat-error *ngIf="formOne.get('description').hasError('required') && formOne.get('description').touched"> Please enter Description </mat-error>
+                                        </div>    
+                                        <div class="col-sm-12 text-right mt-4">
+                                            <a routerLink="../create-product" class="btn e-comm-btn">Back</a>
+                                            <button matStepperNext class="btn e-comm-btn ml-3">Next</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formTwo">
+                                <form [formGroup]="formTwo">
+                                    <ng-template matStepLabel>Specifications</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 cus-str-field">
+                                            <p>Note:- All fields are mandatory marked as <span>*</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Width </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="width" matInput onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">m</span>
+                                                <mat-error *ngIf="formTwo.get('width').hasError('required')"> Please enter width </mat-error>
+                                                <mat-error *ngIf="formTwo.get('width').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Heigh </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="height" matInput onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">m</span>
+                                                <mat-error *ngIf="formTwo.get('height').hasError('required')"> Please enter height </mat-error>
+                                                <mat-error *ngIf="formTwo.get('height').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>Length </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="length" matInput onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">m</span>
+                                                <mat-error *ngIf="formTwo.get('length').hasError('required')"> Please enter length </mat-error>
+                                                <mat-error *ngIf="formTwo.get('length').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-12 text-right">
+                                            <button matStepperPrevious class="btn e-comm-btn">Back</button>
+                                            <button matStepperNext class="btn e-comm-btn ml-2">Next</button>
+                                        </div>
+                                    </div>
+                                   
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formThree"> 
+                                <form [formGroup]="formThree">
+                                    <ng-template matStepLabel>Upload Image</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 custom-dropzone p-0">
+                                            <div ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                                                <ngx-dropzone-label>
+                                                    <div class="cus-img-upload">
+                                                        <div class="upload-icon"><i class="fas fa-cloud-upload"></i></div>
+                                                        <h2>Drag and drop images to upload</h2>
+                                                    </div>
+                                                </ngx-dropzone-label>
+                                            </div>
+                                            <div class="d-flex custom-dropzone-photo align-items-center justify-content-start">
+                                                <div *ngFor="let fileName of productImages; let i = index" class="col-sm-2">
+                                                    <div class="cus-close-crose" (click)="onRemove(fileName, i)" ><i class="far fa-times-circle"></i></div>
+                                                    <img src="{{productImgPath + fileName}}" class="img-fluid"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 text-right mt-3">
+                                            <button mat-button matStepperPrevious class="btn e-comm-btn">Back</button>
+                                            <button mat-button (click)="onSubmit()" class="btn e-comm-btn ml-2">Submit</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </mat-step>
+                        </mat-horizontal-stepper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

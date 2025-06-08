@@ -1,0 +1,6 @@
+<div mat-dialog-content>{{message | translate}} </div>
+ <!-- <div mat-dialog-content>{{'profile_view.menu.Are_you_sure_want_to_delete_your_account' | translate}} </div>  -->
+
+<div mat-dialog-actions> <button class="btn common-btn" [mat-dialog-close]="true" cdkFocusInitial>{{'buttons.yes' |
+                translate}}</button>&nbsp; <button class="btn common-btn" (click)="onNoClick()">{{'buttons.no' |
+                translate}}</button> </div>

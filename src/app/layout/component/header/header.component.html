@@ -1,0 +1,340 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<header class="login-header">
+  <section *ngIf="ROLETITLE != 'SELLER'" class="cus-nav">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg cus-befor-login-nav navbar-light">
+        <a class="navbar-brand cus-logo" [routerLink]="['/home-page']"><img src="assets/truck-logo.png" /></a>
+        <button class="navbar-toggler" (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </button>
+        <div class="cus-nav-menu" id="navb" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+          <ul *ngIf="ROLETITLE == 'COMPANY'" class="navbar-nav heads ml-auto tab-hidden-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationCompanyMenu' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="{{ navs.navlink }}" (click)="navToggle()"><i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown" (click)="navToggle()">
+                  <i class="fal fa-bell me-2"
+                    ><span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                  </i>
+                  <a class="">{{ 'Notification' | translate }}</a>
+                </button>
+                <ul class="dropdown-menu setmains cus_menu_heading" style="width: 310px !important">
+                  <li *ngFor="let item of notificationsLists" style="cursor: pointer" (click)="reDirect(item)">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" /> <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                      </div>
+                      <span>
+                        <p *ngIf="item.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
+                          <strong>{{ item.title }}</strong>
+                        </p>
+                        <p class="m-0">{{ item.message | slice: 0:30 }}</p>
+                      </span>
+                    </div>
+                  </li>
+                  <li class="text-center">
+                    <a routerLink="/layout/notification" class="pl-1" style="display: block">{{ 'view_all_notifi' | translate }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="fal fa-user me-2"></i><a>{{ userName | titlecase }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu setmains cus_menu_heading edit_post">
+                  <li class="m-0"><a class="d-block" (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li class="m-0"><a class="d-block" (click)="navToggle()" [routerLink]="['/layout/myaccount/my-plan']">{{'my-plan' | translate}}</a></li>
+                  <li class="m-0"><a class="d-block" (click)="routeMyCard()">My Cards</a></li>
+                  <li class="m-0"><a class="d-block" (click)="routeMyinstallment()">My Installments</a></li>
+
+                  <!-- <li><a (click)="navToggle()" [routerLink]="['/pages/card']">Cards</a></li> -->
+                  <li class="m-0"><a class="d-block" (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+      
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div id="google_translate_element" ></div><div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )" >English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+          <ul *ngIf="ROLETITLE == 'COMPANY'" class="navbar-nav heads ml-auto tab-visible-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationMobileCompanyMenu' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="{{ navs.navlink }}" (click)="navToggle()"><i class="{{ navs.navimg }}"></i>{{ navs.navitem | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown" [disabled]="!totalCount">
+                  <i class="fal fa-bell">
+                    <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                  </i>
+                  <a routerLink="/layout/notification" class="pl-1">{{ 'Notification' | translate }}</a>
+                </button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="fal fa-user"></i> <a>{{ userName | titlecase }}</a> <span class="caret"></span>
+                </button>
+              
+                <ul class="dropdown-menu setmains cus_menu_heading">
+                  <li><a (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li><a (click)="navToggle()" [routerLink]="['/layout/myaccount/my-plan']">{{'my-plan' | translate}}</a></li> 
+              
+                  <li><a (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div id="google_translate_element" ></div><div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )" >English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+          <ul *ngIf="accessLevel == 'ENDUSER' || accessLevel == 'DRIVER'" class="navbar-nav ml-auto heads tab-hidden-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationUserMenu' | translate" [routerLinkActive]="'active'" (click)="navToggle()" [routerLinkActiveOptions]="{ exact: true }">
+              <a *ngIf="!navs.showPopUp" routerLink="{{ navs.navlink }}"> <i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+              <a *ngIf="navs.showPopUp" (click)="showSubsPopUp()"> <i class="{{ navs.navimg }}"></i>{{ navs.navitem | translate }}</a>
+            </li>
+            <li class="nav-item d-md-block d-lg-none" [routerLinkActive]="'active'" (click)="navToggle()" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="/layout/my-event"> <i class="fal fa-calendar-alt"></i>{{ 'My_event' | translate }}</a>
+            </li>
+            <li class="nav-item d-md-block d-lg-none" [routerLinkActive]="'active'" (click)="navToggle()" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="/layout/my-jobs"> <i class="fal for-hov fa-briefcase"></i>{{ 'My_Jobs' | translate }}</a>
+            </li>
+            <li class="nav-item d-md-block d-lg-none" [routerLinkActive]="'active'" (click)="navToggle()" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="/layout/driver/planned-trip"> <i class="fal for-hov fa-briefcase"></i> Trip Details</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown">
+                  <i class="fal fa-bell me-2">
+                    <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                  </i>
+                  <a>{{ 'Notification' | translate }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu cus-noti-drop">
+                  <li *ngFor="let list of notificationsLists" class="d-flex justify-content-start align-items-center p-2" (click)="reDirect(list)">
+                    <span class="mr-2">
+                      <img *ngIf="!receiverImage" src="assets/Truck-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
+                    </span>
+                    <span>
+                      <p *ngIf="list.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
+                        <strong>{{ list.title }}</strong>
+                      </p>
+                      <p class="m-0" style="font-size: 12px; line-height: 10px">{{ list.message | slice: 0:20 }}....</p></span>
+                  </li>
+                  <li>
+                    <a routerLink="/layout/notification">{{ 'view_all_notifi' | translate }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle out" type="button" data-toggle="dropdown">
+                  <i class="fal fa-user me-2"></i><a>{{ userName | titlecase }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu setmains userhead cus_menu_heading">
+                  <li><a (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li><a class="d-block" (click)="navToggle()" [routerLink]="['/layout/myaccount/my-plan']">{{'my-plan' | translate}}</a></li>
+                  <li ><a class="d-block" (click)="routeMyCard()">My Cards</a></li>
+                  <li ><a class="d-block" (click)="routeMyinstallment()">My Installments</a></li>
+                  <li><a (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )">English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+          <ul *ngIf="accessLevel == 'ENDUSER' || accessLevel == 'DRIVER'" class="navbar-nav ml-auto heads tab-visible-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationMobileUserMenu' | translate" [routerLinkActive]="'active'" (click)="navToggle()" [routerLinkActiveOptions]="{ exact: true }">
+              <a *ngIf="!navs.showPopUp" routerLink="{{ navs.navlink }}"> <i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+              <a *ngIf="navs.showPopUp" (click)="showSubsPopUp()"> <i class="{{ navs.navimg }}"></i>{{ navs.navitem }}</a>
+            </li>
+            <li class="nav-item" (click)="gpsPlan()" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link text-capitalize"> <i class="fal fa-map"></i>{{ 'gps_navigation' | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown">
+                  <i class="fal fa-bell me-2">
+                    <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                  </i>
+                  <a>{{ 'Notification' | translate }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu cus-noti-drop">
+                  <li *ngFor="let list of notificationsLists" class="d-flex justify-content-start align-items-center p-2" (click)="reDirect(list)">
+                    <span class="mr-2">
+                      <img *ngIf="!receiverImage" src="assets/Truck-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
+                    </span>
+                    <span>
+                      <p *ngIf="list.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
+                        <strong>{{ list.title }}</strong>
+                      </p>
+                      <p class="m-0" style="font-size: 12px; line-height: 10px">{{ list.message | slice: 0:20 }}....</p></span
+                    >
+                  </li>
+                  <li>
+                    <a routerLink="/layout/notification">{{ 'view_all_notifi' | translate }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle out" type="button" data-toggle="dropdown">
+                  <i class="fal fa-user me-2"></i><a>{{ userName | titlecase }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu setmains userhead cus_menu_heading">
+                  <li><a (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li><a (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )">English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+          <ul *ngIf="accessLevel == 'HR'" class="navbar-nav heads ml-auto tab-hidden-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationHrMenu' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" (click)="navToggle()" routerLink="{{ navs.navlink }}"><i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown" [disabled]="!totalCount">
+                  <i class="fal fa-bell me-2">
+                    <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                  </i>
+                  <a routerLink="/layout/notification" class="pl-1">{{ 'Notification' | translate }}</a>
+                </button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle out" type="button" data-toggle="dropdown"><i class="fal fa-user me-2"></i>{{ userName | titlecase }}<span class="caret"></span></button>
+                <ul class="dropdown-menu setmains userhead cus_menu_heading">
+                  <li><a (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li><a (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )">English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+          <ul *ngIf="accessLevel == 'DISPATCHER'" class="navbar-nav heads ml-auto tab-hidden-phone">
+            <li class="nav-item" *ngFor="let navs of 'navigationDispatcherMenu' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="" routerLink="{{ navs.navlink }}"><i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown">
+                  <i class="fal fa-bell me-2">
+                    <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span></i
+                  >
+                  <a routerLink="/layout/notification" class="pl-1">{{ 'Notification' | translate }}</a>
+                </button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="fal fa-user me-2"></i> <a>{{ userName | titlecase }}</a> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu setmains cus_menu_heading">
+                  <li><a (click)="routeMyProfile()">{{'profile.profile' | translate}}</a></li>
+                  <li><a (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+                </ul>
+              </div>
+            </li>
+            <!-- <li class="nav-item"> <div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )">English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <section *ngIf=" accessLevel == 'SALESPERSON' " class="cus-nav">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="cus-dash-logo text-left col-sm-6">
+          <a routerLink="/home-page"> <img src="assets/truck-logo.png" class="profilephoto" /> </a>
+        </div>
+        <div class="col-sm-6 p-0 text-right">
+          <ul class="d-flex align-items-center justify-content-end">
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown">
+                  <a class="pl-1">
+                    <i class="far fa-bell">
+                      <span *ngIf="totalCount >= 0" class="icons-noti">{{ totalCount }}</span>
+                    </i>
+                  </a>
+                </button>
+                <ul class="dropdown-menu setmains cus_menu_heading notiDrop" style="width: 310px !important">
+                  <li *ngFor="let item of notificationsLists" style="cursor: pointer" (click)="readNotification(item)">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" />
+                        <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                      </div>
+                      <div class="row" style="margin-left: 10px;">
+                        <p class="m-0">
+                          {{ item.title | slice: 0:30 }}
+                        </p><p class="m-0">
+                          {{ item.message | slice: 0:30 }}
+                        </p>
+                      </div>
+                      
+                    </div>
+                  </li>
+                  <li class="text-center"><a routerLink="/layout/e-commerce/notification" class="pl-1" style="display: block">View all Notification </a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown profile-updation">
+                <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span class="account-user-avatar ml-1"> <img src="assets/truck-logo.png" alt="user-image" class="rounded-circle mr-2" width="28px" /> </span>
+                  <span>
+                    <span class="account-user-name">{{ sellerData }}</span>
+                  </span>
+                  
+                  <span *ngIf="accessLevel == 'SALESPERSON'" class="userName">{{firstName}} &nbsp; {{lastName}}</span>
+                </button>
+                <ul class="dropdown-menu setmains">
+                  <li *ngIf="userInfo.userInfo.accessLevel == 'SELLER'">
+                    <a routerLink="/layout/e-commerce/view-profile" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">My Account</span> </a>
+                  </li>
+                  <li *ngIf="userInfo.userInfo.accessLevel == 'SELLER'">
+                    <a routerLink="/layout/e-commerce/my-plan" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">My Plan</span> </a>
+                  </li>
+                  <li *ngIf="userInfo.userInfo.accessLevel == 'SALESPERSON'">
+                    <a routerLink="/set-profile" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">My Account</span> </a>
+                  </li>
+                  <li>
+                    <a routerLink="/change-password" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">Change Password</span> </a>
+                  </li>
+                  <li (click)="logOutSeller()">
+                    <a class="dropdown-item notify-item"> <i class="far fa-sign-out"></i> <span class="ml-2">Logout</span> </a>
+                  </li>
+                </ul>
+              </div>
+            
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>

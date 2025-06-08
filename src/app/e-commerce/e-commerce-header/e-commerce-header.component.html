@@ -1,0 +1,91 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cus-e-comm-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="cus-dash-logo text-left col-sm-6">
+        <a routerLink="/home-page"> <img src="assets/truck-logo.png" class="profilephoto" /> </a>
+      </div>
+      <div class="col-sm-6 p-0 text-right">
+        <ul class="d-flex align-items-center justify-content-end">
+          <li class="nav-item tab-visible-phone">
+            <button class="m-2" (click)="toggleBtn($event)"><i class="far fa-bars"></i></button>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown">
+                <a class="pl-1">
+                  <i class="far fa-bell">
+                    <span class="icons-noti">{{ totalCount > 0 ? totalCount : 0 }}</span>
+                  </i>
+                </a>
+              </button>
+              <ul class="dropdown-menu setmains cus_menu_heading notiDrop" style="width: 310px !important">
+                <li *ngFor="let item of notificationsLists" style="cursor: pointer" (click)="readNotification(item)">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" />
+                      <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                    </div>
+                   
+                    <div class="row" style="margin-left: 10px;">
+                      <p class="m-0">
+                        {{ item.title | slice: 0:30 }}
+                      </p><p class="m-0">
+                        {{ item.message | slice: 0:30 }}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="text-center"><a routerLink="/layout/e-commerce/notification" class="pl-1" style="display: block">{{'view_all_notifi' | translate}} </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown profile-updation">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="account-user-avatar ml-1"> <img src="assets/truck-logo.png" alt="user-image" class="rounded-circle mr-2" width="28px" /> </span>
+                <span>
+                  <span class="account-user-name">{{ sellerData }}</span>
+                </span>
+              </button>
+              <ul class="dropdown-menu setmains">
+                <li *ngIf="userObj.userInfo.accessLevel == 'SELLER'">
+                  <a routerLink="/layout/e-commerce/view-profile" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">{{'homeLinks.My_account' | translate}}</span> </a>
+                </li>
+                <li *ngIf="userObj.userInfo.accessLevel == 'SELLER'">
+                  <a routerLink="/layout/e-commerce/my-plan" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">{{'my-plan' | translate}}</span> </a>
+                </li>
+                <li *ngIf="userObj.userInfo.accessLevel == 'SALESPERSON'">
+                  <a routerLink="/set-profile" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">{{'homeLinks.My_account' | translate}}</span> </a>
+                </li>
+                <li  *ngIf="userObj.userInfo.accessLevel == 'SELLER'"><a routerLink="/layout/e-commerce/card" class="dropdown-item notify-item"><i class="fa fa-credit-card" aria-hidden="true"></i><span class="ml-2">My Cards</span></a></li>
+                <li  *ngIf="userObj.userInfo.accessLevel == 'SELLER'"><a routerLink="/layout/e-commerce/installmentList" class="dropdown-item notify-item" ><i class="fa fa-cc-visa" aria-hidden="true"></i><span class="ml-2">My Installments</span></a></li>
+                <li>
+                  <a routerLink="/change-password" class="dropdown-item notify-item"> <i class="far fa-user-circle"></i> <span class="ml-2">{{'profile_view.menu.Change_password' | translate}}</span> </a>
+                </li>
+                <li (click)="logOutSeller()">
+                  <a class="dropdown-item notify-item"> <i class="far fa-sign-out"></i> <span class="ml-2">{{'homeLinks.Logout' | translate}}</span> </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

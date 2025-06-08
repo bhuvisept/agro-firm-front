@@ -1,0 +1,51 @@
+.mat-form-field-outline.mat-form-field-outline-thick.ng-tns-c7-1.ng-star-inserted,
+.mat-form-field-wrapper {
+    width: 57%
+}
+
+.list-event .mat-tab-list {
+    background-color: transparent
+}
+
+.box-sha {
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)
+}
+
+.event-heading {
+    color: #000;
+    font-size: 17px;
+    font-weight: 500
+}
+
+.modal-body,
+.modal-header {
+    border: none
+}
+
+.for-font {
+    font-size: 13px !important
+}
+
+.border-radius {
+    border-radius: 10px 10px 0 0
+}
+
+.group-button {
+    position: absolute;
+    top: 43%;
+    right: 5%;
+    border: none
+}
+
+.box-sha img {
+    min-height: 190px;
+    max-height: 190px
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #fff
+}

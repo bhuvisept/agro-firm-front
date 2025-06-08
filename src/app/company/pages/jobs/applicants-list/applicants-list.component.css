@@ -1,0 +1,38 @@
+.resume.cus-close-cv {
+  display: none;
+}
+.cus-round-with-bg {
+  overflow: unset;
+}
+.closeicon {
+  color: #fff;
+  z-index: 99;
+  font-size: 21px;
+  font-weight: bold;
+  left: 95%;
+  position: relative;
+  cursor: pointer;
+  background: #005aa4;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50px;
+}
+.resume {
+  position: fixed;
+  width: 100%;
+  top: -17px;
+  z-index: 9;
+}
+.readed{
+  background-color: rgb(240, 239, 239);
+}
+::ng-deep .mat-datepicker-toggle.mat-icon-button .mat-icon-button {
+  color: rgba(9, 43, 134, 0.705);
+  margin-left: 10px;
+}
+
+.cursorPointer{
+  cursor: pointer;
+}

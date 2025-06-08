@@ -1,0 +1,422 @@
+<ngx-spinner>
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+
+<!-- ONLY FOR SELLER CHAT HEADER -->
+
+<header>
+  <section *ngIf="ROLETITLE=='SELLER'" class="cus-nav" >
+  <div class="container">
+    <nav class="navbar navbar-expand-lg cus-befor-login-nav navbar-light">
+      <a class="navbar-brand cus-logo" [routerLink]="['/home-page']"><img src="assets/truck-logo.png" /></a>
+      <button class="navbar-toggler" (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </button>
+
+      <div class="cus-nav-menu" id="navb" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+        <ul  class="navbar-nav heads ml-auto tab-hidden-phone">
+          <li class="nav-item" *ngFor="let navs of 'navigationCompanyMenuSeller' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="" routerLink="{{ navs.navlink }}" (click)="navToggle()"><i class="{{ navs.navimg }} me-2"></i>{{ navs.navitem | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown" (click)="navToggle()">
+                <i class="fal fa-bell me-2"
+                  ><span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                </i>
+                <a class="">{{ 'Notification' | translate }}</a>
+              </button>
+              <ul class="dropdown-menu setmains cus_menu_heading" style="width: 310px !important">
+                <li *ngFor="let item of notificationsLists" style="cursor: pointer" (click)="reDirect(item)">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" /> <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                    </div>
+                    <span>
+                      <p *ngIf="item.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
+                        <strong>{{ item.title }}</strong>
+                      </p>
+                      <p class="m-0">{{ item.message | slice: 0:30 }}</p>
+                    </span>
+                  </div>
+                </li>
+                <li class="text-center">
+                  <a routerLink="/layout/notification" class="pl-1" style="display: block">{{ 'view_all_notifi' | translate }}</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                <i class="fal fa-user me-2"></i><a>{{ personName | titlecase }}</a> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu setmains cus_menu_heading edit_post">
+                <!-- <li class="m-0"><a class="d-block" (click)="routeMyProfile()">Profile</a></li>
+                <li class="m-0"><a class="d-block" (click)="navToggle()" [routerLink]="['/layout/myaccount/my-plan']">My plan</a></li> -->
+                <li class="m-0"><a class="d-block" (click)="logout()">{{'homeLinks.Logout' | translate}}</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item"> <div id="google_translate_element" ></div><div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )" >English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+        </ul>
+        <ul  class="navbar-nav heads ml-auto tab-visible-phone">
+          <li class="nav-item" *ngFor="let navs of 'navigationMobileCompanyMenu' | translate" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="" routerLink="{{ navs.navlink }}" (click)="navToggle()"><i class="{{ navs.navimg }}"></i>{{ navs.navitem | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle noti dis" type="button" data-toggle="dropdown" [disabled]="!totalCount">
+                <i class="fal fa-bell">
+                  <span *ngIf="totalCount > 0" class="icons-noti">{{ totalCount }}</span>
+                </i>
+                <a routerLink="/layout/notification" class="pl-1">{{ 'Notification' | translate }}</a>
+              </button>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                <i class="fal fa-user"></i> <a>{{ personName | titlecase }}</a> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu setmains cus_menu_heading">
+                <!-- <li><a (click)="routeMyProfile()">Profile</a></li>
+                <li><a (click)="navToggle()" [routerLink]="['/layout/myaccount/my-plan']">My plan</a></li> -->
+                <li><a (click)="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item"> <div id="google_translate_element" ></div><div class="dropdown"> <button class="dropdown-toggle" type="button" data-toggle="dropdown"> <span class="caret"> <i class="fa fa-language"></i>{{'Language' | translate}}</span> </button> <ul class="dropdown-menu setmains"> <li><a (click)="useLanguage( 'en' )" >English</a></li><li><a (click)="useLanguage( 'es' )">Spanish</a></li><li><a (click)="useLanguage( 'pa' )">Punjabi</a></li></ul> </div></li>-->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+</header>
+
+<!--  FOR ALL HEADER EXCEPT SELLER CHAT HEADER -->
+<app-header></app-header>
+<section class="cus-dash-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-10 p-l-3 p-r-3 cus-dashbord cus-ds-main-bg">
+        <div class="cus-wt-shasow" id="chatSection">
+          <div class="row" style="height: 100%">
+            <div class="col-sm-4 p0">
+              <div class="col-sm-12 p0">
+                <mat-tab-group [selectedIndex]="selectedIndex" (selectedTabChange)="chatTabChange($event)" class="cus-setting-outer p0" animationDuration="200ms">
+                  <mat-tab>
+                    <ng-template mat-tab-label *ngIf="accessLevel=='SELLER'">{{ 'Chats.SalesPerson' | translate }}<i *ngIf="directUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template> 
+                     <ng-template mat-tab-label *ngIf="accessLevel!='SELLER'">{{ 'Chats.Chats' | translate }}<i *ngIf="directUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template>
+                     <div class="cus-chat-container">
+                       <div class="d-flex">
+                         <input type="text" class="form-control" [formControl]="term" placeholder="Search" />
+                         <button  (click)="addUserToChat('INDIVIDUAL')" class="cus-tm-btn"><i class="fa fa-plus" aria-hidden="true" style="color: #005aa4 ;font-size: 15px;"></i></button>
+                       </div>
+                       <div
+                         class="d-flex cus-chat-list"
+                         infinite-scroll
+                         [infiniteScrollDistance]="modalScrollDistance"
+                         [infiniteScrollThrottle]="modalScrollThrottle"
+                         [scrollWindow]="false"
+                         (scrolled)="onScrollDownChatList()"
+                         id="internalChat"
+                       >
+                         <ul>
+                           <li *ngFor="let ele of chatList; let i = index" class="cus-dis-none" (click)="getChat(ele, i)" [ngClass]="{ active: isActive(ele.conversation_id) }">
+                             <img *ngIf="ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" [src]="image_url + ele.image" />
+                             <img *ngIf="!ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" src="assets/Truck-banne-profile.png" />
+                             <div class="col-sm-10 row p-r-0">
+                               <div class="col-sm-12 d-flex justify-content-between">
+                                 <p class="cus-chat-user-name">{{ ele.name | titlecase }}</p>
+                                 <p class="cus-chat-date">{{ ele.lastMessages.length ? getTime(ele.lastMessages[0].msgTime) : '' }}</p>
+                               </div>
+                               <div class="col-sm-12 d-flex justify-content-between" id="chatList">
+                                 <p class="cus-last-msg">{{ ele.lastMessages.length ? (ele.lastMessages[0].message | slice : 0 : 20) : '' }}</p>
+                                 <div class="d-flex">
+                                   <p *ngIf="ele.unReadMsg > 0">
+                                     <button mat-mini-fab color="primary"> <span style="font-size: 15px;">{{ ele.unReadMsg > 99 ? '99+' : ele.unReadMsg }} </span> </button>
+                                   </p>
+                                   <p *ngIf="ele.unReadMsg == 0"><span>&nbsp;</span></p>
+                                   <button class="cus-hover-button" mat-button [matMenuTriggerFor]="beforeMenu"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                   <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                     <button (click)="deleteMessages()" mat-menu-item style="font-size: 15px;"> {{ 'Delete_conversation' | translate }}</button>
+                                     <button *ngIf="!ele.isBlocked" (click)="blockUser('BLOCK')" mat-menu-item  style="font-size: 15px;"> {{ 'Block' | translate }}</button>
+                                     <button *ngIf="ele.isBlocked" (click)="blockUser('UN-BLOCK')" mat-menu-item  style="font-size: 15px;"> {{ 'UnBlock' | translate }}</button>
+                                   </mat-menu>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                         </ul>
+                       </div>
+                     </div>
+                   </mat-tab>
+                  <mat-tab *ngIf=" accessLevel != 'DISPATCHER' &&   accessLevel != 'HR'">
+                    <ng-template mat-tab-label *ngIf="accessLevel=='SELLER'">{{ 'Chats.UserChat' | translate }}<i *ngIf="directUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template>
+                    <ng-template mat-tab-label *ngIf="accessLevel !='SELLER'">{{ 'Chats.Seller' | translate }}<i *ngIf="directUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template>
+                    <div class="cus-chat-container">
+                      <div class="d-flex">
+                        <input type="text" class="form-control" [formControl]="term" placeholder="Search" />
+                        <button *ngIf="roleName != 'ENDUSER' && roleName != 'SELLER' && roleName != 'COMPANY' " (click)="addUserToChat('SELLER')" class="cus-tm-btn"><i class="fa fa-plus" aria-hidden="true" style="color: #005aa4 ;font-size: 15px;"></i></button>
+                      </div>
+                      <div
+                        class="d-flex cus-chat-list"
+                        infinite-scroll
+                        [infiniteScrollDistance]="modalScrollDistance"
+                        [infiniteScrollThrottle]="modalScrollThrottle"
+                        [scrollWindow]="false"
+                        (scrolled)="onScrollDownChatList()"
+                        id="internalChat"
+                      >
+                        <ul>
+                          <li *ngFor="let ele of chatList; let i = index" class="cus-dis-none" (click)="getChat(ele, i)" [ngClass]="{ active: isActive(ele.conversation_id) }">
+                            <img *ngIf="ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" [src]="image_url + ele.image" />
+                            <img *ngIf="!ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" src="assets/Truck-banne-profile.png" />
+                            <div class="col-sm-10 row p-r-0">
+                              <div class="col-sm-12 d-flex justify-content-between">
+                                <p class="cus-chat-user-name">{{ ele.name | titlecase }}</p>
+                                <p class="cus-chat-date">{{ ele.lastMessages.length ? getTime(ele.lastMessages[0].msgTime) : '' }}</p>
+                              </div>
+                              <div class="col-sm-12 d-flex justify-content-between" id="chatList">
+                                <p class="cus-last-msg">{{ ele.lastMessages.length ? (ele.lastMessages[0].message | slice : 0 : 20) : '' }}</p>
+                                <div class="d-flex">
+                                  <p *ngIf="ele.unReadMsg > 0">
+                                    <button mat-mini-fab color="primary"><span style="font-size: 15px;">{{ ele.unReadMsg > 99 ? '99+' : ele.unReadMsg }}</span></button>
+                                  </p>
+                                  <p *ngIf="ele.unReadMsg == 0"><span>&nbsp;</span></p>
+                                  <button class="cus-hover-button" mat-button [matMenuTriggerFor]="beforeMenu"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                    <button (click)="deleteMessages()" mat-menu-item style="font-size: 15px;">Delete Conversation</button>
+                                    <button *ngIf="!ele.isBlocked" (click)="blockUser('BLOCK')" mat-menu-item style="font-size: 15px;">Block</button>
+                                    <button *ngIf="ele.isBlocked" (click)="blockUser('UN-BLOCK')" mat-menu-item style="font-size: 15px;">Unblock</button>
+                                  </mat-menu>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <mat-tab *ngIf="roleName != 'SELLER' &&  accessLevel != 'DISPATCHER' ">
+                    <ng-template mat-tab-label>{{ 'Chats.Groups' | translate }}<i *ngIf="groupUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template>
+                    <div class="cus-chat-container">
+                      <div class="d-flex">
+                        <input type="text" class="form-control" [formControl]="term" placeholder="Search" />
+                        <button (click)="addUserToChat('GROUP')" class="cus-tm-btn"><i class="fa fa-plus" aria-hidden="true" style="color: #005aa4 ;font-size: 15px;"></i></button>
+                      </div>
+                      <div
+                        class="d-flex cus-chat-list"
+                        infinite-scroll
+                        [infiniteScrollDistance]="modalScrollDistance"
+                        [infiniteScrollThrottle]="modalScrollThrottle"
+                        [scrollWindow]="false"
+                        (scrolled)="onScrollDownChatList()"
+                        id="internalChat"
+                      >
+                        <ul>
+                          <li *ngFor="let ele of chatList; let i = index" class="cus-dis-none" (click)="getChat(ele, i)" [ngClass]="{ active: isActive(ele.conversation_id) }">
+                         
+                              <!-- <img *ngIf="!ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" src="assets/Truck-banne-profile.png" /> -->
+                              <img *ngIf="ele.image" class="cus-radus" [src]="grup_img_url + ele.image" /> <img *ngIf="!ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" src="assets/Truck-banne-profile.png" />
+             
+                            <div class="col-sm-10 row p-r-0">
+                              <div class="col-sm-12 d-flex justify-content-between">
+                                <p class="cus-chat-user-name">{{ ele.name | titlecase }}</p>
+                                <p class="cus-chat-date">{{ ele.lastMessages.length ? getTime(ele.lastMessages[0].msgTime) : '' }}</p>
+                              </div>
+                              <div class="col-sm-12 d-flex justify-content-between" id="chatList">
+                                <p class="cus-last-msg">{{ ele.lastMessages.length ? (ele.lastMessages[0].message | slice : 0 : 20) : '' }}</p>
+                                <div class="d-flex">
+                                  <p *ngIf="ele.unReadMsg > 0">
+                                    <button mat-mini-fab color="primary"><span style="font-size: 15px;">{{ ele.unReadMsg > 99 ? '99+' : ele.unReadMsg }}</span></button>
+                                  </p>
+                                  <p *ngIf="ele.unReadMsg == 0"><span>&nbsp;</span></p>
+                                  <button class="cus-hover-button" mat-button [matMenuTriggerFor]="beforeMenu"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                  <mat-menu #beforeMenu="matMenu" xPosition="before"> <button (click)="leaveOrRemoveFromGroup()" mat-menu-item style="font-size:15px;">Leave Group</button> </mat-menu>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </mat-tab>
+                  <!-- <mat-tab *ngIf="roleName != 'SELLER'">
+                    <ng-template mat-tab-label>{{ 'Chats.Seller' | translate }}<i *ngIf="sellerUnread" class="fa fa-circle m-l-1 cus-chat-unread-clr" aria-hidden="true"></i></ng-template>
+                    <div class="cus-chat-container">
+                      <div class="d-flex"></div>
+                      <div
+                        class="d-flex cus-chat-list"
+                        infinite-scroll
+                        [infiniteScrollDistance]="modalScrollDistance"
+                        [infiniteScrollThrottle]="modalScrollThrottle"
+                        [scrollWindow]="false"
+                        (scrolled)="onScrollDownChatList()"
+                        id="internalChat"
+                      >
+                        <ul>
+                          <li *ngFor="let ele of chatList; let i = index" class="cus-dis-none" (click)="getChat(ele, i)" [ngClass]="{ active: isActive(ele.conversation_id) }">
+                            <img *ngIf="ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" [src]="image_url + ele.image" />
+                            <img *ngIf="!ele.image" class="radus-class img-fluid col-sm-2" style="padding: 10px" src="assets/Truck-banne-profile.png" />
+                            <div class="col-sm-10 row p-r-0">
+                              <div class="col-sm-12 d-flex justify-content-between">
+                                <p class="cus-chat-user-name">{{ ele.name | titlecase }}</p>
+                                <p class="cus-chat-date">{{ ele.lastMessages.length ? getTime(ele.lastMessages[0].msgTime) : '' }}</p>
+                              </div>
+                              <div class="col-sm-12 d-flex justify-content-between" id="chatList">
+                                <p class="cus-last-msg">{{ ele.lastMessages.length ? (ele.lastMessages[0].message | slice : 0 : 20) : '' }}</p>
+                                <div class="d-flex">
+                                  <p *ngIf="ele.unReadMsg > 0">
+                                    <button mat-mini-fab color="primary">{{ ele.unReadMsg > 99 ? '99+' : ele.unReadMsg }}</button>
+                                  </p>
+                                  <p *ngIf="ele.unReadMsg == 0"><span>&nbsp;</span></p>
+                                  <button class="cus-hover-button" mat-button [matMenuTriggerFor]="beforeMenu"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                    <button (click)="deleteMessages()" mat-menu-item>Delete Conversation</button>
+                                    <button *ngIf="!ele.isBlocked" (click)="blockUser('BLOCK')" mat-menu-item>Block</button>
+                                    <button *ngIf="ele.isBlocked" (click)="blockUser('UN-BLOCK')" mat-menu-item>Unblock</button>
+                                  </mat-menu>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </mat-tab> -->
+                </mat-tab-group>
+              </div>
+            </div>
+            <hr class="cus-lin" />
+            <div class="cus-chat-area p0">
+              <div *ngIf="!selectedUserForChatId" class="cus-logo-position"><img *ngIf="!selectedUserForChatId" class="profilephoto" src="assets/truck-logo.png" style="width: 40%" /></div>
+              <div *ngIf="selectedUserForChatId">
+                <div class="cus-chat-user-header">
+                  <img *ngIf="!selectedUserForChatImage" (click)="groupDetails()" style="cursor: pointer" class="cus-selected-user-image" src="assets/Truck-banne-profile.png" />
+                  <img
+                    *ngIf="selectedUserForChatImage && type != 'GROUP'"
+                    (click)="groupDetails()"
+                    style="cursor: pointer"
+                    class="cus-selected-user-image"
+                    [src]="image_url + selectedUserForChatImage"
+                  />
+                  <img
+                    *ngIf="selectedUserForChatImage && type == 'GROUP'"
+                    (click)="groupDetails()"
+                    style="cursor: pointer"
+                    class="cus-selected-user-image"
+                    [src]="grup_img_url + selectedUserForChatImage"
+                  />
+                  <span class="cus-selected-user-name" (click)="groupDetails()">
+                    <p style="cursor: pointer">{{ selectedUserForChatName | titlecase }}</p>
+                    <p *ngIf="typeToSend == 'GROUP'" style="font-size: 11px; cursor: pointer">{{ selectedUserForChat ? selectedUserForChatTotalMembers + ' Participants' : '' }}</p>
+                  </span>
+                </div>
+                <div
+                  class="cus-chat-message-area"
+                  infinite-scroll
+                  [infiniteScrollDistance]="modalScrollDistance"
+                  [infiniteScrollThrottle]="modalScrollThrottle"
+                  [scrollWindow]="false"
+                  (scrolledUp)="onScrollUpMessages()"
+                  id="chatMsgScreen"
+                  [ngStyle]="{ height: uploadedAttachment ? '64vh' : '69vh' }"
+                >
+                  <div *ngFor="let msg of chatMessageList; let i = index" class="d-flex flex-column">
+                    <div style="width: 100%" class="d-flex justify-content-center mt-2">{{ matchTime(msg.msgTime, chatMessageList[i - 1]?.msgTime) }}</div>
+                    <div style="width: 100%" class="d-flex">
+                      <span *ngIf="msg.sender_id != userInfo.userInfo._id && typeToSend == 'GROUP'" class="cus-chat-img">
+                        <img class="cus-chat-img-radius" src="assets/Truck-banne-profile.png" *ngIf="!msg.userData.image" />
+                        <img class="cus-chat-img-radius" *ngIf="msg.userData.image" [src]="image_url + msg.userData.image" />
+                      </span>
+                      <div class="d-flex flex-column" style="width: 99%">
+                        <span [ngClass]="{ sender: msg.sender_id == userInfo.userInfo._id }" class="cus-msg-name"
+                          >{{
+                            msg.sender_id == userInfo.userInfo._id
+                              ? ''
+                              : (msg.userData?.firstName +
+                                  '
+                          ' +
+                                  msg.userData?.lastName | titlecase)
+                          }}<span *ngIf="msg.sender_id != userInfo.userInfo._id">,</span>{{ getTimeChat(msg.msgTime) }}</span
+                        >
+                        <span [class]="msg.sender_id == userInfo.userInfo._id ? 'sent' : 'recieved'">
+                          <span *ngIf="!msg.isMessagelink && msg.message != 'DOCUMENT EXPIRED' "> {{ msg.message }}</span>
+                          <span *ngIf="msg.message == 'DOCUMENT EXPIRED' ">DOCUMENT EXPIRED</span>
+                          <span *ngIf="msg.isMessagelink && msg.sender_id == userInfo.userInfo._id" > <a [href]="msg.message" target=”_blank”><span style="color: #fff;">{{ msg.message }}</span></a> </span>
+                          <span *ngIf="msg.isMessagelink && msg.sender_id != userInfo.userInfo._id" > <a [href]="msg.message" target=”_blank”><span style="color: #000000;">{{ msg.message }}</span></a> </span>
+                          <div *ngIf="msg.document?.length && msg.message != 'DOCUMENT EXPIRED' " (click)="downlaodDocument(msg.document[0])" class="chat-doc-box">
+                            {{ msg.document[0] | slice : 0 : 18 }}.. <i class="fa fa-download" aria-hidden="true"></i>
+                          </div>
+                          <div *ngIf="msg.message == 'DOCUMENT EXPIRED' "  class="chat-doc-box" style="background: #cccccc;">
+                            {{ msg.deletedDocument | slice : 0 : 18 }}..
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column" *ngIf="typeToSend == 'GROUP' && !isNotMember && ((isAdmin && onlyAdminCanMessage) || !onlyAdminCanMessage)">
+                  <div class="col-sm-12 cus-chat-document" *ngIf="typeToSend == 'GROUP' && uploadedAttachment">
+                    <div class="doc-box">{{ uploadedAttachment | slice : 0 : 20 }}... <i (click)="deleteDocument(uploadedAttachment)" class="fa fa-times" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="cus-chat-footer">
+                    <div>
+                      <button class="cus-attachment-btn" (click)="file.click()">
+                        <i class="fa fa-paperclip" aria-hidden="true"></i
+                        ><input type="file" (click)="file.value = null" #file style="display: none" class="cus-img-profile" (change)="uploadS3File($event)" />
+                      </button>
+                    </div>
+                    <input type="text" class="form-control cus-type-field" (keyup.enter)="sendMessage()" [(ngModel)]="message" placeholder="Write something" />
+                    <i class="attachment fa fa-smile-o" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'" (emojiPickerSelect)="pickedEmoji($event)"></i>
+                    <button (click)="sendMessage()" class="cus-send-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+                <div class="d-flex flex-column" *ngIf="typeToSend != 'GROUP' && !isNotMember && !selectedUserForChat['isBlocked']">
+                  <div class="col-sm-12 cus-chat-document_1" *ngIf="typeToSend != 'GROUP' && uploadedAttachment">
+                    <div class="doc-box_1">{{ uploadedAttachment | slice : 0 : 20 }}... <i (click)="deleteDocument(uploadedAttachment)" class="fa fa-times" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="cus-chat-footer">
+                    <div style="width: 90px">
+                      <button class="cus-attachment-btn" (click)="file.click()">
+                        <i class="fa fa-paperclip" aria-hidden="true"></i>
+                        <input (click)="file.value = null" type="file" #file style="display: none" class="cus-img-profile" (change)="uploadS3File($event)" />
+                      </button>
+                      &nbsp; <button class="cus-attachment-btn" (click)="generateLink()" *ngIf="roleName == 'SELLER'"><i class="fa fa-link" style="font-size: 17px"></i></button>
+                    </div>
+                    <input type="text" class="form-control cus-type-field" (keyup.enter)="sendMessage()" [(ngModel)]="message" placeholder="Write something" />
+                    <i class="attachment fa fa-smile-o" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'" (emojiPickerSelect)="pickedEmoji($event)"></i>
+                    <button (click)="sendMessage()" style="width: 30px; height: 30px;" class="cus-send-btn"><i class="fa fa-paper-plane" style="font-size: 18px;" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+                <div class="cus-chat-footer" *ngIf="!isAdmin && onlyAdminCanMessage"><span>Only admins can message</span></div>
+                <div class="cus-chat-footer" *ngIf="isNotMember"><span>You can't send messages because you are not a member of Group</span></div>
+                <div class="cus-chat-footer" *ngIf="selectedUserForChat['isBlocked']">
+                  <span>You have blocked this user</span> <button (click)="blockUser('UN-BLOCK')" class="btn cus-unblock-btn">Unblock</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-s3Bucket [item]="filesForS3" [type]="'chat'" (newItemEvent)="showS3FileData($event)"></app-s3Bucket>

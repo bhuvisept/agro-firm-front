@@ -1,0 +1,48 @@
+<section class="apply-body">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center col-md-12">{{ 'Attach_Resume' | translate }}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" *ngIf="userId != ''">
+          <div class="col-sm-12">
+            <div *ngIf="checkUploadData">
+              <input type="file" (click)="InputFile.value = null" #InputFile (change)="uploadResumeCv($event)" class="cus-cv-upload" />
+              <p class="text-center p-0 m-0">
+                {{ 'Supported_formats' | translate }} : <strong><span class="text-danger">{{ 'formate' | translate }}</span></strong
+                >,upto 5MB
+              </p>
+              <p class="col-sm-12 text-center m-0">or</p>
+              <p class="col-sm-12 text-center m-0">
+                {{ 'brif_desc' | translate }}
+                <button style="background: none; color: #0b4170; border: none; cursor: pointer; padding: 0" (click)="checkData()" [disabled]="uploadedDoc"><strong> {{ 'here' | translate }}</strong></button> .
+              </p>
+              <div class="col-sm-12; row mt-3" *ngIf="driverDocuments.length && UserData.userInfo.accessLevel == 'DRIVER'">
+                <p class="mt-1 mb-1 col-sm-4 p-2 text-center" *ngFor="let docs of driverDocuments">
+                  <mat-checkbox class="example-margin" color="primary" (change)="selectedDocs($event, docs)">{{ docs.name }}</mat-checkbox>
+                </p>
+              </div>
+            </div>
+            <div class="text-left aply-job-edtr" *ngIf="sendTextarea">
+              <h4>{{ 'Write_Profile' | translate }}</h4>
+              <ckeditor [editor]="editor" style="height: 250px" [(ngModel)]="resumeText" class="cus-job-diss"> </ckeditor>
+            </div>
+          </div>
+          <div class="col-sm-12 text-center mt-3">
+            <button [mat-dialog-close]="true" class="btn common-btn m-2" cdkFocusInitials [disabled]="!this.uploadedDoc" (click)="applyJob()" *ngIf="!sendTextarea">{{ 'buttons.submit' | translate }}</button>
+            <button [mat-dialog-close]="true" class="btn common-btn m-2" cdkFocusInitials [disabled]="!resumeText.length" (click)="applyJob()" *ngIf="sendTextarea">{{ 'buttons.submit' | translate }}</button>
+            <button (click)="goBackClick()" class="btn common-btn m-2 ml-2" *ngIf="sendTextarea">{{ 'buttons.back' | translate }}</button>
+            <button (click)="onNoClick()" class="btn common-btn m-2 ml-2" *ngIf="!sendTextarea">{{ 'buttons.close' | translate }}</button>
+          </div>
+        </div>
+        <div class="row" *ngIf="userId == ''">
+          <div class="col-md-12 text-center">
+            <p>{{ 'You_are_not_logged_in' | translate }}</p>
+            <a (click)="login()" class="btn common-btn m-2">Login</a> or <a (click)="userRegister()" class="btn common-btn m-2">{{ 'buttons.Register' | translate }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

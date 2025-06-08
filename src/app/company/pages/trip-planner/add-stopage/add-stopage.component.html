@@ -1,0 +1,149 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="main">
+    <div id='map'> </div>
+</div>
+<div class="cus_toggel_gps" (click)="clickEvent()" [ngClass]=" openNav ? 'd-block' : 'd-none' ">
+    <i class="fa fa-bars" style="font-size:30px"></i>
+</div>
+<div class="sidenav-wrapper">
+    <!-- <button class="" (click)="clickEvent()"><i class="fa fa-angle-right"></i></button> -->
+    <div  class="sidenav" [ngClass]="isActive ? 'd-block' : 'd-none'">
+        <div *ngIf="hosInfo == true">
+        <button class="btn common-btn" (click)="back()">Back</button>
+        <div class="hei_storage">
+            <div>
+                <mat-form-field appearance="outline" class ="mt-3" *ngIf="unitConversion == false">
+                    <mat-label>Average Speed(mile)</mat-label>
+                    <input  id="myInput"  type="number" matInput readonly="readonly"  [(ngModel)]="AverageSpeed" (keydown.enter)="AverageSpeedFun()" min="1" onKeyPress="if(this.value.length==3) return false;"/>
+                    <button class="cus-disab-icon" (click) = "readModeRemove()"><span ><i class="fas fa-edit"></i></span></button>  
+                    <mat-error >Please enter number</mat-error>   
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class ="mt-3" *ngIf="unitConversion == true">
+                <mat-label>Average Speed(km)</mat-label>
+                <input  id="myInput"  type="number" matInput  readonly="readonly"  [(ngModel)]="AverageSpeedKm" (keydown.enter)="AverageSpeedFunkm()"  min="1" onKeyPress="if(this.value.length==3) return false;"/>
+                <button class="cus-disab-icon"  (click) = "readModeRemove()"><span ><i class="fas fa-edit"></i></span></button>     
+            </mat-form-field>
+            <div class="col-md-12 mt-5 bg-white position-relative">
+                <div class="row ">
+                    <div class="col-md-4" ><p>{{ departTime  | date:'fullDate'}} </p></div>
+                    <div class="col-md-77"><p>{{this.tripDetail.source.address}}</p> </div>
+                    <div class="col-md-2 "><div class="btn bg-info text-light">Origin</div> </div>
+                </div>
+                <div class="arrowDown-div" style="left:243px;"><img src="/assets/arrow-down .png"></div>
+            </div>
+            <div class="col-md-12 mt-5 bg-white position-relative mb-0" *ngIf="noOfDays == 0">
+                <div class=" clr-break">
+                    <div class="d-flex">
+                        <div class="col-md-2"> <i class="fa fa-clock-o" style="font-size:24px;color:brown"></i> </div>
+                        <div class="col-md-6"> <P> 30 min (Rest Break) </P></div>
+                        <div class="col-md-4 text-right"><p>{{"1 day"}}</p></div>
+                    </div>
+                    <div class="d-flex  clr-offduty">
+                        <div class="col-md-2"> <i class="fa fa-truck" style="font-size:24px;color:#36B5CB"></i> </div>
+                        <div class="col-md-8 "><P>11 hours (Complete Duty Time)</P></div>
+                    </div>
+                    <div class="arrowDown-div"><img src="/assets/arrow-down .png"></div>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 mt-5 bg-white position-relative mb-0" *ngFor="let list of days; index as i">
+                <div class=" clr-break">
+                    <div class="d-flex">
+                        <div class="col-md-2"> <i class="fa fa-clock-o" style="font-size:24px;color:brown"></i> </div>
+                        <div class="col-md-6"><P> 30 min (Rest Break)</P> </div>
+                        <div class="col-md-4 text-right"><p>{{(list)+" "+"day"}}</p></div>
+                    </div>
+                    <div class="d-flex  clr-offduty">
+                        <div class="col-md-2"> <i class="fa fa-truck" style="font-size:24px;color:#36B5CB"></i> </div>
+                        <div class="col-md-8 "><P>11 hours (Complete Duty Time)</P></div>
+                    </div>
+                    <div class="arrowDown-div"><img src="/assets/arrow-down .png"></div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-5 bg-white position-relative">
+                <div class="row ">
+                    <div class="col-md-4"><p>{{ UpdateArriveTime | date:'fullDate'}} </p></div>
+                    <div class="col-md-77" ><p>{{allDestination[allDestination.length-1].address}}</p></div>
+                    <div class="col-md-2 "><div class="btn text-light bg-success">Arrive</div></div>
+                </div>
+            </div>
+        </div>
+        </div>  
+        <div class="form-input-data">
+            <i class="fas fa-angle-left col-sm-12 text-right" (click)="clickEvent()" style="font-size:24px"></i>
+            <form class="example-form" [formGroup]="tripAddress" *ngIf= "hosInfo == false"> 
+            <button  id = "myElementKm" class="unit-button" (click) = "conversionInKm()">Metric (km)</button>
+            <span>
+                <button  id = "myElementMile" class="unit-button checked" (click) = "conversionInMiles()">Imperial (mile)</button>
+                
+            </span>
+                <mat-form-field appearance="outline" class="mt-3">
+                    <mat-label><strong>Origin</strong></mat-label>
+                    <input matInput formControlName="source" matInput placeholder="Source Address" readonly />
+                </mat-form-field>
+
+                <!-- <mat-form-field class="example-full-width " appearance="outline">
+                    <mat-label><strong>Destination</strong></mat-label>
+                    <input matInput formControlName="destination" matInput placeholder="Destination Address" readonly />
+                </mat-form-field> -->
+                <mat-form-field class="example-full-width" appearance="outline" *ngFor="let destination of allDestination; let i = index">
+                    <mat-label><strong>Destination {{ i + 1 }}</strong></mat-label>
+                    <input matInput [value]="destination.address" placeholder="Destination Address" readonly />
+                  </mat-form-field>
+            </form>
+            <div class="cus-rout-map">
+                <mat-accordion *ngIf= "hosInfo == false">
+                    <mat-expansion-panel id="{{i}}" class="mb-2 img-fluid z-depth-5 rounded" 
+                    [ngClass]="{'cu_clr': i  === cusIndex}"
+                    *ngFor="let detail of groupInst1;index as i">
+                    <mat-expansion-panel-header (click)="ActiveRoute(i)" (click)="reset()">
+                            <mat-panel-title   *ngIf="unitConversion == false">
+                                Route Detail:  {{formatAsImperialDistance(hosUsage.features[i].properties.summary.lengthInMeters)}} ({{secondsToDhms(hosUsage.features[i].properties.summary.travelTimeInSeconds)}})
+                            </mat-panel-title> 
+                            <mat-panel-title *ngIf="unitConversion == true">
+                                Route Detail:  {{formatAsMetricDistance(hosUsage.features[i].properties.summary.lengthInMeters)}} ({{secondsToDhms(hosUsage.features[i].properties.summary.travelTimeInSeconds)}})
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>        
+                        <mat-panel-description style=" background-color: rgb(255,255,255); cursor: pointer;" *ngIf="unitConversion == false">
+                            <ul class="cus-set-rout-icon" >
+                                <li *ngFor="let data of meanValue1[i].data ;index as x"  (click)="instructionHover(data)" >
+                                    <img src="{{this.maneuver[0][data.maneuver]}}" width="20px" height="20px"/>
+                                    {{data.message | slice: 0:40}}
+                                    <p> <span>{{formatAsImperialDistance(data.routeOffsetInMeters)}}</span><span></span></p> 
+                                </li>
+                            </ul>
+                        </mat-panel-description>
+                        <mat-panel-description style=" background-color: rgb(255,255,255);cursor: pointer;"  *ngIf="unitConversion == true">
+                            <ul class="cus-set-rout-icon">
+                                <li *ngFor="let data of meanValue1[i].data"  (click)="instructionHover(data)">
+                                    <img src="{{this.maneuver[0][data.maneuver]}}" width="20px" height="20px"/>
+                                    {{data.message | slice: 0:40}}
+                                    <p><span>{{formatAsMetricDistance(data.routeOffsetInMeters)}}</span><span></span></p> 
+                                </li>
+                            </ul>
+                        </mat-panel-description>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <button class="btn text-white bg-info mt-3" (click)="hoursOfServicesMiles()" (click) = "hoursOfServiceskm()" *ngIf= "hosInfo == false">Hours Of Service</button>
+                <a href="https://www.fmcsa.dot.gov/regulations/hours-of-service"  target="_blank" style="font-weight: lighter;font-size: small;padding: 0px !important;">HOS rules site link</a>
+        </div>
+    </div>
+</div>

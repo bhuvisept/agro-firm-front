@@ -1,0 +1,122 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0"><app-e-commerce-header></app-e-commerce-header></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0"><app-sidemenu></app-sidemenu></div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="page-title-box"><h4 class="page-title">{{ 'seller.product_list.heading' | translate }}</h4></div>
+                        </div>
+                        <div class="col text-right">
+                            <button type="button" class="btn e-comm-btn mb-2" (click)="createProduct()"><i class="fa fa-plus"></i> {{ 'buttons.add_product' | translate }} </button>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3">
+                        <div class="col-sm-12">
+                            <div class="row cus-pro-filter cus-search-input cus-box-with-radio search-filter-mob align-items-end">
+                                <div class="col-sm-2 p-0">
+                                    <mat-label>{{ 'seller.product_list.Search_category' | translate }}</mat-label>
+                                    <mat-form-field class="p-0 searchByCategory">
+                                        <div class="drop_down_design_active">
+                                            <mat-select [formControl]="category" class="p-0">
+                                                <mat-option *ngFor="let item of categoryList" [value]="item._id" (click)="searchByCategory($event)">{{item.category_name | titlecase}}</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-2">
+                                    <mat-form-field class="p-0 searchByCategory">
+                                        <div class="drop_down_design_active">
+                                            <mat-select [(ngModel)]="isDeleted" class="p-0"> <mat-option *ngFor="let list of deleteArray" value="{{list.value}}">{{list.name}}</mat-option> </mat-select>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-2 p-0 align-items-end cus-search-input wt-100-on-mobile-flx">
+                                    <input autocomplete="off" class="mt-2 mt-sm-0" style="width: 100%;" [(ngModel)]="search" matinput="" placeholder="Search by title" id="mat-input-3" aria-invalid="false" aria-required="false" />
+                                    <div class="cus-search-input wt-100-on-mobile-btn">
+                                        <button class="btn" type="button" (click)="searchData()"><i class="fa fa-search" title="Search"></i></button>
+                                        <button class="btn btn-res" label="Reset" title="Reset" (click)="reset()"><i class="fa fa-refresh" title="Reset"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row cus-pro-admin-list">
+                                <div class="col-sm-12 cus-wrap-pro cus-box-with-radio" *ngFor="let list of productList | paginate:{itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount}; let i=index">
+                                    <div class="row">
+                                        <div class="product-img col-sm-2">
+                                            <a routerLink="../product-view/{{list._id}}">
+                                                <div class="cus_img">
+                                                    <img *ngIf="!list.images?.length" src="assets/no.jpg" class="img-fluid" />
+                                                    <div *ngFor="let item of list.images | slice:0:1"><img *ngIf="list.images?.length" [src]="productImgPath + item.name" class="img-fluid" /></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="pl-3 pr-3 pt-2 pb-2 col-sm-10">
+                                            <div class="row">
+                                                <div class="col-sm-10 cus-product-listing pr-0">
+                                                    <h3 class="text-capitalize pb-2"><a routerLink="../product-view/{{list._id}}">{{list.productName}}</a> ({{list.category_name}})</h3>
+                                                    <p class="cus-pro-loc" *ngIf="list.location"><i class="fa fa-map-marker" aria-hidden="true"></i>{{list.location}}</p>
+                                                    <div class="d-flex">
+                                                        <span class="cus-pro-ml" *ngIf="list.productType==='RENT'">{{list.noOfMiles}}Km</span> <span class="cus-pro-hp" *ngIf="list.productType==='RENT'">{{list.enginePoweroutput}}Hp</span>
+                                                    </div>
+                                                    <div class="row pb-2">
+                                                        <p class="mt-1 mb-1 col-sm-4 " *ngIf="list.brand_name && list.brandName"><strong>{{ 'seller.product_list.Brand' | translate }} :-</strong>{{list.brand_name ? list.brand_name: list.brandName}}</p>
+                                                        <p class="mt-1 mb-1 col-sm-4 " *ngIf="list.condition"><strong>{{ 'seller.product_list.Condition' | translate }} :-</strong> &nbsp; {{list.condition | titlecase}}</p>
+                                                        <p class="mt-1 mb-1 col-sm-4 "><strong>{{ 'seller.product_list.Product_Number' | translate }} :-</strong>&nbsp; {{list.productNumber}}</p>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <p class="cus-pro-price col-sm-4"><strong>{{list.currency}} :- </strong> &nbsp; {{list.price | currency}}</p>
+                                                        <p class="mt-1 mb-1 col-sm-4 " *ngIf="list.productType==='ACCESSORIES'"><strong>{{ 'seller.product_list.Gross_weight' | translate }}  :-</strong>&nbsp;{{list.grossWeight}}t</p>
+                                                        <p class="mt-1 mb-1 col-sm-4 " *ngIf="list.productType==='ACCESSORIES'"><strong>{{ 'seller.product_list.Suspension' | translate }}  :-</strong>&nbsp;{{list.suspension}}</p>
+                                                       
+                                                    </div>
+                                                   
+                                                </div>
+                                            
+                                                <div class="col-sm-2 text-right pl-0">
+                                                    <a *ngIf="list.constant_name=='TRUCKS' && list.createdById== userId" routerLink="../edit-truck/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <a *ngIf="list.constant_name=='TRAILERS' && list.createdById== userId" routerLink="../edit-trailer/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <a *ngIf="list.constant_name=='TRUCKUNITS' && list.createdById== userId" routerLink="../edit-truckunits/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <a *ngIf="list.constant_name=='SPAREPARTS' && list.createdById== userId" routerLink="../edit-spareparts/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <a *ngIf="list.constant_name=='ACCESSORIES' && list.createdById== userId" routerLink="../edit-accessories/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <a *ngIf="list.constant_name=='OTHERS' && list.createdById== userId" routerLink="../edit-miscellaneous/{{list._id}}" class="cus-edit-product"><i class="far fa-edit" title="Edit"></i></a>
+                                                    <button *ngIf="list.isDeleted==false && list.createdById== userId" class="cus-dele-product" (click)="deleteProduct(list._id)"><i class="far fa-trash-alt" title="Archive"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="totalCount > itemsPerPage" class="col-sm-12 text-center"><pagination-controls (pageChange)="pageChanged($event)" responsive="true" directionLinks="true"></pagination-controls></div>
+                                <div *ngIf="noRecordFound" class="col-sm-12 text-center"><p>{{ 'No_Records_Found' | translate }}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,233 @@
+<section class="banner">
+    <div id="demo" class="carousel slide" data-ride="carousel" *ngIf="sliderList?.length">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" *ngFor="let slide of sliderList; let i=index" data-slide-to="i"
+                [ngClass]="{active: i===0}"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div *ngFor="let slide of sliderList; let i=index" class="carousel-item" [ngClass]="{active: i===0}"> <a
+                    routerLink="/{{slide.routeLink}}"> <img loading="lazy" src="{{slider_url + slide.url}}"
+                        alt="{{slide.alt}}" title="{{slide.title}}" width="100%" class="example" /> </a> </div>
+        </div><a class="carousel-control-prev" href="#demo" data-slide="prev" *ngIf="sliderArrow"> <i
+                class="fa fa-angle-left" style="font-size:5rem; color: #000;"></i> </a> <a class="carousel-control-next"
+            href="#demo" data-slide="next" *ngIf="sliderArrow"> <i class="fa fa-angle-right"
+                style="font-size:5rem; color: #000;"></i> </a>
+    </div>
+</section>
+<section class="cus-home-qequest">
+    <div class="container pt-5 mt-5">
+        <div class="row">
+            <div class="col-md-6 Service">
+                <h2 class="h2 text-dark" [innerHtml]="'homeContent.we_give' | translate"> </h2>
+                <p class="pops">{{'homeContent.content_1' | translate}}</p>
+                <p class="pops">{{'homeContent.content_2' | translate}}</p>
+                <div class="row pt-5">
+                    <div class="col-md-6">
+                        <div class="row box-sor text-center text-md-left">
+                            <div class="col-md-2 p-0"> <img loading="lazy" src="assets/icon_hone1.png" alt=""> </div>
+                            <div class="col-md-10 ">
+                                <h5>{{'homeContent.fourContent.first' | translate}}</h5>
+                                <p class="pops">{{'homeContent.fourContent.first_des' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row box-sor text-center text-md-left">
+                            <div class="col-md-2 p-0"> <img loading="lazy" src="assets/icon_hone2.png" alt=""> </div>
+                            <div class="col-md-10 custom-padding">
+                                <h5>{{'homeContent.fourContent.second' | translate}}</h5>
+                                <p class="pops">{{'homeContent.fourContent.second_des' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5 ">
+                    <div class="col-md-6">
+                        <div class="row box-sor text-center text-md-left">
+                            <div class="col-md-2 p-0"> <img loading="lazy" src="assets/icon_hone3.png" alt=""> </div>
+                            <div class="col-md-10 custom-padding">
+                                <h5>{{'homeContent.fourContent.third' | translate}}</h5>
+                                <p class="pops">{{'homeContent.fourContent.third_des' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row box-sor text-center text-md-left">
+                            <div class="col-md-2 p-0"> <img loading="lazy" src="assets/icon_hone4.png" alt=""> </div>
+                            <div class="col-md-10 custom-padding">
+                                <h5>{{'homeContent.fourContent.forth' | translate}}</h5>
+                                <p class="pops">{{'homeContent.fourContent.forth_des' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 Service"> <img loading="lazy" src="assets/best.jpg" class="w-100" alt=""> </div>
+        </div>
+    </div>
+</section>
+<section class="cus-home-app">
+    <div class="container-fluid mt-5 pt-5 text-dark" style="background:rgb(0 135 255 / 8%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center">
+                    <div>
+                        <p class="h1 font-weight-bolder head">{{'homeContent.download_app' | translate}}</p>
+                        <p class="text-dark pops">{{'homeContent.download_des' | translate}}</p>
+                        <div> <a class="mr-2" href='https://play.google.com/store/apps/details?id=com.my_truck_dot_one'
+                                target="_blank"> <img loading="lazy" src="assets/googleplay.svg"
+                                    class="w download_image" style="max-width: 200px; cursor: pointer;" alt="" /> </a>
+                            <a class="mr-2" href='https://apps.apple.com/in/app/mytruck-one/id1621264447'
+                                target="_blank"> <img loading="lazy" target="_blank" src="assets/appstore.svg"
+                                    class="w download_image" alt="" style="max-width: 200px; cursor: pointer;"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 pt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 col-6"><img loading="lazy" src="assets/m1.png" class=" w-100 vert-move"
+                                alt=""></div>
+                        <div class="col-md-6 col-6"><img loading="lazy" src="assets/m2.png" class=" w-100 vert-movet1"
+                                alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="up-coming" *ngIf=" !eventAccess.includes(accessLevel) && eventLists.length !=0">
+    <div class="container p-t-2 p-b-2">
+        <div class="">
+            <div class="col-sm-12 text-center m-b-2">
+                <h2 class="text-uppercase">events</h2> <span class="cus-tit-bor"></span>
+            </div>
+            <div class="row">
+                <div *ngFor="let cardList of eventLists | slice : 0 :3" class="col-md-4">
+                    <div class="cus-round-with-bg ">
+                        <div class="post-event image-height-set"> <a
+                                [routerLink]="['/pages/event-details', cardList._id]"> <img loading="lazy"
+                                    *ngIf="cardList.bannerImage=='' || cardList.bannerImage==null"
+                                    src="assets/Truck-banne-bg.png" class="w-100" /> <img loading="lazy"
+                                    *ngIf="cardList.bannerImage !='' && cardList.bannerImage !=null"
+                                    src="{{image_url_truck + cardList.bannerImage}}" class="w-100" /> </a>
+                            <div class="d-flex cus-eve-tit-top mt-1"> <span> <a
+                                        [routerLink]="['/pages/event-details', cardList._id]" class="cus-eve-tit ">
+                                        <h5 class="text-capitalize">{{cardList.name | slice: 0:10}}</h5>
+                                    </a> </span> <span> <span class="mr-2"> <button *ngIf="cardList.isInterested==true"
+                                            type="button" (click)="removeInterestedAttendee(cardList._id)"> <i
+                                                class="fa fa-star ml-2" style="color: yellow"></i> </button> <button
+                                            *ngIf="cardList.isInterested==false" type="button"
+                                            (click)="addInterestedAttendee(cardList._id)"> <i
+                                                class="far fa-star text-warning"></i> </button></span> <span
+                                        class="mr-2"> <button *ngIf="cardList.isfavourite==false" type="button"
+                                            (click)="addFavourite(cardList._id)"> <i
+                                                class="far fa-heart text-danger"></i> </button> <button
+                                            *ngIf="cardList.isfavourite==true" type="button"
+                                            (click)="removeFavourite(cardList._id)"> <i class="fa fa-heart"
+                                                style="color: red"></i> </button> </span> </span> </div>
+                            <div class=" moverspackers-blog-optionq text-dark col-md-12">
+                                <div class="sidebox get-p pops mt-2">
+                                    <div class="cus-hei-even">
+                                        <p innerHtml="{{cardList.description | slice: 0:80}}"></p>
+                                    </div>
+                                    <p class="mt-2">{{cardList.startDate | date: 'MMM-dd-yyyy':'UTC'}}</p>
+                                    <p class="font-weight-bold p-0">
+                                        <span style="margin-left: 1px;"> {{cardList.noOfAttendee}} &nbsp; interested</span>  <span style="margin-left: 5px;">{{cardList.goingAttendee}} &nbsp; Going</span>    </p>
+                                    <div class="text-center m-auto pt-3">
+                                        <div style="justify-content: center;"
+                                            class="p-2 cus-round-with-bg events d-inline mt-3">{{cardList.countdown}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="interested btngroup mt-5 d-flex align-items-center"> <span class="ml-2"
+                                    *ngIf="cheak"> <button class="common-btn" (click)="bookEvent(cardList._id)"
+                                        *ngIf="cardList.isBooked==false"> Book Now </button> <button class="common-btn"
+                                        *ngIf="cardList.isBooked==true" [disabled]='true'> Booked </button> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 text-right" *ngIf="eventLists?.length > 3"><a routerLink="/pages/events"><i
+                        class="fa fa-arrow-right" aria-hidden="true"></i> See All</a></div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container pb-4 pt-4">
+        <div _ngcontent-pyo-c4="" class="col-sm-12 text-center m-b-2">
+            <h2 _ngcontent-pyo-c4="" class="text-uppercase">{{'About_us' | translate}}</h2> <span _ngcontent-pyo-c4=""
+                class="cus-tit-bor"></span>
+        </div>
+        <div class="row mt-5 Service">
+            <div class="col-md-6" style="display: flex;flex-direction: column;justify-content: center;">
+                <h2 class="h2 text-dark " [innerHtml]=" 'homeContent.who_we' | translate "></h2>
+                <p class="text-dark pops">{{'homeContent.who_we_des' | translate}}</p>
+            </div>
+            <div class="col-md-6 position-relative text-center m-auto"> <img loading="lazy" class="w-100"
+                    src="assets/asdasdasdasdasd.jpg" alt=""> </div>
+        </div>
+    </div>
+</section>
+<section class="cus-blog-slider">
+    <div class="container pb-3" *ngIf="blogListTotalCount <=3">
+        <div class="col-sm-12 text-center m-b-2">
+            <h2 class="text-uppercase font-weight-bolder">{{'Blogs' | translate}}</h2> <span class="cus-tit-bor"></span>
+        </div>
+        <div class="row pt-3 pb-5">
+            <div class="cus-blog-list-home col-sm-4" *ngFor="let list of blogList | slice: 0:3 ">
+                <div class="blogimg"> <a routerLink="/pages/blogs-details/{{list._id}}"> 
+                    <img loading="lazy" *ngIf="!list.image"
+                            src="assets/blogone.jpg" alt="" class="boder-r w-100">
+                    <img loading="lazy" *ngIf="list.image"
+                            src="{{BLOGIMAGE}}{{list.image}}" alt="" class="boder-r w-100"> </a> </div>
+                <h5 class="mt-3 font-weight-bolder"> <a routerLink="/pages/blogs-details/{{list._id}}">{{list.title |
+                        titlecase | slice: 0:50}}</a> </h5>
+                <div class="cus-blog-dis">
+                    <p innerHtml="{{list.description | slice: 0:100}}....."></p>
+                </div>
+                <div class="cus-blog-link"> <a routerLink="/pages/blogs-details/{{list._id}}">Read More <div
+                            class="mt-1 d-inline"> <span> >> </span> </div></a> </div>
+            </div>
+        </div>
+    </div>
+    <div class="container p-t-2 p-b-2" *ngIf="blogListTotalCount > 3">
+        <div class="col-sm-12 text-center m-b-2">
+            <h2 class="text-uppercase font-weight-bolder"> Blogs </h2> <span class="cus-tit-bor"></span>
+        </div>
+        <div class="col-sm-12 cus-slt-cat p-4 cus-blog-slider mb-0">
+            <owl-carousel-o [options]="blogCustomOptions">
+                <ng-container *ngFor="let slide of blogList">
+                    <ng-template carouselSlide>
+                        <div class="item-box-blog">
+                            <div class="blogimg"> <a routerLink="/pages/blogs-details/{{slide._id}}"> <img
+                                        loading="lazy" *ngIf="!slide.image" src="assets/blogone.jpg" alt=""> <img
+                                        loading="lazy" *ngIf="slide.image" src="{{BLOGIMAGE}}{{slide.image}}" alt="">
+                                </a> </div>
+                            <h5 class="mt-3 font-weight-bolder"> <a
+                                    routerLink="/pages/blogs-details/{{slide._id}}">{{slide.title | titlecase | slice:
+                                    0:50}}</a> </h5>
+                            <div class="cus-blog-dis">
+                                <p innerHtml="{{slide.description | slice: 0:100}}"></p>
+                            </div>
+                            <div class="mt-3 cus-blog-link"> <a routerLink="/pages/blogs-details/{{slide._id}}">Read
+                                    More <div class="mt-1 d-inline"> <span> >> </span> </div></a> </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+</section>
+
+<div class="container floating_promo">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="justify-content-end direction text-center" (click)="openPromo()"> <img class="promoimg"
+                    src="assets/Images/promocode.png" width="80px" height="80px">
+                <h4>Promo Codes</h4>
+            </div>
+        </div>
+    </div>
+</div>

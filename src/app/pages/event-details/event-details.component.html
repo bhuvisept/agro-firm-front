@@ -1,0 +1,85 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="about mob-top-spc">
+  <div class="container">
+    <div class="row cus-round-with-bg pt-3">
+      <div class="col-md-12 mb-2 cus-upload">
+        <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+          <img class="w-100 banner-common-height" *ngIf="eventData.bannerImage == '' || eventData.bannerImage == null" src="assets/Truck-banne-bg.png" width="100%" />
+          <img class="w-100 banner-common-height" *ngIf="eventData.bannerImage != '' && eventData.bannerImage != null" src="{{ event_banner_image + eventData.bannerImage }}"
+            width="100%" />
+        </div>
+        <div class="cus-profile-img">
+          <img class="w-100 h-100" *ngIf='!eventData.brandLogo' src="assets/Truck-banne-profile.png">
+          <img class="w-100 h-100" *ngIf='eventData.brandLogo' style='height:50px;width:50px;border-radius: 50px;'
+            src="{{logo_url_event+eventData.brandLogo}}">
+        </div>
+      </div>
+
+      <div class=" w-100">
+        <div class="col-md-12 text-right event_view">
+          <button class="btn common-btn mr-4 " (click)="goBack()"> {{ 'buttons.back' | translate }} </button>
+          <button class="btn common-btn" *ngIf="eventData.isBooked == false"
+            (click)="bookEvent(eventData._id)">{{ 'buttons.book' | translate }}</button>
+          <button class="btn common-btn" *ngIf="eventData.isBooked == true">{{ 'buttons.booked' | translate }}</button>
+        </div>
+      </div>
+
+      <div class="col-sm-12 mt-1 mt-md-0">
+        <h4 class="text-capitalize">{{ eventData.name }}</h4>
+        <p class="m-0"><strong>{{ 'labels.event.event_by' | translate }} : </strong> <span class="text-uppercase"> {{ eventData.createdBy }}</span></p>
+        <div class="offline mt-3">
+          <ul>
+            <li>
+              <i class="fa text-dark fa-play-circle mr-2"></i>
+              <span>{{ eventData.eventMode | titlecase}}</span>
+            </li>
+            <li>
+              <p class="m-0"><strong>{{ 'labels.event.speaker' | translate }} : </strong> <span class="text-uppercase"> {{ eventData.speaker}}</span></p>
+              <p class="m-0"><strong>{{ 'labels.event.event_fee' | translate }} : </strong> <span class="text-uppercase"> {{ eventData.currency }} {{
+                  eventData.eventFee | currency:'':'' }}</span></p>
+              <p *ngIf="interestUserDataCount" class="m-0">
+                <strong>{{ 'labels.event.interested_people' | translate }}: </strong> <span class="text-uppercase"> {{ interestUserDataCount }}</span>
+              </p>
+              <p *ngIf="eventData.address" class="m-0">
+                <strong>{{ 'labels.event.address' | translate }} : </strong> <span class="text-uppercase"> {{ eventData.address }}</span>
+              </p>
+              <p *ngIf="eventData.venue" class="m-0">
+                <strong>{{ 'labels.event.venue' | translate }} : </strong> <span class="text-uppercase"> {{ eventData.venue }}</span>
+              </p>
+              <p *ngIf='eventData.eventMode=="online" && eventData.isBooked'>
+                <strong> {{ 'labels.event.event_link' | translate }} : </strong> <span><a href="{{website}}" target="blank">{{website}}</a></span>
+              </p>
+            <li>
+              <i class="fa fa-calendar mr-1"></i> <span>{{ eventData.startDate | date: 'MMM-dd-yyyy, h:mm:ss a' }} - {{
+                eventData.endDate | date: 'MMM-dd-yyyy, h:mm:ss a' }}</span>
+            </li>
+            <li *ngIf="eventData.registrationLink">
+              <i class="fa fa-step-forward mr-1"></i> <span>{{ eventData.registrationLink }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="pro-details cus-no-bg-mat-tab-group">
+          <div class="about mt-3">
+            <h5>{{ 'labels.event.about' | translate }} </h5>
+            <p innerHtml="{{eventData.description }}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

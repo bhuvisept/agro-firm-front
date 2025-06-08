@@ -1,0 +1,122 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="container mt-5 mob-top-spc">
+    <div class="row mt-3">
+        <div class="col-sm-12 text-center">
+            <h2 class="heading_text">{{'contact_us.heading' | translate}}</h2>
+            <div class="col-sm-12 mt-3 mb-5">
+                <p class="under_line">{{'contact_us.sub_head' | translate}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="cus-contact-form">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="cus-form-left-bg">
+                    <h3>{{'contact_us.side_items.head' | translate}}</h3>
+                    <p>{{'contact_us.side_items.sub_head' | translate}}</p>
+                    <ul class="cus-cont-address">
+                        <li><i class="fa fa-envelope"></i> support@mytruck.one</li>
+                    </ul>
+                    <ul class="cus-cont-socialMedia d-flex">
+                        <li> <a href="https://www.facebook.com/TruckOne-113574861095940/?ref=pages_you_manage"
+                                target="_blank"> <i class="fab fa-facebook"></i> </a> </li>
+                        <li> <a href="https://www.linkedin.com/company/truckone0555" target="_blank"> <i
+                                    class="fab fa-linkedin"></i> </a> </li>
+                        <li> <a href="https://www.instagram.com/truckone1217/" target="_blank"> <i
+                                    class="fab fa-instagram"></i> </a> </li>
+                        <li> <a href="https://www.youtube.com/channel/UCLSgcZpvPQ5vReIM_E2JrKg" target="_blank"> <i
+                                    class="fab fa-youtube"></i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 contact_us">
+                <form [formGroup]='contact' (ngSubmit)='onSubmit()'>
+                    <div class='form-inner'>
+                        <div class='row'>
+                            <div class="col-sm-6"> <mat-label style="color: #0059a3;">{{ 'applicants.Name' | translate }}</mat-label> <mat-form-field
+                                    class="example-full-width" appearance="fill"> <input formControlName='name'
+                                        autocomplete="off" matInput placeholder="abc" maxlength="30"> <mat-error
+                                        *ngIf="contact.get('name').hasError('required')">Please enter name </mat-error>
+                                    <mat-error *ngIf="contact.get('name').hasError('pattern')"> Please enter valid name
+                                    </mat-error> </mat-form-field> </div>
+                            <div class='col-sm-6'> <mat-label style="color: #0059a3;">{{ 'applicants.Email' | translate }}</mat-label> <mat-form-field
+                                    class="example-full-width" appearance="fill"> <input formControlName='email'
+                                        autocomplete="off" matInput placeholder="abc@gmail.com"> <mat-error
+                                        style="font-size:15px"
+                                        *ngIf="contact.get('email').hasError('required') && contact.get('email').touched">
+                                        <small>Please enter email</small> </mat-error> <mat-error style="font-size:15px"
+                                        *ngIf="contact.get('email').hasError('pattern')"> <small> Please enter valid
+                                            email</small> </mat-error> </mat-form-field> </div>
+                            <div class='col-sm-6'> <mat-label style="color: #0059a3;">{{ 'applicants.Phone_Number' | translate }}</mat-label>
+                                <mat-form-field class="example-full-width cus-pin-with-no" appearance="fill"> <span
+                                        class="cus-pin-code">+1</span> <input type="text" placeholder="(000) 000-0000"
+                                        formControlName='phone' mask="(000) 000-0000" autocomplete="off" matInput>
+                                    <mat-error style="font-size:15px" *ngIf="contact.get('phone').hasError('pattern')">
+                                        <small> Please enter valid phone number</small> </mat-error> </mat-form-field>
+                            </div>
+                            <div class="col-sm-7">
+                                <p class="query">{{'contact_us.qry_abt.head' | translate}}</p>
+                                <div class="cus-comment-opt"> <mat-radio-group formControlName='queryType'>
+                                        <mat-radio-button value="SUBSCRIPTION PLAN" (click)="nameReq('yes')"
+                                            (change)="radioChange($event)">{{'contact_us.qry_abt.item_1' |
+                                            translate}}</mat-radio-button> <mat-radio-button value="OTHER"
+                                            (click)="nameReq('no')"
+                                            (change)="radioChange($event)">{{'contact_us.qry_abt.item_2' |
+                                            translate}}</mat-radio-button> </mat-radio-group> <mat-error
+                                        *ngIf="contact.get('queryType').hasError('required') && contact.get('queryType').touched">
+                                        <small>Please select query type</small> </mat-error> </div>
+                            </div>
+                            <div class="row w-100 pl-4" *ngIf="this.isSelectOption=='SUBSCRIPTION PLAN'">
+                                <div class="col-sm-6"> <mat-label style="color: #0059a3">{{ 'profile_view.companyName' | translate
+                                }}</mat-label>
+                                    <mat-form-field class="example-full-width" appearance="fill"> <input
+                                            formControlName='companyName' autocomplete="off" matInput placeholder="abc">
+                                        <mat-error style="font-size:15px"
+                                            *ngIf="contact.get('companyName').hasError('required') && contact.get('companyName').touched">
+                                            <small> Please enter company name</small> </mat-error> <mat-error
+                                            style="font-size:20px"
+                                            *ngIf="contact.get('companyName').hasError('pattern')"> <small> Please enter
+                                                valid name</small> </mat-error> </mat-form-field> </div>
+                                <div class="col-sm-6">
+                                    <div class="cus-plan-option"> <mat-form-field> <mat-select placeholder="Select plan"
+                                                formControlName='planOption' [(ngModel)]="selectedsss"
+                                                (selectionChange)="changeClient($event)" multiple> <mat-option
+                                                    *ngFor="let list of planList"
+                                                    value="{{list.value}}">{{list.name}}</mat-option> </mat-select>
+                                            <mat-error style='font-size: 15px;'
+                                                *ngIf="contact.get('planOption').hasError('required') && contact.get('planOption').touched">
+                                                <small>Please select plan option</small> </mat-error> </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-sm-12 mb-2 mt-2'>
+                                <div class='mb-2 field-head' style="color: #0059a3;">{{'myNetwork.grp_detail.description' | translate}}</div><textarea rows="3"
+                                    class="form-control sellInput" type='text' placeholder="write here..."
+                                    formControlName='description' maxlength="3000"> </textarea> <span> <mat-error
+                                        *ngIf="contact.get('description').hasError('required') && contact.get('description').touched">
+                                        <small>{{'myNetwork.grp_detail.Please_enter_description' | translate}}</small> </mat-error> </span>
+                            </div>
+                        </div>
+                        <div class='mt-2 mb-3 text-center'> <button type='submit'
+                                class='btn common-btn'>{{'buttons.send_message' | translate}}</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

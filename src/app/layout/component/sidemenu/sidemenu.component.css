@@ -1,0 +1,19 @@
+section.cus-sidemenu-with-profile {
+  position: fixed;
+  top: 115px;
+  width: 100%;
+}
+.profile {
+  float: right;
+  font-size: 12px;
+  margin-right: 36px;
+  color: #071042;
+}
+
+@media screen and (max-height: 620px) {
+  ul.nav.cus-left-navbar.cus-side-menu {
+    height: 250px;
+    min-height: auto;
+    overflow-y: auto;
+  }
+}

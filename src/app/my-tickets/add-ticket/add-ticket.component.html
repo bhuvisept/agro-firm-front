@@ -1,0 +1,112 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div  >
+  <h4>{{ 'my_tickets.add_ticket.heading' | translate }}</h4>
+</div>
+<form [formGroup]="form" class="created">
+    <div class="modal-body p-0">
+    
+
+      <div class="event-name">
+      <div class="row px-3">
+        <div class="col-sm-7">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> {{ 'my_tickets.add_ticket.labels.subject' | translate }} </mat-label>
+            <input required type="text" formControlName="subject" matInput   />
+            <mat-error *ngIf="form.get('subject').hasError('required')">Please enter subject </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-5 pl-0">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label class="cus-log-lab">Select Priority</mat-label>
+            <mat-select  formControlName="priority">
+              <mat-option  *ngFor="let list of priorityList" [value]="list.title">{{ list.title }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+        <div class="col-sm-12  common_CK_editior mb-4">
+          <ckeditor 
+          [editor]="editor" 
+          formControlName="description"
+           required 
+           class="cus-job-diss"
+           data-maxlength="5"
+           [config]="optionsNews"
+           ></ckeditor>
+          <mat-error style="font-size: 75%;" *ngIf="form.get('description').hasError('required') && form.get('description').touched"> Please enter  Description </mat-error>
+        
+        </div>
+     
+
+      </div>
+    </div>
+
+
+    <div>
+      <div
+      class="d-flex col-sm-6 m-t-1 pt05 ml-3 p-2 align-items-center"
+      style="padding-left: 5px; border: 1px dotted grey; border-radius: 5px;"
+    >
+      <input
+        type="file"
+        #attachment
+        multiple
+        hidden
+        (change)="upload($event)"
+      />
+      <button class="btn btn-primary py-0" (click)="attachment.click()">
+        <i class="fa fa-upload" style="font-size:14px"></i>
+      </button>
+      <span class="ml-2" style="cursor: pointer; font-size: 14px;" (click)="attachment.click()"
+        >Select files or Browse</span
+      >
+    
+    </div>
+
+    <div class="row">
+      <ng-container  *ngFor="let item of uplaodedFilesArry; let i = index">
+      <div *ngIf="item.imgFile.name"
+        class="d-flex col-sm-2 px-2 m-t-1 pt05"
+        style="padding-left: 5px; position: relative;"
+       
+      >
+      <i *ngIf="item.imgFile.name" class="fa fa-times-circle" style="font-size:36px; position: absolute; right: 5px; top: -6px; color: red;" (click)="deleteFile(i)"></i>
+        <span class="mr-2" style="height: 100px; width: 100px;" *ngIf="item.imgFile.name.split('.').pop() !== 'jpg' && item.imgFile.name.split('.').pop() !== 'jpeg' && item.imgFile.name.split('.').pop() !== 'png' && item.imgFile.name.split('.').pop() !== 'mp4' && item.imgFile.name.split('.').pop() !== 'wmv' && item.imgFile.name.split('.').pop() !== 'mov'">
+          <i  class="fa fa-file-pdf-o" style="font-size: 100px; color: #18568a"></i>
+        </span>
+        <div class="mr-2" *ngIf="item.imgFile.name.split('.').pop() == 'jpg' || item.imgFile.name.split('.').pop() == 'jpeg' || item.imgFile.name.split('.').pop() == 'png'"> <img [src]="item.imgBase64" alt="" height="100px" width="100px"> </div>
+        <div class="mr-2" *ngIf="item.imgFile.name.split('.').pop() == 'mp4' || item.imgFile.name.split('.').pop() == 'wmv' || item.imgFile.name.split('.').pop() == 'mov'"> <video [src]="item.imgBase64" alt="" height="100px" width="100px" autoplay controls> </video> </div>
+      </div>
+    </ng-container>
+    </div>
+    </div>
+
+
+
+    <div class="col-sm-12 text-right">
+      <a class="btn common-btn m-2" (click)="DialogRef.close(false)">{{ 'buttons.back' | translate }}</a>
+      <button class="btn common-btn m-2" (click)="submitTicket()">{{ 'buttons.create' | translate }}</button>
+    </div>
+
+</form>
+<!-- <div class="confirmation" >
+  <div mat-dialog-actions class="actions">
+    <button class="btn common-btn mr-3" >{{ 'buttons.no' | translate }}</button>
+    <button class="btn common-btn" [mat-dialog-close]="true" cdkFocusInitial>{{ 'buttons.yes' | translate }}</button>
+  </div>
+</div> -->

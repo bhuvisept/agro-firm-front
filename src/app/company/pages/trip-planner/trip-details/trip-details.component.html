@@ -1,0 +1,183 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="container add_trip cus-round-with-bg"> <button class="btn common-btn text-right"
+        (click)="Back()">{{ 'buttons.back' | translate}}</button>
+    <h5 class="font-weight-bolder mt-4"> {{ 'labels.trip_planner.Trip_Details' | translate }} </h5>
+
+    <div class="w-100 cus-round-with-bg mt-2 text-center " *ngIf="noData">
+        <div class="row mt-2 mb-2">
+                <div class="col-12 ">No Data found</div>
+        </div>
+</div>
+    <div class="w-100 cus-round-with-bg mt-2 " *ngIf="!noData">
+        <div class="row ">
+            <div class="col-12 ">
+                <ul class="mt-2 mb-2 flex-ul pl-5 pr-5">
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid ">{{ 'labels.trip_planner.load_number' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.loadNumber}}</span> </li>
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid">{{ 'labels.trip_planner.Running_Status' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.runningStatus | titlecase}}</span> </li>
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid">{{ 'labels.trip_planner.Source' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.source?.address}}</span> </li>
+                <li class="bus_drop tripdetail">
+                        <span class="staticCus_wid">{{ 'labels.trip_planner.Destination' | translate }} </span>:
+                       <span class="multidestination">
+
+                        <table *ngFor="let dest of tripDetails.destination; let i = index">
+                                <tbody>
+                                        <tr>
+                                                <td><span class="staticCus_wid"  *ngIf="i != tripDetails.destination.length-1">{{ 'labels.trip_planner.Multiple_Destination' | translate }} {{i+1}}</span><span class="staticCus_wid"  *ngIf="i== tripDetails.destination.length-1">{{ 'labels.trip_planner.finalDestination' | translate }} </span>:</td>
+                                                <td>{{dest.address}}</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                       </span>
+                                        
+                </li>
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid">{{ 'labels.trip_planner.Depart_Date' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.startDate | date:'MMM d, y, h:mm a'}}</span> </li>
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid">{{ 'labels.trip_planner.Arrive_Date' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.endDate | date:'MMM d, y, h:mm a'}}</span> </li>
+                    <li class="bus_drop tripdetail"> <span class="staticCus_wid">{{ 'labels.trip_planner.Alternate_Routes' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.alternateRoots}}</span> </li>
+                    <li class="bus_drop" *ngIf="tripDetails.runningStatus=='CANCELLED'"> <span
+                            class="staticCus_wid">Cancelation Reason</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.cancelReason}}</span> </li>
+                    <li class="bus_drop" *ngIf="tripDetails.runningStatus=='CANCELLED'"> <span
+                            class="text-grey cus_wid"></span> </li>
+                    <li class="bus_drop"> <span class="text-grey cus_wid"></span> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="tripDetails.driverData">
+        <h5 class="font-weight-bolder mt-4 "> {{ 'labels.trip_planner.heading' | translate }} </h5>
+        <div class="row cus-round-with-bg mt-2 ">
+            <div class="col-sm-3 for_img_center border-right ">
+                     <img *ngIf="!tripDetails.driverData?.image" src="assets/Truck-banne-profile.png" style="width: 130px;"> 
+                     <img *ngIf="tripDetails.driverData?.image" src='{{postProfile}}{{tripDetails.driverData?.image}}' style="border-radius: 50%;width: 130px;"> 
+                </div>
+            <div class="col-sm-9 pl-0">
+                <ul class="mt-2 mb-2">
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Name' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.driverData?.personName}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Email' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.driverData?.email}}</span> </li>
+                    <li class="bus_drop" style="border: unset!important;"> <span class="staticCus_wid">{{ 'labels.trip_planner.Phone_Number' | translate }}</span>:
+                        <span class="text-grey cus_wid">+1 ({{tripDetails.driverData?.mobileNumber | slice:0:3}})-{{tripDetails.driverData?.mobileNumber | slice:3:6}}-{{tripDetails.driverData?.mobileNumber | slice:6:10}}     
+                        </span> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    <div *ngIf="tripDetails.anotherDriverId">
+        <h5 class="font-weight-bolder mt-4 "> {{ 'labels.trip_planner.heading_2' | translate }}</h5>
+        <div class="row cus-round-with-bg mt-2 ">
+            <div class="col-sm-3 for_img_center border-right "> 
+                    <img *ngIf="!tripDetails.anotherDriverData?.image" src="assets/Truck-banne-profile.png" style="width: 130px;"> 
+                    <img *ngIf="tripDetails.anotherDriverData?.image" src="{{postProfile}}{{tripDetails.anotherDriverData?.image}}" style="border-radius: 50%;width: 130px;"> 
+                </div>
+            <div class="col-sm-9 pl-0">
+                <ul class="mt-2 mb-2">
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Name' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.anotherDriverData?.personName}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Email' | translate }}</span>:<span
+                            class="text-grey cus_wid">{{tripDetails.anotherDriverData?.email}}</span> </li>
+                    <li class="bus_drop" style="border: unset!important;"> <span class="staticCus_wid">{{ 'labels.trip_planner.Phone_Number' | translate }}</span>: <span
+                            class="text-grey cus_wid">+1 ({{tripDetails.anotherDriverData?.mobileNumber | slice:0:3}})-{{tripDetails.anotherDriverData?.mobileNumber | slice:3:6}}-{{tripDetails.anotherDriverData?.mobileNumber| slice:6:10}}
+                        </span> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h5 class="font-weight-bolder mt-4" *ngIf="!noData"> {{ 'labels.trip_planner.truck_details.heading' | translate}} </h5>
+    <div class="w-100 cus-round-with-bg mt-2 " *ngIf="!noData">
+        <div class="row ">
+            <div class="col-12 ">
+                <ul class="mt-2 mb-2 flex-ul pl-2 pr-2">
+                <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Nick_Name' | translate
+                                }}</span>:<span class="text-grey cus_wid">{{tripDetails.truckData?.name}}</span> </li>
+          
+                <!-- <li class=" bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Brand' | translate
+                                }}</span>:<span class="text-grey cus_wid">{{brandName}}</span> </li> -->
+                <li class="bus_drop" *ngIf="tripDetails.truckData?.brandName != null"> <span class="cus_width">Brand
+                                name</span>:<span class="text-grey cus_wid">{{tripDetails.truckData?.brandName}}</span>
+                </li>
+                <li class="bus_drop" *ngIf="isotherbrand"> <span class="cus_width">Other
+                                Brands</span>:<span class="text-grey cus_wid">{{tripDetails.truckData.otherbrand}}</span>
+                </li>
+                <li class="bus_drop" *ngIf="tripDetails.truckData.brandName == null">
+                        <span class="cus_width">{{'labels.fleet_manage.Brand' | translate}}</span>:<span class="text-grey cus_wid" *ngIf="tripDetails.brand != null">{{tripDetails.brand.name}}
+                        </span>
+                        <span class="text-grey cus_wid" *ngIf="tripDetails.brand == null">Others
+                        </span>
+                </li>
+                <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Model_Number' | translate
+                                }}</span>:<span class="text-grey cus_wid">{{tripDetails.truckData?.modelNumber}}</span> </li>
+                <li class="bus_drop"> <span class="staticCus_wid">VIN</span>:<span
+                                class="text-grey cus_wid">{{tripDetails.truckData?.number}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Weight' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.weight}}&nbsp; &nbsp;lbs</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Height' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.height}}&nbsp; &nbsp;in</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Width' | translate }}  </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.width}}&nbsp; &nbsp;in</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Power' | translate }}  </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.power}}&nbsp; &nbsp;hp</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Engine_Number' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.engine}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Fuel_Type' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.fuelType}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Fuel_Capacity' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.fuelCapacity}}&nbsp; &nbsp;gl</span>
+                    </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Number_Of_Tyres' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.numOfTyres}}</span> </li>
+                    <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.truck_details.Wheelbase' | translate }} </span>:<span
+                            class="text-grey cus_wid">{{tripDetails.truckData?.wheelbase}}&nbsp; &nbsp;in</span> </li>
+                    <li class="bus_drop"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="tripDetails.trailerData">
+        <h5 class="font-weight-bolder mt-4">  {{ 'labels.trip_planner.Trailer_Details.heading' | translate}} </h5>
+        <div class="w-100 cus-round-with-bg mt-2 ">
+            <div class="row ">
+                <div class="col-12 ">
+                    <ul class="mt-2 mb-2 flex-ul pl-2 pr-2">
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Nick_Name' | translate }}</span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.name}}</span> </li>
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Trailer_Type' | translate }}</span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.trailerType}}</span> </li>
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Height' | translate }}</span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.height}}&nbsp; &nbsp;in</span> </li>
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Weight' | translate }}</span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.weight}}&nbsp; &nbsp;lbs</span> </li>
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Width' | translate }} </span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.width}}&nbsp; &nbsp;in</span> </li>
+                        <li class="bus_drop"> <span class="staticCus_wid">{{ 'labels.trip_planner.Trailer_Details.Load_Capacity' | translate }} </span>:<span
+                                class="text-grey cus_wid">{{tripDetails.trailerData?.loadCapacity}}&nbsp; &nbsp;lbs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

@@ -1,0 +1,387 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="col-sm-12 mob-top-spc">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/pages/e-commerce">Category</a></li>
+            <li class="breadcrumb-item"><a routerLink="/pages/e-commerce/products-list/{{categoryId}}">{{categoryName |
+                    titlecase}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{product.productName |titlecase}}</li>
+        </ol>
+    </nav>
+</div>
+<div class='product-view '>
+    <div class='container'>
+        <div class='product-cus-box cus-box-with-radio row'>
+            <div class='col-sm-6 pl-0'>
+                <div class="row cus-box-with-radio cus-preview-pic">
+                    <div class="cus-preview-pic preview-pic tab-content col-sm-12 p-0"> 
+                        <img
+                            *ngIf='!productImages?.length' src="assets/no-product-img.jpg">
+                            <div  *ngIf="productImages?.length == 1" >
+                                <img [src]="galleryImages[0].medium" />
+                            </div>   
+                        <div class="tab-pane active fade show" *ngIf='productImages?.length > 1'>
+                            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-box-with-radio cus-preview-pic mt-2">
+                    <div class="col-sm-12">
+                        <div class='prod-detail pt-2 pb-4'>
+                            <ul>
+                                <li class="row">
+                                    <div class=' col-sm-3'>
+                                        <span>
+                                            <strong>{{'labels.ecommerce.sold_by' |
+                                                translate}} :</strong>
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <span>{{product.seller_name?product.seller_name:'-'}}</span>
+                                    </div>
+                                </li>
+                                <li class='star_rating d-flex row' *ngIf='overAllSellerRating'>
+                                    <div class="col-sm-3">
+                                        <span>
+                                            <strong>{{'labels.ecommerce.seller_rating' | translate}} :</strong>
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <span>
+                                            <rating [(ngModel)]="overAllSellerRating.AvgRating" [readonly]="true"></rating>
+                                        </span>
+                                    </div>
+                                
+                                
+                                    <span class='ml-2 mt-1' *ngIf="overAllSellerRatingCount">({{overAllSellerRating.count}})</span>
+                                </li>
+                                <li class="row">
+                                    <div class=' col-sm-3'>
+                                        <span>
+                                            <strong>{{'labels.ecommerce.seller_location' |
+                                                translate}} :</strong>
+                                
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <span>{{product.selleraddress ? product.selleraddress
+                                            :"-"}},{{product.sellercity ? product.sellercity :"-"}}</span>
+                                    </div>
+                                    <!-- <div class='mt-2'> <strong>{{'labels.ecommerce.seller_location' |
+                                                                            translate}}:</strong>{{product.location}}</div> -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-6 inner-product-cus-box cus-box-with-radio container'>
+                <div class='detail-list'>
+                    <div class='row'>
+                        <div class='col-sm-11'>
+                            <h3 class='prod-name justify-content-left text-capitalize'>
+                                {{product.productName?product.productName:'-'}}</h3>
+                        </div>
+                        <div class='col-sm-1 text-right'> <span class='cus-add-crt' *ngIf='!product.iswishList'
+                                (click)='addToWishList(product._id)'><i class="far fa-heart text-danger"></i></span>
+                            <span class='cus-add-crt' *ngIf='product.iswishList'
+                                (click)='removeFromWishList(product._id)'> <i class="far fa-heart text-danger"
+                                    style="color: red; font-weight: 600!important"></i></span> </div>
+                    </div>
+                    <div class='prod-detail'>
+                        <ul>
+                            <li *ngIf="product.brand_name" class="row">
+                                <div class=' col-sm-5'><strong>{{'labels.ecommerce.brand' |
+                                        translate}} : </strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    <span>
+                                        {{product.brand_name?product.brand_name:'-'}}
+                                    </span>
+                                </div>
+                            
+                            </li>
+                            <li *ngIf="product.model_name" class="row">
+                                <div class=' col-sm-5'><strong>{{'labels.ecommerce.model' |
+                                        translate}} :</strong></div>
+                                <div class="col-sm-7">
+                                    <span>
+                                        {{product.model_name?product.model_name:'-'}}
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="row" *ngIf="product.productionYear">
+                                <div class=' col-sm-5'><strong>{{'labels.ecommerce.year_of_production' |
+                                        translate}} :</strong></div>
+                                        <div class="col-sm-7">
+                                            <span>
+                                                {{product.productionYear?product.productionYear:'-'}}
+                                            </span>
+                                        </div> 
+                            </li>
+                            <li class="row" *ngIf="product.condition">
+                                <div class=' col-sm-5'><strong>{{'labels.ecommerce.condition' |
+                                        translate}} :</strong></div>
+                                        <div class="col-sm-7">
+                                            <span>
+                                                {{product.condition?product.condition:'-'}}
+                                            </span>
+                                        </div>
+                            </li>
+                            <li class="row" *ngIf="product.price">
+                                <div class=' col-sm-5'> <strong>{{'labels.ecommerce.price' |
+                                        translate}} :</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    <span>
+                                        {{product.currency}}&nbsp;{{product.price }}
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="row" *ngIf="product.location">
+                                <div class=' col-sm-5'> <strong>{{'labels.ecommerce.location' |
+                                        translate}} :</strong></div>
+                                        <div class="col-sm-7">
+                                            <span>
+                                                {{product.location ? product.location :"-"}}
+                                            </span>
+                                        </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class='p-0 text-right pt-4'> <button class="ml-4 text-capitalize btn btn-e-commerce ml-2 mr-2"
+                            *ngIf='userId' (click)="chatRouteFun(product)">{{'buttons.cont_seller' |
+                            translate}}</button> <button class="ml-4 text-capitalize btn btn-e-commerce ml-2 mr-2"
+                            (click)="contactForSeller(product._id)" *ngIf='!userId'>{{'buttons.cont_seller' |
+                            translate}}</button> </div>
+                </div>
+                <div class='product-description mt-5 mb-4'>
+                    <h4 class='text-center about'>{{'e-commerce.abt_item' | translate}}</h4>
+                    <div class='about-prod'>
+                        <div class='profile-details mb-2'>
+                            <ul>
+                                <li *ngIf="product.subCategory">
+                                    <div class='mt-2'><strong>{{'labels.ecommerce.sub_category' |
+                                            translate}} :</strong>{{product.subCategory?product.subCategory:'-'}}</div>
+                                </li>
+                                <li *ngIf="product.productType">
+                                    <div class='mt-2'><strong>{{'labels.ecommerce.product_type' |
+                                            translate}} :</strong>{{product.productType?product.productType:'-'}}</div>
+                                </li>
+                                <li *ngIf="product.breaks">
+                                    <div class='mt-2'><strong>{{'labels.ecommerce.brakes' |
+                                            translate}} :</strong>{{product.breaks?product.breaks:'-'}}</div>
+                                </li>
+                                <li *ngIf="productColorLength">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.color' | translate}} :</strong> <span
+                                            *ngFor="let list of productColor"> <span
+                                                class="cus-color-code cus-color-code2"
+                                                [ngStyle]="{'background-color':list}"></span> </span> </div>
+                                </li>
+                                <li *ngIf="product.engineBrand">
+                                    <div class='mt-2'><strong>{{'labels.ecommerce.engine_make' |
+                                            translate}} :</strong>{{product.engineBrand?product.engineBrand:'-'}}</div>
+                                </li>
+                                <li *ngIf="product.engineDisplacement">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.engine_displacement' |
+                                            translate}} :</strong>{{product.engineDisplacement ?
+                                        product.engineDisplacement :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.enginePoweroutput">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.engine_power_output' |
+                                            translate}} :</strong>{{product.enginePoweroutput ? product.enginePoweroutput
+                                        :"-"}}Hp</div>
+                                </li>
+                                <li *ngIf="product.engineHours">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.engine_hours' |
+                                            translate}} :</strong>{{product.engineHours ? product.engineHours :"-"}}
+                                    </div>
+                                </li>
+                                <li *ngIf="product.fuelCapacity">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.fuel_capacity' |
+                                            translate}} :</strong>{{product.fuelCapacity ? product.fuelCapacity
+                                        :"-"}}{{fieldValue=='USA' ? 'Lbs' : 'KG'}}</div>
+                                </li>
+                                <li *ngIf="product.fuelType">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.fuel_type' |
+                                            translate}} :</strong>{{product.fuelType ? product.fuelType :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.grossWeight">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.gross_weight' |
+                                            translate}} :</strong>{{product.grossWeight ? product.grossWeight
+                                        :"-"}}{{fieldValue=='USA' ? 'Lbs' : 'KG'}}</div>
+                                </li>
+                                <li *ngIf="product.height">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.height' |
+                                            translate}} :</strong>{{product.height ? product.height
+                                        :"-"}}{{fieldValue=='USA' ? 'In' : 'M'}}</div>
+                                </li>
+                                <li *ngIf="product.width">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.width' |
+                                            translate}} :</strong>{{product.width ? product.width
+                                        :"-"}}{{fieldValue=='USA' ? 'In' : 'M'}}</div>
+                                </li>
+                                <li *ngIf="product.length">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.length' |
+                                            translate}} :</strong>{{product.length ? product.length
+                                        :"-"}}{{fieldValue=='USA' ? 'In' : 'M'}}</div>
+                                </li>
+                                <li *ngIf="product.loadCapacity">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.load_capacity' |
+                                            translate}} :</strong>{{product.loadCapacity ? product.loadCapacity :"-"}}
+                                    </div>
+                                </li>
+                                <li *ngIf="product.mileage">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.mileage' |
+                                            translate}} :</strong>{{product.mileage ? product.mileage
+                                        :"-"}}{{fieldValue=='USA' ? 'Mi' : 'KM'}}</div>
+                                </li>
+                                <li *ngIf="product.netWeight">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.net_weight' |
+                                            translate}} :</strong>{{product.netWeight ? product.netWeight
+                                        :"-"}}{{fieldValue=='USA' ? 'Lbs' : 'KG'}}</div>
+                                </li>
+                                <li *ngIf="product.noOfMiles">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.no_of_miles' |
+                                            translate}} :</strong>{{product.noOfMiles ? product.noOfMiles :"-"}}Miles
+                                    </div>
+                                </li>
+                                <li *ngIf="product.suspension">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.suspension' |
+                                            translate}} :</strong>{{product.suspension ? product.suspension :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.transmissionType">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.transmission_type' |
+                                            translate}} :</strong>{{product.transmissionType ? product.transmissionType
+                                        :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.vin">
+                                    <div class='mt-2'> <strong>VIN  :</strong>{{product.vin ? product.vin :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.weight">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.weight' |
+                                            translate}} :</strong>{{product.weight ? product.weight :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.wheelBase">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.wheel_base' |
+                                            translate}} :</strong>{{product.wheelBase ? product.wheelBase :"-"}}</div>
+                                </li>
+                                <li *ngIf="product.OEM">
+                                    <div class='mt-2'> <strong>OEM  :</strong>{{product.OEM ? product.OEM :"-"}}</div>
+                                </li>
+                                <!-- <li *ngIf="product.suitableForModels"> <div class='mt-2'> <strong>Suitable For Models :</strong>{{product.suitableForModels ? product.suitableForModels :"-"}}</div></li>-->
+                                <li *ngIf="product.description">
+                                    <div class='mt-2'> <strong>{{'labels.ecommerce.description' | translate}}:</strong>
+                                        <p class="cus-product-description"
+                                            innerHtml="{{product.description?product.description:'-'}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-12 mb-3 mt-3'>
+                <div class='input-ques '>
+                    <div class='row'>
+                        <div class='col-sm-12'>
+                            <div class='heading'> <strong>
+                                    <h4>{{'e-commerce.have_que' | translate}}</h4>
+                                </strong> </div>
+                            <div class='form'> <input type='text' maxlength='150' [(ngModel)]='question'
+                                    *ngIf='!this.userId' class='post_cus_input' readonly (click)='checkUser()'> <input
+                                    type='text' maxlength='150' [(ngModel)]='question' *ngIf='this.userId'
+                                    class='post_cus_input' (click)='checkUser()'> <button type='submit'
+                                    class='btn btn-e-commerce ml-2' style='padding:7px 26px;' (click)='onSubmit()'
+                                    *ngIf='question'>{{'buttons.post' | translate}}</button> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='que-review mt-5 mb-4'>
+                    <div class='row'>
+                        <div class='col-sm-12'>
+                            <mat-tab-group>
+                                <mat-tab label="{{'e-commerce.cus_qa' | translate}}">
+                                    <div class='question' *ngIf="!productQuestions.length">{{'e-commerce.first_ask_ques'
+                                        | translate}}</div>
+                                    <div class='question' *ngFor='let quesAns of productQuestions'>
+                                        <div class="mb-3 mt-2 qusAns">
+                                            <p class="m-0 d-flex"> <span>Question -</span>
+                                                <span>{{quesAns.question}}</span> </p>
+                                            <p class="m-0 d-flex"> <span>Answer -</span> <span>{{quesAns.answer}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class='see_more'
+                                        *ngIf='totalCount >ToatalCount && productQuestions.length <totalCount'> <span
+                                            (click)="pagechange()">See more questions <i
+                                                class="fa fa-angle-down"></i></span> </div>
+                                    <div class='see_more'
+                                        *ngIf='productQuestions.length==totalCount && totalCount >ToatalCount'> <span
+                                            (click)="seeLess()">See less questions <i class="fa fa-angle-up"></i></span>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-3 cus-similar-pro-slider" *ngIf="SimilarproductTotalCountList">
+                <div class='text-left similar'>
+                    <h3>{{'e-commerce.simi_pro' | translate}}</h3>
+                </div>
+                <div class="col-sm-12 cus-slt-cat p-4 cus-similar-products-slid mb-0"
+                    *ngIf="SimilarproductTotalCountList <=3">
+                    <div class="row d-flex align-item-center justify-content-center">
+                        <div *ngFor="let slide of SimilarproductList" class="col-sm-4"><a
+                                [routerLink]="['/pages/e-commerce/product-view/'+slide._id]">
+                                <div class="slid-border" *ngIf='!slide.images?.length'><img src="assets/no.jpg"
+                                        class="h-100 w-100"></div>
+                                <div *ngFor='let items of slide.images | slice:0:1' class="slid-border"><img
+                                        *ngIf='slide.images?.length' src='{{productImgPath}}{{items.name}}'
+                                        class='w-100 h-100'></div>
+                            </a>
+                            <h6>{{slide.productName}}</h6>
+                            <p class="m-0 cus-pri-simi" *ngIf="slide.price || slide.price >=0">Price {{slide.currency}}<span>{{slide.price
+                                    }}</span> </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 cus-slt-cat p-4 cus-similar-products-slid mb-0"
+                    *ngIf="SimilarproductTotalCountList > 3">
+                    <owl-carousel-o [options]="similarProductOptions" class="row">
+                        <div *ngFor="let slide of SimilarproductList" class="col-sm-3">
+                            <ng-template carouselSlide> <a [routerLink]="['/pages/e-commerce/product-view/'+slide._id]">
+                                    <div class="slid-border" *ngIf='!slide.images?.length'><img src="assets/no.jpg"
+                                            class='img-fluid h-100'></div>
+                                    <div *ngFor='let items of slide.images | slice:0:1' class="slid-border"><img
+                                            *ngIf='slide.images?.length' src='{{productImgPath}}{{items.name}}'
+                                            class='img-fluid h-100'></div>
+                                </a>
+                                <h6>{{slide.productName}}</h6>
+                                <p class="m-0 cus-pri-simi" *ngIf="slide.price || slide.price >=0">{{'Price' |
+                                    translate}} &nbsp;<span>{{slide.currency}} {{slide.price}}</span></p>
+                            </ng-template>
+                        </div>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

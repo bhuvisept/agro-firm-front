@@ -1,0 +1,432 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<div class="container add_trip cus-round-with-bg">
+  <section class="trip-info">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstForm">
+        <form [formGroup]="firstForm">
+          <ng-template matStepLabel> Add Truck </ng-template>
+          <div class="row">
+            <div class="col-sm-4">
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'form_lables.trip_planner.search_truck' | translate }}</mat-label>
+                <input matInput aria-label="Truck" [matAutocomplete]="auto2" (keydown.enter)="$event.preventDefault()" (keyup)="removeDataForTruck()" [formControl]="truck" required />
+                <mat-autocomplete #auto2="matAutocomplete" [displayWith]="getTitile.bind(this)">
+                  <mat-option *ngFor="let truck of filteredTruck | async" [value]="truck._id" (click)="getTruckData(truck._id)">
+                    <span>{{ truck.name }}</span>
+                  </mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="firstForm.controls['truck'].hasError('required')">Please enter truck name</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="w-100 cus-round-with-bg">
+            <div class="row">
+              <div class="col-12">
+                <ul class="mt-2 mb-2 flex-ul">
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Nick_Name' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{ selectedTruck.name }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Brand' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{brandsName}}</span>
+                  </li>
+             
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Model_Number' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{ selectedTruck.modelNumber }} </span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">VIN</span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{ selectedTruck.number }} </span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Weight' | translate }} <small>(lbs)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.weight
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Height' | translate }} <small>(in)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.height
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Width' | translate }} <small>(in)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.width
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Power' | translate }} <small>(hp)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.power
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Engine_Number' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{ selectedTruck.engine }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Fuel_Type' | translate }} </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{ selectedTruck.fuelType }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Fuel_Capacity' | translate }}<small>(gl)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.fuelCapacity
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Number_Of_Tyres' | translate }} </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.numOfTyres
+                    }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Wheelbase' | translate }} <small>(in)</small> </span>:<span class="text-grey cus_wid" *ngIf="selectedTruck">{{
+                      selectedTruck.wheelbase
+                    }}</span>
+                  </li>
+                  <li class="bus_drop"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button mat-button matStepperNext class="btn common-btn text-center" (click)="Back()">Back</button> &nbsp;
+            <button mat-button class="btn common-btn m-2" matStepperNext (click)="showErrorTruck()">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondForm" [state]="state">
+        <form [formGroup]="secondForm">
+          <ng-template matStepLabel>Add Trailer</ng-template>
+          <div>
+            <div class="row">
+              <div class="col-sm-4">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Search_Trailer' | translate }}</mat-label>
+                  <input matInput aria-label="trailer" [matAutocomplete]="auto3" (keyup)="removeDataForTrailer()" formControlName="trailer" />
+                  <mat-autocomplete #auto3="matAutocomplete" [displayWith]="getTrailer.bind(this)">
+                    <mat-option *ngFor="let trailer of filteredTrailer | async" [value]="trailer._id" (click)="getTruckData(trailer._id)">
+                      <span>{{ trailer.name }}</span>
+                    </mat-option>
+                  </mat-autocomplete>
+                  <!-- <mat-error *ngIf="secondForm.controls['trailer'].hasError('required') || submitted">Please enter
+                      trailer name</mat-error> -->
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="w-100 cus-round-with-bg">
+              <div class="col-12 mt-2">
+                <ul class="mt-2 mb-2 flex-ul">
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Nick_Name' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.name }} </span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Trailer_Type' | translate }}</span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.trailerType }} </span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Height' | translate }} <small>(in)</small></span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.height }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Width' | translate }} <small>(in)</small></span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.width }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Weight' | translate }} <small>(lbs)</small></span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.weight }}</span>
+                  </li>
+                  <li class="bus_drop">
+                    <span class="cus_width">{{ 'form_lables.trip_planner.Load_Capacity' | translate }} <small>(lbs)</small></span
+                    >:<span class="text-grey cus_wid" *ngIf="selectedTrailer">{{ selectedTrailer.loadCapacity }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <!-- <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Source' | translate }}</mat-label>
+                  <input matInput placeholder="Enter location" formControlName="source" #search required autocomplete="off" (click)="autosearch()" />
+                  <mat-error *ngIf="secondForm.get('source').hasError('required')">Please enter Starting point</mat-error>
+                </mat-form-field>
+              </div>
+                <div class="col-sm-12 d-flex pl-0"
+                  *ngFor="let destination of getdestinationFormControls(); let i = index"
+                  draggable="true"
+                  (dragstart)="onDragStart($event, i)"
+                  (dragover)="onDragOver($event, i)"
+                  (drop)="onDrop($event, i)" >
+                  <div class="col-sm-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>{{ 'gps_form.ChooseDestination' | translate }}</mat-label>
+                      <input matInput [formControl]="destination" #destination matInput placeholder="Destination Address" (input)="autosearchdestination(i)" />
+                    </mat-form-field>
+                  </div>
+                 <div *ngIf="i != 0" class="d-flex mt-1">
+                  <div class="col-sm-1" >
+                    <i  class="fa fa-ellipsis-v" style="font-size: 24px; color: #065aa4; margin-top: 5px"></i>
+                  </div>
+                  <div class="col-sm-2">
+                    <i  class="fa fa-times-circle" style="font-size: 24px; color: #065aa4; margin-top: 5px" (click)="removeDestination(i)"></i>
+                  </div>
+                 </div>
+                </div>
+
+              <div class="col-sm-12 d-flex justify-content-end mb-3">
+                <div class="col-sm-1 d-flex justify-content-end mt-3">
+                  <i class="fa fa-info-circle" style="font-size: 14px" matTooltip="Please report correct dimensions. Otherwise the route calculated will not be accurate." matTooltipPosition="right">
+                  </i>
+                </div>
+                <div>
+                  <button class="common-btn btn" (click)="addDestination()">Add Destination</button>
+                </div>
+              </div> -->
+
+              <div class="col-sm-7 d-flex flex-column">
+                <mat-form-field appearance="outline" class="max-width-field">
+                  <mat-label>{{ 'form_lables.trip_planner.Source' | translate }}</mat-label>
+                  <input matInput placeholder="Enter location" formControlName="source" #search required autocomplete="off" (click)="autosearch()" />
+                  <mat-error *ngIf="secondForm.get('source').hasError('required')">Please enter Starting point</mat-error>
+                </mat-form-field>
+                <div class="d-flex justify-content-between align-items-center" *ngFor="let destination of getdestinationFormControls(); let i = index" draggable="true" (dragstart)="onDragStart($event, i)" (dragover)="onDragOver($event, i)" (drop)="onDrop($event, i)">
+                  <mat-form-field class="example-full-width m-b-m max-width-field" appearance="outline">
+                    <mat-label>{{ 'gps_form.ChooseDestination' | translate }}</mat-label>
+                    <input matInput [formControl]="destination" #destination matInput placeholder="Destination Address" (input)="autosearchdestination(i)" />
+                  </mat-form-field>
+                  <div style="min-width: 10px;" class="ml-2">
+                    <i class="fa fa-ellipsis-v" style="font-size: 24px; color: #065aa4; margin-top: 5px"></i>
+                  </div>
+                  <div style="min-width: 10px;" class="ml-2">
+                    <i class="fa fa-times-circle" style="font-size: 24px; color: #065aa4; margin-top: 5px" (click)="removeDestination(i)"></i>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-5 d-flex justify-content-end align-items-end" style="padding-bottom: 1.34375em;">
+                <div class="d-flex justify-content-end align-items-center">
+                  <button class="common-btn btn" (click)="addDestination()">Add Destination</button>
+                  <i class="fa fa-info-circle ml-2" style="font-size: 14px;" matTooltip="Please report correct dimensions. Otherwise the route calculated will not be accurate." matTooltipPosition="right"></i>
+                </div>
+
+              </div>
+              
+              <div class="col-sm-12 d-flex justify-content-end mb-3">
+                <div class="col-sm-1 d-flex justify-content-end mt-3">
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-select formControlName="routeFlag">
+                    <mat-option value="arriveBy">Arrive by </mat-option>
+                    <mat-option value="departAt">Depart at </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Date_Time' | translate }}</mat-label>
+                  <input
+                    (click)="pickerStartDate.open()"
+                    (focus)="pickerStartDate.open()"
+                    matInput
+                    readonly
+                    [ngxMatDatetimePicker]="pickerStartDate"
+                    formControlName="date_Time"
+                    [min]="min"
+                    [max]="maxDate"
+                    [attr.disabled]="false"
+                    required
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+                  <ngx-mat-datetime-picker
+                    #pickerStartDate
+                    [showSpinners]="showSpinners"
+                    [showSeconds]="showSeconds"
+                    [stepHour]="stepHour"
+                    [stepMinute]="stepMinute"
+                    [stepSecond]="stepSecond"
+                    [touchUi]="touchUi"
+                    [color]="color"
+                    [enableMeridian]="enableMeridian"
+                  >
+                  </ngx-mat-datetime-picker>
+                  <mat-error *ngIf="secondForm.get('date_Time').hasError('required')">Please select date & time </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Alternate_Routes' | translate }}</mat-label>
+                  <mat-select formControlName="alternateRoots">
+                    <mat-option *ngFor="let route of alternateRoutes" [value]="route.routes">{{ route.routes }} </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Gross_Weight' | translate }}(lbs)</mat-label>
+                  <input matInput placeholder=" Enter gross weight" formControlName="grossWeight" mask="00000" required />
+                  <mat-error *ngIf="secondForm.get('grossWeight').hasError('required')">Please enter gross weight </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Load_Number' | translate }}</mat-label>
+                  <input matInput placeholder=" Enter load number" formControlName="loadNumber" pattern="^(?!-).*$" #search required autocomplete="off" minlength="1" maxlength="13" />
+                  <mat-error *ngIf="secondForm.get('loadNumber').hasError('required')">Please enter load number </mat-error>
+                  <mat-error *ngIf="secondForm.get('loadNumber').hasError('pattern')">Please enter correct load number </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-2 mt-3 text-center">
+                <mat-checkbox class="example-margin" color="primary" (change)="nameReq($event)" (change)="setWalkInDetails($event)"
+                  >HAZMAT Load
+                  <i
+                    class="fa fa-info-circle"
+                    style="font-size: 14px"
+                    matTooltip=" Hazmat stands for 'hazardous materials' and can include a wide range of substances such as explosives, flammable gases and liquids, poisons, radioactive materials, infectious substances, and other dangerous goods."
+                    matTooltipPosition="right"
+                  ></i>
+                </mat-checkbox>
+              </div>
+              <div class="col-sm-4" *ngIf="hazmat == true">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'form_lables.trip_planner.Type' | translate }}</mat-label>
+                  <mat-select formControlName="loadType">
+                    <mat-option *ngFor="let list of vehicleLoadType" [value]="list.class">{{ list.type }}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="secondForm.get('loadType').hasError('required')">Please select type</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-checkbox class="example-margin" color="primary" (change)="skipDriver($event)">{{ 'form_lables.trip_planner.Skip_Driver' | translate }} </mat-checkbox>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-2 mb-5">
+            <a mat-button class="btn common-btn m-2" *ngIf="secondForm.valid" (click)="viewMapFun()" routerLink="/layout/myaccount/trip-planner/view-map" target="blank"> View Route</a>
+            <button mat-button class="btn common-btn m-2" matStepperPrevious>Back</button>
+            <button *ngIf="submitButton == false" mat-button class="btn common-btn" (click)="showErrorTrailer()">Next</button> &nbsp;
+            <button *ngIf="submitButton == true" mat-button type="submit" class="btn common-btn" (click)="withoutDriverSubmit()">Submit</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdForm">
+        <form [formGroup]="thirdForm" (ngSubmit)="onSubmit()">
+          <ng-template matStepLabel>Add Driver</ng-template>
+          <div class="row">
+            <div class="col-sm-4">
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'form_lables.trip_planner.Search_First_Driver' | translate }}</mat-label>
+                <input matInput aria-label="Driver" [matAutocomplete]="auto" [(ngModel)]="rDriver" (keyup)="removedDriver($event)" [formControl]="driver" required />
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="getName.bind(this)">
+                  <mat-option *ngFor="let driver of filteredDriver | async" [value]="driver._id" (click)="getData(driver._id)">
+                    <span>{{ driver.personName }} ( {{ driver.email }})</span>
+                  </mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="thirdForm.controls['driver'].hasError('required')">Please enter driver's name </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row cus-round-with-bg">
+            <div class="col-sm-3 for_img_center border-right">
+              <!-- {{selectedDriver?.image}} -->
+              <img *ngIf="!selectedDriver?.image" src="assets/Truck-banne-profile.png" style="width: 130px" />
+              <img *ngIf="selectedDriver?.image" src="{{ postProfile }}{{ selectedDriver?.image }}" style="border-radius: 50%; width: 130px" />
+            </div>
+            <div class="col-sm-9 pl-0 cus-driver-detail">
+              <ul class="mt-2 mb-2">
+                <li class="bus_drop">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Name' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedDriver">{{ selectedDriver.personName }}</span>
+                </li>
+                <li class="bus_drop">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Phone_Number' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedDriver"
+                    >+1 ({{ selectedDriver.mobileNumber | slice : 0 : 3 }})-{{ selectedDriver.mobileNumber | slice : 3 : 6 }}-{{ selectedDriver.mobileNumber | slice : 6 : 10 }}</span
+                  >
+                </li>
+                <li style="padding: 10px">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Email' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedDriver">{{ selectedDriver.email }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'form_lables.trip_planner.Search_Second_Driver' | translate }} (Optional)</mat-label>
+                <input
+                  id="inputVaule"
+                  matInput
+                  aria-label="anotherDriver"
+                  [matAutocomplete]="auto1"
+                  [(ngModel)]="rAnotherDriver"
+                  (keyup)="removedAnotherDriver($event)"
+                  [formControl]="anotherDriver"
+                />
+                <mat-autocomplete #auto1="matAutocomplete" [displayWith]="getAnotherName.bind(this)">
+                  <mat-option *ngFor="let driver of filteredanotherDriver | async" [value]="driver._id" (click)="getAnotherData(driver._id)">
+                    <span>{{ driver.personName }} ( {{ driver.email }})</span>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row cus-round-with-bg">
+            <div class="col-sm-3 for_img_center border-right">
+              <img *ngIf="!selectedsecondDriver?.image" src="assets/Truck-banne-profile.png" style="width: 130px" />
+              <img *ngIf="selectedsecondDriver?.image" src="{{ postProfile }}{{ selectedsecondDriver?.image }}" style="border-radius: 50%; width: 130px" />
+            </div>
+            <div class="col-sm-9 pl-0">
+              <ul class="mt-2 mb-2">
+                <li class="bus_drop">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Name' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedsecondDriver">{{ selectedsecondDriver.personName }}</span>
+                </li>
+                <li class="bus_drop">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Phone_Number' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedsecondDriver"
+                    >+1 ({{ selectedsecondDriver.mobileNumber | slice : 0 : 3 }})-{{ selectedsecondDriver.mobileNumber | slice : 3 : 6 }}-{{ selectedsecondDriver.mobileNumber | slice : 6 : 10 }}</span
+                  >
+                </li>
+                <li style="padding: 10px">
+                  <span class="cus_width">{{ 'form_lables.trip_planner.Email' | translate }}</span
+                  >:<span class="text-grey cus_wid" *ngIf="selectedsecondDriver">{{ selectedsecondDriver.email }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center ">
+            <button mat-button class="btn common-btn m-2" matStepperPrevious>Back</button>
+            <button mat-button type="submit" class="btn common-btn m-2">Submit</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </section>
+</div>

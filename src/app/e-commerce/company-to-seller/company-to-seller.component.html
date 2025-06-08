@@ -1,0 +1,215 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <a routerLink="../../../home-page"><img src="assets/truck-logo.png" class="comp-logo" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <div class="product-cus-box cus-from-stapper mt-4 mb-4">
+                    <mat-horizontal-stepper #stepper linear>
+                        <mat-step [stepControl]="formOne">
+                            <form [formGroup]="formOne" class="cus-seller-check-opt">
+                                <ng-template matStepLabel>Business Type</ng-template>
+                                <div class="row">
+                                    <div class="col-sm-12 cus-str-field"><h5 class="mb-3 mt-3">Do you operate your business as a legal entity?</h5></div>
+                                    <div class="col-sm-12">
+                                        <mat-radio-group aria-label="Select an option" formControlName="legalentity" required>
+                                            <mat-radio-button value="yes" (click)='nameReq("yes")'> Yes, my business is a legal entity </mat-radio-button>
+                                            <div class="cus-yes-select-opt" *ngIf="formOne.value.legalentity=='yes'">
+                                                <h5 class="mt-4 cus-select-opt">Select your legal entity</h5>
+                                                <mat-form-field class="cus-yesSelectOption-opt">
+                                                    <mat-select formControlName="legalEntityOption"> <mat-option *ngFor="let list of yesSelectOptionDropdown" [value]="list.title">{{list.title}}</mat-option> </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <mat-radio-button value="no" (click)="nameReq('no')">No, I manage my business as a sole proprietor or owner</mat-radio-button>
+                                        </mat-radio-group>
+                                        <mat-error *ngIf="formOne.get('legalentity').hasError('required') && formOne.get('legalentity').touched"> <small>Please select business type</small> </mat-error>
+                                    </div>
+                                    <div class="col-sm-12 text-right mt-4"><button type="submit" matStepperNext class="btn common-btn ml-3" (click)="formOneCheck()">Save & Continue</button></div>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="formTwo">
+                            <form [formGroup]="formTwo" class="cus-seller-check-opt">
+                                <ng-template matStepLabel>Seller Account</ng-template>
+                                <div class="row">
+                                    <div class="col-sm-12 cus-str-field">
+                                        <h5>Add your identity information</h5>
+                                        <p>Note:- All fields are mandatory marked as <span>*</span></p>
+                                    </div>
+                                    <div class="col-sm-6" *ngIf="formOne.value.legalentity=='yes'">
+                                        <mat-label>Company Name<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="companyName" matInput maxlength="20" /> <mat-error *ngIf="formTwo.get('companyName').hasError('required')"> Please enter company name </mat-error>
+                                            <mat-error *ngIf="formTwo.get('companyName').hasError('pattern')"> Please enter Invalid Name </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>First name<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="firstName" matInput required maxlength="20" /> <mat-error *ngIf="formTwo.get('firstName').hasError('required')"> Please enter first name </mat-error>
+                                            <mat-error *ngIf="formTwo.get('firstName').hasError('pattern')"> Please enter valid name </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>Last name<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="lastName" matInput required maxlength="20" /> <mat-error *ngIf="formTwo.get('lastName').hasError('required')"> Please enter last name </mat-error>
+                                            <mat-error *ngIf="formTwo.get('lastName').hasError('pattern')"> Please enter valid name </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>Email Address<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="email" matInput readonly required /> <mat-error *ngIf="formTwo.get('email').hasError('required')"> Please enter email address </mat-error>
+                                            <mat-error *ngIf="formTwo.get('email').hasError('pattern')"> Please enter correct email </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>Phone Number<span>*</span></mat-label>
+                                        <mat-form-field class="cus-pin-with-no">
+                                            <span class="cus-pin-code">+1</span> <input type="text" formControlName="mobileNumber" matInput mask="(000) 000-0000" required />
+                                            <mat-error *ngIf="formTwo.get('mobileNumber').hasError('required')">Please enter phone number </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6 cus-seller-dob">
+                                        <mat-label>Date of Birth / Incorporation<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input readonly matInput [matDatepicker]="picker" [max]="minDateOfBirth" formControlName="dateOfBirth" [disabled]="disabled" required />
+                                            <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle> <mat-error *ngIf="formTwo.get('dateOfBirth').hasError('required')"> Please select date </mat-error>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>SSN or ITIN </mat-label> <mat-form-field> <input type="text" formControlName="ssn" matInput maxlength="20" /> </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6 pro-country">
+                                        <mat-label>Country <span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <mat-select formControlName="country" (valueChange)="getselectval($event)" required>
+                                                <mat-option *ngFor="let list of countryList" [value]="list._id" (click)="getName(list.countryName)">{{list.countryName}}</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="formTwo.get('country').hasError('required')"> Pleas select country </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6 pro-country">
+                                        <mat-label>State <span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <mat-select formControlName="state" required> <mat-option *ngFor="let list of stateList" [value]="list._id" (click)="State(list.stateName)">{{list.stateName}}</mat-option> </mat-select>
+                                            <mat-error *ngIf="formTwo.get('state').hasError('required')"> Please select state </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>Postal Code<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input formControlName="postalCode" maxlength="6" matInput [(ngModel)]="zipcode" required (focusout)="getCityByZipcode()" />
+                                            <mat-error *ngIf="formTwo.get('postalCode').hasError('required')"> Please enter postal code </mat-error>
+                                            <mat-error *ngIf="formTwo.get('postalCode').hasError('minlength')"> Minimum length should be 3 </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>City <span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="city" type="text" matInput required maxlength="20" /> <mat-error *ngIf="formTwo.get('city').hasError('required')"> Please enter city </mat-error>
+                                            <mat-error *ngIf="formTwo.get('city').hasError('pattern')"> Please enter valid city </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <mat-label>Address<span>*</span></mat-label>
+                                        <mat-form-field>
+                                            <input type="text" formControlName="address" matInput required maxlength="50" /> <mat-error *ngIf="formTwo.get('address').hasError('required')"> Please enter address </mat-error>
+                                            <mat-error *ngIf="formTwo.get('address').hasError('pattern')"> Please enter valid address </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-12 text-right mt-3"><button matStepperPrevious class="btn common-btn">Back</button> <button matStepperNext class="btn common-btn ml-3">Save & Continue</button></div>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step>
+                            <form [formGroup]="formThree" class="cus-seller-check-opt">
+                                <ng-template matStepLabel>Review & Confirm</ng-template>
+                                <div class="row">
+                                    <div class="col-sm-12 cus-review">
+                                        <h5 class="mt-3 mb-3">Business details</h5>
+                                        <p class="m-0">{{this.formOne.value.legalentity=='yes' ? 'Yes, my business is a legal entity' : ' No, I manage my business as a sole proprietor or owner '}}</p>
+                                        <span>{{this.formOne.value.legalentity=='yes' ? this.formOne.value.legalEntityOption :''}}</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h5 class="mt-5 mb-3">Seller account</h5>
+                                        <ul class="seller-detail-review">
+                                            <li *ngIf="this.formTwo.value.companyName">
+                                                <h6>Company Name:</h6>
+                                                <span>{{this.formTwo.value.companyName}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Name:</h6>
+                                                <span>{{this.formTwo.value.firstName+" "+this.formTwo.value.lastName}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Email:</h6>
+                                                <span>{{this.formTwo.value.email}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Phone:</h6>
+                                                <span>{{this.formTwo.value.mobileNumber}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>D.O.B:</h6>
+                                                <span>{{this.formTwo.value.dateOfBirth | date: "MMM-dd-yyyy"}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Country:</h6>
+                                                <span>{{countryNameDetails? countryNameDetails:formCountry}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>State:</h6>
+                                                <span>{{stateName ?stateName: formState}}</span>
+                                            </li>
+                                            <li *ngIf="this.formTwo.value.ssn">
+                                                <h6>SSN:</h6>
+                                                <span>{{this.formTwo.value.ssn}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>ZIP Code:</h6>
+                                                <span>{{this.formTwo.value.postalCode}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>City:</h6>
+                                                <span>{{this.formTwo.value.city}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Address:</h6>
+                                                <span>{{this.formTwo.value.address}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-12 text-right mt-3"><button matStepperPrevious class="btn common-btn">Back</button> <a (click)="onSubmit()" class="btn common-btn ml-3">Submit</a></div>
+                                </div>
+                            </form>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+.direction {
+  position: absolute;
+  bottom: 10px;
+  right: 19px;
+  font-size: 13px;
+}
+.promoimg:hover {
+  width: 100px;
+  height: 100px;
+}
+.cardbg {
+  background-color: #226fad;
+}
+.promo-btn {
+  background-color: #226fad;
+  color: #fff;
+  padding: 4px 20px;
+}
+.promopera {
+  margin-bottom: 0rem;
+  padding-top: 5px;
+  color: #226fad;
+}
+/* .outerbg {
+  background-color: #ffffff8f;
+  padding: 20px;
+  border-radius: 5px;
+} */
+
+.card-body {
+    box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
+    margin-bottom: 24px;
+    background-color: #2771ae;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}

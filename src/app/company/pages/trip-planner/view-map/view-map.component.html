@@ -1,0 +1,150 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="mainTop">
+    <div *ngIf="planActive==false"><a class="ml-1 main_div" (click)="createTripPlan()">Show weather forecast</a></div>
+    <div *ngIf="planActive==true">
+        <div class="cusWeatherDay" [class.active]="isActive">
+            <div> <i (click)="isActive=!isActive;" class="fa fa-calendar"></i>
+                <ul ngDefaultControl [(ngModel)]="selectedLevel">
+                    <li *ngFor="let item of data; let i=index" [value]="item.name"
+                        [ngClass]="this.spareValueIdx==i ? 'active' : '' " (click)="selected($event,i)">
+                        {{item.name +" "}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="selection">
+            <div class="mt-3">
+                <div> <img class="cus_crle" src="/assets/allWeather.png"> <span> <a class="ml-1 main_div"
+                            (click)="allOption()">All</a> </span> </div>
+            </div>
+            <div *ngIf="this.layerBanner==true" class="mt-3">
+                <div> <img class="cus_crle" src="/assets/snow.png"> <span><a class="ml-1 main_div"
+                            (click)="snowWeatherDay1()" (click)="layerRemove()">Snow</a></span> </div>
+            </div>
+            <div *ngIf="this.layerBanner==false" class="mt-3">
+                <div> <img class="cus_crle" src="/assets/precipitation.png"> <span><a class="ml-1 main_div"
+                            (click)="PrepWeatherDay1()" (click)="layerRemove()">Precipitation</a></span></div>
+            </div>
+            <div *ngIf="this.layerBanner==true" class="mt-3">
+                <div> <img class="cus_crle" src="/assets/freeze.png"><span><a class="ml-1 main_div"
+                            (click)="freezeWeatherDay1()" (click)="layerRemove()">Freezing Rain</a></span></div>
+            </div>
+            <div *ngIf="this.layerBanner==true" class="mt-3">
+                <div> <img class="cus_crle" src="/assets/thunderstorm.png"> <span><a class="ml-1 main_div"
+                            (click)="thunderWeatherDay1()" (click)="layerRemove()">Thunderstorm</a></span></div>
+            </div>
+            <div *ngIf="this.layerBanner==false" class="mt-3">
+                <div> <img class="cus_crle" src="/assets/temp.png"> <span><a class="ml-1 main_div"
+                            (click)="tempWeatherDay37()" (click)="layerRemove()">Temperature</a></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="planActive==true" class="mainBottom">
+    <h4 class="ml-1 mt-1" style="color: #fdffff;">Legends</h4>
+    <div class="cus_srll">
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #00c5f1"></div><span class="mt-1 cus_textcolor ">Slight
+                Snow</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #008a00"></div><span class="mt-1 cus_textcolor">Moderate
+                Snow</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #ff0000"></div><span class="mt-1 cus_textcolor">High
+                Snow</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #1c4fad"></div><span
+                class="mt-1 cus_textcolor">Thunderstorm</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #ffcd42"></div><span class="mt-1 cus_textcolor">Freezing
+                Rain</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #ff6f00"></div><span
+                class="mt-1 cus_textcolor">Temperature</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="cus_square" style="background-color: #a200ff"></div><span
+                class="mt-1 cus_textcolor">Precipitation</span>
+        </div>
+    </div>
+</div>
+<div class='main' [ngClass]="operProductFilter ? 'operProductFilter' : 'closeProductFilter'">
+    <div class="text-right mt-2"> <a href="javascript:void(0)" class="closeButton text-white "
+            (click)="closeNav()">&times;</a> </div>
+    <div *ngIf="loader==false" class='gif_loader'> <img src="/assets/truckLoader.gif" width="40px" height="40px"> </div>
+    <div *ngIf="loader==true">
+        <h5 class="text-center text-white ">Weather Forecast</h5>
+        <hr class="text-white text-center">
+        <div class="rightNav">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cusIcon-Left"> <img class="cus_icon" src='https:{{this.weatherCurrentIcons}}'
+                            width="100%">
+                        <p class="m-0" style="font-size: 14px;">{{currentDesp}}</p>
+                    </div>
+                </div>
+                <div class="col-md-12 text-white text-left pl-5 pr-4">
+                    <p class="text-white text-center" style="font-size: 14px;">{{city}},&nbsp;{{state}}&nbsp;{{country}}
+                    </p>
+                    <p class="text-white text-center" style="font-size: 10px;">{{currentDay | date: 'EEEE, MMMM d, y'}}
+                    </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Wind Speed</span> - <span
+                            class="pl-2">{{currentWind}}mph</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Wind Degree</span> - <span
+                            class="pl-2">{{currentWindDegree}}°</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Humidity</span> - <span
+                            class="pl-2">{{currentHumidity}}%</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Pressure</span> - <span
+                            class="pl-2">{{currentPressue}}mb</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Guest</span> - <span
+                            class="pl-2">{{currentGust}}mph</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Precipitation</span> - <span
+                            class="pl-2">{{currentPrecipt}}mm</span> </p>
+                    <p class="text-white cusWeatherCont" style="font-size: 16px;"><span>Wind Direction</span> - <span
+                            class="pl-2">{{currentWindDir}}</span> </p>
+                </div>
+            </div>
+            <hr>
+            <mat-accordion>
+                <mat-expansion-panel class="mb-2 img-fluid z-depth-5 rounded" *ngFor="let list of foreCastArray">
+                    <mat-expansion-panel-header style="height: 70px;" class="my-4">
+                        <mat-panel-title> <img src="https:{{list.day.condition.icon}}"><br>{{list.date | date:
+                            'EEEE'}}&nbsp; &nbsp;{{list.day.avgtemp_f}}°F<br>{{list.day.condition.text}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-panel-description style=" background-color: rgb(255,255,255); cursor: pointer;">
+                        <div class="col-md-12">
+                            <p>Minimum Temperature -{{list.day.mintemp_f}}<sup>°</sup>F </p>
+                            <p>Average Humidity -{{list.day.avghumidity}}%</p>
+                            <p>Wind Speed -{{list.day.maxwind_mph}}mph</p>
+                            <p>Precipitation -{{list.day.totalprecip_mm}}mm</p>
+                            <p>Chance Of Rain-{{list.day.daily_chance_of_rain}}%</p>
+                            <p>Chance Of Snow -{{list.day.daily_chance_of_snow}}%</p>
+                            <p>Average Visibility -{{list.day.avgvis_miles}}mi</p>
+                        </div>
+                    </mat-panel-description>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+<div id='map'> </div>

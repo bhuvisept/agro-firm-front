@@ -1,0 +1,83 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+    <div class="container p-l-0 p-r-0">
+        <div class="col-sm-12 p-l-0 p-r-0">
+            <div class="modal-content">
+                <div class="modal-body p-0 position-relative">
+                    <div class="cus-upload col-sm-12 pl-0 pr-0">
+                        <div class="col-sm-12 cus-cover-img p-l-0 p-r-0"> <img
+                                *ngIf="eventData.bannerImage=='' || eventData.bannerImage==null"
+                                src="assets/Truck-banne-bg.png" width="100%" style="height: 300px;" /> <img
+                                *ngIf="eventData.bannerImage !='' && eventData.bannerImage !=null"
+                                src="{{image_url_truck + eventData.bannerImage}}" width="100%"
+                                class="banner-common-height" /> </div>
+                        <div class="col-sm-2 cus-profile-img p-0"> <img *ngIf="!eventData.brandLogo"
+                                src="assets/Truck-banne-profile.png" width="100%" /> <img *ngIf="eventData.brandLogo"
+                                src="{{logo_url_truck + eventData.brandLogo}}" class="img-fluid w-100" /> </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="button_dropdown d-flex"> <button class="btn common-btn m-2"
+                                routerLink="/layout/myaccount/event-management">{{'buttons.back' | translate}}</button>
+                            <div class="dropdown m-2" *ngIf="statusFlag==false"> <button
+                                    class="drop_down_design_active btn dropdown-toggle" type="button"
+                                    data-toggle="dropdown">{{'buttons.manage_event' | translate}}<span
+                                        class="caret"></span></button>
+                                <ul class="dropdown-menu cus-drop-menu ">
+                                    <li><a routerLink="/layout/myaccount/event-management/edit-event/{{eventData._id}}">{{'buttons.edit_event'
+                                            | translate}}</a></li>
+                                    <li><a routerLink="/layout/myaccount/event-management/reopen-event/{{eventData._id}}">{{'buttons.reopen_event'
+                                                | translate}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4 class="font-five text-capitalize" style="width: 60%;">{{eventData.name}}</h4>
+                        <p><span class="font-five text-dark">{{'labels.event.event_by' |
+                                translate}}:</span>&nbsp;{{eventData.createdBy}}</p>
+                        <div class="offline">
+                            <ul>
+                                <li><i class="fa text-dark fa-play-circle mr-2"></i> <span>{{eventData.eventMode |
+                                        titlecase}}</span></li>
+                                <li><i class="fa text-dark fa-calendar mr-2"></i> <span>{{eventData.startDate | date:
+                                        'MMM-dd-yyyy, h:mm:a'}}&nbsp;-&nbsp;{{eventData.endDate | date: 'MMM-dd-yyyy,
+                                        h:mm:a'}}</span></li>
+                                <p *ngIf="eventData.speaker"><span
+                                        class="font-five text-dark pt-2 m-0 ">{{'labels.event.speaker' |
+                                        translate}}:</span>&nbsp;{{eventData.speaker}}</p>
+                                <p class="m-0"><span class="font-five text-dark">{{'labels.event.interested_people' |
+                                        translate}}:</span>&nbsp;{{intrestCount}}</p>
+                                <p class="m-0" *ngIf="eventData.address"><span
+                                        class="font-five text-dark">{{'labels.event.address' |
+                                        translate}}:</span>&nbsp;{{eventData.address}}</p>
+                                <p><span class="font-five text-dark">{{'labels.event.event_fee' |
+                                        translate}}:</span>&nbsp;{{eventData.currency}} {{eventData.eventFee |
+                                    currency:'':''}}</p>
+                            </ul>
+                        </div>
+                        <div class="pro-details mt-2">
+                            <div class="about mt-3">
+                                <h5>{{'labels.event.about' | translate}}</h5>
+                                <p innerHtml="{{eventData.description}}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer p-0"></div>
+            </div>
+        </div>
+    </div>
+</section>

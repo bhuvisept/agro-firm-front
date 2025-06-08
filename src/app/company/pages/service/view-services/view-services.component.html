@@ -1,0 +1,41 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="cus-top-spc"></div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 offset-sm-0 offset-md-3 cus-middelbar">
+                <div class="view-service cus-round-with-bg"> <img src="{{SERVICEIMAGE + Creatobj.serviceImage}}"
+                        alt="img" class="img-fluid" />
+                    <div class="p-3">
+                        <h4 class="mt-3">{{Creatobj.serviceName}}</h4>
+                        <P> <span class="font-weight-bold"> {{ 'labels.service.location' | translate }} </span> :&nbsp;{{Creatobj.address}}</P>
+                        <P> <span class="font-weight-bold">{{ 'labels.service.service_cost' | translate }}</span>
+                            :&nbsp;{{Creatobj.currency}}&nbsp;{{Creatobj.serviceCost | currency  }}</P>
+                        <p *ngIf="Creatobj.contactNumber"><strong>{{ 'labels.service.phone_number' | translate }}&nbsp;</strong> : +1
+                            ({{Creatobj.contactNumber | slice:0:3}})-{{Creatobj.contactNumber |
+                            slice:3:6}}-{{Creatobj.contactNumber | slice:6:10}}</p>
+                        <p class="mt-3 cus-text-brack"> <span class="font-weight-bold ">{{ 'labels.service.description' | translate }}</span>
+                            :&nbsp;{{Creatobj.description}}</p><a
+                            routerLink="/layout/myaccount/service/updateservice/{{this.serviceId}}"
+                            class="btn common-btn" *ngIf="this.roleName=='COMPANY'">{{ 'Edit' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

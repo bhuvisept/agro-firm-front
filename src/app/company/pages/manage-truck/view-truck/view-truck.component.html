@@ -1,0 +1,175 @@
+<ngx-spinner class="cusSpinner">
+        <div class="loader-wrapper">
+                <div class="truck-wrapper">
+                        <div class="truck">
+                                <div class="truck-container"></div>
+                                <div class="glases"></div>
+                                <div class="bonet"></div>
+                                <div class="base"></div>
+                                <div class="base-aux"></div>
+                                <div class="wheel-back"></div>
+                                <div class="wheel-front"></div>
+                                <div class="smoke"></div>
+                        </div>
+                </div>
+        </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+        <div class="container p-0 banner-upload-top">
+                <div class="col-sm-12 p-0">
+                        <div class="modal-header ">
+                                <h4> {{ 'fleet_manager.detail' | translate }} </h4>
+                        </div>
+                        <div class="view-truck">
+                                <div *ngIf="truckData.image"> <img src="{{truckPath}}{{truckData.image}}"  style="object-fit: cover;"> </div>
+                                <div *ngIf="img==true"> <img src="assets/Truck-banne-bg.png" width="100%"
+                                        height="300px"> </div>
+                                <div class="detail ">
+                                        <div class="row cus-round-with-bg mx-3 mt-5">
+                                                <div class="col-md-12" *ngIf="vehicleType=='TRUCK'">
+                                                        <div class="edit_icons"> <i class="fas fa-edit text-muted"
+                                                                        title="edit" (click)='gotoEdit()'></i> </div>
+                                                        <ul class="mt-2 mb-2 flex-ul">
+                                                                <li class="bus_drop"> <span class="cus_width"> {{
+                                                                                'labels.fleet_manage.Nick_Name' |
+                                                                                translate }} </span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.name}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span
+                                                                                class="cus_width">VIN</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.number}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Model_Number' |
+                                                                                translate }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.modelNumber}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"
+                                                                        *ngIf="truckData.brandName == null"> 
+                                                                        <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Brand' | translate
+                                                                                }}</span>:
+                                                                        <span class="text-grey cus_wid"
+                                                                                *ngIf="truckData.brand.name != undefined">{{truckData.brand.name}}
+                                                                        </span>
+                                                                        <span class="text-grey cus_wid"
+                                                                                *ngIf="truckData.brand.name == undefined">Others
+                                                                        </span>
+                                                                </li>
+
+                                                                <li class="bus_drop" *ngIf="isotherbrand "> <span
+                                                                                class="cus_width">Other
+                                                                                Brands</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.otherbrand}}</span>
+                                                                </li>
+
+
+
+
+                                                                <li class="bus_drop"
+                                                                        *ngIf="truckData.brandName != null"> <span
+                                                                                class="cus_width">Brand
+                                                                                name</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.brandName}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Weight' | translate
+                                                                                }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.weight}}&nbsp;&nbsp;lbs
+                                                                        </span> </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Height' | translate
+                                                                                }} </span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.height}}&nbsp;&nbsp;in</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Width' | translate
+                                                                                }} </span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.width}}&nbsp;&nbsp;in</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Power' | translate
+                                                                                }} </span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.power}}&nbsp;&nbsp;hp</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Engine_Number' |
+                                                                                translate }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.engine}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Fuel_Type' |
+                                                                                translate }} </span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.fuelType}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Fuel_Capacity' |
+                                                                                translate }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.fuelCapacity}}&nbsp;&nbsp;gl</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Number_Of_Tyres' |
+                                                                                translate }}</span>:
+                                                                                <span class="text-grey cus_wid" *ngIf="truckData.OtherTyre == '' || truckData.OtherTyre == null " >{{truckData.numOfTyres}}</span>
+                                                                                <span class="text-grey cus_wid" *ngIf="truckData.OtherTyre != '' && truckData.OtherTyre != null " >Others</span>
+                                                                </li>
+                                                                <li class="bus_drop" *ngIf="truckData.OtherTyre != '' && truckData.OtherTyre != null "> <span class="cus_width">{{
+                                                                        'form_lables.fleet_manager.Number_Of_Other_Tyres' |
+                                                                        translate }}</span>: {{truckData.OtherTyre}}
+                                                                 </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Wheelbase' |
+                                                                                translate }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.wheelbase}}&nbsp;&nbsp;in</span>
+                                                                </li>
+                                                                <li class="bus_drop"></li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col-md-12" *ngIf="vehicleType=='TRAILER'">
+                                                        <div class="edit_icons"> <i class="fas fa-edit text-muted"
+                                                                        title="edit" (click)='gotoEditTrailer()'></i>
+                                                        </div>
+                                                        <ul class="mt-2 mb-2 flex-ul">
+                                                                <li class="bus_drop"> <span class="cus_width"> {{
+                                                                                'labels.fleet_manage.Nick_Name' |
+                                                                                translate }}</span>:<span class="text-grey cus_wid">{{truckData.name}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width"> Trailer Vin Number</span>:<span class="text-grey cus_wid">{{truckData.trailerVinNumber}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width"> Length </span>:<span class="text-grey cus_wid">{{truckData.length}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Trailer_Type' |
+                                                                                translate }}</span>:<span class="text-grey cus_wid">{{truckData.trailerType}}</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Height' | translate
+                                                                                }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.height}}&nbsp;&nbsp;in</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Width' | translate
+                                                                                }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.width}}&nbsp;&nbsp;in</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Weight' | translate
+                                                                                }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.weight}}&nbsp;&nbsp;lbs</span>
+                                                                </li>
+                                                                <li class="bus_drop"> <span class="cus_width">{{
+                                                                                'labels.fleet_manage.Load_Capacity' |
+                                                                                translate }}</span>:<span
+                                                                                class="text-grey cus_wid">{{truckData.loadCapacity}}&nbsp;&nbsp;lbs</span>
+                                                                </li>
+                                                        </ul>
+                                                </div>
+                                                <div class="col-sm-12 text-center mb-3"> <button class="btn common-btn"
+                                                                (click)='back()'>{{
+                                                                'buttons.back' | translate }}</button> </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</section>

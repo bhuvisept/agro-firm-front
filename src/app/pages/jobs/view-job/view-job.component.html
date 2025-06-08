@@ -1,0 +1,172 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="view-job p-3 p-md-0 mob-top-spc">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 cus-round-with-bg mt-3 mb-5">
+        <div class="modal-header for_mobile">
+          <div class="row w-100">
+            <div class="col-md-6">
+              <h4 class="text-left pl-0">
+                {{ 'labels.job.job_view.job_title' | translate }} :<span>&nbsp;{{ jobData.title }}</span>
+              </h4>
+            </div>
+            <div class="col-md-6 text-left text-md-right mt-3 mt-md-0">
+              <button class="btn common-btn mr-3" (click)="back()">{{ 'buttons.back' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" (click)="savedJob(jobData._id)" *ngIf="!userId">{{ 'buttons.favorite_job' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" (click)="savedJob(jobData._id)" *ngIf="userId && jobData.isSaved == false">{{ 'buttons.favorite_job' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" *ngIf="jobData.isSaved == true" [disabled]="true">{{ 'buttons.favorited' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" (click)="applyForJob(jobData._id)" *ngIf="!userId">{{ 'buttons.apply' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" (click)="applyForJob(jobData._id)" *ngIf="jobData.alreadyApplied == false">{{ 'buttons.apply' | translate }}</button>
+              <button type="submit" class="btn common-btn mr-3" [disabled]="true" *ngIf="jobData.alreadyApplied == true">{{ 'buttons.applied' | translate }}</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h6>
+            <span class="font-five">{{ 'labels.job.job_view.company_name' | translate }} :</span>&nbsp;{{ jobData.companyName | titlecase }}
+          </h6>
+          <ul class="breif">
+            <li *ngIf="jobData.minimumExperience >= 0 && jobData.maximumExperience >= 0">
+              <i class="fa fa-briefcase"></i>&nbsp;{{ jobData.minimumExperience }}&nbsp;Yrs&nbsp;{{ jobData.maximumExperience }}&nbsp;Months&nbsp;
+            </li>
+            <li *ngIf="jobData.salaryType">{{ 'labels.job.job_view.salary_type' | translate }} :&nbsp;{{ jobData.salaryType }}</li>
+            <li>
+              <span *ngIf="jobData.salaryRang">
+                <span *ngIf="jobData.salaryRang[0].min && jobData.salaryRang[0].max">
+                  {{ 'labels.job.job_view.min' | translate }} : {{ jobData.salaryRang[0].currency }}&nbsp; {{ jobData.salaryRang[0].min | currency: '':'' }}
+                </span><br/>
+                <span *ngIf="jobData.salaryRang[0].min && jobData.salaryRang[0].max">
+                  {{ 'labels.job.job_view.max' | translate }}:  {{ jobData.salaryRang[0].currency }}&nbsp;{{ jobData.salaryRang[0].max | currency: '':'' }}
+                </span>
+              </span>
+            
+            </li>
+          
+            <li>
+              <span class="font-five">{{ 'labels.job.job_location' | translate }} :</span>&nbsp;<i class="fa fa-map-marker"></i>{{ jobData.address ? jobData.fullAddress : '' }}
+            </li>
+          </ul>
+          <ul class="job-profile">
+            <li>
+              <span class="font-five">{{ 'labels.job.posted' | translate }} :</span> <span>&nbsp;{{ jobData.postedAt }}</span>
+            </li>
+            <li>
+              <span class="font-five">{{ 'labels.job.job_view.openings' | translate }} :</span> <span>&nbsp;{{ jobData.vacancy }}</span>
+            </li>
+            <li>
+              <span class="font-five">{{ 'labels.job.job_view.job_applicants' | translate }} :</span><span>&nbsp;{{ jobData.applicantCount }}</span>
+            </li>
+          </ul>
+          <hr />
+          <div class="mat-box">
+            <div class="profile-detail">
+              <h4 class="mt-3 mb-1">{{ 'labels.job.job_view.job_description' | translate }}</h4>
+              <div class="mb-2 mt-2">
+                <div class="card-text text-left" innerHtml="{{ jobData.description }}"></div>
+              </div>
+              <div class="d-flex align-items-center mb-2 mt-2">
+                <span class="pr-1 font-five">{{ 'labels.job.job_view.qualifications' | translate }} :</span>
+                <ul class="key-skills">
+                  <li *ngFor="let qualifications of jobData.qualificationData">&nbsp;{{ qualifications.qualification }}</li>
+                </ul>
+              </div>
+              <div class="d-flex align-items-center mb-2 mt-2">
+                <span class="pr-1 font-five">{{ 'labels.job.job_view.key_skills' | translate }} :</span>
+                <ul class="key-skills">
+                  <li *ngFor="let skill of jobData.skillData">&nbsp;{{ skill | titlecase }}</li>
+                </ul>
+              </div>
+              <div class="d-flex align-items-center mb-2 mt-2">
+                <span class="pr-1 font-five">{{ 'labels.job.job_view.functional_area' | translate }} :</span>
+                <ul class="key-skills">
+                  <li *ngIf="jobData.functionalArea">&nbsp;{{ jobData.functionalArea.name | titlecase }}</li>
+                </ul>
+              </div>
+              <div class="d-flex align-items-center mb-2 mt-2">
+                <span class="pr-1 font-five">{{ 'labels.job.job_view.industry' | translate }} :</span>
+                <ul class="key-skills">
+                  <li *ngIf="jobData.industry">&nbsp;{{ jobData.industryData.name | titlecase }}</li>
+                </ul>
+              </div>
+              <div class="d-flex align-items-center mb-2 mt-2">
+                <span class="pr-1 font-five">{{ 'labels.job.job_view.employment_type' | translate }} :</span>
+                <ul class="key-skills">
+                  <li>&nbsp;{{ jobData.employmentType | titlecase }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profile-detail">
+            <h4 class="font-five mt-4">{{ 'labels.job.job_view.Walk_in_details' | translate }}</h4>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="card-text text-left" *ngIf="jobData.walkInDetails">
+                  <strong>{{ 'labels.job.job_view.contact_person' | translate }} :</strong>&nbsp;{{ jobData.walkInDetails[0].contactPerson ? jobData.walkInDetails[0].contactPerson : 'N/A' }}
+                </p>
+              </div>
+          <div class="col-sm-6">
+            <p class="card-text text-left" *ngIf="jobData.walkInDetails"><strong>{{ 'labels.job.job_view.phone_number' | translate }} :</strong>&nbsp;{{jobData.walkInDetails[0].number ? "+1" : ""}}{{jobData.walkInDetails[0].number ? jobData.walkInDetails[0].number : "N/A" }}</p>
+                    <!-- <p class="card-text text-left" *ngIf="jobData.walkInDetails[0].number">
+                  <strong>{{ 'labels.job.job_view.phone_number' | translate }} :</strong>&nbsp;+1 ({{ jobData.walkInDetails[0].number | slice: 0:3 }})-{{
+                    jobData.walkInDetails[0].number | slice: 3:6
+                  }}-{{ jobData.walkInDetails[0].number | slice: 6:10 }}
+                </p>
+                 <p class="card-text text-left" *ngIf="!jobData.walkInDetails[0].number">
+                  <strong>{{ 'labels.job.job_view.phone_number' | translate }} :</strong>&nbsp;{{ 'N/A' }}
+                </p> -->
+              </div> 
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="card-text text-left" *ngIf="jobData.walkInDetails">
+                  <strong>{{'form_lables.validFrom' | translate}}  :</strong>&nbsp;{{
+                    !jobData.walkInDetails[0].startDate ? 'N/A' : (jobData.walkInDetails[0].startDate | date: 'MMM-dd-yyyy':'UTC')
+                  }}
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="card-text text-left" *ngIf="jobData.walkInDetails">
+                  <strong>{{'form_lables.validUpto' | translate}}  :</strong>&nbsp;{{
+                    !jobData.walkInDetails[0].endDate ? 'N/A' : (jobData.walkInDetails[0].endDate | date: 'MMM-dd-yyyy':'UTC')
+                  }}
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="card-text text-left" *ngIf="jobData.walkInDetails">
+                  <strong>{{ 'labels.job.job_view.venue' | translate }} :</strong>&nbsp;{{ jobData.walkInDetails[0].venue ? jobData.walkInDetails[0].venue : 'N/A' }}
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <p class="card-text text-left" *ngIf="jobData.walkInDetails">
+                  <strong>{{ 'labels.job.job_view.company_website' | translate }} :</strong>
+                  <a href="http://{{ website }}" target="blank">&nbsp;{{ !jobData.companyWebsite ? 'N/A' : jobData.companyWebsite }}</a>
+                </p>
+              </div>
+            </div>
+          </div> 
+          <div class="profile-detail">
+            <span>{{ 'labels.job.job_view.company_details' | translate }}</span>
+            <p class="card-text text-left" innerHtml="{{ jobData.companyDetails | titlecase }}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

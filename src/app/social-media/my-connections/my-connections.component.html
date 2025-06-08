@@ -1,0 +1,87 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">Manage my network</h3>
+          <ul class="nav cus-left-navbar">
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/connections" class="nav-link text-capitalize"><i class="far fa-chart-network"></i> My Friends </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/group-list" class="nav-link text-capitalize"> <i class="far fa-users-medical"></i> Groups </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/team-member-list" class="nav-link text-capitalize"> <i class="fal fa-envelope-open-text"></i> Invite Connection </a>
+            </li>
+            <!-- <li class="nav-item"> <a routerLink="my-connections" class="nav-link text-capitalize"> <i class="far fa-hospital-user"></i> My Connections </a> </li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9 cus-round-with-bg">
+        <div class="modal-content">
+          <div class="modal-header"><h4>My Connection</h4></div>
+          <div class="p-3">
+            <div class="row">
+              <div class="col-sm-3">
+                <mat-form-field>
+                  <mat-label>Status</mat-label>
+                  <mat-select [(ngModel)]="status">
+                    <mat-option *ngFor="let list of statusList" [value]="list.value">{{ list.show }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-5">
+                <div class="cus-search-input">
+                  <input matInput placeholder="Enter email" [(ngModel)]="searchText" autocomplete="off" /> <button class="btn" (click)="myConnectionsList()"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-res" (click)="reset()"><i class="fa fa-refresh" title="reset"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body p-0">
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tr *ngIf="noRecordFound">
+                <td class="text-center" colspan="8">No Records Found</td>
+              </tr>
+              <tbody>
+                <tr></tr>
+                <tr *ngFor="let connection of myConnnectionList | paginate: { itemsPerPage: 20, currentPage: page, totalItems: total }; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ connection.personName | titlecase }}</td>
+                  <td>{{ connection.email }}</td>
+                  <td>{{ connection.status | titlecase }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="col-md-12" *ngIf="noData"><p class="text-center">No Connection found</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+ul.cus-color-code-name1 li{
+    margin: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 7px;
+    border-radius: 11px;
+    background: #c4dff5;
+    }
+    ul.cus-color-code-name>li {
+    margin: 10px;
+    display: block
+    }

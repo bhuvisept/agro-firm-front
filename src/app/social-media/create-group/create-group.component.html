@@ -1,0 +1,145 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="cusMobSpc">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="modal-content">
+          <form [formGroup]="creatCompanyGroupForm" (ngSubmit)="onSubmitCompanyGroupForm()">
+            <div class="modal-header">
+              <h4 class="modal-title">{{ 'form_lables.network.group.heading' | translate }}</h4>
+            </div>
+            <!-- <div class="modal-body p-0">
+              <div class="cus-upload">
+                <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                  <div *ngIf="!this.uploadedBannerImage" class="banner-upload">
+                    <img *ngIf="!bannerImage && !isLoadingBanner" src="assets/Truck-banne-bg.png" width="100%" height="350px" />
+                    <img *ngIf="bannerImage && !isLoadingBanner" src="{{ image_url_profile + bannerImage }}" width="100%" height="300px" />
+                  </div>
+                  <div class="col-12 d-flex justify-content-center align-items-center my-5" >
+                    <mat-progress-bar  *ngIf="isLoadingBanner " class="example-margin" [color]="'primary'" [mode]="'indeterminate'" #spinner>
+                    </mat-progress-bar>
+                   </div>
+                  <div *ngIf="this.uploadedBannerImage && !isLoadingLogo"><img src="{{ banner_img_path }}{{ this.uploadedBannerImage }}" width="100%" height="300px" /></div>
+                  <div class="float-right cus-edit-cover-icon" *ngIf="!isLoadingBanner">
+                    <input required type="file" class="fa fa-pencil" (change)="uploadBannerImage($event)" title="" accept="image/*" /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+                <div class="cus-profile-img" >
+                  <div *ngIf="!this.uploadedEventLogo && !isLoadingLogo">
+                    <img *ngIf="!eventLogo" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="eventLogo" src="{{ logo_url_profile + eventLogo }}" class="img-fluid" />
+                  </div>
+                  <div *ngIf="this.uploadedEventLogo && !isLoadingLogo"><img src="{{ companyLogo_path }}{{ this.uploadedEventLogo }}" class="img-fluid" /></div>
+                  <div class="cus-edit-profile-icon" *ngIf="!isLoadingLogo">
+                    <input required type="file" class="fa fa-pencil" (change)="uploadeventLogo($event)" title="" accept="image/*" /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                    <mat-spinner [diameter]="35"></mat-spinner>
+                   </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{ 'form_lables.network.group.group_name' | translate }}</mat-label>
+                  <input type="text" formControlName="name" matInput placeholder="Group Name" required maxlength="50" />
+                  <mat-error *ngIf="creatCompanyGroupForm.get('name').hasError('required')"> Please enter Group Name </mat-error>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('name').hasError('pattern')"> Unwanted Space </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="fill" class="create_group">
+                  <mat-label>{{ 'form_lables.network.group.group_type' | translate }}*</mat-label>
+                  <mat-select formControlName="type" class="p-0" placeholder="select miles">
+                    <mat-option *ngFor="let list of groupType" value="{{ list }}">{{ list }}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('type').hasError('required')">Please select Group Type </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{ 'form_lables.network.group.description' | translate }}</mat-label>
+                  <textarea type="text" formControlName="description" matInput placeholder="Description" required id="autoresizing" maxlength="2000"></textarea>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('description').hasError('required')">Please enter Description </mat-error>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('description').hasError('pattern')"> Unwanted Space </mat-error>
+                </mat-form-field>
+              </div>
+            </div> -->
+
+            <div class="modal-body p-0">
+              <div class="cus-upload">
+                <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                  <div *ngIf="!this.uploadedBannerImage" class="banner-upload">
+                    <img *ngIf="!bannerImage && !isLoadingBanner" src="assets/Truck-banne-bg.png" width="100%" height="350px" />
+                    <img *ngIf="bannerImage && !isLoadingBanner" src="{{ image_url_profile + bannerImage }}" width="100%" height="300px" />
+                  </div>
+                  <div class="col-12 d-flex justify-content-center align-items-center my-5" >
+                    <mat-progress-bar  *ngIf="isLoadingBanner " class="example-margin" [color]="'primary'" [mode]="'indeterminate'" #spinner>
+                    </mat-progress-bar>
+                   </div>
+                  <div *ngIf="this.uploadedBannerImage && !isLoadingLogo"><img src="{{ banner_img_path }}{{ this.uploadedBannerImage }}" width="100%" height="300px" /></div>
+                  <div class="float-right cus-edit-cover-icon" *ngIf="!isLoadingBanner">
+                    <input required type="file" class="fa fa-pencil" (change)="uploadBannerImage($event)" title="" accept="image/*" /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </div>
+                </div>
+                <div class="cus-profile-img" >
+                  <div *ngIf="!this.uploadedEventLogo && !isLoadingLogo">
+                    <img *ngIf="!eventLogo" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="eventLogo" src="{{ logo_url_profile + eventLogo }}" class="img-fluid" />
+                  </div>
+                  <div *ngIf="this.uploadedEventLogo && !isLoadingLogo"><img src="{{ companyLogo_path }}{{ this.uploadedEventLogo }}" class="img-fluid" /></div>
+                  <div class="cus-edit-profile-icon" *ngIf="!isLoadingLogo">
+                    <input required type="file" class="fa fa-pencil" (change)="uploadeventLogo($event)" title="" accept="image/*" /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                    <mat-spinner [diameter]="35"></mat-spinner>
+                   </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{ 'form_lables.network.group.group_name' | translate }}</mat-label>
+                  <input type="text" formControlName="name" matInput placeholder="Group Name" required maxlength="50" />
+                  <mat-error *ngIf="creatCompanyGroupForm.get('name').hasError('required')"> Please enter Group Name </mat-error>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('name').hasError('pattern')"> Unwanted Space </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="fill" class="create_group">
+                  <mat-label>{{ 'form_lables.network.group.group_type' | translate }}*</mat-label>
+                  <mat-select formControlName="type" class="p-0" placeholder="select miles">
+                    <mat-option *ngFor="let list of groupType" value="{{ list }}">{{ list }}</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('type').hasError('required')">Please select Group Type </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>{{ 'form_lables.network.group.description' | translate }}</mat-label>
+                  <textarea type="text" formControlName="description" matInput placeholder="Description" required id="autoresizing" maxlength="2000"></textarea>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('description').hasError('required')">Please enter Description </mat-error>
+                  <mat-error *ngIf="creatCompanyGroupForm.get('description').hasError('pattern')"> Unwanted Space </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn cus-dash-form-btn">{{ 'buttons.create' | translate }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="network-connection my-network navmain">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.sideMenu.heading' | translate }}</h3>
+          <ul class="nav cus-left-navbar">
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/connections" class="nav-link text-capitalize"><i class="far fa-chart-network"></i>{{ 'myNetwork.sideMenu.my_friend' | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/group-list" class="nav-link text-capitalize"> <i class="far fa-users-medical"></i>{{ 'myNetwork.sideMenu.groups' | translate }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9 mr-0">
+        <div class="net-con">
+          <div class="modal-header col-sm-12 text-left p-l-0 p-r-0">
+            <div class="col-sm-12 p-l-0 p-r-0">
+              <h5>{{ connectTotalNo }}{{ 'myNetwork.connections' | translate }}</h5>
+            </div>
+          </div>
+          <div class="col-sm-12 modal-header p-l-0 p-r-0">
+            <div class="cus-search-input network_connection">
+              <input matInput placeholder="Enter name" [(ngModel)]="searchKey" autocomplete="off" />
+              <div class="xs-mt-4 cus-search-input wt-100-on-mobile-btn">
+                <button class="btn" (click)="getMyConnectList(1)"><i class="fa fa-search"></i></button>
+                <button class="btn btn-res" (click)="reset()"><i class="fa fa-refresh" title="reset"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 modal-body p-0">
+            <ul>
+              <li *ngFor="let list of invitedList | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: connectTotalNo }; let i = index">
+                <div class="row">
+                  <div class="col-2 col-sm-1">
+                    <div class="rou">
+                      <div class="uploaddiv d-flex">
+                        <a routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">
+                          <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="list.image" src="{{ endUser + list.image }}" class="img-fluid" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-8 col-sm-8 d-flex align-items-center">
+                    <div class="connection">
+                      <p class="m-0 p-0 text-capitalize">
+                        <a routerLink="/layout/social-media/connection-profileview/{{ list.userId }}">{{ list.personName }}</a>
+                      </p>
+                      <p>{{ list.designation | slice: 0:40 }}</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-2 p-l-0 text-right d-flex justify-content-end">
+                    <button class="ml-2" (click)="deleteConnectList(list._id)" style="background: transparent; border: none; font-size: 0.8rem"><i class="fas fa-trash fa-lg dustbin"></i></button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div *ngIf="!connectTotalNo || connectTotalNo == null" class="text-center mt-2">
+              <p>{{ 'No_Records_Found' | translate }}</p>
+            </div>
+            <div style="text-align: center" class="text-center" *ngIf="connectTotalNo > itemsPerPage">
+              <pagination-controls (pageChange)="pageChanged($event)" responsive="true" directionLinks="true"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+
+td{
+    height: 59px;
+
+}
+button.btn {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+}

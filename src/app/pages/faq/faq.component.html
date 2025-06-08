@@ -1,0 +1,55 @@
+
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+      <div class="truck-wrapper">
+      <div class="truck">
+          <div class="truck-container"></div>
+          <div class="glases"></div>
+          <div class="bonet"></div>
+          <div class="base"></div>
+          <div class="base-aux"></div>
+          <div class="wheel-back"></div>
+          <div class="wheel-front"></div>
+          <div class="smoke"></div>
+      </div>
+      </div>
+  </div>
+</ngx-spinner>
+
+<section class="mob-top-spc faq_section">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-sm-12 mt-2 mb-2">
+        <h2 class="text-dark text-center"> Frequently Asked Questions </h2>
+        <span class="cus-tit-bor"></span>
+      </div>
+      <div class="col-sm-12 mt-2 mb-3 accordian"
+        *ngFor="let faq of faqList | paginate: { itemsPerPage: itemsPerPage, currentPage: pageNew, totalItems: newtotalCount }; let i = index">
+        <mat-accordion style="width: 50%;">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <!-- <mat-panel-title>
+                          Self aware panel
+                        </mat-panel-title> -->
+              <mat-panel-description class="text-center">
+                <p class="question mt-3">{{ faq.question }} </p>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+
+            <div class="row" style="width: 100%;">
+              <p class="col-sm-12 ml-4" innerHtml="{{ faq.answer }}"></p>
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div> 
+      <div *ngIf='!newtotalCount' class="text-center col-sm-12">
+        <p> {{ 'No_Records_Found' | translate }} </p>
+      </div>
+      <div class="text-center mainpagination m-auto" *ngIf=" newtotalCount > itemsPerPage " >
+        <pagination-controls  (pageChange)="savePageChanged($event)" class="custom-pagination-designe"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>

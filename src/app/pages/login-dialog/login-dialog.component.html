@@ -1,0 +1,50 @@
+<section class=" apply-body ">
+  <div class=" modal-dialog ">
+    <div class="modal-content">
+      <i class="fa fa-close closeIcon text-right" (click)='close()'></i>
+      <div class="modal-body">
+        <!-- <div class="row" *ngIf="!userId"> -->
+        <div class="row" *ngIf='!showDialog && !showCompany && !notAccess' >
+          <div class="col-md-12 text-center">
+            <p>You are not logged-in</p>
+            <a (click)="login()" class="btn common-btn">Login</a>
+            <div class="mt-4 mb-0 text-center">
+              <p>Don't have an account? <a (click)="userRegister()">Register</a></p>
+              <!-- <p >Don't have an account? <a (click)="userRegister()" >Register</a></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf='showDialog'>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p> {{ 'Sign_up_as_company_plan' | translate }} </p>
+            <!-- <div class="mt-4 mb-0 text-center">
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+      <div *ngIf='showCompany'>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Please login as a company</p>
+            <!-- <div class="mt-4 mb-0 text-center">
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+      <div *ngIf='notAccess'>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p> {{ 'Sign_up_as_company_feature' | translate }} </p>
+            <!-- <div class="mt-4 mb-0 text-center">
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

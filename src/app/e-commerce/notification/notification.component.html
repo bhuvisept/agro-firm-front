@@ -1,0 +1,90 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+  <div class="container-fluid">
+    <div class="row p-0">
+      <div class="col-sm-12 p-0">
+        <app-e-commerce-header></app-e-commerce-header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 p-0">
+        <app-sidemenu></app-sidemenu>
+      </div>
+      <div class="col-sm-10 p-0">
+        <div class="cus-main-section p-3">
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 m-auto cus-round-with-bg cus-bottom">
+                  <div class="col-12 p-2">
+                    <div>
+                      <h4>{{'notification.Notification' | translate}}</h4>
+                    </div>
+                    <div class="d-flex" style="justify-content: space-between">
+                      <div class="col-8 pl-0">
+                        <button class="btn m-2 notification" style="border-radius: 50px; padding: 4px 20px" [ngClass]="notificationsType == true ? 'active' : ''" (click)="NotificationChange(true)">
+                          {{'notification.all' | translate}}  
+                        </button>
+                        <button class="btn m-2 notification" [ngClass]="notificationsType == false ? 'active' : ''" style="border-radius: 50px; padding: 4px 20px" (click)="NotificationChange(false)">
+                          {{'notification.unread' | translate}}   
+                        </button>
+                      </div>
+                      <div>
+                        <button (click)="markAllRead()" class="btn">{{'notification.mark_all' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul>
+                    <li
+                      *ngFor="let list of notificationsLists | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index"
+                      class="d-flex justify-content-between align-items-center p-1 position-relative NotificationLi"
+                      [ngClass]="list.isReaded ? 'readNotification' : 'unReadNotification'"
+                      (click)="reDirect(list, i)"
+                    >
+                      <!-- <span>
+                                                <img *ngIf="!list.receiverImage" src="assets/Truck-banne-profile.png" class="roundImg" />
+                                                <img *ngIf="list.receiverImage" src="{{ endUser + list.receiverImage }}" class="roundImg" />
+                                            </span> -->
+                      <span class="col-sm-9">
+                        <p class="m-0 text-capitalize">
+                          <strong>{{ list.title }}</strong>
+                        </p>
+                        <p class="m-0">{{ list.message | titlecase }}</p>
+                      </span>
+                      <span class="col-sm-3">
+                        <p>{{ list.createdAt | date: 'MMM-dd-yyyy h:mm a' }}</p>
+                      </span>
+                      <!-- <span *ngIf="!list.isReaded" class="dot"></span> -->
+                      <span *ngIf="!list.isReaded" class="dot2"></span>
+                    </li>
+                    <li *ngIf="!notificationsLists?.length" class="text-center">{{ 'No_Records_Found' | translate }}</li>
+                  </ul>
+
+                  <div class="col-md-8 m-auto text-center mt-5" *ngIf="totalCount > itemsPerPage">
+                    <pagination-controls (pageChange)="savePageChanged($event)" responsive="true" directionLinks="true"> </pagination-controls>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

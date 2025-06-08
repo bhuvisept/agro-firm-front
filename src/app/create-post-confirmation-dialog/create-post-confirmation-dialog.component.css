@@ -1,0 +1,71 @@
+.cus-round-with-img {
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  display: flex;
+  margin: 0 auto;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 49%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  background: #afafaf;
+  height: 25px;
+  border-radius: 13px;
+} /* .carousel-control-next-icon, .carousel-control-prev-icon{display: inline-block; width: 15px; height: 15px; background: transparent no-repeat center center; background-size: 100% 100%;}*/
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-size: 100% 100%;
+}
+div#cdk-overlay-0 {
+  max-width: 80vw;
+  pointer-events: auto;
+  width: 558px;
+  position: absolute;
+  top: 0;
+}
+.cus_height_slide .owl-next {
+  position: absolute;
+  top: 40%;
+  right: 10px; /* background: red; */
+}
+.cus_height_slide .owl-prev {
+  position: absolute;
+  top: 40%;
+  left: 10px;
+}
+@media screen and (max-height: 630px) {
+  .my-dialog-creat-post .mat-dialog-container {
+    height: 400px;
+    overflow-y: auto !important;
+  }
+
+  section > .mt-5 {
+    margin: 0 !important;
+  }
+
+  .cus-round-with-img {
+    height: 32px;
+    width: 32px;
+  }
+
+  .modal-body {
+    padding: 10px 0 0 0;
+  }
+  .modal-footer {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

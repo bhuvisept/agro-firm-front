@@ -1,0 +1,9 @@
+.accordian {
+    box-shadow: 0 0px 2px #97a7c37a, 0 2px 2px 0 #97a7c3ab;
+    border-radius: 5px;
+    padding: 0;
+}
+.question {
+    font-size: 15px;
+    font-weight: 500;
+}

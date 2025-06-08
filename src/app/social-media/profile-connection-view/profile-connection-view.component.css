@@ -1,0 +1,34 @@
+.cus-upload .cus-profile-img {
+    width: 90px;
+    height: 90px;
+}
+
+.heading_blue {
+    color: #456f96;
+    position: relative;
+    font-size: 16px;
+}
+
+.heading_blue::after {
+    position: absolute;
+    content: '';
+    width: 25%;
+    height: 1px;
+    background-color: #9f9d9d;
+    top: 46%;
+}
+
+.only_connection {
+    margin-top: 4%;
+}
+
+.Connect_btn {
+    background-color: #4279ac;
+    color: #fff;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.higlight {
+    font-weight: 500;
+}

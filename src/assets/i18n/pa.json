@@ -1,0 +1,1437 @@
+{
+  "navigationCompanyMenuSeller": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/e-commerce/dashboard",
+      "navitem": "ਘਰ"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "ਚੈਟ"
+    }
+  ],
+  "navigationCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "ਘਰ"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "ਚੈਟ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    }
+  ],
+  "navigationUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "ਘਰ",
+      "showPopUp": false
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "ਚੈਟ",
+      "showPopUp": false
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ",
+      "showPopUp": false
+    }
+  ],
+  "navigationHrMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "ਘਰ"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "ਚੈਟ"
+    }
+  ],
+  "navigationMobileCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "ਘਰ"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "ਚੈਟ"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    },
+    {
+      "navimg": "fal fa-calendar-alt pl-2",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "ਸਮਾਗਮ"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "ਇੱਛਾ-ਸੂਚੀ"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "ਫਲੀਟ ਮੈਨੇਜਰ"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "ਸੇਵਾਵਾਂ"
+    }
+  ],
+  "navigationMobileUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "ਘਰ"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "../chat-window",
+      "navitem": "ਚੈਟ"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "ਮੇਰੇ ਇਵੈਂਟਸ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "ਮੇਰੀਆਂ ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "ਇੱਛਾ-ਸੂਚੀ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/pages/search-job/jobs",
+      "navitem": "ਨੌਕਰੀਆਂ ਪਾਓ",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "/pages/events",
+      "navitem": "ਸਮਾਗਮ ਪਾਓ",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "ਸੇਵਾਵਾਂ ਪਾਓ",
+      "showPopUp": true
+    }
+  ],
+  "navigationDispatcherMenu": [
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/pages/services",
+      "navitem": "ਸੇਵਾਵਾਂ"
+    }
+  ],
+  "Block":"ਬਲਾਕ",
+  "UnBlock":"ਅਨਬਲੌਕ ਕਰੋ",
+  "Delete_conversation":"ਗੱਲਬਾਤ ਮਿਟਾਓ",
+
+  "Truck_News": "ਟਰੱਕ ਨਿਊਜ਼",
+  "My_event": "ਮੇਰੀ ਘਟਨਾ",
+  "My_Jobs": "ਮੇਰੀਆਂ ਨੌਕਰੀਆਂ",
+  "Notification": "ਸੂਚਨਾ",
+  "Language": "ਭਾਸ਼ਾ",
+  "My_community": "ਮੇਰਾ ਭਾਈਚਾਰਾ",
+  "Blogs": "ਬਲੌਗ",
+  "Services": "ਸੇਵਾਵਾਂ",
+  "Like": "ਪਸੰਦ ਹੈ",
+  "Comments": "ਟਿੱਪਣੀਆਂ",
+  "Share": "ਸ਼ੇਅਰ ਕਰੋ",
+  "Edit": "ਸੰਪਾਦਿਤ ਕਰੋ",
+  "Delete": "ਮਿਟਾਓ",
+  "Report": "ਰਿਪੋਰਟ",
+  "blog_detail": "ਬਲੌਗ ਵੇਰਵੇ",
+  "view_all_notifi": "ਸਾਰੀਆਂ ਸੂਚਨਾਵਾਂ ਦੇਖੋ",
+  "Price": "ਕੀਮਤ",
+  "dashboard": {
+    "post": "ਇੱਕ ਪੋਸਟ ਲਿਖੋ",
+    "photo": "ਤਸਵੀਰ",
+    "video": "ਵੀਡੀਓ",
+    "grp_post": "ਇਸ ਸਮੂਹ ਵਿੱਚ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
+  },
+  "navigationCompanySideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    },
+    {
+      "navimg": "fal fa-calendar-alt mr-3",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "ਸਮਾਗਮ"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "ਇੱਛਾ-ਸੂਚੀ"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "ਫਲੀਟ ਮੈਨੇਜਰ"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"
+    },
+    {
+      "navimg": "fal fa-tools ml-1",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "ਸੇਵਾਵਾਂ"
+    }
+  ],
+  "navigationHRSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    },
+    {
+      "navimg": "fal fa-calendar-alt ",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "ਸਮਾਗਮ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "navigationEnduserSideMenu": [
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "ਮੇਰੇ ਇਵੈਂਟਸ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "ਮੇਰੀਆਂ ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "ਫਲੀਟ ਮੈਨੇਜਰ"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "ਇੱਛਾ-ਸੂਚੀ"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ"
+    },
+
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "ਸੇਵਾਵਾਂ ਪਾਓ",
+      "showPopUp": true
+    }
+  ],
+  "navigationDriverSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "ਮੇਰਾ ਨੈੱਟਵਰਕ"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "ਮੇਰੇ ਇਵੈਂਟਸ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "ਮੇਰੀਆਂ ਨੌਕਰੀਆਂ"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ"
+    },
+
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "ਇੱਛਾ-ਸੂਚੀ"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/driver/planned-trip",
+      "navitem": "ਯਾਤਰਾਵਾਂ ਦਾ ਵੇਰਵਾ"
+    }
+  ],
+  "navigationDispatcherSideMenu": [
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "ਫਲੀਟ ਮੈਨੇਜਰ"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/manage-team",
+      "navitem": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ"
+    },
+    
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "../chat-window",
+      "navitem": "ਚੈਟ"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ"
+    }
+  ],
+  "Switch_to_seller": "ਵਿਕਰੇਤਾ 'ਤੇ ਸਵਿਚ ਕਰੋ",
+  "gps_navigation": "ਜੀ ਪੀ ਐਸ ਨੇਵੀਗੇਸ਼ਨ",
+  "Advertisement": "ਇਸ਼ਤਿਹਾਰ",
+  "No_Records_Found": "ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਮਿਲਿਆ",
+  "see_more": "ਹੋਰ ਵੇਖੋ",
+  "Read_more": "ਹੋਰ ਪੜ੍ਹੋ",
+  "Are_archive_job": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਨੌਕਰੀ ਨੂੰ ਆਰਕਾਈਵ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "Are_deactive_job": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਨੌਕਰੀ ਨੂੰ ਅਕਿਰਿਆਸ਼ੀਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ..?",
+  "Are_active_job": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਨੌਕਰੀ ਨੂੰ ਸਰਗਰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ..?",
+  "Are_delete_job": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਨੌਕਰੀ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "Are_archive_information": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਜਾਣਕਾਰੀ ਨੂੰ ਆਰਕਾਈਵ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "Are_you_leave": "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "Sign_up_as_company_plan": "ਇਸ ਪਲਾਨ ਨੂੰ ਖਰੀਦਣ ਲਈ ਇੱਕ ਕੰਪਨੀ ਵਜੋਂ ਸਾਈਨ ਅੱਪ ਕਰੋ",
+  "Sign_up_as_company_feature": "ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਲਈ ਇੱਕ ਕੰਪਨੀ ਵਜੋਂ ਸਾਈਨ ਅੱਪ ਕਰੋ",
+  "Are_you_sure_remove_from_company": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਮੈਂਬਰ ਨੂੰ ਆਪਣੀ ਕੰਪਨੀ ਤੋਂ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "Assign_Group_admin": "ਇੱਕ ਗਰੁੱਪ ਐਡਮਿਨ ਨਿਯੁਕਤ ਕਰੋ",
+  "Remove_Connection": "ਕਨੈਕਸ਼ਨ ਹਟਾਓ",
+  "Are_sure_remove_connection": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਕਨੈਕਸ਼ਨ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+  "leave_company": "ਤੁਸੀਂ ਹੁਣ ਇਸ ਕੰਪਨੀ ਲਈ ਡਰਾਈਵਰ ਵਜੋਂ ਕੰਮ ਕਰਨ ਦੇ ਯੋਗ ਨਹੀਂ ਹੋਵੋਗੇ। ਕਿਰਪਾ ਕਰਕੇ ਛੱਡਣ ਦਾ ਕਾਰਨ ਚੁਣੋ",
+  "plan_exceed": {
+    "compny_exceed": "ਤੁਸੀਂ ਆਪਣੀ ਯੋਜਨਾ ਵਿੱਚ ਕਾਰਵਾਈਆਂ ਦੀ ਅਧਿਕਤਮ ਮਨਜ਼ੂਰ ਸੀਮਾ ਨੂੰ ਪਾਰ ਕਰ ਲਿਆ ਹੈ",
+    "company_upgrade": "ਲਾਭਾਂ ਨੂੰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਯੋਜਨਾ ਨੂੰ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।",
+    "user_exceed": "ਤੁਹਾਡੀ ਕੰਪਨੀ ਦੀ ਯੋਜਨਾ ਦੀ ਅਧਿਕਤਮ ਮਨਜ਼ੂਰ ਸੀਮਾ ਪਾਰ ਹੋ ਗਈ ਹੈ।",
+    "user_upgrade": "ਕਿਰਪਾ ਕਰਕੇ ਉਹਨਾਂ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"
+  },
+  "buttons": {
+    "Post_job": "ਨੌਕਰੀ ਪਾਓ",
+    "trip_plan": "ਯਾਤਰਾ ਯੋਜਨਾ",
+    "click_here": "ਇੱਥੇ ਕਲਿੱਕ ਕਰੋ",
+    "search": "ਖੋਜ",
+    "reset": "ਰੀਸੈਟ ਕਰੋ",
+    "cont_seller": "ਵਿਕਰੇਤਾ ਨਾਲ ਸੰਪਰਕ",
+    "connect": "ਜੁੜੋ",
+    "create_group": "ਗਰੁੱਪ ਬਣਾਓ",
+    "invite_conne": "ਕਨੈਕਸ਼ਨ ਸਦੋ",
+    "see_all": "ਸਾਰੇ ਦੇਖੋ",
+    "share_grp": "ਗਰੁੱਪ ਸ਼ੇਅਰ ਕਰੋ",
+    "create_event": "ਇਵੈਂਟ ਬਣਾਓ",
+    "add_vehicle": "ਵਾਹਨ ਸ਼ਾਮਲ ਕਰੋ",
+    "back": "ਵਾਪਸ",
+    "submit": "ਜਮ੍ਹਾਂ ਕਰੋ",
+    "invite_member": "ਮੈਂਬਰ ਨੂੰ ਸੱਦਾ ਦਿਓ",
+    "add_service": "ਸੇਵਾ ਸ਼ਾਮਲ ਕਰੋ",
+    "read_more": "ਹੋਰ ਪੜ੍ਹੋ",
+    "contact_us": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+    "buy_now": "ਹੁਣੇ ਖਰੀਦੋ",
+    "add_cart": "ਕਾਰਟ ਵਿੱਚ ਪਾਓ",
+    "go_cart": "ਕਾਰਟ 'ਤੇ ਜਾਓ",
+    "send_message": "ਸੁਨੇਹਾ ਭੇਜੋ",
+    "manage_event": "ਸਮਾਗਮਾਂ ਦਾ ਪ੍ਰਬੰਧਨ",
+    "edit_event": "ਇਵੈਂਟ ਦਾ ਸੰਪਾਦਨ",
+    "reopen_event": "ਇਵੈਂਟ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ",
+
+    "book": "ਬੁੱਕ",
+    "booked": "ਬੁੱਕ ਕੀਤਾ ਗਿਆ ਹੈ",
+    "book_now": "ਹੁਣੇ ਬੁੱਕ ਕਰੋ",
+    "create": "ਬਣਾਓ",
+    "update": "ਅੱਪਡੇਟ ਕਰੋ",
+    "post_job": "ਨੌਕਰੀ ਪੋਸਟ ਕਰੋ",
+    "update_job": "ਨੌਕਰੀ ਅੱਪਡੇਟ ਕਰੋ",
+    "favorite_job": "ਪਸੰਦੀਦਾ ਹੈ",
+    "favorited": "ਮਨਪਸੰਦ",
+    "apply": "ਅਪਲਾਈ ਕਰੋ",
+    "applied": "ਅਪਲਾਈ ਕੀਤਾ ਹੈ",
+    "unfavorite_job": "ਨਾਪਸੰਦ ਨੌਕਰੀ",
+    "Update_Profile": "ਪ੍ਰੋਫਾਈਲ ਅੱਪਡੇਟ ਕਰੋ",
+    "add_product": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "Next": "ਅਗਲਾ",
+    "post": "ਪੋਸਟ",
+    "yes": "ਹਾਂ",
+    "no": "ਨਹੀਂ",
+    "post_event": "ਸਮਾਗਮ ਪਾਓ",
+    "btn_invite_member": "ਮੈਂਬਰ ਸੱਦਾ",
+    "leave": "ਛੱਡੋ",
+    "accept": "ਸਵੀਕਾਰ ਕਰੋ",
+    "ignore": "ਅਣਡਿੱਠ ਕਰੋ",
+    "Direction": "ਦਿਸ਼ਾਵਾਂ ਵੇਖੋ",
+    "edit": "ਸੰਪਾਦਿਤ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ",
+    "Join_group": "ਜੁੜੋ ਸਮੂਹ",
+    "view_profile": "ਪ੍ਰੋਫਾਈਲ ਦੇਖੋ",
+    "Requested": "ਬੇਨਤੀ ਕੀਤੀ",
+    "Pending": "ਬਕਾਇਆ",
+    "close": "ਬੰਦ ਕਰੋ",
+    "Register": "ਰਜਿਸਟਰ"
+  },
+  "About_us": "ਸਾਡੇ ਬਾਰੇ",
+  "Chats": {
+    "Chats": "ਗੱਲਬਾਤ",
+    "Groups": "ਸਮੂਹ",
+    "Seller": "ਵਿਕਰੇਤਾ",
+    "New_Conversation": "ਨਵੀਂ ਗੱਲਬਾਤ",
+    "UserChat": "ਮੇਰੀ ਗੱਲਬਾਤ",
+    "SalesPerson": "ਵਿਕਰੀ ਵਿਅਕਤੀ"
+  },
+  "homeLinks": {
+    "Home": "ਘਰ",
+    "About_us": "ਸਾਡੇ ਬਾਰੇ",
+    "Services": "ਸੇਵਾਵਾਂ",
+    "Trip_planner": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ",
+    "E-Commerce": "ਈ-ਕਾਮਰਸ",
+    "Blogs": "ਬਲੌਗ",
+    "Jobs": "ਨੌਕਰੀਆਂ",
+    "Events": "ਸਮਾਗਮ",
+    "Pricing": "ਹੁਣੇ ਖਰੀਦੋ",
+    "Contact_us": "ਸੰਪਰਕ",
+    "Logout": "ਲਾੱਗ ਆਊਟ",
+    "My_account": "ਖਾਤਾ"
+  },
+  "homeContent": {
+    "we_give": "ਅਸੀਂ ਤੁਹਾਨੂੰ <span class='text-primary'>ਸਭ ਤੋਂ ਵਧੀਆ ਦਿੰਦੇ ਹਾਂ</span>",
+    "content_1": "Mytruck.one ਟਰੱਕਿੰਗ ਉਦਯੋਗ ਦੀਆਂ ਸਾਰੀਆਂ ਜ਼ਰੂਰਤਾਂ ਦਾ ਇੱਕ ਸਟਾਪ ਹੱਲ ਹੈ ਜੋ ਟਰੱਕ ਖਰੀਦਣ ਤੋਂ ਲੈ ਕੇ ਤੁਹਾਡੇ ਡਰਾਈਵਰ ਨੂੰ ਵੱਖ-ਵੱਖ ਰੂਟ ਸਹੂਲਤਾਂ ਜਿਵੇਂ ਕਿ ਟਰੈਕਿੰਗ, ਮੌਸਮ ਦੀ ਭਵਿੱਖਬਾਣੀ ਅਤੇ ਰੂਟ 'ਤੇ ਮਾਰਕਰਾਂ ਨਾਲ ਸਹਾਇਤਾ ਕਰਨ ਤੱਕ ਹੈ।",
+    "content_2": "Mytruck.one ਪਲੇਟਫਾਰਮ ਨੂੰ ਉਦਯੋਗ ਵਿੱਚ ਸਾਰੇ ਹਿੱਸੇਦਾਰਾਂ ਲਈ ਨੌਕਰੀਆਂ ਲੱਭਣ ਅਤੇ ਪੋਸਟ ਕਰਨ, ਸਮਾਗਮਾਂ ਦਾ ਆਯੋਜਨ, ਯਾਤਰਾ ਯੋਜਨਾ, ਫਲੀਟ ਪ੍ਰਬੰਧਨ, ਰੂਟ ਮੌਸਮ, ਟਰੱਕ ਅਤੇ ਟਰੱਕ ਦੇ ਪੁਰਜ਼ਿਆਂ ਦਾ ਈ-ਕਾਮਰਸ ਅਤੇ ਸੋਸ਼ਲ ਮੀਡੀਆ ਸੇਵਾਵਾਂ ਵਰਗੀਆਂ ਵੱਖ-ਵੱਖ ਸੇਵਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ।",
+    "fourContent": {
+      "first": "ਈ-ਕਾਮਰਸ",
+      "first_des": "ਉਹ ਥਾਂ ਜਿੱਥੇ ਤੁਸੀਂ ਟਰੱਕ, ਟਰੱਕ ਦੇ ਪਾਰਟਸ ਅਤੇ ਸਹਾਇਕ ਉਪਕਰਣਾਂ ਨੂੰ ਖਰੀਦਣ/ਵੇਚਣ ਲਈ ਸੌਦੇ ਲੱਭ ਅਤੇ ਪੋਸਟ ਕਰ ਸਕਦੇ ਹੋ।",
+      "second": "ਨੌਕਰੀਆਂ ਅਤੇ ਇਵੈਂਟਸ",
+      "second_des": "ਇੱਥੇ ਤੁਸੀਂ ਟਰੱਕਿੰਗ ਉਦਯੋਗ ਦੀਆਂ ਮੁਨਾਫ਼ੇ ਵਾਲੀਆਂ ਨੌਕਰੀਆਂ ਅਤੇ ਰੁਝਾਨ ਵਾਲੀਆਂ ਘਟਨਾਵਾਂ ਨੂੰ ਫੜ ਸਕਦੇ ਹੋ ਅਤੇ ਪ੍ਰਦਾਨ ਕਰ ਸਕਦੇ ਹੋ।",
+      "third": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ",
+      "third_des": "ਤੁਹਾਡੇ ਡਰਾਈਵਰਾਂ ਲਈ ਢੁਕਵੇਂ ਟਰੱਕ ਰੂਟਾਂ ਅਤੇ ਨਕਸ਼ਿਆਂ 'ਤੇ ਨੈਵੀਗੇਸ਼ਨ ਦੀ ਯੋਜਨਾ ਬਣਾਉਣ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਵੈੱਬ ਅਤੇ ਐਪ ਪਲੇਟਫਾਰਮ।",
+      "forth": "ਨੈੱਟਵਰਕਿੰਗ",
+      "forth_des": "ਮੀਡੀਆ ਦੇ ਰੂਪ ਵਿੱਚ ਤੁਹਾਡੇ ਸਭ ਤੋਂ ਪਿਆਰੇ ਲੋਕਾਂ ਨਾਲ ਤੁਹਾਡੇ ਵਿਚਾਰਾਂ, ਗਤੀਵਿਧੀਆਂ ਅਤੇ ਪਲਾਂ ਨੂੰ ਜੋੜਨ, ਗੱਲਬਾਤ ਕਰਨ ਅਤੇ ਸਾਂਝਾ ਕਰਨ ਲਈ ਇੱਕ ਇੰਟਰਫੇਸ।"
+    },
+    "download_app": "ਐਪ ਨੂੰ ਹੁਣੇ ਡਾਊਨਲੋਡ ਕਰੋ",
+    "download_des": "ਇੱਕ ਟਰੱਕਿੰਗ ਪਲੇਟਫਾਰਮ ਜਿਸ ਵਿੱਚ ਸਰੋਤ ਇਕੱਠਾ ਕਰਨਾ, ਸਮਾਗਮ ਦਾ ਆਯੋਜਨ ਕਰਨਾ, ਖਰੀਦਦਾਰੀ ਕਰਨਾ ਅਤੇ ਖਾਸ ਤੌਰ 'ਤੇ ਡਰਾਈਵਰਾਂ ਨੂੰ ਟਰੱਕ ਰੂਟਾਂ ਦੇ ਨੈਵੀਗੇਸ਼ਨ ਦੀ ਸਾਰੀ ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਨਾਲ ਸਹਾਇਤਾ ਕਰਨਾ ਸ਼ਾਮਲ ਹੈ।",
+    "who_we": "ਅਸੀਂ ਕੌਣ <span class='text-primary'>ਹਾਂ</span> ",
+    "who_we_des": "Mytruck.one ਤੁਹਾਨੂੰ ਟਰੱਕ, ਟ੍ਰੇਲਰ ਅਤੇ ਟਰੱਕ ਐਕਸੈਸਰੀਜ਼ ਨਾਲ ਸਬੰਧਤ ਸੇਵਾਵਾਂ ਦੀ ਵਿਸ਼ਾਲ ਸ਼੍ਰੇਣੀ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ। ਇੱਥੇ ਤੁਸੀਂ ਆਪਣੀ ਲੋਡ ਲੋੜ ਅਨੁਸਾਰ ਟਰੱਕ ਸੇਵਾਵਾਂ ਦੀ ਖੋਜ ਅਤੇ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ। ਇਹ ਇੱਕ ਬੇਮਿਸਾਲ ਪਲੇਟਫਾਰਮ ਹੈ ਜੋ ਨਵੀਨਤਾ ਦੇ ਨਾਲ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਇਸਦੀ ਵਿਲੱਖਣਤਾ ਇਸਦੀ ਭਵਿੱਖਵਾਦੀ ਪਹੁੰਚ ਵਿੱਚ ਹੈ ਕਿਉਂਕਿ ਇੱਥੇ ਤੁਸੀਂ ਇੱਕ ਨੌਕਰੀ ਪੋਸਟ ਕਰ ਸਕਦੇ ਹੋ, ਟਰੱਕ ਨਾਲ ਸਬੰਧਤ ਸਮਾਗਮਾਂ ਨੂੰ ਤਹਿ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਪੇਸ਼ ਕੀਤੀਆਂ ਸੇਵਾਵਾਂ ਨੂੰ ਵੀ ਸ਼ਾਮਲ ਕਰ ਸਕਦੇ ਹੋ।"
+  },
+  "About_us_sec": {
+    "heading": "ਸਾਡੇ ਬਾਰੇ",
+    "content_1_a": "Mytruck.one ਇੱਕ ਬਹੁਤ ਹੀ ਉੱਨਤ ਅਤੇ ਤਕਨੀਕੀ ਤੌਰ 'ਤੇ ਵਿਕਸਤ ਟਰੱਕਿੰਗ ਪਲੇਟਫਾਰਮ ਅਤੇ ਐਪ ਹੈ ਜੋ ਤੁਹਾਡੇ ਟਰੱਕਿੰਗ ਕਾਰੋਬਾਰ ਨੂੰ ਵਧਾਉਣ ਵਿੱਚ ਯੋਗਦਾਨ ਪਾ ਸਕਦਾ ਹੈ। ਇਹ ਇੱਕ ਪਲੇਟਫਾਰਮ ਹੈ ਜਿਸ ਵਿੱਚ ਕਈ ਤਰ੍ਹਾਂ ਦੀਆਂ ਵਰਤੋਂ ਅਤੇ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਸ਼ਾਮਲ ਹਨ। ਅਸੀਂ ਭਰੋਸੇਮੰਦ ਅਤੇ ਗਾਹਕ ਆਧਾਰਿਤ ਸੇਵਾਵਾਂ ਪੇਸ਼ ਕਰਦੇ ਹਾਂ। ਵਿਲੱਖਣ ਟਰੱਕਿੰਗ ਅਨੁਭਵ ਲਈ Mytruck.one 'ਤੇ ਜਾਓ।",
+    "content_1_b": "ਉਪਭੋਗਤਾ ਇਵੈਂਟਸ ਬੁੱਕ ਕਰ ਸਕਦੇ ਹਨ, ਨੌਕਰੀਆਂ ਲਈ ਅਰਜ਼ੀ ਦੇ ਸਕਦੇ ਹਨ, ਟਰੱਕ ਖਰੀਦ ਸਕਦੇ ਹਨ/ਕਿਰਾਏ/ਲੀਜ਼ 'ਤੇ ਲੈ ਸਕਦੇ ਹਨ, ਟ੍ਰੇਲਰ ਅਤੇ ਟਰੈਕਟਰ ਯੂਨਿਟ (ਵਰਤਿਆ/ਨਵਾਂ), ਸਹਾਇਕ ਉਪਕਰਣ, ਸਪੇਅਰ ਪਾਰਟਸ (ਵਰਤਿਆ/ਨਵਾਂ) ਖਰੀਦ ਸਕਦੇ ਹਨ। ਵਿਕਰੇਤਾ ਕੋਈ ਵੀ ਨਵਾਂ/ਪੁਰਾਣਾ ਟਰੱਕ/ਟ੍ਰੇਲਰ/ਟਰੈਕਟਰ ਯੂਨਿਟ/ਅਸੈੱਸਰੀਜ਼/ਸਪੇਅਰ ਪਾਰਟਸ ਵੇਚਣ/ਕਿਰਾਏ/ਲੀਜ਼ 'ਤੇ ਜੋੜ ਸਕਦਾ ਹੈ। ਤੁਸੀਂ ਟ੍ਰਿਪ ਪਲਾਨਰ ਦੀ ਮਦਦ ਨਾਲ ਯਾਤਰਾ ਦੀ ਯੋਜਨਾ ਵੀ ਬਣਾ ਸਕਦੇ ਹੋ ਜੋ ਟ੍ਰੇਲਰ ਦੇ ਆਕਾਰ, ਭਾਰ ਦੇ ਅਨੁਸਾਰ ਰੂਟ ਗਾਈਡ ਦੇ ਤੌਰ ਤੇ ਕੰਮ ਕਰਦਾ ਹੈ, ਇਹ ਰਸਤੇ ਵਿੱਚ ਆਉਣ ਵਾਲੇ ਕਿਸੇ ਵੀ ਰੁਕਾਵਟ ਦੀ ਭਵਿੱਖਬਾਣੀ ਕਰੇਗਾ, ਤਾਂ ਜੋ ਰੂਟ ਨੂੰ ਬਦਲਿਆ ਜਾ ਸਕੇ ਅਤੇ ਮਾਲ ਨੂੰ ਬਦਲਿਆ ਜਾ ਸਕੇ। ਸਮੇਂ ਸਿਰ ਪ੍ਰਦਾਨ ਕੀਤਾ ਗਿਆ। ਅਸੀਂ ਡਰਾਈਵਰਾਂ ਅਤੇ ਕੰਪਨੀਆਂ ਲਈ ਲੋਡ ਟ੍ਰਿਪਾਂ ਵਿੱਚ ਸਹਾਇਤਾ ਲਈ ਸਭ ਤੋਂ ਵਧੀਆ ਟਰੱਕ ਰੂਟ ਮੈਪ ਅਤੇ ਟਰੱਕ ਜੀਪੀਐਸ ਨੈਵੀਗੇਸ਼ਨ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ।",
+    "content_1_c": "ਈ-ਕਾਮਰਸ ਸੇਵਾ ਤੁਹਾਨੂੰ ਖਰੀਦਣ/ਵੇਚਣ ਅਤੇ ਕਿਰਾਏ 'ਤੇ ਦੇਣ ਦੀਆਂ ਸੇਵਾਵਾਂ ਦੀ ਸਹੂਲਤ ਦਿੰਦੀ ਹੈ, ਇੱਥੇ ਤੁਸੀਂ ਟਰੱਕ/ਟ੍ਰੇਲਰ ਆਨਲਾਈਨ ਖਰੀਦ ਸਕਦੇ ਹੋ, ਟਰੱਕ ਕਿਰਾਏ 'ਤੇ ਲੈ ਸਕਦੇ ਹੋ, ਟਰੱਕ/ਟ੍ਰੇਲਰ ਲੀਜ਼ 'ਤੇ ਲੈ ਸਕਦੇ ਹੋ, ਟਰੱਕ ਟ੍ਰੇਲਰ ਆਨਲਾਈਨ ਵੇਚ ਸਕਦੇ ਹੋ, ਤੁਹਾਡੇ ਕੋਲ ਟਰੱਕ ਐਕਸੈਸਰੀਜ਼ (ਨਵੇਂ ਜਾਂ ਵਰਤੇ ਗਏ) ਤੱਕ ਪਹੁੰਚ ਹੋਵੇਗੀ। ਟਰੱਕ ਸਪੇਅਰ ਪਾਰਟਸ (ਨਵੇਂ ਜਾਂ ਵਰਤੇ ਗਏ) ਆਦਿ ਜੋ ਤੁਸੀਂ ਨਵੇਂ ਜਾਂ ਵਰਤੇ ਹੋਏ ਟਰੱਕ/ਟ੍ਰੇਲਰ ਆਦਿ ਵੇਚ ਸਕਦੇ ਹੋ। ਇਹ ਇੱਕ ਅਨੁਕੂਲਿਤ ਸੈਕਸ਼ਨ ਹੈ ਜੋ ਤੁਹਾਡੀ ਕਾਰੋਬਾਰੀ ਵਿਕਰੀ ਨੂੰ ਵਧਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਸਫਲਤਾ ਦੇ ਸਿਖਰ ਤੱਕ ਪਹੁੰਚਣ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਕਰਦਾ ਹੈ।",
+    "sub_head": "ਕੰਪਨੀ ਜਿਸ 'ਤੇ ਤੁਸੀਂ ਭਰੋਸਾ ਕਰ ਸਕਦੇ ਹੋ",
+    "content_2_a": "Mytruck.one ਤੁਹਾਨੂੰ ਟਰੱਕ, ਟ੍ਰੇਲਰ ਅਤੇ ਟਰੱਕ ਐਕਸੈਸਰੀਜ਼ ਨਾਲ ਸਬੰਧਤ ਸੇਵਾਵਾਂ ਦੀ ਵਿਸ਼ਾਲ ਸ਼੍ਰੇਣੀ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ। ਇੱਥੇ ਤੁਸੀਂ ਆਪਣੀ ਲੋਡ ਲੋੜ ਅਨੁਸਾਰ ਟਰੱਕ ਸੇਵਾਵਾਂ ਦੀ ਖੋਜ ਅਤੇ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ। ਇਹ ਇੱਕ ਬੇਮਿਸਾਲ ਪਲੇਟਫਾਰਮ ਹੈ ਜੋ ਨਵੀਨਤਾ ਦੇ ਨਾਲ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਇਸਦੀ ਵਿਲੱਖਣਤਾ ਇਸਦੀ ਭਵਿੱਖਵਾਦੀ ਪਹੁੰਚ ਵਿੱਚ ਹੈ ਕਿਉਂਕਿ ਇੱਥੇ ਤੁਸੀਂ ਇੱਕ ਨੌਕਰੀ ਪੋਸਟ ਕਰ ਸਕਦੇ ਹੋ, ਟਰੱਕ ਨਾਲ ਸਬੰਧਤ ਸਮਾਗਮਾਂ ਨੂੰ ਤਹਿ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਪੇਸ਼ ਕੀਤੀਆਂ ਸੇਵਾਵਾਂ ਨੂੰ ਵੀ ਸ਼ਾਮਲ ਕਰ ਸਕਦੇ ਹੋ।",
+    "content_2_b": "Mytruck.one ਤੁਹਾਨੂੰ ਟਰੱਕ, ਟ੍ਰੇਲਰ ਅਤੇ ਟਰੱਕ ਐਕਸੈਸਰੀਜ਼ ਨਾਲ ਸਬੰਧਤ ਸੇਵਾਵਾਂ ਦੀ ਵਿਸ਼ਾਲ ਸ਼੍ਰੇਣੀ ਦੀ ਸਹੂਲਤ ਦਿੰਦਾ ਹੈ। ਇੱਥੇ ਤੁਸੀਂ ਆਪਣੀ ਲੋਡ ਲੋੜ ਅਨੁਸਾਰ ਟਰੱਕ ਸੇਵਾਵਾਂ ਦੀ ਖੋਜ ਅਤੇ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ। ਇਹ ਇੱਕ ਬੇਮਿਸਾਲ ਪਲੇਟਫਾਰਮ ਹੈ ਜੋ ਨਵੀਨਤਾ ਦੇ ਨਾਲ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਇਸਦੀ ਵਿਲੱਖਣਤਾ ਇਸਦੀ ਭਵਿੱਖਵਾਦੀ ਪਹੁੰਚ ਵਿੱਚ ਹੈ ਕਿਉਂਕਿ ਇੱਥੇ ਤੁਸੀਂ ਇੱਕ ਨੌਕਰੀ ਪੋਸਟ ਕਰ ਸਕਦੇ ਹੋ, ਟਰੱਕ ਨਾਲ ਸਬੰਧਤ ਸਮਾਗਮਾਂ ਨੂੰ ਤਹਿ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਪੇਸ਼ ਕੀਤੀਆਂ ਸੇਵਾਵਾਂ ਨੂੰ ਵੀ ਸ਼ਾਮਲ ਕਰ ਸਕਦੇ ਹੋ।",
+    "img_cnt": "ਇਹ ਪਲੇਟਫਾਰਮ ਪਰਿਵਾਰਕ ਮੈਂਬਰਾਂ, ਦੋਸਤਾਂ ਨੂੰ ਚੈਟ, ਸ਼ੇਅਰਿੰਗ ਵੀਡੀਓ, ਤਸਵੀਰਾਂ, ਸਮੂਹਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਆਦਿ ਰਾਹੀਂ ਸੰਪਰਕ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ। ਇਹ ਟਰੱਕ ਡਰਾਈਵਰ ਲਈ ਸੇਵਾ ਦੇ ਘੰਟਿਆਂ ਦੇ ਅਨੁਸਾਰ ਸਟਾਪੇਜ ਅਤੇ ਬਰੇਕਾਂ ਦੇ ਸਬੰਧ ਵਿੱਚ ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ ਵਜੋਂ ਵੀ ਕੰਮ ਕਰੇਗਾ।"
+  },
+  "e-commerce": {
+    "what_deals": "ਤੁਸੀਂ ਕਿਸ ਸੌਦੇ ਵਿੱਚ ਦਿਲਚਸਪੀ ਰੱਖਦੇ ਹੋ?",
+    "Names": {
+      "Trucks": "ਟਰੱਕ",
+      "Trailers": "ਟ੍ਰੇਲਰ",
+      "Tractor_Units": "ਟਰੈਕਟਰ ਯੂਨਿਟ",
+      "Spare_Parts": "ਪੁਰਜੇ",
+      "Accessories": "ਉਪਕਰਣ"
+    },
+    "filters": {
+      "fil_by_key": "ਕੀਵਰਡ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ",
+      "fil_by_subCat": "ਉਪ-ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
+      "fil_by_brand": "ਬ੍ਰਾਂਡ ਚੁਣੋ",
+      "fil_by_model": "ਮਾਡਲ ਚੁਣੋ",
+      "prod_condi": "ਉਤਪਾਦ ਦੀ ਸਥਿਤੀ",
+      "price": "ਕੀਮਤ",
+      "year": "ਸਾਲ"
+    },
+    "total_results": "ਕੁੱਲ ਨਤੀਜੇ",
+    "have_que": "ਕੋਈ ਸਵਾਲ ਹੈ?",
+    "cus_qa": "ਗਾਹਕਾਂ ਦੇ ਸਵਾਲ ਅਤੇ ਜਵਾਬ",
+    "simi_pro": "ਮਿਲਦੇ-ਜੁਲਦੇ ਉਤਪਾਦ",
+    "abt_item": "ਇਸ ਆਈਟਮ ਬਾਰੇ",
+    "first_ask_ques": "ਪਹਿਲਾ ਸਵਾਲ ਪੁੱਛੋ"
+  },
+  "trip_planner": {
+    "heading": "ਯਾਤਰਾ ਯੋਜਨਾਕਾਰ",
+    "driver_left": "ਡਰਾਈਵਰ ਕੰਪਨੀ ਤੋਂ ਬਾਹਰ ਹੋ ਗਿਆ",
+    "anothr_left": "ਬਦਲਵੇਂ ਡਰਾਈਵਰ ਛੱਡ ਦਿੱਤਾ",
+    "table_head": {
+      "origin": "ਮੂਲ",
+      "destination": "ਮੰਜ਼ਿਲ",
+      "driver": "ਡਰਾਈਵਰ",
+      "load_number": "ਲੋਡ ਨੰਬਰ",
+      "action": "ਐਕਸ਼ਨ"
+    },
+    "actions": {
+      "track": "ਟਰੈਕ",
+      "add_stop": "ਸਟਾਪਪੇਜ ਸ਼ਾਮਲ ਕਰੋ",
+      "trip_detail": "ਯਾਤਰਾ ਦਾ ਵੇਰਵਾ",
+      "cancel": "ਰੱਦ ਕਰੋ",
+      "mark_start": "ਸਟਾਰਟ ਮਾਰਕ ਕਰੋ",
+      "mark_complete": "ਸੰਪੂਰਨ ਵਜੋਂ ਚਿੰਨ੍ਹਿਤ ਕਰੋ",
+      "reassign_driver": "ਡਰਾਈਵਰ ਮੁੜ ਨਿਰਧਾਰਤ ਕਰੋ",
+      "assign_driver": "ਡਰਾਈਵਰ ਨੂੰ ਸੌਂਪੋ"
+    }
+  },
+  "footer": {
+    "content": "ਕੀ ਤੁਸੀਂ ਸਾਡੀਆਂ ਸੇਵਾਵਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਨਾ ਚਾਹੋਗੇ?",
+    "sub_cnt": "ਅਸੀਂ ਹਮੇਸ਼ਾ ਤੁਹਾਡੇ ਕੀਮਤੀ ਸਵਾਲਾਂ ਨੂੰ ਸੁਣਨ ਲਈ ਖੁਸ਼ੀ ਨਾਲ ਉਡੀਕ ਕਰਦੇ ਹਾਂ"
+  },
+  "jobs": {
+    "title": "ਆਪਣੀ ਅਗਲੀ ਨੌਕਰੀ ਲਈ ਖੋਜ ਕਰੋ",
+    "all_fil": "ਸਾਰੇ ਫਿਲਟਰ",
+    "view_detail": "ਵੇਰਵਾ ਵੇਖੋ"
+  },
+  "activity": "ਸਰਗਰਮੀ",
+  "myNetwork": {
+    "invitations": "ਸੱਦੇ",
+    "members": "ਮੈਂਬਰ",
+    "tabber": {
+      "invitations": "ਸੱਦੇ",
+      "groups_invitations": "ਸਮੂਹਾਂ ਦੇ ਸੱਦੇ",
+      "job_invitations": "ਨੌਕਰੀ ਦੇ ਸੱਦੇ",
+      "your_groups": "ਤੁਹਾਡੇ ਸਮੂਹ"
+    },
+    "no_invitations": "ਹਾਲੇ ਕੋਈ ਸੱਦਾ ਨਹੀਂ",
+    "recommended_people": "ਤੁਹਾਡੇ ਲਈ ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੇ ਲੋਕ",
+    "sideMenu": {
+      "heading": "ਮੇਰਾ ਨੈੱਟਵਰਕ ਪ੍ਰਬੰਧਿਤ ਕਰੋ",
+      "my_friend": "ਮੇਰੇ ਦੋਸਤ",
+      "groups": "ਸਮੂਹ"
+    },
+    "connections": "ਕਨੈਕਸ਼ਨ",
+    "grp_detail": {
+      "edit_grp": "ਸਮੂਹ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+      "groups": "ਸਮੂਹ",
+      "members": "ਮੈਂਬਰ",
+      "about": "ਇਸ ਸਮੂਹ ਬਾਰੇ",
+      "group_name": "ਗਰੁੱਪ ਦਾ ਨਾਮ",
+      "description": "ਵਰਣਨ",
+      "Please_enter_description": "ਕਿਰਪਾ ਕਰਕੇ ਵਰਣਨ ਦਰਜ ਕਰੋ"
+    },
+    "create_grp_post": {
+      "create": "ਇੱਕ ਸਮੂਹ ਪੋਸਟ ਬਣਾਓ",
+      "Share_group": "ਇੱਕ ਸਮੂਹ ਸਾਂਝਾ ਕਰੋ"
+    },
+    "you_are_invite": "ਦੀ ਭੂਮਿਕਾ ਲਈ ਤੁਹਾਨੂੰ ਸੱਦਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ",
+    "grp_req": "ਸਮੂਹ ਬੇਨਤੀ",
+    "Create_post": "ਪੋਸਟ ਬਣਾਓ",
+    "what_talk": "ਤੁਸੀਂ ਕਿਸ ਬਾਰੇ ਗੱਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    "Edit_post": "ਪੋਸਟ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+    "Report_post": "ਪੋਸਟ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "Share_post": "ਪੋਸਟ ਸ਼ੇਅਰ ਕਰੋ",
+    "Delete_Group_Post": "ਗਰੁੱਪ ਪੋਸਟ ਮਿਟਾਓ",
+    "Delete_Post": "ਪੋਸਟ ਮਿਟਾਓ",
+    "delete_post_des": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਪੋਸਟ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+  },
+  "events": {
+    "tabber": {
+      "top": "ਸਿਖਰ",
+      "weekly": "ਹਫਤਾਵਾਰੀ",
+      "all": "ਸਾਰੇ",
+      "booked": "ਬੁੱਕ ਕੀਤਾ"
+    }
+  },
+  "wish_list": "ਮੇਰੀ ਇੱਛਾ-ਸੂਚੀ",
+  "fleet_manager": {
+    "heading": "ਫਲੀਟ ਮੈਨੇਜਰ",
+    "vehicle_type": "ਵਾਹਨ ਦੀ ਕਿਸਮ",
+    "name": "ਨਾਮ",
+    "weight": "ਭਾਰ",
+    "height": "ਉਚਾਈ",
+    "Image": "ਚਿੱਤਰ",
+    "action": "ਐਕਸ਼ਨ",
+    "detail": "ਵੇਰਵੇ ਦੀ ਜਾਣਕਾਰੀ",
+    "edit": "ਜਾਣਕਾਰੀ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+    "info": "ਵਾਹਨ ਦੀ ਜਾਣਕਾਰੀ"
+  },
+  "manage_team": {
+    "manage_team": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+    "separated_employees": "ਵੱਖ-ਵੱਖ ਕਰਮਚਾਰੀ",
+    "headings": {
+      "name": "ਨਾਮ",
+      "Email": "ਈ - ਮੇਲ",
+      "phone": "ਫੋਨ ਨੰ.",
+      "access": "ਪਹੁੰਚ",
+      "joining_date": "ਸ਼ਾਮਲ ਹੋਣ ਦੀ ਮਿਤੀ",
+      "documents": "ਦਸਤਾਵੇਜ਼",
+      "action": "ਐਕਸ਼ਨ",
+      "reason": "ਕਾਰਨ",
+      "separation": "ਵੱਖ ਹੋਣ ਦੀ ਮਿਤੀ"
+    }
+  },
+
+  "my_tickets": {
+    "heading": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ",
+    "ticket_id": "ਟਿਕਟ ਆਈ.ਡੀ",
+    "name": "ਨਾਮ",
+    "project": "ਪ੍ਰੋਜੈਕਟ",
+    "subject": "ਵਿਸ਼ਾ",
+    "created_by": "ਦੁਆਰਾ ਬਣਾਇਆ ਗਿਆ",
+    "status": "ਸਥਿਤੀ",
+    "action": "ਕਾਰਵਾਈ",
+    "add_ticket":{
+      "heading":"ਟਿਕਟ ਸ਼ਾਮਲ ਕਰੋ",
+      "labels":{
+        "subject":"ਵਿਸ਼ਾ"
+      }
+    }
+  },
+
+  "trip_detail": {
+    "heading": "ਯਾਤਰਾਵਾਂ ਦਾ ਵੇਰਵਾ",
+    "titles": {
+      "origin": "ਮੂਲ",
+      "destination": "ਮੰਜ਼ਿਲ",
+      "load_number": "ਲੋਡ ਨੰਬਰ",
+      "running_status": "ਚੱਲ ਰਹੀ ਸਥਿਤੀ",
+      "action": "ਐਕਸ਼ਨ"
+    }
+  },
+  "subscription_plan": {
+    "heading": "ਗਾਹਕੀ ਯੋਜਨਾ",
+    "select_plan": "ਆਪਣੀ ਯੋਜਨਾ ਚੁਣੋ",
+    "get_cutom_plan": "ਆਪਣੀਆਂ ਜ਼ਰੂਰਤਾਂ ਦੇ ਅਨੁਸਾਰ ਇੱਕ ਅਨੁਕੂਲਿਤ ਯੋਜਨਾ ਪ੍ਰਾਪਤ ਕਰੋ",
+    "upgrade_plan": "ਅੱਪਗ੍ਰੇਡ ਕਰੋ ",
+    "plan": "ਯੋਜਨਾ"
+  },
+  "contact_us": {
+    "heading": "ਬੱਸ ਸਾਨੂੰ ਇੱਥੇ ਲਿਖੋ!",
+    "sub_head": "ਕਸਟਮ ਪਲਾਨ ਜਾਂ ਕਿਸੇ ਸਵਾਲ ਲਈ ਦਿਲਚਸਪੀ ਰੱਖਦੇ ਹੋ?",
+    "qry_abt": {
+      "head": "ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਕਿਸ ਨਾਲ ਸਬੰਧਤ ਹੈ?",
+      "item_1": "ਗਾਹਕੀ ਯੋਜਨਾ",
+      "item_2": "ਹੋਰ"
+    },
+    "side_items": {
+      "head": "ਸੰਪਰਕ ਜਾਣਕਾਰੀ",
+      "sub_head": "ਫਾਰਮ ਭਰੋ ਅਤੇ ਸਾਡੀ ਟੀਮ 24 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਤੁਹਾਡੇ ਕੋਲ ਵਾਪਸ ਆਵੇਗੀ"
+    }
+  },
+  "labels": {
+    "event": {
+      "event_by": "ਆਯੋਜਨ",
+      "speaker": "ਸਪੀਕਰ",
+      "interested_people": "ਦਿਲਚਸਪੀ ਰੱਖਣ ਵਾਲੇ ਲੋਕ",
+      "event_fee": "ਇਵੈਂਟ ਫੀਸ",
+      "about": "ਬਾਰੇ",
+      "address": "ਪਤਾ",
+      "venue": "ਸਥਾਨ",
+      "event_link": "ਇਵੈਂਟ ਲਿੰਕ"
+    },
+    "job": {
+      "job_location": "ਨੌਕਰੀ ਦਾ ਪਤਾ",
+      "job_description": "ਕੰਮ ਦਾ ਵੇਰਵਾ",
+      "key_skills": "ਮੁੱਖ ਹੁਨਰ",
+      "end_date": "ਸਮਾਪਤੀ ਮਿਤੀ",
+      "posted": "ਪੋਸਟ ਕੀਤਾ",
+      "status": "ਸਥਿਤੀ",
+
+      "view_applicants": "ਬਿਨੈਕਾਰਾਂ ਨੂੰ ਦੇਖੋ",
+      "view_detail": "ਵੇਰਵਾ ਵੇਖੋ",
+      "manage_jobs": "ਪ੍ਰਬੰਧ-ਨੌਕਰੀਆਂ",
+      "edit_job": "ਨੌਕਰੀ ਦਾ ਸੰਪਾਦਨ",      
+      "reopen_job": "ਨੌਕਰੀ ਮੁੜ ਖੋਲ੍ਹੋ",
+      "deactivate_job": "ਨੌਕਰੀ ਨੂੰ ਅਕਿਰਿਆਸ਼ੀਲ ਕਰੋ",
+      "archive_job": "ਪੁਰਾਲੇਖ ਨੌਕਰੀ",
+      "active_job": "ਸਰਗਰਮ ਨੌਕਰੀ",
+      "delete_job": "ਨੌਕਰੀ ਮਿਟਾਓ",
+      "salary": "ਮੁਆਵਜ਼ਾ",
+      "job_view": {
+        "job_title": "ਕੰਮ ਦਾ ਟਾਈਟਲ",
+        "company_name": "ਕੰਪਨੀ ਦਾ ਨਾਂ",
+        "salary_type": "ਮੁਆਵਜ਼ਾ ਦੀ ਕਿਸਮ",
+        "min": "ਘੱਟੋ-ਘੱਟ",
+        "max": "ਅਧਿਕਤਮ",
+        "openings": "ਖੁੱਲਣ",
+        "job_applicants": "ਨੌਕਰੀ ਦੇ ਬਿਨੈਕਾਰ",
+        "job_description": "ਕੰਮ ਦਾ ਵੇਰਵਾ",
+        "qualifications": "ਯੋਗਤਾਵਾਂ",
+        "key_skills": "ਮੁੱਖ ਹੁਨਰ",
+        "functional_area": "ਕਾਰਜਸ਼ੀਲ ਖੇਤਰ",
+        "industry": "ਉਦਯੋਗ",
+        "employment_type": "ਰੁਜ਼ਗਾਰ ਦੀ ਕਿਸਮ",
+        "contact_person": "ਵਿਅਕਤੀ ਨੂੰ ਸੰਪਰਕ ਕਰੋ",
+        "phone_number": "ਫੋਨ ਨੰਬਰ",
+        "start_date": "ਸ਼ੁਰੂ ਤਾਰੀਖ",
+        "end_date": "ਸਮਾਪਤੀ ਮਿਤੀ",
+        "venue": "ਸਥਾਨ",
+        "company_website": "ਕੰਪਨੀ ਦੀ ਵੈੱਬਸਾਈਟ",
+        "company_details": "ਕੰਪਨੀ ਦੇ ਵੇਰਵੇ",
+        "Walk_in_details": "ਵਾਕ-ਇਨ ਵੇਰਵੇ"
+      },
+      "search_job": {
+        "education": "ਸਿੱਖਿਆ",
+        "Industry": "ਉਦਯੋਗ"
+      }
+    },
+    "service": {
+      "heading": "ਸੇਵਾ ਵੇਰਵੇ",
+      "service_cost": "ਸੇਵਾ ਦੀ ਲਾਗਤ",
+      "location": "ਟਿਕਾਣਾ",
+      "view": "ਦੇਖੋ",
+      "archive": "ਪੁਰਾਲੇਖ",
+      "phone_number": "ਫੋਨ ਨੰਬਰ",
+      "description": "ਵਰਣਨ"
+    },
+    "ecommerce": {
+      "brand": "ਬ੍ਰਾਂਡ",
+      "model": "ਮਾਡਲ",
+      "year_of_production": "ਉਤਪਾਦਨ ਦਾ ਸਾਲ",
+      "condition": "ਹਾਲਤ",
+      "price": "ਕੀਮਤ",
+      "location": "ਟਿਕਾਣਾ",
+      "sub_category": "ਉਪ ਸ਼੍ਰੇਣੀ",
+      "product_type": "ਉਤਪਾਦ ਦੀ ਕਿਸਮ",
+      "brakes": "ਬ੍ਰੇਕ",
+      "color": "ਰੰਗ",
+      "engine_make": "ਇੰਜਣ",
+      "engine_displacement": "ਇੰਜਣ ਵਿਸਥਾਪਨ",
+      "engine_power_output": "ਇੰਜਣ ਪਾਵਰ ਆਉਟਪੁੱਟ",
+      "fuel_capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "fuel_type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "gross_weight": "ਕੁੱਲ ਭਾਰ",
+      "height": "ਉਚਾਈ",
+      "width": "ਚੌੜਾਈ",
+      "load_capacity": "ਲੋਡ ਸਮਰੱਥਾ",
+      "mileage": "ਮਾਈਲੇਜ",
+      "net_weight": "ਕੁੱਲ ਵਜ਼ਨ",
+      "suspension": "ਮੁਅੱਤਲੀ",
+      "transmission_type": "ਪ੍ਰਸਾਰਣ ਦੀ ਕਿਸਮ",
+      "wheel_base": "ਵ੍ਹੀਲ ਬੇਸ",
+      "description": "ਵਰਣਨ",
+      "sold_by": "ਦੁਆਰਾ ਵੇਚਿਆ ਗਿਆ",
+      "seller_rating": "ਵਿਕਰੇਤਾ ਰੇਟਿੰਗ",
+      "seller_location": "ਟਿਕਾਣਾ",
+      "length": "ਲੰਬਾਈ",
+      "engine_hours": "ਇੰਜਣ ਦੇ ਘੰਟੇ",
+      "no_of_miles": "ਮੀਲਾਂ ਦੀ ਸੰਖਿਆ",
+      "weight": "ਭਾਰ"
+    },
+    "trip_planner": {
+      "Trip_Details": "ਯਾਤਰਾ ਦੇ ਵੇਰਵੇ",
+      "load_number": "ਲੋਡ ਨੰਬਰ",
+      "Running_Status": "ਚੱਲ ਰਹੀ ਸਥਿਤੀ",
+      "Source": "ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ",
+      "Destination": "ਆਖਰੀ ਮੰਜ਼ਿਲ",
+      "Depart_Date": "ਰਵਾਨਗੀ ਦੀ ਮਿਤੀ",
+      "Arrive_Date": "ਪਹੁੰਚਣ ਦੀ ਮਿਤੀ",
+      "Alternate_Routes": "ਬਦਲਵੇਂ ਰਸਤੇ",
+      "Name": "ਨਾਮ",
+      "Email": "ਈ - ਮੇਲ",
+      "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+      "heading": "ਡਰਾਈਵਰ ਵੇਰਵੇ",
+      "heading_2": "ਦੂਜਾ ਡਰਾਈਵਰ ਵੇਰਵੇ",
+      "truck_details": {
+        "heading": "ਟਰੱਕ ਦੇ ਵੇਰਵੇ",
+        "Nick_Name": "ਉਪਨਾਮ",
+        "Brand": "ਬ੍ਰਾਂਡ",
+        "Model_Number": "ਮਾਡਲ ਨੰਬਰ",
+        "Weight": "ਭਾਰ",
+        "Height": "ਉਚਾਈ",
+        "Width": "ਚੌੜਾਈ",
+        "Power": "ਤਾਕਤ",
+        "Engine_Number": "ਇੰਜਣ ਨੰਬਰ",
+        "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+        "Fuel_Capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+        "Number_Of_Tyres": "ਟਾਇਰਾਂ ਦੀ ਸੰਖਿਆ",
+        "Wheelbase": "ਵ੍ਹੀਲਬੇਸ"
+      },
+      "Trailer_Details": {
+        "heading": "ਟ੍ਰੇਲਰ ਵੇਰਵੇ",
+        "Nick_Name": "ਉਪਨਾਮ",
+        "Trailer_Type": "ਟ੍ਰੇਲਰ ਦੀ ਕਿਸਮ",
+        "Height": "ਉਚਾਈ",
+        "Weight": "ਭਾਰ",
+        "Width": "ਚੌੜਾਈ",
+        "Load_Capacity": "ਲੋਡ ਸਮਰੱਥਾ"
+      }
+    },
+    "fleet_manage": {
+      "Nick_Name": "ਉਪਨਾਮ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model_Number": "ਮਾਡਲ ਨੰਬਰ",
+      "Weight": "ਭਾਰ",
+      "Height": "ਉਚਾਈ",
+      "Width": "ਚੌੜਾਈ",
+      "Power": "ਤਾਕਤ",
+      "Engine_Number": "ਇੰਜਣ ਨੰਬਰ",
+      "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Fuel_Capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "Number_Of_Tyres": "ਟਾਇਰਾਂ ਦੀ ਸੰਖਿਆ",
+      "Wheelbase": "ਵ੍ਹੀਲਬੇਸ",
+      "Trailer_Type": "ਟ੍ਰੇਲਰ ਦੀ ਕਿਸਮ",
+      "Load_Capacity": "ਲੋਡ ਸਮਰੱਥਾ"
+    },
+    "profile_view": {
+      "name": "ਨਾਮ",
+      "about": "ਬਾਰੇ",
+      "email": "ਈ - ਮੇਲ",
+      "city": "ਸ਼ਹਿਰ",
+      "workplace": "ਕੰਮ ਵਾਲੀ ਥਾਂ"
+    }
+  },
+  "form_lables": {
+    "select_archived_status": "ਪੁਰਾਲੇਖ ਸਥਿਤੀ ਚੁਣੋ",
+    "event": {
+      "event_name": "ਘਟਨਾ ਦਾ ਨਾਮ",
+      "timezone": "ਸਮਾਂ ਖੇਤਰ",
+      "start_date": "ਸ਼ੁਰੂਆਤੀ ਮਿਤੀ/ਸ਼ੁਰੂਆਤ ਸਮਾਂ",
+      "end_date": "ਸਮਾਪਤੀ ਮਿਤੀ/ਸ਼ੁਰੂਆਤ ਸਮਾਂ",
+      "speaker": "ਸਪੀਕਰ",
+      "Select_curr": "ਮੁਦਰਾ ਚੁਣੋ",
+      "event_fee": "ਇਵੈਂਟ ਫੀਸ",
+      "visibility": "ਦਿੱਖ",
+      "location": "ਟਿਕਾਣਾ",
+      "is_virtual": "ਇਹ ਇੱਕ ਵਰਚੁਅਲ ਇਵੈਂਟ ਹੈ",
+      "address": "ਪਤਾ",
+      "venue": "ਸਥਾਨ",
+      "event_link": "ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਜਾਂ ਪ੍ਰਸਾਰਣ ਲਿੰਕ"
+    },
+    "job": {
+      "heading_create": "ਨੌਕਰੀ ਪੋਸਟ ਕਰੋ",
+      "heading_edit": "ਨੌਕਰੀ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+      "job_title": "ਕੰਮ ਦਾ ਟਾਈਟਲ",
+      "employment_type": "ਰੁਜ਼ਗਾਰ ਦੀ ਕਿਸਮ",
+      "job_description": "ਕੰਮ ਦਾ ਵੇਰਵਾ",
+      "key_skills": "ਮੁੱਖ ਹੁਨਰ",
+      "educational_qualification": "ਵਿੱਦਿਅਕ ਯੋਗਤਾ",
+      "work_experience_years": "ਕੰਮ ਦਾ ਤਜਰਬਾ (ਸਾਲ)",
+      "work_experience_months": "ਕੰਮ ਦਾ ਤਜਰਬਾ (ਮਹੀਨੇ)",
+      "select_currency": "ਮੁਦਰਾ ਚੁਣੋ",
+      "salary_range": "ਮੁਆਵਜ਼ਾ ਸੀਮਾ",
+      "salary_type": "ਮੁਆਵਜ਼ਾ ਦੀ ਕਿਸਮ",
+      "min_salary": "ਘੱਟੋ-ਘੱਟ",
+      "max_salary": "ਅਧਿਕਤਮ",
+      "location": "ਟਿਕਾਣਾ",
+      "industry": "ਉਦਯੋਗ",
+      "functional_area": "ਕਾਰਜਸ਼ੀਲ ਖੇਤਰ",
+      "company_website": "ਕੰਪਨੀ ਦੀ ਵੈੱਬਸਾਈਟ ਸ਼ਾਮਲ ਕਰੋ",
+      "number_of_vacancies": "ਅਸਾਮੀਆਂ ਦੀ ਸੰਖਿਆ",
+      "company_name": "ਕੰਪਨੀ ਦਾ ਨਾਂ",
+      "start_date": "ਸ਼ੁਰੂਆਤੀ ਮਿਤੀ/ਸ਼ੁਰੂ ਕਰਨ ਦਾ ਸਮਾਂ",
+      "end_date": "ਸਮਾਪਤੀ ਮਿਤੀ/ਅੰਤ ਦਾ ਸਮਾਂ",
+      "contact_person": "ਵਿਅਕਤੀ ਨੂੰ ਸੰਪਰਕ ਕਰੋ",
+      "phone_number": "ਫੋਨ ਨੰਬਰ",
+      "venue": "ਸਥਾਨ",
+      "company_details": "ਕੰਪਨੀ ਦੇ ਵੇਰਵੇ",
+      "address": "ਪਤਾ",
+      "include_walk_in": "ਵਾਕ-ਇਨ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ",
+      "search_job": {
+        "by_title": "ਸਿਰਲੇਖ ਅਤੇ ਕੰਪਨੀ ਦੁਆਰਾ ਖੋਜ ਕਰੋ",
+        "by_location": "ਸਥਾਨ ਦੁਆਰਾ ਖੋਜ ਕਰੋ"
+      }
+    },
+    "service": {
+      "title": "ਸਿਰਲੇਖ",
+      "phone_number": "ਫੋਨ ਨੰਬਰ",
+      "description": "ਵਰਣਨ",
+      "select_currency": "ਮੁਦਰਾ ਚੁਣੋ",
+      "service_cost": "ਸੇਵਾ ਦੀ ਲਾਗਤ",
+      "location": "ਟਿਕਾਣਾ",
+      "update_service": "ਅੱਪਡੇਟ ਸੇਵਾ"
+    },
+    "fleet_manager": {
+      "vehicle_type": "ਵਾਹਨ ਦੀ ਕਿਸਮ",
+      "Nick_Name": "ਉਪਨਾਮ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model_number": "ਮਾਡਲ ਨੰਬਰ",
+      "Weight": "ਵਜ਼ਨ(lbs)",
+      "Height": "ਉਚਾਈ (ਇੰਚ)",
+      "Width": "ਚੌੜਾਈ(ਇੰਚ)",
+      "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Engine_number": "ਇੰਜਣ ਨੰਬਰ",
+      "Fuel_capacity": "ਬਾਲਣ ਸਮਰੱਥਾ (gl)",
+      "Number_of_tyres": "ਟਾਇਰਾਂ ਦੀ ਸੰਖਿਆ",
+      "Wheelbase": "ਵ੍ਹੀਲਬੇਸ (ਇੰਚ)",
+      "Power": "ਪਾਵਰ (ਐਚਪੀ)",
+      "Trailer_Type": "ਟ੍ਰੇਲਰ ਦੀ ਕਿਸਮ",
+      "Load_Capacity": "ਲੋਡ ਸਮਰੱਥਾ (lbs)"
+    },
+    "trip_planner": {
+      "add_truck": "ਟਰੱਕ ਸ਼ਾਮਲ ਕਰੋ",
+      "search_truck": "ਟਰੱਕ ਦੀ ਖੋਜ ਕਰੋ",
+      "Nick_Name": "ਉਪਨਾਮ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model_Number": "ਮਾਡਲ ਨੰਬਰ",
+      "Weight": "ਭਾਰ",
+      "Height": "ਉਚਾਈ",
+      "Width": "ਚੌੜਾਈ",
+      "Power": "ਤਾਕਤ",
+      "Engine_Number": "ਇੰਜਣ ਨੰਬਰ",
+      "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Fuel_Capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "Number_Of_Tyres": "ਟਾਇਰਾਂ ਦੀ ਸੰਖਿਆ",
+      "Wheelbase": "ਵ੍ਹੀਲਬੇਸ",
+      "Add_Trailer": "ਟ੍ਰੇਲਰ ਸ਼ਾਮਲ ਕਰੋ",
+      "Search_Trailer": "ਟ੍ਰੇਲਰ ਖੋਜੋ",
+      "Trailer_Type": "ਟ੍ਰੇਲਰ ਦੀ ਕਿਸਮ",
+      "Load_Capacity": "ਲੋਡ ਸਮਰੱਥਾ",
+      "Source": "ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ",
+      "Destination": "ਆਖਰੀ ਮੰਜ਼ਿਲ",
+      "Date_Time": "ਮਿਤੀ ਅਤੇ ਸਮਾਂ",
+      "Alternate_Routes": "ਬਦਲਵੇਂ ਰਸਤੇ",
+      "Gross_Weight": "ਕੁੱਲ ਭਾਰ",
+      "Load_Number": "ਲੋਡ ਨੰਬਰ",
+      "Type": "ਟਾਈਪ",
+      "Skip_Driver": "ਡਰਾਈਵਰ ਅਸਾਈਨਮੈਂਟ ਛੱਡੋ",
+      "Add_Driver": "ਡਰਾਈਵਰ ਸ਼ਾਮਲ ਕਰੋ",
+      "Search_First_Driver": "ਪਹਿਲਾ ਡਰਾਈਵਰ ਖੋਜੋ",
+      "Name": "ਨਾਮ",
+      "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+      "Email": "ਈ - ਮੇਲ",
+      "Search_Second_Driver": "ਦੂਜਾ ਡਰਾਈਵਰ ਖੋਜੋ"
+    },
+    "edit_profile": {
+      "Company_Name": "ਕੰਪਨੀ ਦਾ ਨਾਂ",
+      "Incorporation_Date": "ਇਨਕਾਰਪੋਰੇਸ਼ਨ ਦੀ ਮਿਤੀ",
+      "Director_Name": "ਡਾਇਰੈਕਟਰ ਦਾ ਨਾਮ",
+      "First_Name": "ਪਹਿਲਾ ਨਾਂ",
+      "Last_Name": "ਆਖਰੀ ਨਾਂਮ",
+      "Email": "ਈ - ਮੇਲ",
+      "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+      "Address": "ਪਤਾ",
+      "Country": "ਦੇਸ਼",
+      "Postal_Code": "ਡਾਕ ਕੋਡ",
+      "City": "ਸ਼ਹਿਰ",
+      "State": "ਰਾਜ",
+      "About_Company": "ਕੰਪਨੀ ਬਾਰੇ",
+      "Gender": "ਲਿੰਗ",
+      "Date_of_Birth": "ਜਨਮ ਤਾਰੀਖ",
+      "Corresponding_Address": "ਅਨੁਸਾਰੀ ਪਤਾ",
+      "Permanent_Address": "ਪੱਕਾ ਪਤਾ",
+      "Workplace": "ਕੰਮ ਵਾਲੀ ਥਾਂ",
+      "Designation": "ਅਹੁਦਾ",
+      "Educational_Qualification": "ਵਿੱਦਿਅਕ ਯੋਗਤਾ",
+      "Key_Skills": "ਮੁੱਖ ਹੁਨਰ",
+      "Marital_Status": "ਵਿਵਾਹਿਕ ਦਰਜਾ",
+      "Experience": "ਅਨੁਭਵ",
+      "monthExperience": "ਮਹੀਨੇ ਦਾ ਤਜਰਬਾ",
+      "Languages_Known": "ਜਾਣੀਆਂ ਭਾਸ਼ਾਵਾਂ",
+      "About": "ਬਾਰੇ",
+      "Documents": "ਦਸਤਾਵੇਜ਼",
+      "default_language": "ਡਿਫੌਲਟ ਪ੍ਰੋਫਾਈਲ ਡਿਸਪਲੇ ਭਾਸ਼ਾ"
+    },
+    "change_pass": {
+      "heading": "ਪਾਸਵਰਡ ਬਦਲੋ",
+      "Old_Password": "ਪੁਰਾਣਾ ਪਾਸਵਰਡ",
+      "New_Password": "ਨਵਾਂ ਪਾਸਵਰਡ",
+      "Confirm_Password": "ਪਾਸਵਰਡ ਪੱਕਾ ਕਰੋ"
+    },
+    "manage_team": {
+      "heading": "ਮੈਂਬਰ ਨੂੰ ਸੱਦਾ ਦਿਓ",
+      "first_name": "ਪਹਿਲਾ ਨਾਂ",
+      "last_name": "ਆਖਰੀ ਨਾਂਮ",
+      "email": "ਈ - ਮੇਲ",
+      "phone_num": "ਫੋਨ ਨੰਬਰ",
+      "access_level": "ਪਹੁੰਚ ਪੱਧਰ ਚੁਣੋ"
+    },
+    "network": {
+      "group": {
+        "heading": "ਗਰੁੱਪ ਬਣਾਓ",
+        "group_name": "ਗਰੁੱਪ ਦਾ ਨਾਮ",
+        "group_type": "ਸਮੂਹ ਦੀ ਕਿਸਮ",
+        "description": "ਵਰਣਨ",
+        "Total_Members": "ਕੁੱਲ ਮੈਂਬਰ"
+      }
+    }
+  },
+  "notification": {
+    "Notification": "ਸੂਚਨਾ",
+    "all": "ਸਾਰੇ",
+    "unread": "ਨਾ ਪੜ੍ਹਿਆ",
+    "mark_all": "ਸਭ ਨੂੰ ਪੜ੍ਹੇ ਵਜੋਂ ਚਿੰਨ੍ਹਿਤ ਕਰੋ"
+  },
+  "team_manage": {
+    "heading": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+    "name": "ਨਾਮ",
+    "Email": "ਈ - ਮੇਲ",
+    "access": "ਪਹੁੰਚ",
+    "phone": "ਫੋਨ ਨੰ.",
+    "trip_status": "ਯਾਤਰਾ ਸਥਿਤੀ"
+  },
+  "profile_view": {
+    "Contact": "ਸੰਪਰਕ",
+    "mail": "ਈ - ਮੇਲ",
+    "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+    "Company_Info.": "ਕੰਪਨੀ ਦੀ ਜਾਣਕਾਰੀ।",
+    "Incorporation_Date": "ਇਨਕਾਰਪੋਰੇਸ਼ਨ ਦੀ ਮਿਤੀ",
+    "Director_name": "ਡਾਇਰੈਕਟਰ ਦਾ ਨਾਮ",
+    "Work": "ਕੰਮ",
+    "Qualifications": "ਯੋਗਤਾਵਾਂ",
+    "Skills": "ਹੁਨਰ",
+    "Languages": "ਭਾਸ਼ਾਵਾਂ",
+    "Experience": "ਅਨੁਭਵ",
+    "Documents": "ਦਸਤਾਵੇਜ਼",
+    "See_All_Posts": "ਸਾਰੀਆਂ ਪੋਸਟਾਂ ਦੇਖੋ",
+    "no_files": "ਕੋਈ ਫ਼ਾਈਲਾਂ ਅੱਪਲੋਡ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ",
+    "menu": {
+      "Edit_profile": "ਸੋਧ ਪ੍ਰੋਫ਼ਾਈਲ",
+      "Activity_logs": "ਗਤੀਵਿਧੀ ਲੌਗ",
+      "Change_password": "ਪਾਸਵਰਡ ਬਦਲੋ",
+      "Leave_company": "ਕੰਪਨੀ ਛੱਡੋ",
+      "Delete_Account": "ਖਾਤਾ ਮਿਟਾਓ",
+      "Are_you_sure_want_to_delete_your_account": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਆਪਣਾ ਖਾਤਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ"
+    },
+    "companyName": "ਕੰਪਨੀ ਦਾ ਨਾਂ"
+  },
+  "seller": {
+    "navigationSellerSideMenu": [
+      {
+        "navimg": "assets/dashboard.png",
+        "navimghov": "assets/dashboardhov.png",
+        "navlink": "/layout/e-commerce/dashboard",
+        "navitem": "ਡੈਸ਼ਬੋਰਡ"
+      },
+      {
+        "navimg": "assets/product.png",
+        "navimghov": "assets/producthov.png",
+        "navlink": "/layout/e-commerce/manage-products-list",
+        "navitem": "ਉਤਪਾਦ ਸਾਂਭਲੋ"
+      },
+      {
+        "navimg": "assets/question.png",
+        "navimghov": "assets/questionhov.png",
+        "navlink": "/layout/e-commerce/questions",
+        "navitem": "ਸਵਾਲ ਅਤੇ ਜਵਾਬ"
+      },
+      {
+        "navimg": "assets/Master-settings.png",
+        "navimghov": "assets/Master-settingshov.png",
+        "navitem": "ਮਾਸਟਰ ਸੈਟਿੰਗ",
+        "navdropdown": [
+          {
+            "navitem": "ਬ੍ਰਾਂਡ ਸੂਚੀ",
+            "navlink": "/layout/e-commerce/brand-list"
+          },
+          {
+            "navitem": "ਸ਼੍ਰੇਣੀ ਸੂਚੀ",
+            "navlink": "/layout/e-commerce/category-list"
+          },
+          {
+            "navitem": "ਮਾਡਲ ਸੂਚੀ",
+            "navlink": "/layout/e-commerce/model-list"
+          }
+        ]
+      },
+     
+      {
+        "navimg": "assets/support.png",
+        "navimghov": "assets/supporthov.png",
+        "navlink": "/chat-window",
+        "navitem": "ਚੈਟ"
+      },
+      {
+        "navimg": "assets/ticketInactive.svg",
+        "navimghov": "assets/ticketActive.png",
+        "navlink": "/layout/e-commerce/my-tickets",
+        "navitem": "ਮੇਰੀਆਂ ਟਿਕਟਾਂ"
+      }
+    ],
+    "My_Ratings": "ਮੇਰੀਆਂ ਰੇਟਿੰਗਾਂ",
+    "Invite_Team": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+    "Switch_to_company": "ਕੰਪਨੀ 'ਤੇ ਜਾਓ",
+    "Logout": "ਲਾੱਗ ਆਊਟ",
+    "Answered_Queries": "ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿੱਤੇ",
+    "Total_queries": "ਕੁੱਲ ਸਵਾਲ",
+    "UnAnswered_queries": "ਜਵਾਬ ਨਾ ਦਿੱਤੇ ਸਵਾਲ",
+    "Queries": "ਸਵਾਲ",
+    "product_list": {
+      "heading": "ਉਤਪਾਦ ਸਾਂਭਲੋ",
+      "Search_category": "ਸ਼੍ਰੇਣੀ ਦੁਆਰਾ ਖੋਜ ਕਰੋ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Condition": "ਹਾਲਤ",
+      "Product_Number": "ਉਤਪਾਦ ਨੰਬਰ",
+      "Gross_weight": "ਕੁੱਲ ਭਾਰ",
+      "Suspension": "ਮੁਅੱਤਲੀ"
+    },
+    "qes_ans": {
+      "Q&A": "ਸਵਾਲ ਅਤੇ ਜਵਾਬ",
+      "Product_Name": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+      "Person_Name": "ਵਿਅਕਤੀ ਦਾ ਨਾਮ",
+      "Question": "ਸਵਾਲ",
+      "Action": "ਕਾਰਵਾਈ"
+    },
+    "product_view": {
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model": "ਮਾਡਲ",
+      "Year_of_production": "ਉਤਪਾਦਨ ਦਾ ਸਾਲ",
+      "Engine_make": "ਇੰਜਣ ਬਣਾਉ",
+      "Brakes": "ਬ੍ਰੇਕ",
+      "fuel_type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Engine_power_output": "ਇੰਜਣ ਪਾਵਰ ਆਉਟਪੁੱਟ",
+      "Engine_displacement": "ਇੰਜਣ ਵਿਸਥਾਪਨ",
+      "Sub_Category": "ਉਪ ਸ਼੍ਰੇਣੀ",
+      "Listing_Type": "ਸੂਚੀਕਰਨ ਦੀ ਕਿਸਮ",
+      "condition": "ਹਾਲਤ",
+      "Miles_Driven": "ਮੀਲ ਚਲਾਇਆ",
+      "Engine_Hours": "ਇੰਜਣ ਦੇ ਘੰਟੇ",
+      "Location": "ਟਿਕਾਣਾ",
+      "Price": "ਕੀਮਤ",
+      "Color": "ਰੰਗ",
+      "width": "ਚੌੜਾਈ",
+      "height": "ਉਚਾਈ",
+      "length": "ਲੰਬਾਈ",
+      "mileage": "ਮਾਈਲੇਜ",
+      "suspension": "ਮੁਅੱਤਲੀ",
+      "transmission_type": "ਪ੍ਰਸਾਰਣ ਦੀ ਕਿਸਮ",
+      "fuel_capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "wheel_base": "ਵ੍ਹੀਲ ਬੇਸ",
+      "net_weight": "ਕੁੱਲ ਵਜ਼ਨ",
+      "Front_Axle_Weight": "ਫਰੰਟ ਐਕਸਲ ਵਜ਼ਨ",
+      "Rear_Axle_Weight": "ਰੀਅਰ ਐਕਸਲ ਵਜ਼ਨ",
+      "description": "ਵਰਣਨ"
+    },
+    "brand": {
+      "heading": "ਬ੍ਰਾਂਡ ਸੂਚੀ",
+      "add_brand": "ਬ੍ਰਾਂਡ ਸ਼ਾਮਲ ਕਰੋ",
+      "Total_Brands": "ਕੁੱਲ ਬ੍ਰਾਂਡ",
+      "Brand_Name": "ਮਾਰਕਾ",
+      "Brand_Logo": "ਬ੍ਰਾਂਡ ਲੋਗੋ",
+      "Status": "ਸਥਿਤੀ",
+      "form": {
+        "heading": "ਬ੍ਰਾਂਡ ਸ਼ਾਮਲ ਕਰੋ",
+        "note": "ਨੋਟ:- ਸਾਰੇ ਖੇਤਰ ਲਾਜ਼ਮੀ ਤੌਰ 'ਤੇ ਚਿੰਨ੍ਹਿਤ ਕੀਤੇ ਗਏ ਹਨ",
+        "Brand_Name": "ਮਾਰਕਾ",
+        "Select_logo": "ਬ੍ਰਾਂਡ ਲੋਗੋ ਚੁਣੋ"
+      }
+    },
+    "category": {
+      "heading": "ਸ਼੍ਰੇਣੀ ਸੂਚੀ",
+      "Add_Category": "ਸ਼੍ਰੇਣੀ ਸ਼ਾਮਲ ਕਰੋ",
+      "Total_Category": "ਕੁੱਲ ਸ਼੍ਰੇਣੀ",
+      "Category_Name": "ਸ਼੍ਰੇਣੀ ਦਾ ਨਾਮ",
+      "Parent_Category": "ਉੱਚ ਸ਼੍ਰੇਣੀ",
+      "Status": "ਸਥਿਤੀ"
+    },
+    "model": {
+      "heading": "ਮਾਡਲ ਸੂਚੀ",
+      "Add_Model": "ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ",
+      "Total_Models": "ਕੁੱਲ ਮਾਡਲ",
+      "Brand_Name": "ਮਾਰਕਾ",
+      "Model_Name": "ਮਾਡਲ ਦਾ ਨਾਮ",
+      "Status": "ਸਥਿਤੀ"
+    },
+    "suuport": {
+      "heading": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
+    },
+    "my_rating": {
+      "heading": "ਮੇਰੀਆਂ ਰੇਟਿੰਗਾਂ",
+      "User_name": "ਉਪਭੋਗਤਾ ਨਾਮ",
+      "User_email": "ਉਪਭੋਗਤਾ ਈਮੇਲ",
+      "Rating": "ਰੇਟਿੰਗ",
+      "Product_name": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+      "Seller_name": "Seller name"
+    },
+    "manage_team": {
+      "heading": "ਟੀਮ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+      "Invite_Member": "ਮੈਂਬਰ ਨੂੰ ਸੱਦਾ ਦਿਓ",
+      "Name": "ਨਾਮ",
+      "Email": "ਈ - ਮੇਲ",
+      "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+      "Status": "ਸਥਿਤੀ",
+      "form": {
+        "First_Name": "ਪਹਿਲਾ ਨਾਂ",
+        "Last_Name": "ਆਖਰੀ ਨਾਂਮ",
+        "Email": "ਈ - ਮੇਲ",
+        "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+        "Access_Level": "ਪਹੁੰਚ ਪੱਧਰ",
+        "Cancel": "ਰੱਦ ਕਰੋ"
+      }
+    },
+    "add_truck": {
+      "heading": "ਟਰੱਕ ਦੀ ਜਾਣਕਾਰੀ",
+      "vin": "ਵਾਹਨ ਪਛਾਣ ਨੰਬਰ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model": "ਮਾਡਲ",
+      "Year_Of_Production": "ਉਤਪਾਦਨ ਦਾ ਸਾਲ",
+      "Engine_Make": "ਇੰਜਣ ਮੇਕਰ",
+      "Brakes": "ਬ੍ਰੇਕ",
+      "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Engine_Power_Output": "ਇੰਜਣ ਪਾਵਰ ਆਉਟਪੁੱਟ",
+      "Engine_Displacement": "ਇੰਜਣ ਵਿਸਥਾਪਨ",
+      "Product_Name": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+      "Sub_Category": "ਉਪ ਸ਼੍ਰੇਣੀ",
+      "Listing_Type": "ਸੂਚੀਕਰਨ ਦੀ ਕਿਸਮ",
+      "Condition": "ਹਾਲਤ",
+      "Miles_Driven": "ਮੀਲ ਚਲਾਇਆ",
+      "Engine_Hours": "ਇੰਜਣ ਦੇ ਘੰਟੇ",
+      "Location": "ਟਿਕਾਣਾ",
+      "Select_Currency": "ਮੁਦਰਾ ਚੁਣੋ",
+      "Price": "ਕੀਮਤ",
+      "Description": "ਵਰਣਨ",
+      "Color": "ਰੰਗ",
+      "Width": "ਚੌੜਾਈ",
+      "Height": "ਉਚਾਈ",
+      "Mileage": "ਮਾਈਲੇਜ",
+      "Suspension": "ਮੁਅੱਤਲੀ",
+      "Transmission_Type": "ਪ੍ਰਸਾਰਣ ਦੀ ਕਿਸਮ",
+      "Fuel_Capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "Wheelbase": "ਵ੍ਹੀਲਬੇਸ",
+      "Net_Weight": "ਕੁੱਲ ਵਜ਼ਨ",
+      "Front_Axle_Weight": "ਫਰੰਟ ਐਕਸਲ ਵਜ਼ਨ",
+      "Rear_Axle_Weight": "ਰੀਅਰ ਐਕਸਲ ਵਜ਼ਨ",
+      "Drag_and_drop": "ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਚਿੱਤਰਾਂ ਨੂੰ ਖਿੱਚੋ ਅਤੇ ਛੱਡੋ"
+    },
+    "add_trailer": {
+      "heading": "ਟ੍ਰੇਲਰ ਜਾਣਕਾਰੀ",
+      "vin": "ਵਾਹਨ ਪਛਾਣ ਨੰਬਰ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model": "ਮਾਡਲ",
+      "Year_Of_Production": "ਉਤਪਾਦਨ ਦਾ ਸਾਲ",
+      "length": "ਲੰਬਾਈ",
+      "axles": "ਧੁਰਾ",
+      "Product_Name": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+      "Sub_Category": "ਉਪ ਸ਼੍ਰੇਣੀ",
+      "Listing_Type": "ਸੂਚੀਕਰਨ ਦੀ ਕਿਸਮ",
+      "Condition": "ਹਾਲਤ",
+      "Location": "ਟਿਕਾਣਾ",
+      "Select_Currency": "ਮੁਦਰਾ ਚੁਣੋ",
+      "Price": "ਕੀਮਤ",
+      "Description": "ਵਰਣਨ",
+      "Width": "ਚੌੜਾਈ",
+      "Height": "ਉਚਾਈ",
+      "Suspension": "ਮੁਅੱਤਲੀ",
+      "wheels": "ਪਹੀਏ",
+      "Net_Weight": "ਕੁੱਲ ਵਜ਼ਨ",
+      "Front_Axle_Weight": "ਫਰੰਟ ਐਕਸਲ ਵਜ਼ਨ",
+      "Rear_Axle_Weight": "ਰੀਅਰ ਐਕਸਲ ਵਜ਼ਨ",
+      "Drag_and_drop": "ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਚਿੱਤਰਾਂ ਨੂੰ ਖਿੱਚੋ ਅਤੇ ਛੱਡੋ"
+    },
+    "add_unit": {
+      "heading": "ਟਰੈਕਟਰ ਯੂਨਿਟ ਦੀ ਜਾਣਕਾਰੀ",
+      "vin": "ਵਾਹਨ ਪਛਾਣ ਨੰਬਰ",
+      "Brand": "ਬ੍ਰਾਂਡ",
+      "Model": "ਮਾਡਲ",
+      "Year_Of_Production": "ਉਤਪਾਦਨ ਦਾ ਸਾਲ",
+      "Engine_Make": "ਇੰਜਣ ਮੇਕਰ",
+      "Brakes": "ਬ੍ਰੇਕ",
+      "Fuel_Type": "ਬਾਲਣ ਦੀ ਕਿਸਮ",
+      "Engine_Power_Output": "ਇੰਜਣ ਪਾਵਰ ਆਉਟਪੁੱਟ",
+      "Engine_Displacement": "ਇੰਜਣ ਵਿਸਥਾਪਨ",
+      "Product_Name": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+      "Sub_Category": "ਉਪ ਸ਼੍ਰੇਣੀ",
+      "Listing_Type": "ਸੂਚੀਕਰਨ ਦੀ ਕਿਸਮ",
+      "Condition": "ਹਾਲਤ",
+      "Miles_Driven": "ਮੀਲ ਚਲਾਇਆ",
+      "Engine_Hours": "ਇੰਜਣ ਦੇ ਘੰਟੇ",
+      "Location": "ਟਿਕਾਣਾ",
+      "Select_Currency": "ਮੁਦਰਾ ਚੁਣੋ",
+      "Price": "ਕੀਮਤ",
+      "Description": "ਵਰਣਨ",
+      "Color": "ਰੰਗ",
+      "Width": "ਚੌੜਾਈ",
+      "Height": "ਉਚਾਈ",
+      "Mileage": "ਮਾਈਲੇਜ",
+      "Suspension": "ਮੁਅੱਤਲੀ",
+      "Transmission_Type": "ਪ੍ਰਸਾਰਣ ਦੀ ਕਿਸਮ",
+      "Fuel_Capacity": "ਬਾਲਣ ਦੀ ਸਮਰੱਥਾ",
+      "Wheelbase": "ਵ੍ਹੀਲਬੇਸ",
+      "Net_Weight": "ਕੁੱਲ ਵਜ਼ਨ",
+      "Front_Axle_Weight": "ਫਰੰਟ ਐਕਸਲ ਵਜ਼ਨ",
+      "Rear_Axle_Weight": "ਰੀਅਰ ਐਕਸਲ ਵਜ਼ਨ",
+      "Drag_and_drop": "ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਚਿੱਤਰਾਂ ਨੂੰ ਖਿੱਚੋ ਅਤੇ ਛੱਡੋ"
+    },
+    "Upload_Images": "ਚਿੱਤਰ ਅੱਪਲੋਡ ਕਰੋ",
+    "category_display": {
+      "category": "ਸ਼੍ਰੇਣੀ",
+      "heading": "ਤੁਸੀਂ ਕਿਹੜਾ ਸੌਦਾ ਦਿਖਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+    }
+  },
+  "sub_plan": {
+    "heading": "ਤੁਹਾਡੀਆਂ ਯੋਜਨਾਵਾਂ",
+    "des": "ਤੁਹਾਡੇ ਸਬਸਕ੍ਰਾਈਬ ਕੀਤੇ ਗਏ ਸਾਰੇ ਇੱਥੇ ਦਿਖਾਏ ਗਏ ਹਨ।",
+    "features": "ਯੋਜਨਾ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+    "Purchased": "ਖਰੀਦਿਆ ਗਿਆ",
+    "Expired": "ਖਤਮ",
+    "Total": "ਕੁੱਲ"
+  },
+  "home_trip_planner": {
+    "heading_1": "ਟ੍ਰਿਪ ਪਲੈਨਰ",
+    "first_content": "ਟਰੱਕ ਰੂਟ ਦੀ ਯੋਜਨਾਬੰਦੀ ਦਾ ਟੀਚਾ ਦੋ ਜਾਂ ਦੋ ਤੋਂ ਵੱਧ ਸਟਾਪਾਂ ਵਿਚਕਾਰ ਸਭ ਤੋਂ ਵਧੀਆ ਰਸਤਾ ਲੱਭਣਾ ਹੈ।<br> ਲਾਗਤਾਂ ਨੂੰ ਘਟਾਉਣ, ਕੁਸ਼ਲਤਾ ਨੂੰ ਵੱਧ ਤੋਂ ਵੱਧ ਕਰਨ ਲਈ ਸਫ਼ਰ ਲਈ ਅਨੁਕੂਲਿਤ ਯੋਜਨਾਬੰਦੀ ਮਹੱਤਵਪੂਰਨ ਹੈ,<br> ਅਤੇ ਸਿਹਤਮੰਦ ਲਾਭ ਹਾਸ਼ੀਏ ਨੂੰ ਬਣਾਈ ਰੱਖਣ ਲਈ",
+    "heading_2": "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+    "second_content": "ਟ੍ਰਿਪ ਪਲੈਨਰ ​​ਤੁਹਾਨੂੰ ਸਭ ਤੋਂ ਵਧੀਆ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਜੋ ਤੁਹਾਨੂੰ ਵਧੇਰੇ ਕੁਸ਼ਲ ਹੋਣ, ਲਾਗਤ ਘਟਾਉਣ, ਅਤੇ ਸਿਹਤਮੰਦ ਲਾਭ ਹਾਸ਼ੀਏ ਨੂੰ ਬਰਕਰਾਰ ਰੱਖਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦਾ ਹੈ",
+    "second_content_features": {
+      "Waze_Map": "ਵੇਜ਼ ਮੈਪ",
+      "Trip_Plan": "ਤ੍ਰਿਪ ਪਲਾਨ",
+      "Markers": "ਮਾਰਕਰਸ",
+      "Live_GPS": "ਲਾਈਵ GPS",
+      "Weather_Forecast": "ਵੇਅਤ੍ਹੇਰ ਫੋਰਕੈਸਟ"
+    },
+    "cancel_Trip": "ਰੱਦ ਕਰੋ",
+    "start_Trip": "ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰੋ",
+    "Are_you_sure_you_want_to_cancel_this_trip": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਯਾਤਰਾ ਨੂੰ ਰੱਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ",
+    "Are_you_sure_to_mark_trip_as_Active": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਯਾਤਰਾ ਦੀ ਕਿਰਿਆਸ਼ੀਲ ਵਜੋਂ ਨਿਸ਼ਾਨਦੇਹੀ ਕਰਦੇ ਹੋ",
+    "heading_3": "ਵੇਜ਼ ਮੈਪ",
+    "third_content": "ਸਾਡੇ ਇੰਟਰਐਕਟਿਵ WAZE ਮੈਪ ਰਾਹੀਂ ਰੀਅਲ-ਟਾਈਮ ਸੜਕ ਅਤੇ ਟ੍ਰੈਫਿਕ ਅਪਡੇਟਸ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    "third_content_features": {
+      "Road_Object": "ਰੋਡ ਆਬਜੈਕਟ",
+      "Closure": "ਬੰਦ",
+      "Crash": "ਕਰੈਸ਼",
+      "Hazard": "ਖਤਰਾ",
+      "Police": "ਪੁਲਿਸ",
+      "Traffic": "ਆਵਾਜਾਈ",
+      "Road_Block": "ਰੋਡ ਬਲਾਕ",
+      "Weigh_Station": "ਵਜ਼ਨ ਸਟੇਸ਼ਨ",
+      "Roadside_Help": "ਸੜਕ ਕਿਨਾਰੇ ਮਦਦ",
+      "Roadside_work": "ਸੜਕ ਕਿਨਾਰੇ ਕੰਮ",
+      "Staller_Vehicle": "ਸਟਾਲਰ ਵਾਹਨ"
+    },
+    "heading_4": "HAZMAT ਲੋਡ",
+    "forth_content": "ਹਜ਼ਮਤ ਲੋਡ ਰੂਟਿੰਗ ਵਿੱਚ ਤੁਹਾਡੀ ਮਦਦ ਕਰੇਗਾ ਜੋ ਟਰੱਕ ਡਰਾਈਵਰਾਂ ਨੂੰ ਸੜਕ 'ਤੇ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਨੈਵੀਗੇਟ ਕਰਨ ਅਤੇ ਜੋਖਮਾਂ ਨੂੰ ਘਟਾਉਣ ਅਤੇ ਪ੍ਰਸਤਾਵਿਤ ਰੂਟ ਦੇ ਅੰਦਰ ਤਬਦੀਲੀਆਂ ਤੋਂ ਸੁਚੇਤ ਰਹਿਣ ਅਤੇ ਐਡਜਸਟਮੈਂਟ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"
+  },
+  "price": "ਕੀਮਤ",
+  "Location": "ਟਿਕਾਣਾ",
+  "comment_edit_popup_heading": "ਇੱਕ ਟਿੱਪਣੀ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "delete_cmnt": {
+    "heading": "ਟਿੱਪਣੀ ਮਿਟਾਓ",
+    "des": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਟਿੱਪਣੀ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+  },
+  "edit_group_post": "ਇੱਕ ਸਮੂਹ ਪੋਸਟ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ",
+  "applicants": {
+    "Name": "ਨਾਮ",
+    "Email": "ਈ - ਮੇਲ",
+    "Phone_Number": "ਫੋਨ ਨੰਬਰ",
+    "Resume_Description": "ਰੈਜ਼ਿਊਮੇ/ਵਰਣਨ"
+  },
+  "gps_form": {
+    "show_weather": "ਮੌਸਮ ਦੀ ਭਵਿੱਖਬਾਣੀ ਦਿਖਾਓ",
+    "All": "ਸਾਰੇ",
+    "Snow": "ਬਰਫ਼",
+    "Precipitation": "ਵਰਖਾ",
+    "Freezing_Rain": "ਠੰਢ ਵਾਲਾ ਮੀਂਹ",
+    "Thunderstorm": "ਗਰਜ",
+    "Temperature": "ਤਾਪਮਾਨ",
+    "Origin": "ਮੂਲ",
+    "Destination": "ਮੰਜ਼ਿਲ",
+    "Gross_Weight": "ਕੁੱਲ ਭਾਰ",
+    "Select_Truck": "ਟਰੱਕ ਚੁਣੋ",
+    "Select_Trailer": "ਟ੍ਰੇਲਰ ਚੁਣੋ",
+    "Load_Type": "ਲੋਡ ਦੀ ਕਿਸਮ"
+  },
+  "Attach_Resume": "ਰੈਜ਼ਿਊਮੇ ਨੱਥੀ ਕਰੋ",
+  "Supported_formats": "ਸਮਰਥਿਤ ਫਾਰਮੈਟ",
+  "formate": "docx, pdf ਅਤੇ doc",
+  "brif_desc": "ਜੇ ਤੁਹਾਡੇ ਕੋਲ ਰੈਜ਼ਿਊਮੇ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਆਪਣਾ ਸੰਖੇਪ ਪੇਸ਼ੇਵਰ ਪ੍ਰੋਫਾਈਲ ਲਿਖ ਸਕਦੇ ਹੋ",
+  "here": "ਇਥੇ",
+  "Write_Profile": "ਪ੍ਰੋਫਾਈਲ ਲਿਖੋ",
+  "You_are_not_logged_in": "ਤੁਸੀਂ ਲੌਗ-ਇਨ ਨਹੀਂ ਹੋ",
+  "test": "test",
+  "QuestionAnswer": {
+    "Answer_Question":"ਸਵਾਲ ਦਾ ਜਵਾਬ ਦਿਓ",
+    "Question": "ਸਵਾਲ",
+    "Answer": "ਜਵਾਬ"
+  },
+  "modal": {
+    "Add_Model":"ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ",
+    "SelectBrand": "ਬ੍ਰਾਂਡ ਚੁਣੋ",
+    "ModelName": "ਮਾਡਲ ਦਾ ਨਾਮ",
+    "noteText":"ਨੋਟ:- ਸਾਰੇ ਖੇਤਰ ਲਾਜ਼ਮੀ ਤੌਰ 'ਤੇ ਚਿੰਨ੍ਹਿਤ ਕੀਤੇ ਗਏ ਹਨ"
+  },
+  "category": {
+    "Addcategory":"ਸ਼੍ਰੇਣੀ ਸ਼ਾਮਲ ਕਰੋ",
+    "SelectCategory":"ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
+    "Category/SubcategoryName": "ਸ਼੍ਰੇਣੀ/ਉਪ ਸ਼੍ਰੇਣੀ ਦਾ ਨਾਮ",
+    "noteText":"ਨੋਟ:- ਸਾਰੇ ਖੇਤਰ ਲਾਜ਼ਮੀ ਤੌਰ 'ਤੇ ਚਿੰਨ੍ਹਿਤ ਕੀਤੇ ਗਏ ਹਨ"
+  },
+  "my-plan":"ਮੇਰੀ ਯੋਜਨਾ",
+  "profile":{
+    "profile":"ਪ੍ਰੋਫਾਈਲ",
+    "Business_details":"ਕਾਰੋਬਾਰੀ ਵੇਰਵੇ",
+    "Seller_Account":"ਵਿਕਰੇਤਾ ਖਾਤਾ",
+    "SSN":"SSN ਜਾਂ ITIN",
+    "Dob":"ਜਨਮ ਮਿਤੀ / ਇਨਕਾਰਪੋਰੇਸ਼ਨ"
+  }
+
+
+}

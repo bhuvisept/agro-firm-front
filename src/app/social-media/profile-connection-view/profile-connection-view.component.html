@@ -1,0 +1,799 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<div>
+  <section class="cusMobSpc">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="cus-round-with-bg">
+            <h3 class="cus-cart-tit-box">{{ 'myNetwork.sideMenu.heading' | translate }}</h3>
+            <ul class="nav cus-left-navbar">
+              <li class="nav-item">
+                <a routerLink="/layout/social-media/connections" class="nav-link text-capitalize"><i class="far fa-chart-network"></i>{{ 'myNetwork.sideMenu.my_friend' | translate }}</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/layout/social-media/group-list" class="nav-link text-capitalize"> <i class="far fa-users-medical"></i>{{ 'myNetwork.sideMenu.groups' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="row cus-round-with-bg">
+            <div class="cus-upload col-sm-12 pl-0 pr-0">
+              <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                <img *ngIf="list.bannerImage" src="{{ PROFILEBANNEIMAGE + list.bannerImage }}" width="100%" class="banner-common-height" />
+                <img *ngIf="!list.bannerImage" src="assets/Truck-banne-bg.png" width="100%" class="banner-common-height" />
+              </div>
+              <div class="col-sm-2">
+                <div class="cus-profile-img">
+                  <img *ngIf="list.image" src="{{ postProfile + list.image }}" class="img-fluid" /> <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 text-right">
+              <button class="Connect_btn btn" *ngIf="list?.inConnection == 'pending' && list?.invitedBy == loggedInUser" [disabled]="true">{{ 'buttons.Pending' | translate }}</button>
+              <button class="Connect_btn btn" *ngIf="list?.inConnection == 'false' && serviceId != loggedInUser" (click)="sendConnectionIvite(list._id)">Connect</button>
+              <button class="Connect_btn btn" *ngIf="list?.invitedBy != loggedInUser && list.inConnection == 'pending'" (click)="onAcceptInvitation(list.invitationId)">{{ 'buttons.accept' | translate }}</button>
+              <button class="Connect_btn btn" *ngIf="list?.invitedBy != loggedInUser && list.inConnection == 'pending'" (click)="onIgnoreInvitation(list.invitationId)">{{ 'buttons.ignore' | translate }}</button>
+              <button class="Connect_btn btn" *ngIf="list?.invitedBy == loggedInUser && list.inConnection == 'pending'" (click)="onIgnoreInvitation(list.invitationId)">{{ 'buttons.cancel' | translate }}</button>
+            </div>
+            <div class="col-sm-12">
+              <div class="cus-round-with-bg"></div>
+              <p class="font-weight-bolder h5" *ngIf="list.personName">{{ 'labels.profile_view.name' | translate }}: {{ list.personName | titlecase }}</p>
+              <p class="p-0 m-0" *ngIf="list?.aboutCompany">
+                <span class="higlight">{{ 'labels.profile_view.about' | translate }}</span> : {{ list.aboutCompany }}
+              </p>
+              <p class="p-0 m-0" *ngIf="list.email">
+                <span class="higlight">{{ 'labels.profile_view.email' | translate }}</span> : {{ list.email }}
+              </p>
+              <p *ngIf="list?.city">
+                <span class="higlight">{{ 'labels.profile_view.city' | translate }}</span> : {{ list.city }}
+              </p>
+              <p *ngIf="list.workPlace">
+                <span class="higlight">{{ 'labels.profile_view.workplace' | translate }}</span> : {{ list.workPlace }}
+              </p>
+            </div>
+          </div>
+          <div>
+            <div infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+              <div *ngFor="let posts of postList; let i = index">
+                <div *ngIf="posts.type == 'SHARED'" class="cus-round-with-bg">
+                  <div class="cus-share-post">
+                    <div class="row cus-hed-post">
+                      <div class="col-2 col-md-1">
+                        <div class="pro-round-img">
+                          <a routerLink="/layout/social-media/connection-profileview/{{ posts.userData?._id }}" *ngIf="posts.userData?._id !== loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                          <a routerLink="/layout/myaccount/my-profile" *ngIf="posts.userData?._id == loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="col-7 col-md-5 post-listing pt-2 pl-4">
+                        <h3 class="post_name">{{ posts.userData?.personName }}</h3>
+                        <span class="posted_time">{{ posts.postedAt }}</span>
+                      </div>
+                      <div class="col-3 col-md-6 text-right">
+                        <span class="cus-dot-toggle" type="button" data-toggle="dropdown">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                            <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                          </svg>
+                        </span>
+                        <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                          <li *ngIf="loggedInUser == posts.userData?._id" (click)="editPostInfo(posts, i)">{{ 'Edit' | translate }}</li>
+                          <li *ngIf="loggedInUser == posts.userData?._id" (click)="deletePostList(posts._id, i, posts.type)">{{ 'Delete' | translate }}</li>
+                          <li *ngIf="loggedInUser !== posts.userData?._id" (click)="reportPostInfo(posts._id, i)">{{ 'Report' | translate }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row cus-body-post">
+                      <div class="col-sm-12">
+                        <!-- <p class="m-b-0" innerHtml="{{ posts.captionTwo }}"></p> -->
+                        <p class="m-b-0 post_caption"  *ngIf="posts.media.length==0"  (click)="imagesViewForText('',posts,i)"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                        <p class="m-b-0 post_caption" *ngIf="posts.media.length>0"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                      </div>
+                    </div>
+                    <div class="cus-share-post-by">
+                      <div class="row cus-hed-post">
+                        <div class="col-sm-1">
+                          <div class="pro-round-img">
+                            <div>
+                              <img *ngIf="!posts.orignalPostData.userData?.image" src="assets/Truck-banne-profile.png" class="profilephoto" />
+                              <img *ngIf="posts.orignalPostData.userData?.image" src="{{ postProfile + posts.orignalPostData.userData?.image }}" class="img-fluid" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 post-listing ml-2 pt-3">
+                          <h3>{{ posts.orignalPostData.userData?.personName }}</h3>
+                        </div>
+                        <div class="col-sm-5 text-right"></div>
+                      </div>
+                      <div class="row cus-body-post">
+                        <div class="col-sm-12"><p class="m-b-0" innerHtml="{{ posts.orignalPostData.caption }}"></p></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 cus_height_post">
+                          <div class="image_gallery">
+                            <div *ngIf="!posts.media"><img src="assets/spinnernew.gif" alt="" /></div>
+                            <div
+                              *ngFor="let img of posts.orignalPostData.media"
+                              [ngClass]="{
+                                post_img_one: posts.orignalPostData.media?.length == 1,
+                                post_img_two: posts.orignalPostData.media?.length == 2,
+                                post_img_three: posts.orignalPostData.media?.length == 3,
+                                post_img_four: posts.orignalPostData.media?.length == 4,
+                                post_img_five: posts.orignalPostData.media?.length == 5
+                              }"
+                              style="cursor: pointer"
+                              (click)="imagesView(posts.orignalPostData.media, img,posts,i)"
+                            >
+                              <video *ngIf="img.type == 'VIDEO'" src="{{ postVideo_path + img.name }}" height="100%" width="100%" controls></video>
+                              <img *ngIf="img.type == 'IMAGE'" src="{{ postImage_path + img.name }}" alt="kkj" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cus-share-comt-post">
+                    <div class="row cus-like-sec-post">
+                      <div class="col-sm-12 p-0">
+                        <span class="col-sm-2" (click)="totalLikeInfo(posts._id, posts)" style="cursor: pointer"><img src="assets/like_post_count.svg" alt="" /> {{ posts.totalLike }}</span>
+                        <span class="col-sm-2">{{ posts.totalCommentWithReComment }} {{ 'Comments' | translate }}</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <ul class="like">
+                        <li (click)="likePostInfo(posts, i)">
+                          <span *ngIf="posts.isLiked == true" style="color: #005aa4">
+                            <img src="assets/like_blue.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                          <span *ngIf="posts.isLiked == false">
+                            <img src="assets/like.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                        </li>
+                        <li (click)="getPostCommentList(posts, i)">
+                          <img src="assets/comments.svg" alt="" /> <span class="d-none d-md-block">{{ 'Comments' | translate }}</span>
+                        </li>
+                        <li class="ml-auto" (click)="sharePostInfo(posts)">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                            <path d="M23 12l-4.61 7H16l4-6H8a3.92 3.92 0 00-4 3.84V17a4 4 0 00.19 1.24L5.12 21H3l-.73-2.22A6.4 6.4 0 012 16.94 6 6 0 018 11h12l-4-6h2.39z"></path>
+                          </svg>
+                          <span class="d-none d-md-block">{{ 'Share' | translate }}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row p-0">
+                      <div class="col-sm-12">
+                        <div class="row d-flex justify-content-center align-items-center cus-border-top">
+                          <div class="col-1 mr-2">
+                            <div class="pro-round-img cmt-pro-round-img">
+                              <div>
+                                <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-10">
+                            <form [formGroup]="createPostCommentForm" class="row cus-comment-form">
+                              <div class="col-10 p-l-0 p-r-0">
+                                <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                              </div>
+                              <div class="col-2 p-r-0">
+                                <button class="btn post_icon d-block" (click)="commentPostInfo(posts, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div *ngIf="isCommentShow">
+                          <div class="col-sm-12 mt-1" *ngFor="let list of posts.comments; let commentIndex = index">
+                            <div class="row">
+                              <div class="col-1 mr-4">
+                                <div class="cus-com-img-network cmt-pro-round-img">
+                                  <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="list.image" src="{{ postProfile + list.image }}" class="img-fluid" />
+                                </div>
+                              </div>
+                              <div class="col-10 cus-comm-bg ml-1">
+                                <p class="m-0 com-name">{{ list.personName }}<span *ngIf="list.isEdited" style="color: #919191">(Edited)</span></p>
+                                <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment" *ngIf="list.isMyComment || posts.isMyPost">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    data-supported-dps="24x24"
+                                    fill="currentColor"
+                                    class="mercado-match"
+                                    width="18"
+                                    height="18"
+                                    focusable="false"
+                                  >
+                                    <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                  </svg>
+                                </span>
+                                <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                  <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, '', list, 'COMMENT')">{{ 'Edit' | translate }}</li>
+                                  <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, '', list._id, 'COMMENT')">{{ 'Delete' | translate }}</li>
+                                </ul>
+                                <div class="post_caption_two" id="Relist{{ commentIndex }}">
+                                  <p class="m-0 com-comment">{{ list.comment }}</p>
+                                </div>
+                                <span
+                                  class="text-primary"
+                                  id="RelistComment{{ commentIndex }}"
+                                  *ngIf="list.comment?.length > 100"
+                                  (click)="readMoreRecomment(commentIndex, 'MORE')"
+                                  style="cursor: pointer; float: right"
+                                  >...see more
+                                </span>
+                              </div>
+                              <div class="col-sm-10 offset-md-1 Re_comment">
+                                <div class="row mt-1" *ngFor="let Relist of list.reCommentArr; let reIndex = index">
+                                  <div class="col-sm-1 mr-4">
+                                    <div class="cus-com-img-network cmt-pro-round-img">
+                                      <img *ngIf="!Relist.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                                      <img *ngIf="Relist.image" src="{{ postProfile + Relist.image }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-10 cus-comm-bg ml-1">
+                                    <p class="m-0 com-name">{{ Relist.personName }}<span *ngIf="Relist.isEdited" style="color: #919191">(Edited)</span></p>
+                                    <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment">
+                                      <svg
+                                        *ngIf="Relist.isMyComment || posts.isMyPost"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        data-supported-dps="24x24"
+                                        fill="currentColor"
+                                        class="mercado-match"
+                                        width="18"
+                                        height="18"
+                                        focusable="false"
+                                      >
+                                        <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                      </svg>
+                                    </span>
+                                    <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                      <li *ngIf="Relist.isMyComment" (click)="editComment(posts._id, i, commentIndex, reIndex, Relist, 'RECOMMENT')">{{ 'Edit' | translate }}</li>
+                                      <li *ngIf="Relist.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, reIndex, Relist._id, 'RECOMMENT')">
+                                        {{ 'Delete' | translate }}
+                                      </li>
+                                    </ul>
+                                    <div class="post_caption_two" id="innerRecomment{{ reIndex }}">
+                                      <p class="m-0 com-comment">{{ Relist.comment }}</p>
+                                    </div>
+                                    <span
+                                      class="text-primary"
+                                      id="innerRecommentID{{ reIndex }}"
+                                      *ngIf="Relist.comment?.length > 100"
+                                      (click)="innerRecomment(reIndex, 'MORE')"
+                                      style="cursor: pointer; float: right"
+                                      >...see more</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="com-comment replay_css col-10 offset-1">
+                                <span (click)="getId(list)">Reply</span>
+                                <span (click)="reCommentList(list, i, commentIndex)" *ngIf="list.totalReComment > 0 && list.totalReComment > list.reCommentArr?.length"
+                                  >See More ({{ list?.totalReComment - list.reCommentArr?.length }})</span
+                                >
+                              </div>
+                              <div class="col-10 ml-auto Recomment_Input_icon">
+                                <div class="row d-flex justify-content-center align-items-center cus-border-top" *ngIf="reCommentForm === list._id">
+                                  <div class="col-1 mr-2">
+                                    <div class="pro-round-img cmt-pro-round-img">
+                                      <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-10">
+                                    <form [formGroup]="RePostCommentForm" class="row cus-comment-form">
+                                      <div class="col-10 p-l-0 p-r-0">
+                                        <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                                      </div>
+                                      <div class="col-2 p-r-0">
+                                        <button class="btn post_icon" (click)="RecommentPostInfo(posts, commentIndex, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="postIdComment == posts._id">
+                            <div class="col-10 offset-1 mt-2 Recomment_Input_icon" *ngIf="posts?.comments.length != posts.totalComment">
+                              <span class="replay_css" (click)="getPostCommentListmore(posts, i)" style="cursor: pointer"> Load more comments </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="posts.type == 'INDIVIDUAL'" class="cus-round-with-bg">
+                  <div class="cus-real-post">
+                    <div class="row cus-hed-post">
+                      <div class="col-2 col-md-1">
+                        <div class="pro-round-img">
+                          <a routerLink="/layout/social-media/connection-profileview/{{ posts.userData?._id }}" *ngIf="posts.userData?._id !== loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                          <a routerLink="/layout/myaccount/my-profile" *ngIf="posts.userData?._id == loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="col-7 col-md-5 post-listing pt-2 pl-4">
+                        <h3 class="post_name">{{ posts.userData?.personName }}</h3>
+                        <span class="posted_time">{{ posts.postedAt }}</span>
+                      </div>
+                      <div class="col-3 col-md-6 text-right">
+                        <span class="cus-dot-toggle" type="button" data-toggle="dropdown">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                            <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                          </svg>
+                        </span>
+                        <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                          <li *ngIf="loggedInUser == posts.userData?._id" (click)="editPostInfo(posts, i)">{{ 'Edit' | translate }}</li>
+                          <li *ngIf="loggedInUser == posts.userData?._id" (click)="deletePostList(posts._id, i, posts.type)">{{ 'Delete' | translate }}</li>
+                          <li *ngIf="loggedInUser !== posts.userData?._id" (click)="reportPostInfo(posts._id, i)">{{ 'Report' | translate }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row cus-body-post">
+                      <div class="col-sm-12">
+                        <!-- <p class="m-b-0 post_caption" id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p> -->
+                        <p class="m-b-0 post_caption"  *ngIf="posts.media.length==0"  (click)="imagesViewForText('',posts,i)"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                        <p class="m-b-0 post_caption" *ngIf="posts.media.length>0"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                        <span class="text-primary" id="more{{ i }}" *ngIf="posts.captionTwo?.length > 545 || posts?.isreadMore > 2" (click)="readMore(i, 'MORE')" style="cursor: pointer; float: right"
+                          >...see more</span
+                        >
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 cus_height_post">
+                        <div class="image_gallery">
+                          <div *ngIf="!posts.media"><img src="assets/spinnernew.gif" alt="" /></div>
+                          <div
+                            *ngFor="let img of posts.media"
+                            [ngClass]="{
+                              post_img_one: posts.media?.length == 1,
+                              post_img_two: posts.media?.length == 2,
+                              post_img_three: posts.media?.length == 3,
+                              post_img_four: posts.media?.length == 4,
+                              post_img_five: posts.media?.length == 5
+                            }"
+                            style="cursor: pointer"
+                            (click)="imagesView(posts.media, img,posts,i)"
+                          >
+                            <video *ngIf="img.type == 'VIDEO'" src="{{ postVideo_path + img.name }}" height="100%" width="100%" controls></video>
+                            <img *ngIf="img.type == 'IMAGE'" src="{{ postImage_path + img.name }}" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cus-share-comt-post">
+                    <div class="row cus-like-sec-post">
+                      <div class="col-sm-12 p-0">
+                        <span class="col-sm-2" (click)="totalLikeInfo(posts._id, posts)" style="cursor: pointer"><img src="assets/like_post_count.svg" alt="" /> {{ posts.totalLike }}</span>
+                        <span class="col-sm-2">{{ posts.totalCommentWithReComment }} {{ 'Comments' | translate }}</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <ul class="like">
+                        <li (click)="likePostInfo(posts, i)">
+                          <span *ngIf="posts.isLiked == true" style="color: #005aa4">
+                            <img src="assets/like_blue.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                          <span *ngIf="posts.isLiked == false">
+                            <img src="assets/like.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                        </li>
+                        <li (click)="getPostCommentList(posts, i)">
+                          <img src="assets/comments.svg" alt="" /> <span class="d-none d-md-block">{{ 'Comments' | translate }}</span>
+                        </li>
+                        <li class="ml-auto" (click)="sharePostInfo(posts)">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                            <path d="M23 12l-4.61 7H16l4-6H8a3.92 3.92 0 00-4 3.84V17a4 4 0 00.19 1.24L5.12 21H3l-.73-2.22A6.4 6.4 0 012 16.94 6 6 0 018 11h12l-4-6h2.39z"></path>
+                          </svg>
+                          <span class="d-none d-md-block">{{ 'Share' | translate }}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row p-0">
+                      <div class="col-sm-12">
+                        <div class="row d-flex justify-content-center align-items-center cus-border-top">
+                          <div class="col-1 mr-2">
+                            <div class="pro-round-img cmt-pro-round-img">
+                              <div>
+                                <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-10">
+                            <form [formGroup]="createPostCommentForm" class="row cus-comment-form">
+                              <div class="col-10 p-l-0 p-r-0">
+                                <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                              </div>
+                              <div class="col-2 p-r-0">
+                                <button class="btn post_icon d-block" (click)="commentPostInfo(posts, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div *ngIf="isCommentShow">
+                          <div class="col-sm-12 mt-1" *ngFor="let list of posts.comments; let commentIndex = index">
+                            <div class="row">
+                              <div class="col-1 mr-4">
+                                <div class="cus-com-img-network cmt-pro-round-img">
+                                  <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="list.image" src="{{ postProfile + list.image }}" class="img-fluid" />
+                                </div>
+                              </div>
+                              <div class="col-10 cus-comm-bg ml-1">
+                                <p class="m-0 com-name">{{ list.personName }}<span *ngIf="list.isEdited" style="color: #919191">(Edited)</span></p>
+                                <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment" *ngIf="list.isMyComment || posts.isMyPost">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    data-supported-dps="24x24"
+                                    fill="currentColor"
+                                    class="mercado-match"
+                                    width="18"
+                                    height="18"
+                                    focusable="false"
+                                  >
+                                    <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                  </svg>
+                                </span>
+                                <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                  <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, '', list, 'COMMENT')">Edit</li>
+                                  <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, '', list._id, 'COMMENT')">Delete</li>
+                                </ul>
+                                <div class="post_caption_two" id="Relist{{ commentIndex }}">
+                                  <p class="m-0 com-comment">{{ list.comment }}</p>
+                                </div>
+                                <span
+                                  class="text-primary"
+                                  id="RelistComment{{ commentIndex }}"
+                                  *ngIf="list.comment?.length > 100"
+                                  (click)="readMoreRecomment(commentIndex, 'MORE')"
+                                  style="cursor: pointer; float: right"
+                                  >...see more
+                                </span>
+                              </div>
+                              <div class="col-sm-10 offset-md-1 Re_comment">
+                                <div class="row mt-1" *ngFor="let Relist of list.reCommentArr; let reIndex = index">
+                                  <div class="col-sm-1 mr-4">
+                                    <div class="cus-com-img-network cmt-pro-round-img">
+                                      <img *ngIf="!Relist.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                                      <img *ngIf="Relist.image" src="{{ postProfile + Relist.image }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-10 cus-comm-bg ml-1">
+                                    <p class="m-0 com-name">{{ Relist.personName }}<span *ngIf="Relist.isEdited" style="color: #919191">(Edited)</span></p>
+                                    <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment">
+                                      <svg
+                                        *ngIf="list.isMyComment || posts.isMyPost"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        data-supported-dps="24x24"
+                                        fill="currentColor"
+                                        class="mercado-match"
+                                        width="18"
+                                        height="18"
+                                        focusable="false"
+                                      >
+                                        <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                      </svg>
+                                    </span>
+                                    <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                      <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, reIndex, Relist, 'RECOMMENT')">Edit</li>
+                                      <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, reIndex, Relist._id, 'RECOMMENT')">Delete</li>
+                                    </ul>
+                                    <div class="post_caption_two" id="innerRecomment{{ reIndex }}">
+                                      <p class="m-0 com-comment">{{ Relist.comment }}</p>
+                                    </div>
+                                    <span
+                                      class="text-primary"
+                                      id="innerRecommentID{{ reIndex }}"
+                                      *ngIf="Relist.comment?.length > 100"
+                                      (click)="innerRecomment(reIndex, 'MORE')"
+                                      style="cursor: pointer; float: right"
+                                      >...see more</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="com-comment replay_css col-10 offset-1">
+                                <span (click)="getId(list)">Reply</span>
+                                <span (click)="reCommentList(list, i, commentIndex)" *ngIf="list.totalReComment > 0 && list.totalReComment > list.reCommentArr?.length"
+                                  >See More ({{ list?.totalReComment - list.reCommentArr?.length }})</span
+                                >
+                              </div>
+                              <div class="col-10 ml-auto Recomment_Input_icon">
+                                <div class="row d-flex justify-content-center align-items-center cus-border-top" *ngIf="reCommentForm === list._id">
+                                  <div class="col-1 mr-2">
+                                    <div class="pro-round-img cmt-pro-round-img">
+                                      <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-10">
+                                    <form [formGroup]="RePostCommentForm" class="row cus-comment-form">
+                                      <div class="col-10 p-l-0 p-r-0">
+                                        <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                                      </div>
+                                      <div class="col-2 p-r-0">
+                                        <button class="btn post_icon" (click)="RecommentPostInfo(posts, commentIndex, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="postIdComment == posts._id">
+                            <div class="col-10 offset-1 mt-2 Recomment_Input_icon" *ngIf="posts?.comments.length != posts.totalComment">
+                              <span class="replay_css" (click)="getPostCommentListmore(posts, i)" style="cursor: pointer"> Load more comments </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="posts.type == 'JOIN_GROUP'" class="cus-round-with-bg">
+                  <div class="cus-real-post">
+                    <div class="row cus-hed-post">
+                      <div class="col-2 col-md-1">
+                        <div class="pro-round-img">
+                          <a routerLink="/layout/social-media/connection-profileview/{{ posts.userData?._id }}" *ngIf="posts.userData?._id !== loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                          <a routerLink="/layout/myaccount/my-profile" *ngIf="posts.userData?._id == loggedInUser">
+                            <div>
+                              <img *ngIf="!posts.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                              <img *ngIf="posts.userData?.image" src="{{ postProfile + posts.userData.image }}" class="img-fluid" /></div
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="col-7 col-md-5 post-listing pt-2 pl-4">
+                        <h3 class="post_name">{{ posts.userData?.personName }}</h3>
+                        <span class="posted_time">{{ posts.postedAt }}</span>
+                      </div>
+                      <div class="col-3 col-md-6 text-right">
+                        <span class="cus-dot-toggle" type="button" data-toggle="dropdown">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="18" height="18" focusable="false">
+                            <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                          </svg>
+                        </span>
+                        <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                          <li *ngIf="loggedInUser == posts.userData?._id" (click)="deletePostList(posts._id, i, posts.type)">{{ 'Delete' | translate }}</li>
+                          <li *ngIf="loggedInUser !== posts.userData?._id" (click)="reportPostInfo(posts._id, i)">{{ 'Report' | translate }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row cus-body-post">
+                      <div class="col-sm-12">
+                        <!-- <p class="m-b-0 post_caption" id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p> -->
+                        <p class="m-b-0 post_caption"  *ngIf="posts.media.length==0"  (click)="imagesViewForText('',posts,i)"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                        <p class="m-b-0 post_caption" *ngIf="posts.media.length>0"   id="caption{{ i }}" innerHtml="{{ posts.captionTwo }}"></p>
+                        <span class="text-primary" id="more{{ i }}" *ngIf="posts.captionTwo?.length > 545 || posts?.isreadMore > 2" (click)="readMore(i, 'MORE')" style="cursor: pointer; float: right"
+                          >...see more</span
+                        >
+                      </div>
+                    </div>
+                    <div class="p-2">
+                      <div class="d-flex p-2 cus_border_network">
+                        <div>
+                          <img *ngIf="posts.groupData.groupImage" src="{{ banner_img_path }}{{ posts.groupData?.groupImage }}" style="max-width: 85px; max-height: 85px" />
+                          <img *ngIf="!posts.groupData.groupImage" src="assets/network_group.png" style="max-width: 85px" />
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center ml-2">
+                          <div>
+                            <a routerLink="/layout/social-media/group-view/{{ posts.groupData._id }}">
+                              <h5 class="text-capitalize m-0 p-0" style="font-size: 18px">{{ posts.groupData?.name }}</h5>
+                              <p class="m-0 p-0">{{ posts.groupData?.totalMembers }} members</p></a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cus-share-comt-post">
+                    <div class="row cus-like-sec-post">
+                      <div class="col-sm-12 p-0">
+                        <span class="col-sm-2" (click)="totalLikeInfo(posts._id, posts)" style="cursor: pointer"><img src="assets/like_post_count.svg" alt="" /> {{ posts.totalLike }}</span>
+                        <span class="col-sm-2">{{ posts.totalCommentWithReComment }} {{ 'Comments' | translate }}</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <ul class="like">
+                        <li (click)="likePostInfo(posts, i)">
+                          <span *ngIf="posts.isLiked == true" style="color: #005aa4">
+                            <img src="assets/like_blue.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                          <span *ngIf="posts.isLiked == false">
+                            <img src="assets/like.svg" alt="" /> <span class="d-none d-md-block">{{ 'Like' | translate }}</span>
+                          </span>
+                        </li>
+                        <li (click)="getPostCommentList(posts, i)">
+                          <img src="assets/comments.svg" alt="" /> <span class="d-none d-md-block">{{ 'Comments' | translate }}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="row p-0">
+                      <div class="col-sm-12">
+                        <div class="row d-flex justify-content-center align-items-center cus-border-top">
+                          <div class="col-1 mr-2">
+                            <div class="pro-round-img cmt-pro-round-img">
+                              <div>
+                                <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-10">
+                            <form [formGroup]="createPostCommentForm" class="row cus-comment-form">
+                              <div class="col-10 p-l-0 p-r-0">
+                                <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                              </div>
+                              <div class="col-2 p-r-0">
+                                <button class="btn post_icon d-block" (click)="commentPostInfo(posts, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div *ngIf="isCommentShow">
+                          <div class="col-sm-12 mt-1" *ngFor="let list of posts.comments; let commentIndex = index">
+                            <div class="row">
+                              <div class="col-1 mr-4">
+                                <div class="cus-com-img-network cmt-pro-round-img">
+                                  <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="list.image" src="{{ postProfile + list.image }}" class="img-fluid" />
+                                </div>
+                              </div>
+                              <div class="col-10 cus-comm-bg ml-1">
+                                <p class="m-0 com-name">{{ list.personName }}<span *ngIf="list.isEdited" style="color: #919191">(Edited)</span></p>
+                                <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment" *ngIf="list.isMyComment || posts.isMyPost">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    data-supported-dps="24x24"
+                                    fill="currentColor"
+                                    class="mercado-match"
+                                    width="18"
+                                    height="18"
+                                    focusable="false"
+                                  >
+                                    <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                  </svg>
+                                </span>
+                                <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                  <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, '', list, 'COMMENT')">Edit</li>
+                                  <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, '', list._id, 'COMMENT')">Delete</li>
+                                </ul>
+                                <div class="post_caption_two" id="Relist{{ commentIndex }}">
+                                  <p class="m-0 com-comment">{{ list.comment }}</p>
+                                </div>
+                                <span
+                                  class="text-primary"
+                                  id="RelistComment{{ commentIndex }}"
+                                  *ngIf="list.comment?.length > 100"
+                                  (click)="readMoreRecomment(commentIndex, 'MORE')"
+                                  style="cursor: pointer; float: right"
+                                  >...see more
+                                </span>
+                              </div>
+                              <div class="col-sm-10 offset-md-1 Re_comment">
+                                <div class="row mt-1" *ngFor="let Relist of list.reCommentArr; let reIndex = index">
+                                  <div class="col-sm-1 mr-4">
+                                    <div class="cus-com-img-network cmt-pro-round-img">
+                                      <img *ngIf="!Relist.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                                      <img *ngIf="Relist.image" src="{{ postProfile + Relist.image }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-10 cus-comm-bg ml-1">
+                                    <p class="m-0 com-name">{{ Relist.personName }}<span *ngIf="Relist.isEdited" style="color: #919191">(Edited)</span></p>
+                                    <span class="cus-dot-toggle" type="button" data-toggle="dropdown" class="threeDot_comment">
+                                      <svg
+                                        *ngIf="list.isMyComment || posts.isMyPost"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        data-supported-dps="24x24"
+                                        fill="currentColor"
+                                        class="mercado-match"
+                                        width="18"
+                                        height="18"
+                                        focusable="false"
+                                      >
+                                        <path d="M14 12a2 2 0 11-2-2 2 2 0 012 2zM4 10a2 2 0 102 2 2 2 0 00-2-2zm16 0a2 2 0 102 2 2 2 0 00-2-2z"></path>
+                                      </svg>
+                                    </span>
+                                    <ul class="dropdown-menu cus-post-dropdown-menu edit_post">
+                                      <li *ngIf="list.isMyComment" (click)="editComment(posts._id, i, commentIndex, reIndex, Relist, 'RECOMMENT')">{{ 'Edit' | translate }}</li>
+                                      <li *ngIf="list.isMyComment || posts.isMyPost" (click)="deleteComment(posts._id, i, commentIndex, reIndex, Relist._id, 'RECOMMENT')">
+                                        {{ 'Delete' | translate }}
+                                      </li>
+                                    </ul>
+                                    <div class="post_caption_two" id="innerRecomment{{ reIndex }}">
+                                      <p class="m-0 com-comment">{{ Relist.comment }}</p>
+                                    </div>
+                                    <span
+                                      class="text-primary"
+                                      id="innerRecommentID{{ reIndex }}"
+                                      *ngIf="Relist.comment?.length > 100"
+                                      (click)="innerRecomment(reIndex, 'MORE')"
+                                      style="cursor: pointer; float: right"
+                                      >...see more</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="com-comment replay_css col-10 offset-1">
+                                <span (click)="getId(list)">Reply</span>
+                                <span (click)="reCommentList(list, i, commentIndex)" *ngIf="list.totalReComment > 0 && list.totalReComment > list.reCommentArr?.length"
+                                  >See More ({{ list?.totalReComment - list.reCommentArr?.length }})</span
+                                >
+                              </div>
+                              <div class="col-10 ml-auto Recomment_Input_icon">
+                                <div class="row d-flex justify-content-center align-items-center cus-border-top" *ngIf="reCommentForm === list._id">
+                                  <div class="col-1 mr-2">
+                                    <div class="pro-round-img cmt-pro-round-img">
+                                      <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
+                                    </div>
+                                  </div>
+                                  <div class="col-10">
+                                    <form [formGroup]="RePostCommentForm" class="row cus-comment-form">
+                                      <div class="col-10 p-l-0 p-r-0">
+                                        <input type="text" class="cus-comment-input" formControlName="comment" matInput placeholder="Add a comment…" required autocomplete="off" />
+                                      </div>
+                                      <div class="col-2 p-r-0">
+                                        <button class="btn post_icon" (click)="RecommentPostInfo(posts, commentIndex, i)"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="postIdComment == posts._id">
+                            <div class="col-10 offset-1 mt-2 Recomment_Input_icon" *ngIf="posts?.comments.length != posts.totalComment">
+                              <span class="replay_css" (click)="getPostCommentListmore(posts, i)" style="cursor: pointer"> Load more comments </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

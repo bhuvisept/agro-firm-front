@@ -1,0 +1,84 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-3">
+                <h4>Left Employees</h4>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2 hidden-phone">
+            <div class="cus-search-input search-filter-mobile">
+                <div class="col-sm-12 cus-search-input ml-2 mt-3 pl-0">
+                    <input type="text" autocomplete="off" [(ngModel)]="SearchText" placeholder="Search Name"
+                        matInput />
+                    <button class="btn" (click)="companyLeftUsers(1)">&nbsp;<i class="fa fa-search down"></i></button>
+                    <button class="btn btn-res">
+                        <i class="fa fa-refresh" style="font-size: 16px" (click)="reset()" matTooltip="Reset"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2 mb-2 visible-phone visible-phone-sx">
+            <div class="cus-search-input search-filter-mobile">
+            </div>
+            <div class="col-sm-12 cus-search-input mt-sm-4 mt-2">
+                <input type="text" autocomplete="off" [(ngModel)]="SearchText" placeholder="Search Name"
+                    matInput />
+                <div class="mt-4 mb-2 mb-sm-0 cus-search-input wt-100-on-mobile-btn">
+                    <button class="btn" (click)="companyLeftUsers(1)">&nbsp;<i class="fa fa-search down"></i></button>
+                    <button class="btn btn-res">
+                        <i class="fa fa-refresh" style="font-size: 16px" (click)="reset()" matTooltip="Reset"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100">
+            <div class="modal-body col-sm-12 p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Reason</th>
+                            <th scope="col">Leave Date</th>
+                        </tr>
+                    </thead>
+                    <tr *ngIf="noRecordFound">
+                        <td class="text-center mt-2 ng-star-inserted" colspan="7">
+                            <p>No Records Found</p>
+                        </td>
+                    </tr>
+                    <tbody>
+                        <tr
+                            *ngFor="let team of leftUsersList | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalCount }; let i = index">
+                            <td>{{ team.firstName }} {{ team.lastName}}</td>
+                            <td>{{ team.email }}</td>
+                            <td>{{ team.reason?team.reason:'N/A' }}</td>
+                            <td>{{ team.createdAt | date: 'MMM-dd-yyyy':'UTC'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-8 m-auto text-center mt-3" *ngIf="totalCount > itemsPerPage">
+                    <pagination-controls (pageChange)="savePageChanged($event)" responsive="true" directionLinks="true">
+                    </pagination-controls>  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

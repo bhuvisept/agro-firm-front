@@ -1,0 +1,37 @@
+section.up-coming.col-md-12 {
+  margin-top: 7%;
+}
+button.btn.btn-primary {
+  margin: 6px 6px;
+  background: #135fa5;
+  border-radius: 11px;
+  color: #fff;
+  padding: 4px 15px;
+}
+.post-event {
+  padding: 5px;
+}
+.event-img {
+  max-height: 150px;
+  min-height: 150px;
+}
+.slide.cus-round-with-bg.m-2 {
+  height: 450px;
+  padding-bottom: 5px;
+}
+.interested.btngroup.mt-2.d-flex.align-items-center {
+  bottom: -53px;
+}
+.cus-search-input-event > input {
+  background: #e7edf2;
+  height: 40px;
+  border: none !important;
+  color: #000;
+  outline: 0;
+  width: 250px !important;
+  box-shadow: none;
+  padding: 0 15px !important;
+  border-radius: 39px 0 0 39px !important;
+  line-height: 1;
+  text-align: left;
+}

@@ -1,0 +1,28 @@
+.rating{
+    height:70vh
+}
+.cus-box {
+    box-shadow: 0 0px 13px #97a7c37a, 0 2px 13px 0 #97a7c3ab;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+    height: 300px;
+  }
+
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+.back-btn {
+  background: #005aa4 !important;
+  color: #fff !important;
+  border-radius: 20px !important;
+  border: 1px solid #005aa4 !important;
+  outline: none;
+  box-shadow: none;
+  line-height: 26px;
+  padding: 5px 16px;
+  width: 65px;
+  height: 40px;
+}

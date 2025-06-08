@@ -1,0 +1,6 @@
+<div *ngIf="jobIsActive=='Active'" class="mt-1 mb-1" mat-dialog-content>{{ 'Are_deactive_job' | translate }}</div>
+<div *ngIf="jobIsActive=='Inactive'" mat-dialog-content class="mt-1 mb-1">{{ 'Are_active_job' | translate }}</div>
+<div mat-dialog-actions>
+    <button class="btn common-btn ml-2" [mat-dialog-close]="true" cdkFocusInitial>{{ 'buttons.yes' | translate }}</button> &nbsp;&nbsp;
+    <button class="btn common-btn" (click)="onNoClick()">{{ 'buttons.no' | translate }}</button> 
+   </div>

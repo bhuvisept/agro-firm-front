@@ -1,0 +1,110 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0 cus-slide-sidemenu">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="page-title-box">
+                        <h4 class="page-title text-left"> {{ 'seller.brand.form.heading' | translate }} </h4>
+                    </div>
+                    <div class="manage-product-cus-box cus-box-with-radio cus-from-stapper"> 
+                    <!-- <form [formGroup]='addForm' (ngSubmit)='submit()' class="row"> 
+                        <div class="col-sm-12 cus-str-field">
+                            <p>{{ 'seller.brand.form.note' | translate }} <span>*</span></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-label>{{ 'seller.brand.form.Brand_Name' | translate }}<span>*</span></mat-label>
+                            <mat-form-field>
+                                <input matInput formControlName="brand" required maxlength="70"/>
+                                <mat-error *ngIf="addForm.get('brand').hasError('required')">Please enter brand name </mat-error>
+                                <mat-error *ngIf="addForm.get('brand').hasError('pattern')"> Please enter valid name </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-12">
+                            <mat-label>{{ 'seller.brand.form.Select_logo' | translate }}<span>*</span></mat-label>
+                            <div class="cus-profile-img mt-3">
+                                <div  class=" w-100 h-100 d-flex justify-content-center align-items-center">
+                                <img  *ngIf="eventImg && !isLoadingLogo" src="{{ brandlogo }}{{ eventImg }}" class="img-fluid 1"/>
+                                <img  *ngIf="!eventImg && !isLoadingLogo" src="assets/Truck-banne-profile.png" class="img-fluid 2"/>
+                                <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                                    <mat-spinner [diameter]="35"></mat-spinner>
+                                   </div>
+                                </div>
+                                <div class="cus-edit-profile-icon" *ngIf="!isLoadingLogo">
+                                    <input   type="file" class="fa fa-pencil" accept="image/*" (change)="uploadCompanyLogo($event)" />
+                                    <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                </div>
+                                
+                            </div> 
+                            
+                        </div>
+                        <div class="col-sm-12 text-right">
+                            <button class="btn e-comm-btn">{{ 'buttons.submit' | translate }}</button>
+                            <a class="btn e-comm-btn ml-2" routerLink="/layout/e-commerce/brand-list">{{ 'buttons.cancel' | translate }}</a>
+                        </div>
+                    </form> -->
+
+                    <form [formGroup]='addForm' (ngSubmit)='submit()' class="row">
+                        <div class="col-sm-12 cus-str-field">
+                            <p>{{ 'seller.brand.form.note' | translate }} <span>*</span></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-label>{{ 'seller.brand.form.Brand_Name' | translate }}<span>*</span></mat-label>
+                            <mat-form-field>
+                                <input matInput formControlName="brand" required maxlength="70"/>
+                                <mat-error *ngIf="addForm.get('brand').hasError('required')">Please enter brand name </mat-error>
+                                <mat-error *ngIf="addForm.get('brand').hasError('pattern')"> Please enter valid name </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-sm-12">
+                            <mat-label>{{ 'seller.brand.form.Select_logo' | translate }}<span>*</span></mat-label>
+                            <div class="cus-profile-img mt-3">
+                                <div  class=" w-100 h-100 d-flex justify-content-center align-items-center">
+                                <img  *ngIf="eventImg && !isLoadingLogo" src="{{ brandlogo }}{{ eventImg }}" class="img-fluid 1"/>
+                                <img  *ngIf="!eventImg && !isLoadingLogo" src="assets/Truck-banne-profile.png" class="img-fluid 2"/>
+                                <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                                    <mat-spinner [diameter]="35"></mat-spinner>
+                                   </div>
+                                </div>
+                                <div class="cus-edit-profile-icon" *ngIf="!isLoadingLogo">
+                                    <input   type="file" class="fa fa-pencil" accept="image/*" (change)="uploadCompanyLogo($event)" />
+                                    <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-12 text-right">
+                            <button class="btn e-comm-btn">{{ 'buttons.submit' | translate }}</button>
+                            <a class="btn e-comm-btn ml-2" routerLink="/layout/e-commerce/brand-list">{{ 'buttons.cancel' | translate }}</a>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

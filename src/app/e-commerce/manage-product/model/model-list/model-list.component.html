@@ -1,0 +1,78 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0"><app-e-commerce-header></app-e-commerce-header></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0 cus-slide-sidemenu"><app-sidemenu></app-sidemenu></div>
+            <div class="col-sm-10 p-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 mt-2"><h4 class="page-title"> {{ 'seller.model.heading' | translate }} </h4></div>
+                        <div class="col-sm-12">
+                            <div class="row cus-main-section cus-box-with-radio cus-wrap-pro-filter">
+                                <div class="col-12 p-0 mb-3 text-right visible-phone visible-phone-sx">
+                                    <a class="btn e-comm-btn" routerLink="/layout/e-commerce/add-model"> <i class="fa fa-plus"></i>{{ 'seller.model.Add_Model' | translate }}</a>
+                                </div>
+                                <div class="col-sm-8 cus-search-input wt-100-on-mobile-flx pl-0 pl-sm-0">
+                                    <input class="form-control cus-common-search-input" type="text" [(ngModel)]="term" placeholder="Search" />
+                                    <div class="cus-search-input wt-100-on-mobile-btn">
+                                        <button type="button" class="btn" (click)="getModelList(1)"><i class="fa fa-search" title="Search"></i></button>
+                                        <button Button (click)="reset()" class="btn btn-res"><i class="fa fa-refresh" title="Reset"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 p-0 text-right hidden-phone">
+                                    <a class="btn e-comm-btn" routerLink="/layout/e-commerce/add-model"> <i class="fa fa-plus"></i> {{ 'seller.model.Add_Model' | translate }}</a>
+                                </div>
+                                <div class="col-sm-12 mt-3 p-0">
+                                    <table class="table table-hover mt-5">
+                                        <thead>
+                                            <tr>
+                                                <td colspan="5" class="text-right"><strong>{{ 'seller.model.Total_Models' | translate }} :{{totalCount}}</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <!-- <th scope="col" class="cus-brand-name-list">#</th> -->
+                                                <th scope="col">{{ 'seller.model.Brand_Name' | translate }}</th>
+                                                <th scope="col">{{ 'seller.model.Model_Name' | translate }}</th>
+                                                <th scope="col">{{ 'seller.model.Status' | translate }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container>
+                                                <tr *ngFor="let list of modelData | paginate:{itemsPerPage: 10, currentPage: Page, totalItems: totalCount};let i=index;">
+                                                    <!-- <td>{{i+1}}</td> -->
+                                                    <td>{{list.brand}}</td>
+                                                    <td>{{list.title}}</td>
+                                                    <td><span class="text-capitalize">{{list.isAdminApprove | titlecase}}</span></td>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center" *ngIf=" totalCount > itemsPerPage"><pagination-controls class="pagination" (pageChange)="pageChanged($event)" directionLinks="true"></pagination-controls></div>
+                                    <p class="text-center" *ngIf="totalCount==0">No Records Found</p>
+                                    <p-toast position="top-right" [style]="{marginTop: '80px'}"></p-toast> <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 mt-3">
+        <h4> {{ 'team_manage.heading' | translate }} </h4>
+      </div> 
+    </div>
+    <div class="row mt-2 mb-2 hidden-phone">
+      <div class="cus-search-input search-filter-mobile">
+        <div class="drop col-sm-3 in-half">
+          <mat-form-field>
+            <div class="cus-search-dropown">
+              <mat-select [(ngModel)]="defaultStatus">
+                <mat-option *ngFor="let list of driverFilter" [value]="list.value">
+                  {{ list.show }}
+                </mat-option>
+              </mat-select>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-8 cus-search-input ml-2 mt-4 pl-0">
+          <input type="text" autocomplete="off" [(ngModel)]="SearchText" placeholder="Search Email or Name" matInput />
+          <button class="btn" (click)="getDispatcherToDriverList(1)" >&nbsp;<i class="fa fa-search down"></i></button>
+          <button class="btn btn-res">
+          <i class="fa fa-refresh" style="font-size: 16px" (click)="reset()" matTooltip="Reset"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2 visible-phone visible-phone-sx">
+      <div class="col-sm-12 cus-search-input  mt-sm-4 mt-2">
+        <input type="text" autocomplete="off" [(ngModel)]="SearchText" placeholder="Search Email or Name" matInput />
+        <div class="mb-2  cus-search-input wt-100-on-mobile-btn">
+          <button class="btn" >&nbsp;<i class="fa fa-search down"></i></button>
+          <button class="btn btn-res">
+          <i class="fa fa-refresh" style="font-size: 16px" matTooltip="Reset"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row w-100">
+      <div class="modal-body col-sm-12 ">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">{{ 'team_manage.name' | translate }}</th>
+              <th scope="col">{{ 'team_manage.Email' | translate }}</th>
+              <th scope="col">{{ 'team_manage.access' | translate }}</th>
+              <th scope="col">{{ 'team_manage.phone' | translate }}</th>
+              <th scope="col">{{ 'team_manage.trip_status' | translate }}</th>
+              
+            </tr>
+          </thead>
+          <tr *ngIf="noRecordFound">
+            <td class="text-center mt-2 ng-star-inserted" colspan="7"><p >No Records Found</p></td>
+          </tr>
+          <tbody>
+            <tr  *ngFor="let team of driverList |  paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index" class="text-center">
+              <td class="py-4">{{ team.personName }}</td>
+              <td class="py-4">{{ team.email }}</td>
+              <td class="py-4">{{ team.accessLevel }}</td>
+              <td class="py-4">{{ team.mobileNumber }}</td>
+              <td class="py-4">{{team.runningStatus[0] || 'idle' | titlecase}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <div *ngIf="noData">
+            <p class="text-center">No Records Found</p>
+          </div>
+          <div style="text-align: center">
+            <pagination-controls (pageChange)="savePageChanged($event)" autoHide="true" responsive="true" directionLinks="true"></pagination-controls>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>

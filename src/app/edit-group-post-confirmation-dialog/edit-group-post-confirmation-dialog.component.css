@@ -1,0 +1,6 @@
+textarea#autoresizing {
+  max-height: 500px;
+  min-height: 100px;
+  margin-top: 15px;
+}
+  

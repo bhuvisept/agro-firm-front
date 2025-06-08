@@ -1,0 +1,8 @@
+.cover-pic .cover img {
+    width: 12%;
+    border: 1px solid #ccc;
+    padding: 7px;
+    border-radius: 15px;
+    background: #fff;
+    height: 107px;
+}

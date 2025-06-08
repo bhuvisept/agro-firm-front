@@ -1,0 +1,9 @@
+.cus-lg-btn {
+    background: #fff;
+    border-radius: 20px;
+    padding: 6px 20px;
+    color: #4a5a70;
+    box-shadow: 1px 0px 5px 0px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 1px 0px 5px 0px rgb(124 167 186);
+    -moz-box-shadow: 1px 0px 5px 0px rgba(124 167 186);
+  }

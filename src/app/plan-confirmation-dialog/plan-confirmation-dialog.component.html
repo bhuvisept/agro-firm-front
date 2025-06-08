@@ -1,0 +1,37 @@
+<div *ngIf='accessLevel=="COMPANY" || accessLevel=="SELLER" || accessLevel=="ENDUSER" '>
+    <div mat-dialog-content>
+        <h3 class="text-center cus-pop-tit">Please select your plan</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="cus-plan-img">
+                <li *ngFor="let list of plans" value="{{list.name}}"
+                    [ngClass]="planImage===list.compare ? 'Active' : '' "> <img src="{{list.img}}" style="width:180px;">
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul class="cus-plan-list">
+                <li (mouseover)="changeText(list.compare)" *ngFor="let list of plans"
+                    [ngClass]=" data==list.compare ? '' : 'inactive' " (click)="reDirect(list.name)">{{list.name}}<small
+                        *ngIf="list.compare=='GPS' " style="font-size: 10px;"> ( Truck Routes and HAZMAT load as
+                        speciality )</small> </li>
+            </ul>
+        </div>
+    </div>
+    <div mat-dialog-actions class="d-flex align-items-center justify-content-center mt-3 mb-1"> <button
+            class="btn common-btn" (click)="onNoClick()">Cancel</button> </div>
+</div>
+<div *ngIf='roleTitle=="ENDUSER" && accessLevel !="ENDUSER" '>
+    <span *ngIf="planImage=='NO_PLAN'">
+    <!-- <p class="text-center">Your Company don't have any plan to access this action.</p> -->
+    <p class="text-center">Your plan has expired.</p>
+    <!-- <p class="text-center">Please get in touch with them.</p> -->
+    <p class="text-center">Please contact your administrator or upgrade the extend plan.</p>
+    </span>
+    <span *ngIf="planImage=='LIMIT_EXCEED'">
+        <p class="text-center">Your plan limit exceeded to perform this action.</p>
+        <p class="text-center">Please get in touch with them.</p>
+        </span>
+    
+</div>

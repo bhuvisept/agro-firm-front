@@ -1,0 +1,89 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+      <div class="truck-wrapper">
+      <div class="truck">
+          <div class="truck-container"></div>
+          <div class="glases"></div>
+          <div class="bonet"></div>
+          <div class="base"></div>
+          <div class="base-aux"></div>
+          <div class="wheel-back"></div>
+          <div class="wheel-front"></div>
+          <div class="smoke"></div>
+      </div>
+      </div>
+  </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+  <div class="container-fluid">
+      <div class="row p-0">
+          <div class="col-sm-12 p-0">
+              <app-e-commerce-header></app-e-commerce-header>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-2 p-0">
+              <app-sidemenu></app-sidemenu>
+          </div>
+          <div class="col-sm-10 p-0">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-12 m-3 d-flex justify-content-between" >
+                  <div class="mt-3">
+                  <h4>CARD LIST</h4> 
+                  </div>
+                  <div class="m-2">
+                    <button type="button" class="btn" (click)="dialogBox()" style="background-color: #793B51; color: white;">Add Card</button>
+                  </div>
+                </div>
+                <div *ngFor="let card of cardDetails">
+                  
+                  <div class="cus-card-box">
+                    <div class="d-flex justify-content-between w100">
+                      <div class="chip">
+                        <h5 style="margin-top: 9px;text-align: center;">{{card.brand}}</h5></div>
+                    </div>
+                    <div class="number">
+                      <label style="color: #075AA4;" >**** **** ****{{ card.last4}}</label>
+                    
+                    </div>
+               
+                      <div class="card-holder">
+                        <div class="col-sm-12 ">
+                          <label style="color: #075AA4;">Card holder</label>
+                          <div *ngIf="card.name != null" style="color: #075AA4;">{{card.name}}</div>
+                          <div *ngIf="card.name == null" style="color: #075AA4;">------------</div>
+                        </div>
+                        
+                      </div>
+          
+                    <div class="col-sm-12 ">
+                      <div class="d-flex justify-content-end">
+                        <mat-slide-toggle  [disabled]="card.isDefault"  (change)="onToggle(card.token)" [(ngModel)]="card.isDefault"></mat-slide-toggle> &nbsp;
+                        <i class="fa fa-trash-o" style="color:rgb(232, 16, 16);font-size:24px;margin-left: 10px" (click)="deleteCard(card.isDefault,card.token)"></i>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

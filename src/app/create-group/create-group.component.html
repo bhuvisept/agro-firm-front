@@ -1,0 +1,11 @@
+<div class="conatiner">
+  <div class="text-center"><h4>Create group</h4></div>
+  <div class="row mt-4 text-center">
+    <div class="col-sm-12"><input type="text" placeholder="enter group..." [(ngModel)]="groupName" /> <button class="common-btn" (click)="createGroup()">Create</button></div>
+    <div class="col-sm-12 mt-4" *ngFor="let connection of connectList">
+      <span>
+        <mat-checkbox class="example-margin mr-3" (click)="joinRoom()">{{ connection.receiverData._id !== userId ? connection.receiverData?.email : connection.senderData.email }}</mat-checkbox>
+      </span>
+    </div>
+  </div>
+</div>

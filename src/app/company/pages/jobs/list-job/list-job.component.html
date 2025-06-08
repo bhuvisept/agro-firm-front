@@ -1,0 +1,137 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-right visible-phone visible-phone-sx">
+                <button type="button" class="btn common-btn mt-3" (click)="createPost()"><i class="fa fa-plus"></i>{{ 'buttons.Post_job' | translate }}</button>
+            </div>
+            
+            <div class="col-sm-12 visible-phone visible-phone-sx">
+                <div class="cus-search-input row">
+                    <mat-form-field class="col-sm-4 wt-100-on-mobile">
+                        <div class="drop_down_design_active">
+                            <mat-select [(ngModel)]="isActive"> <mat-option *ngFor="let list of statusList" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="col-sm-4 sm-p-0 wt-100-on-mobile">
+                        <div class="drop_down_design_active">
+                            <mat-select [(ngModel)]="deleted"> <mat-option *ngFor="let list of deleteArray" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                        </div>
+                    </mat-form-field>
+                    <div class="col-sm-3 d-flex mt-4 cus-search-input wt-100-on-mobile-btn">
+                        <button type="button" icon="pi pi-search" class="btn" label="Search" title="Search" (click)="getJobLists(1)"><i class="fa fa-search"></i></button>
+                        <button (click)="reset()" class="btn btn-res ml-1" label="Reset" title="Reset"><i class="fa fa-refresh" title="Reset"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 mb-3 hidden-phone">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="cus-search-input row">
+                            <mat-form-field class="col-3">
+                                <div class="drop_down_design_active">
+                                    <mat-select [(ngModel)]="isActive"> <mat-option *ngFor="let list of statusList" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                                </div>
+                            </mat-form-field>
+                            <mat-form-field class="col-3 pl-0">
+                                <div class="drop_down_design_active">
+                                    <mat-select [(ngModel)]="deleted"> <mat-option *ngFor="let list of deleteArray" [value]="list.value">{{list.name}}</mat-option> </mat-select>
+                                </div>
+                            </mat-form-field>
+                            <div class="d-flex mt-4">
+                                <button type="button" icon="pi pi-search" class="btn blue_round_button" label="Search" title="Search" (click)="getJobLists(1)"><i class="fa fa-search"></i></button>
+                                <button (click)="reset()" class="btn blue_round_button ml-1" label="Reset" title="Reset"><i class="fa fa-refresh" title="Reset"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button type="button" class="btn common-btn mt-3" (click)="createPost()"><i class="fa fa-plus"></i> {{ 'buttons.Post_job' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="model-body col-sm-12">
+                <ul class="descri">
+                    <li *ngFor="let job of jobsList | paginate:{itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount}; let i=index">
+                        <div class="list profile-detail">
+                            <div class="float-right manage-job">
+                                <div class="dropdown">
+                                    <button class="btn drop_down_design dropdown-toggle" type="button" data-toggle="dropdown">{{ 'labels.job.manage_jobs' | translate }} <span class="caret"></span></button>
+                                    <ul class="dropdown-menu jobs">
+                                        <li><a routerLink="edit-job/{{job._id}}">{{ 'labels.job.edit_job' | translate  }}</a></li>
+                                        <li><a routerLink="reopen-job/{{job._id}}">{{ 'labels.job.reopen_job' | translate  }}</a></li>
+                                        <li *ngIf="job.isActive"><a (click)="onChange(job, 'Active')">{{ 'labels.job.deactivate_job' | translate  }}</a></li>
+                                        <li *ngIf="job.isActive==false"><a (click)="onChange(job, 'Inactive')">{{ 'labels.job.active_job' | translate  }}</a></li>
+                                        <li *ngIf="deleted=='true'"><a (click)="deleteItem(job._id)">{{ 'labels.job.delete_job' | translate  }}</a></li>
+                                        <li *ngIf="deleted=='false'"><a (click)="archiveItem(job._id)">{{ 'labels.job.archive_job' | translate  }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="font-weight-bolder"><a [routerLink]="['/layout/myaccount/jobs/job-details', job._id]">{{job.title}}</a></h3>
+                            <h6 class="opp">{{job.companyName}}</h6>
+                            <div class="location-list">
+                                <ul class="breif mt-3" *ngIf="job.minimumExperience >=0 && job.maximumExperience >=0">
+                                    <li class="job_des"><i class="fa fa-briefcase"></i> {{job.minimumExperience}} Yrs {{job.maximumExperience}} Months </li>
+                                </ul>
+                                <div class="d-flex mt-2">
+                                    <span class="col-5 pl-0">
+                                        <span class="mt-2">{{ 'labels.job.job_location' | translate }}</span>
+                                        <ul>
+                                            <li class="job_des"><i class="fa fa-map-marker"></i>{{job.address ? job.fullAddress : ''}}</li>
+                                        </ul>
+                                    </span>
+                                </div>
+                                <span class="mt-2">{{ 'labels.job.job_description' | translate }}</span>
+                                <ul>
+                                    <li><p class="card-text text-left mine job_des" innerHtml="{{job.description | slice: 0:150}}"></p></li>
+                                </ul>
+                                <span class="mt-2">{{ 'labels.job.key_skills' | translate }}</span>
+                                <ul class="key-skills skills mt-2">
+                                    <li *ngFor="let skill of job.skillData"><p>{{skill | titlecase}}</p></li>
+                                </ul>
+                                <div>
+                                    <p class="font-weight-bolder m-0"><span style="color: #353535; font-weight: 600; font-size: 15px;">{{'form_lables.validFrom' | translate}} : </span>{{job.walkInDetails[0].startDate | date: 'MMM-dd-yyyy':'UTC'}}</p>
+
+                                </div>
+                                <div>
+                                    <p class="font-weight-bolder m-0"><span style="color: #353535; font-weight: 600; font-size: 15px;">{{'form_lables.validUpto' | translate}} :</span> {{job.walkInDetails[0].endDate | date: 'MMM-dd-yyyy':'UTC'}}</p>
+
+                                </div>
+                                <hr />
+                                <div class="float-right">
+                                    <a [routerLink]="['/layout/myaccount/jobs/job-details', job._id]" class="text-blue"> <strong>{{ 'labels.job.view_detail' | translate }}</strong> </a> &nbsp;
+                                </div>
+                                <div class="float-right">
+                                    <a routerLink="/layout/myaccount/jobs/applicant-list/{{job._id}}" class="text-blue"> <strong>{{ 'labels.job.view_applicants' | translate }}</strong> </a> &nbsp;
+                                </div>
+                                <div class="d-flex">
+                                    <p class="m-2"><strong>{{ 'labels.job.status' | translate }} :</strong> {{job.status}}</p>
+                                    <p class="m-2"><strong>{{ 'labels.job.posted' | translate }} :</strong> {{job.postedAt}}</p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div>
+                    <div *ngIf="noRecordFound" class="text-center"><p>{{ 'No_Records_Found' | translate }}</p></div>
+                    <div style="text-align: center;"><pagination-controls (pageChange)="pageChanged($event)" autoHide="true" responsive="true" directionLinks="true"></pagination-controls></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

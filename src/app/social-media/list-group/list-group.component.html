@@ -1,0 +1,85 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="netword-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="cus-round-with-bg">
+          <h3 class="cus-cart-tit-box">{{ 'myNetwork.sideMenu.heading' | translate }}</h3>
+          <ul class="nav cus-left-navbar">
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/connections" class="nav-link text-capitalize"><i class="far fa-chart-network"></i>{{ 'myNetwork.sideMenu.my_friend' | translate }}</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/layout/social-media/group-list" class="nav-link text-capitalize"> <i class="far fa-users-medical"></i>{{ 'myNetwork.sideMenu.groups' | translate }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="cus-round-with-bg cus-no-bg-mat-tab-group">
+          <button routerLink="../create-group" class="btn common-btn cus-create-group-btn"><i class="fa fa-plus"></i> {{ 'buttons.create_group' | translate }}</button>
+          <mat-tab-group class="col-md-12">
+            <mat-tab label="Your Groups">
+              <div class="col-sm-12 yrs-gp p-l-0 p-r-0">
+                <ul>
+                  <li *ngFor="let list of createGroupLists | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: total }; let i = index">
+                    <a routerLink="/layout/social-media/group-view/{{ list.group_Id }}">
+                      <img class="cus-round-with-img" *ngIf="!list.groupImage" src="assets/Truck-banne-profile.png" />
+                      <img class="cus-round-with-img" *ngIf="list.groupImage" src="{{ group_Image_url + list.groupImage }}" />
+                    </a>
+                    <div class="gp-list">
+                      <h5 class="text-uppercase">
+                        <a routerLink="/layout/social-media/group-view/{{ list.group_Id }}">{{ list.name }}</a>
+                      </h5>
+                      <p class="text-uppercase">{{ list.role }}</p>
+                    </div>
+                    <div class="float-right">
+                      <button
+                        *ngIf="list.role == 'member'"
+                        mat-raised-button
+                        (click)="deleteGroupMember(list)"
+                        matTooltip="Leave this group"
+                        aria-label="Button that displays a tooltip when focused or hovered over"
+                      >
+                        <i class="fas fa-sign-out-alt"></i>
+                      </button>
+                      <button
+                        *ngIf="list.role == 'owner'"
+                        mat-raised-button
+                        (click)="assingGroup(list)"
+                        matTooltip="Leave this group"
+                        aria-label="Button that displays a tooltip when focused or hovered over"
+                      >
+                        <i class="fas fa-sign-out-alt"></i>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+                <div *ngIf="total < 1 || !total" class="text-center mt-2">
+                  <p>{{ 'No_Records_Found' | translate }}</p>
+                </div>
+                <div style="text-align: center; margin-right: 14%" class="text-center" *ngIf="total > itemsPerPage">
+                  <pagination-controls (pageChange)="currentPagegruop($event)" responsive="true" directionLinks="true"></pagination-controls>
+                </div></div
+            ></mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

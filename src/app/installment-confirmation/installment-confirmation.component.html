@@ -1,0 +1,21 @@
+<ngx-spinner>
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div mat-dialog-title class="mb-2">Installment Payment</div>
+<div mat-dialog-content>Are you sure you want to pay in Installment? </div>
+<div mat-dialog-actions class="mb-2"> 
+  <button class="btn common-btn" cdkFocusInitial (click)="payment()" [disabled]="isDisabled" >Yes</button> 
+  <button class="btn common-btn ml-2" (click)="onNoClick()" [disabled]="isDisabled" >No</button>
+</div>

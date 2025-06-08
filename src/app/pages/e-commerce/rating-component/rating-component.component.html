@@ -1,0 +1,126 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="m-t-5 m-b-4">
+    <div class="container" *ngIf="!isLinkedExpired " style='width:39%; margin-top:8%'>
+
+
+        <div class="cont row cus-box p-4" *ngIf="!isAllow">
+            <div class="col-sm-12" *ngIf="!ratingSuccess">
+                <mat-form-field class="col-sm-4 p-0 searchByCategory">
+                    <div class="drop_down_design_active">
+                        <mat-select [(ngModel)]="isRatingSelected" class="p-0"
+                            (selectionChange)="onRatingSelect($event)"> <mat-option *ngFor="let list of RatingArray"
+                                value="{{list.value}}">{{list.name}}</mat-option>
+                        </mat-select>
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12" *ngIf="!ratingSuccess">
+                <form [formGroup]="form" class='rating' (ngSubmit)='submit()'>
+
+                    <div *ngIf="isRatingSelected=='true' && !ratingSuccess"
+                        class='rating_heading mb-3 col-sm-12 text-center'>
+                        <span>Kindly provide the rating for
+                            <!-- <select name="city" class="rounded-inputs20 select-select col-md-4" style="width: 300px;"
+                                                                                                placeholder="Products" (change)="onChange($event)">
+                                                                                                <option disabled selected value="">Products</option>
+                                                                                                <option *ngFor="let product of allProduct" [value]="product._id">{{product.productName}}
+                                                                                                </option>
+                                                                                            </select> -->
+
+                            <mat-form-field class="example-full-width col-sm-4" appearance="outline">
+                                <mat-label>Select Product</mat-label>
+                                <mat-select class="col-sm-4 p-0 searchByCategory" (selectionChange)="onChange($event)"
+                                    class="p-0">
+                                    <mat-option [value]="" selected>Select Product</mat-option>
+                                    <mat-option *ngFor="let product of allProduct"
+                                        [value]="product._id">{{product.productName}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            product based on your experience .
+                        </span>
+                    </div>
+
+                    <div *ngIf="isRatingSelected=='false' && !ratingSuccess"
+                        class='rating_heading mb-3 col-sm-12 text-center'> <span>Kindly provide rating for seller
+                            based on your experience .</span>
+                    </div>
+                    <div class="stars col-sm-12" *ngIf="!ratingSuccess" style="display: flex; justify-content: center;">
+                        <!-- <ngx-star-rating formControlName="rating" [id]="'rating3'"></ngx-star-rating> -->
+                        <!-- changes by shivam kashyap   15-12-2023 -->
+                        <rating formControlName="rating" [id]="'rating3'"></rating>
+
+                    </div>
+                    <div class="col-sm-12 mt-4 text-center">
+
+                        <button class='btn btn-e-commerce' *ngIf="!ratingSuccess" type='submit'
+                            [disabled]='!form.value.rating'>Submit</button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 text-center" *ngIf="ratingSuccess"
+                style="display: flex;justify-content: center;align-items: center;">
+                <img src="assets/checked.png" alt="img" style="height: 100px;width: 100px;" />
+            </div>
+            <div class="col-sm-12 text-center" *ngIf="ratingSuccess"
+                style="display: flex;justify-content: center;align-items: center;">
+                <p class="m-0 p-0">Thanks for give <rating [id]="'rating3'" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="ratingValue"></rating> rating for {{Name}} <span *ngIf="ratingType=='PRODUCT'">
+                        product</span> .</p>
+            </div>
+
+            <div class="col-sm-12 d-flex justify-content-center" *ngIf="ratingSuccess">
+                <button class="btn back-btn m-2" routerLink="/layout/e-commerce/dashboard">{{'buttons.back' |
+                    translate}}</button>
+            </div>
+        </div>
+
+        <div class="cont row cus-box p-4" *ngIf="isAllow">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <h3 style="color:black; display: flex;
+            justify-content: center;
+            align-items: center;">You cannot give rating.</h3>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button class="btn back-btn m-2" routerLink="/layout/e-commerce/dashboard">{{'buttons.back' |
+                    translate}}</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" *ngIf="isLinkedExpired " style='width:39%; margin-top:8%'>
+
+
+
+        <div class="cont row cus-box p-4">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <h3 style="color:black; display: flex;
+                    justify-content: center;
+                    align-items: center;">Link is expired.</h3>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button class="btn back-btn m-2" routerLink="/layout/e-commerce/dashboard">{{'buttons.back' |
+                    translate}}</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>

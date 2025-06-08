@@ -1,0 +1,99 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<form [formGroup]="sharePostForm" (ngSubmit)="onSubmitSharePostForm()" class="cus-share-post">
+    <div class="modal-header">
+        <h4 class="modal-title mfont">{{'myNetwork.Share_post' | translate}}</h4> <button type="button"
+            class="close cus-close-post" (click)="onNoClick()">&times;</button>
+    </div>
+    <div class="modal-body cus_height_body ">
+        <div class="row"> <span class="col-sm-2 p-r-0">
+                <div> <img *ngIf="!userObj.userInfo.image" src="assets/Truck-banne-profile.png"
+                        class="cus-round-with-img"> <img *ngIf="userObj.userInfo.image"
+                        src="{{endUser + userObj.userInfo.image}}" class="cus-round-with-img" /> </div>
+            </span> <span class="col-sm-6 p-l-0">
+                <h6 class="font-weight-bold pt-2">{{userName | titlecase}}</h6>
+            </span> </div>
+        <div class="col-sm-12 p0 m-b-1 mt-3"> <textarea matInput formControlName="text"
+                class="cus-post-textarea text-design" placeholder="{{'myNetwork.what_talk' | translate}}"
+                id="autoresizing" style="max-height: 120px!important;" maxlength="3000"></textarea> </div><mat-error
+            *ngIf=" sharePostForm.controls['text'].invalid && sharePostForm.controls['text'].touched"> Please enter
+            caption </mat-error>
+        <div class="col-sm-12 p-l-0 p-r-0">
+            <div class="cus-round-with-bg p-2" *ngIf="post.type !=='SHARED'">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="pro-round-img"> <img *ngIf="!post.userData.image"
+                                src="assets/Truck-banne-profile.png" height="100%"> <img *ngIf="post.userData.image"
+                                src="{{endUser + post.userData.image}}" height="100%" /> </div>
+                    </div>
+                    <div class="col-sm-5 post-listing p-l-0">
+                        <h3>{{post.userData.personName}}</h3>
+                    </div>
+                </div>
+                <div class="row m-t-1">
+                    <div class="col-sm-12 cus_height_shared">
+                        <p innerHtml="{{post?.captionTwo}}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 cus_height_post "> <owl-carousel-o [options]="customOptions"
+                            class="cus-event-slider"> <ng-template carouselSlide *ngFor="let img of data.post.media">
+                                <!-- <div *ngIf="img.type=='IMAGE'"> <img src="{{postImage_path + img.name}}"> </div>
+                                <div *ngIf="img.type=='VIDEO'"> <video src="{{postVideo_path + img.name}}" alt=""
+                                        height="100%" width="100%" controls autoplay></video> </div> -->
+                                        <div *ngIf="img.type=='IMAGE'"> <img src="{{postImage_path+img.name}}"> </div>
+                                <div *ngIf="img.type=='VIDEO'"> <video src="{{postVideo_path+img.name}}" alt=""
+                                        height="100%" width="100%" controls autoplay></video> </div>
+                            </ng-template> </owl-carousel-o> </div>
+                </div>
+            </div>
+            <div class="cus-round-with-bg p-2" *ngIf="post.type=='SHARED'">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="pro-round-img"> <img *ngIf="!post.orignalPostData.userData.image"
+                                src="assets/Truck-banne-profile.png" height="100%"> <img
+                                *ngIf="post.orignalPostData.userData.image"
+                                src="{{endUser + post.orignalPostData.userData.image}}" height="100%" /> </div>
+                    </div>
+                    <div class="col-sm-5 post-listing p-l-0">
+                        <h3>{{post.orignalPostData.personName}}</h3>
+                    </div>
+                </div>
+                <div class="row m-t-1">
+                    <div class="col-sm-12 cus_height_shared">
+                        <p innerHtml="{{post.orignalPostData.caption}}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 cus_height_post "> <owl-carousel-o [options]="customOptions"
+                            class="cus-event-slider"> <ng-template carouselSlide
+                                *ngFor="let img of post.orignalPostData?.media">
+                                <div *ngIf="img.type=='IMAGE'"> <img src="{{postImage_path + img.name}}"> </div>
+                                <div *ngIf="img.type=='VIDEO'"> <video src="{{postVideo_path + img.name}}" alt=""
+                                        height="100%" width="100%" controls autoplay></video> </div>
+                            </ng-template> </owl-carousel-o> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-sm-12 text-right p-l-0 p-r-0"> <button [mat-dialog-close]="true" cdkFocusInitial
+                class="btn common-btn">{{'buttons.cancel' | translate}}</button> <button type="submit"
+                class="btn common-btn ml-2" [disabled]="!sharePostForm.value.text.trim()">{{'buttons.post' |
+                translate}}</button> </div>
+    </div>
+</form>

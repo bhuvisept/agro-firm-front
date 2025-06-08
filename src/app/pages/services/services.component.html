@@ -1,0 +1,81 @@
+
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="about mob-top-spc">
+  <div class="container">
+    <div class="col-sm-12 text-center mb-4 pt-2 pb-2">
+      <h2 class="text-uppercase">{{ 'Services' | translate }}</h2>
+      <span class="cus-tit-bor"></span>
+    </div>
+    <div class="row cus-round-with-bg pl-3 pr-3 pb-3 pt-3 pt-sm-0">
+      <div class="col-sm-12">
+        <div class="cus-search-input row wt-100-on-mobile-flx">
+          <mat-form-field class="col-3 p-0 wt-100-on-mobile">
+            <div class="drop_down_design_active">
+              <mat-select [(ngModel)]="isDistance" placeholder="Select distance">
+                <mat-option *ngFor="let list of distanceArray" value="{{ list.value }}" >
+                {{ list.name }}
+                </mat-option>
+              </mat-select>
+            </div>
+          </mat-form-field>
+          <input placeholder="Enter name" [(ngModel)]="searchText" autocomplete="off" class="wt-100-on-mobile cus-input-with-round mt-4 cus-input col-sm-3 mr-4 ml-4"/>
+         <div class="mt-4 cus-search-input wt-100-on-mobile-btn">
+          <button type="submit" class="btn mt-4 " (click)="getServicesList(1)">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-res mt-4 " label="Reset" title="Reset" (click)="resetbutton()"><i class="fa fa-refresh" title="reset"></i></button>
+         </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="row pl-3 pr-3">
+      <div class="col-sm-12 cus-wrap-pro cus-box-with-radio" *ngFor="let list of getServicesListData | paginate: { itemsPerPage: itemsPerPage, currentPage: pageNew, totalItems: newtotalCount }; let i = index">
+        <div class="row">
+          <div class="col-sm-4">
+            <a routerLink="/pages/services-detail/{{list._id}}">
+              <img loading ="lazy" src="{{SERVICESIMAGE}}{{list.serviceImage}}" class="cus-servic-img img-fluid">
+            </a>
+          </div>
+          <div class="col-sm-8">
+            <a routerLink="/pages/services-detail/{{list._id}}">
+              <h3> {{list.serviceName | titlecase}}</h3>
+            </a>
+            <!-- <p ><strong>{{ 'labels.service.service_cost' | translate }}</strong> :&nbsp;{{list.currency}} {{list.serviceCost | currency:'':'' }}</p> -->
+            <p *ngIf="list.contactNumber" ><strong>{{ 'labels.service.phone_number' | translate }} </strong> : +1 
+              
+              ({{list.contactNumber | slice:0:3}})-{{list.contactNumber | slice:3:6}}-{{list.contactNumber | slice:6:10}}
+            </p>
+            <p><strong>{{ 'labels.service.location' | translate }}</strong> : {{list.address }}</p>
+            <p class="cus-text-brack"> <strong>{{ 'labels.service.description' | translate }}</strong> : {{list.description | slice: 0:120 }}</p>
+            <a routerLink="/pages/services-detail/{{list._id}}" class="text-primary">{{'buttons.read_more' | translate}}</a>
+          </div>
+        </div>
+      </div> 
+      <div class="container" *ngIf="newtotalCount == 0" >
+        <P class="text-center"> {{ 'No_Records_Found' | translate }} </P>
+      </div>
+      <div class="text-center mainpagination m-auto"  *ngIf="newtotalCount  > itemsPerPage">
+        <pagination-controls  (pageChange)="savePageChanged($event)" class="custom-pagination-designe"></pagination-controls>
+      </div>
+     
+    </div>
+  </div>
+</section>
+
+

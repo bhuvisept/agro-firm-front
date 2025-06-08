@@ -1,0 +1,1442 @@
+{
+  "navigationCompanyMenuSeller": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/e-commerce/dashboard",
+      "navitem": "Home"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    }
+  ],
+  "navigationCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Home"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Jobs"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My Network"
+    }
+  ],
+  "navigationUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Home",
+      "showPopUp": false
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat",
+      "showPopUp": false
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My Network",
+      "showPopUp": false
+    }
+  ],
+  "navigationHrMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Home"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Manage Team"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    }
+  ],
+  "navigationDispatcherMenu": [
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/pages/services",
+      "navitem": "Services"
+    }
+  ],
+  "navigationMobileCompanyMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Home"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "/chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My Network"
+    },
+    {
+      "navimg": "fal fa-calendar-alt pl-2",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Events"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Trip Planner"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Jobs"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Wishlist"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Fleet manager"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Manage Team"
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Services"
+    }
+  ],
+  "navigationMobileUserMenu": [
+    {
+      "navimg": "fal for-hov fa-home",
+      "navlink": "/layout/myaccount/dashboard",
+      "navitem": "Home"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "../chat-window",
+      "navitem": "Chat"
+    },
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My Network"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "My Events"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "My Jobs"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Wishlist"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/pages/search-job/jobs",
+      "navitem": "Post Jobs",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "/pages/events",
+      "navitem": "Post Events",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Trip Planner",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Add Services",
+      "showPopUp": true
+    }
+  ],
+  "Truck_News": "Truck News",
+  "Delete_conversation":"Delete Conversation",
+  "Block":"Block",
+  "UnBlock":"UnBlock",
+  "My_event": "My event",
+  "My_Jobs": "My jobs",
+  "Notification": "Notifications",
+  "Language": "Language",
+  "My_community": "My community",
+  "Blogs": "Blogs",
+  "Services": "Services",
+  "Like": "Like",
+  "Comments": "Comments",
+  "Share": "Share",
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "Report": "Report",
+  "blog_detail": "blog details",
+  "view_all_notifi": "View all notification",
+  "Price": "Price",
+  "dashboard": {
+    "post": "Write a post",
+    "photo": "Photo",
+    "video": "Video",
+    "grp_post": "Start a conversation in this group"
+  },
+  "navigationCompanySideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My network"
+    },
+    {
+      "navimg": "fal fa-calendar-alt mr-3",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Events"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Trip Planner"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Wishlist"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Fleet manager"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/team-manager",
+      "navitem": "Manage Team"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    },
+    {
+      "navimg": "fal fa-tools ml-1",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Services"
+    }
+  ],
+  "navigationHRSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My network"
+    },
+    {
+      "navimg": "fal fa-calendar-alt ",
+      "navlink": "/layout/myaccount/event-management",
+      "navitem": "Events"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/myaccount/jobs",
+      "navitem": "Jobs"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "navigationEnduserSideMenu": [
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "My Events"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "My Jobs"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Fleet manager"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Wishlist"
+    },
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Trip Planner",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fal fa-tools",
+      "navlink": "/layout/myaccount/service",
+      "navitem": "Add Services",
+      "showPopUp": true
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "navigationDriverSideMenu": [
+    {
+      "navimg": "fal fa-chart-network",
+      "navlink": "/layout/social-media",
+      "navitem": "My network"
+    },
+    {
+      "navimg": "fal fa-calendar-alt",
+      "navlink": "my-event",
+      "navitem": "My Events"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "my-jobs",
+      "navitem": "My Jobs"
+    },
+    {
+      "navimg": "fal fa-bags-shopping",
+      "navlink": "wish-list",
+      "navitem": "Wishlist"
+    },
+    {
+      "navimg": "fal for-hov fa-briefcase",
+      "navlink": "/layout/driver/planned-trip",
+      "navitem": "Trips Detail"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    }
+  ],
+  "navigationDispatcherSideMenu": [
+    {
+      "navimg": "fal fa-truck-container",
+      "navlink": "/layout/myaccount/trip-planner",
+      "navitem": "Trip Planner"
+    },
+    {
+      "navimg": "fal fa-truck",
+      "navlink": "/layout/myaccount/manage-truck",
+      "navitem": "Fleet manager"
+    },
+    {
+      "navimg": "fal fa-users-medical",
+      "navlink": "/layout/myaccount/manage-team",
+      "navitem": "Manage Team"
+    },
+    {
+      "navimg": "fas fa-ticket-alt",
+      "navlink": "/layout/myaccount/my-tickets",
+      "navitem": "My Tickets"
+    },
+    {
+      "navimg": "far for-hov fa-comment",
+      "navlink": "../chat-window",
+      "navitem": "Chat"
+    }
+
+  ],
+  "Switch_to_seller": "Switch to seller",
+  "gps_navigation": "GPS Navigation",
+  "Advertisement": "Advertisement",
+  "No_Records_Found": "No Records Found",
+  "About_us": "About us",
+  "see_more": "see more",
+  "Read_more": "Read more",
+  "Are_archive_job": "Are you sure you want to archive this job?",
+  "Are_deactive_job": "Are you sure you want to deactivate this job..?",
+  "Are_active_job": "Are you sure you want to activate this job..?",
+  "Are_delete_job": "Are you sure you want to delete this job?",
+  "Are_archive_information": "Are you sure you want to archive this information?",
+  "Are_you_leave": "Are you sure you want to leave ?",
+  "Sign_up_as_company_plan": "Sign up as a company to purchase this plan",
+  "Sign_up_as_company_feature": "Sign up as a company to access this feature",
+  "Are_you_sure_remove_from_company": "Are you sure you want to remove this member from your company ?",
+  "Are_you_sure_retrive_from_company": "Are you sure you want to retrive this member from your company ?",
+  "Are_you_sure_delete_from_company": "Are you sure you want to de-activate this account ?",
+  "Assign_Group_admin": "Assign a Group admin",
+  "Remove_Connection": "Remove Connection",
+  "Are_sure_remove_connection": "Are you sure you want to remove this connection?",
+  "leave_company": " You will not be able to work as a driver for this company anymore.Please select a reason to leave",
+  "plan_exceed": {
+    "compny_exceed": "You have exceeded the maximum allowed limit of actions in your plan",
+    "company_upgrade": "To continue the benefits Please upgrade your plan.",
+    "user_exceed": "The maximum allowed limit of action your Company's plan is exceeded.",
+    "user_upgrade": "Please get in touch with them."
+  },
+  "buttons": {
+    "Post_job": "Post Jobs",
+    "trip_plan": "Trip Plan",
+    "click_here": "Click Here",
+    "search": "Search",
+    "reset": "Reset",
+    "cont_seller": "Contact Seller",
+    "connect": "connect",
+    "create_group": "Create Group",
+    "invite_conne": "Invite connections",
+    "see_all": "See all",
+    "share_grp": "Share group",
+    "create_event": "Create Event",
+    "add_vehicle": "Add Vehicle",
+    "back": "Back",
+    "submit": "Submit",
+    "invite_member": "Invite Member",
+    "add_service": "Add Service",
+    "read_more": "Read More",
+    "contact_us": "contact us",
+    "buy_now": "buy now",
+    "add_cart": "add to cart",
+    "go_cart": "go to cart",
+    "send_message": "send message",
+    "manage_event": "Manage Events",
+    "edit_event": "Edit Event",
+    "reopen_event": "Reopen Event",
+    "book": "Book",
+    "booked": "Booked",
+    "book_now": "Book Now",
+    "create": "Create",
+    "update": "Update",
+    "post_job": "Post Job",
+    "update_job": "Update Job",
+    "favorite_job": "Favorite Job",
+    "favorited": "Favorited",
+    "apply": "Apply",
+    "applied": "Applied",
+    "unfavorite_job": "Unfavorite Job",
+    "Update_Profile": "Update Profile",
+    "add_product": "Add Product",
+    "cancel": "Cancel",
+    "Next": "Next",
+    "post": "Post",
+    "yes": "Yes",
+    "no": "No",
+    "post_event": "Post Event",
+    "btn_invite_member": "Invite Member",
+    "leave": "Leave",
+    "accept": "Accept",
+    "ignore": "Ignore",
+    "Direction": "Directions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "Join_group": "Join group",
+    "Requested": "Requested",
+    "view_profile": "View Profile",
+    "Pending": "Pending",
+    "close": "Close",
+    "Register": "Register",
+    "add_ticket": "Add Ticket"
+  },
+  "Chats": {
+    "Chats": "Chats",
+    "Groups": "Groups",
+    "Seller": "Seller",
+    "New_Conversation": "New Conversation",
+    "UserChat": "User Chat",
+    "SalesPerson": "Sales Person"
+  },
+  "homeLinks": {
+    "Home": "Home",
+    "About_us": "About us",
+    "Services": "Services",
+    "Trip_planner": "Trip planner",
+    "E-Commerce": "E-Commerce",
+    "Blogs": "Blogs",
+    "Jobs": "Jobs",
+    "Events": "Events",
+    "Pricing": "Buy now",
+    "Contact_us": "Contact us",
+    "Logout": "Logout",
+    "My_account": "My account"
+  },
+  "homeContent": {
+    "we_give": "WE GIVE YOU <span class='text-primary'>THE BEST</span>",
+    "content_1": "Mytruck.one is the one stop solution to all the needs of trucking industry from buying a truck to assisting your driver with various route facilities like tracking, weather forecast & markers on route.",
+    "content_2": "Mytruck.one platform is designed to provide various services like Finding & Posting Jobs, Organizing Events,Trip Planning, Fleet Management, Route Weather, E-commerce of Truck & Truck parts & Social media services for all stakeholders in the industry.",
+    "fourContent": {
+      "first": "E-commerce",
+      "first_des": "A place where you can find & post deals to buy/sell truck, truck parts & accessories.",
+      "second": "Jobs & Events",
+      "second_des": "Here you can catch & provide the lucrative jobs & trending events of trucking industry.",
+      "third": "Trip planner",
+      "third_des": " Best web & app platform to plan the suitable truck routes & navigation on maps for your drivers.",
+      "forth": "Networking",
+      "forth_des": " An Interface to connect, chat & share your thoughts, activities & moments with your dearest ones in the form of media as well."
+    },
+    "download_app": "Download The App Now",
+    "download_des": "A trucking platform including resource gathering, event organizing, shopping and specially to assist drivers with all the vital information of truck routes navigations.",
+    "who_we": "WHO WE <span class='text-primary'>ARE</span> ",
+    "who_we_des": " Mytruck.one facilitates you with wide range of services pertaining to truck , trailer and truck accessories.Here you can search and choose truck services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to truck and add services offered too."
+  },
+  "About_us_sec": {
+    "heading": "ABOUT-US",
+    "content_1_a": "Mytruck.one is an incredibly advance and technologically developed trucking platform & app that can contribute in boosting your trucking business. It is a platform with multifarious uses and features integrated within it. We offer trustworthy and client oriented services. Go for the Mytruck.one for unique trucking experience.",
+    "content_1_b": "Users can book events, apply jobs , buy/rent/lease a truck , trailer & Tractor unit (used/new) , can buy accessories , spare parts (used/new). Seller can add any new/old truck/trailer/tractor unit/accessories/spare parts to sell/rent/lease. You can also plan trip with the help of trip planner that serves as a route guide according to the size, weight of the trailer, it will be predictive of any roadblocks expected on the way, so that the route can be altered and goods can be delivered timely. We provide the best truck route maps & truck gps navigation for drivers & companies to assist in load trips.",
+    "content_1_c": "E-commerce service facilitates you buying/selling & rental services , here you can purchase truck/ trailer online, rent a truck, lease a truck/trailer, sell truck trailer online, you will have access to truck accessories(new or used), truck spare parts(new or used) etcs you can sell new or used trucks/ trailers etc. This is a customized section that can help to boost your business sales and aids you in reaching the pinnacle of success.",
+    "sub_head": "THE COMPANY YOU CAN TRUST",
+    "content_2_a": "Mytruck.one facilitates you with wide range of services pertaining to truck , trailer and truck accessories. Here you can search and choose truck services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to truck and add services offered too.",
+    "content_2_b": "Mytruck.one is the one stop solution to all the needs of trucking Industry from Buying a truck to assisting your driver for the best route. Or goal is to provide jobs to drivers, assisting companies in planning trip & deciding route, organizing events as well as the buying/selling/leasing services for every stakeholder in the industry.",
+    "img_cnt": "This platform offers connectivity to family members, friends via chat, sharing videos , images, managing groups etc. This will also work as the trip planner for the truck driver regarding stoppages and breaks to be taken as per hours of service."
+  },
+  "e-commerce": {
+    "what_deals": "What deal are you interested in?",
+    "Names": {
+      "Trucks": "Trucks",
+      "Trailers": "Trailers",
+      "Tractor_Units": "Tractor Units",
+      "Spare_Parts": "Spare Parts",
+      "Accessories": "Accessories"
+    },
+    "filters": {
+      "fil_by_key": "Filter by keyword",
+      "fil_by_subCat": "Select sub-category",
+      "fil_by_brand": "Select brand",
+      "fil_by_model": "Select model",
+      "prod_condi": "Product condition",
+      "price": "Price",
+      "year": "year"
+    },
+    "total_results": "Total Results",
+    "have_que": "Have a question?",
+    "cus_qa": "Customers Q&A's",
+    "simi_pro": "Similar Products",
+    "abt_item": "About this item",
+    "first_ask_ques": "Be the first to ask a question"
+  },
+  "trip_planner": {
+    "heading": "Trip Planner",
+    "driver_left": "Driver exited company",
+    "anothr_left": "Substitute driver exited company",
+    "table_head": {
+      "origin": "Origin",
+      "destination": "Destination",
+      "driver": "Driver",
+      "load_number": "Load Number",
+      "action": "Action"
+    },
+    "actions": {
+      "track": "Track",
+      "add_stop": "Add Stoppage",
+      "trip_detail": "Trip Detail",
+      "cancel": "Cancel",
+      "mark_start": "Mark As Start",
+      "mark_complete": "Mark As Complete",
+      "reassign_driver": "Reassign Driver",
+      "assign_driver": "Assign Driver"
+    }
+  },
+  "footer": {
+    "content": "WOULD YOU LIKE TO KNOW MORE ABOUT OUR SERVICES?",
+    "sub_cnt": "We are always waiting with pleasure to hear your valuable queries"
+  },
+  "jobs": {
+    "title": "Search For Your Next Job",
+    "all_fil": "All Filter",
+    "view_detail": "View Detail"
+  },
+  "activity": "Activity",
+  "myNetwork": {
+    "invitations": "Invitations",
+    "members": "Members",
+    "tabber": {
+      "invitations": "Invitations",
+      "groups_invitations": "Groups invitations",
+      "job_invitations": "Job invitations",
+      "your_groups": "Your Groups"
+    },
+    "no_invitations": "No invitations yet",
+    "recommended_people": "Recommended people for you",
+    "sideMenu": {
+      "heading": "Manage My Network",
+      "my_friend": "My Friends",
+      "groups": "Groups"
+    },
+    "connections": "Connections",
+    "grp_detail": {
+      "edit_grp": "Edit Group",
+      "groups": "Groups",
+      "members": "Members",
+      "about": "About This Group",
+      "group_name": "Group Name",
+      "description": "Description",
+      "Please_enter_description": "Please enter description"
+    },
+    "create_grp_post": {
+      "create": "Create a group post",
+      "Share_group": "Share a group"
+    },
+    "you_are_invite": "You are invited for the role of ",
+    "grp_req": "Group request",
+    "Create_post": "Create a post",
+    "what_talk": "What do you want to talk about?",
+    "Edit_post": "Edit a post",
+    "Report_post": "Report a post",
+    "Share_post": "Share a post",
+    "Delete_Group_Post": "Delete Group Post",
+    "Delete_Post": "Delete Post",
+    "delete_post_des": "Are you sure you want to Delete this post?"
+  },
+  "events": {
+    "tabber": {
+      "top": "Top",
+      "weekly": "Weekly",
+      "all": "All",
+      "booked": "Booked"
+    }
+  },
+  "wish_list": "My wishlist",
+  "fleet_manager": {
+    "heading": "Fleet Manager",
+    "vehicle_type": "Vehicle Type",
+    "name": "Name",
+    "weight": "Weight",
+    "length": "Length",
+    "trailerVinNumber": "Trailer Vin Number",
+    "height": "Height",
+    "Image": "image",
+    "action": "Action",
+    "detail": "Detail Information",
+    "edit": "Edit Information",
+    "info": "Vehicle Information"
+  },
+  "manage_team": {
+    "manage_team": "Manage Team",
+    "separated_employees": "Separated Employees",
+    "headings": {
+      "name": "Name",
+      "Email": "Email",
+      "phone": "Phone No.",
+      "access": "Access",
+      "joining_date": "Joining Date",
+      "documents": "DOC",
+      "action": "Action",
+      "reason": "Reason",
+      "separation": "Separation Date"
+    }
+  },
+  "my_tickets": {
+    "heading": "My Tickets",
+    "ticket_id": "Ticket ID",
+    "name": "Name",
+    "project": "Project",
+    "subject": "Subject",
+    "created_by": "Created By",
+    "status": "Status",
+    "action": "Action",
+    "add_ticket":{
+      "heading":"Add Ticket",
+      "labels":{
+        "subject":"Subject"
+      }
+    }
+  },
+
+  "trip_detail": {
+    "heading": "Trips Detail",
+    "titles": {
+      "origin": "Origin",
+      "destination": "Destination",
+      "load_number": "Load Number",
+      "running_status": "Running Status",
+      "action": "Action"
+    }
+  },
+  "subscription_plan": {
+    "heading": "subscription plan",
+    "select_plan": "Select your plan",
+    "get_cutom_plan": "Get A Customizable plan as per your Requirements",
+    "upgrade_plan": "Upgrade",
+    "plan": "Plan"
+  },
+  "contact_us": {
+    "heading": "Just write us here!",
+    "sub_head": "Interested for custom plan or any question?",
+    "qry_abt": {
+      "head": "What is your query related to?",
+      "item_1": "Subscription Plan",
+      "item_2": "Other"
+    },
+    "side_items": {
+      "head": "Contact Information",
+      "sub_head": "Fill up the form and our team will get back to you within 24hours"
+    }
+  },
+  "labels": {
+    "event": {
+      "event_by": "Event by",
+      "speaker": "Speaker",
+      "interested_people": "Interested People",
+      "event_fee": "Event Fee",
+      "about": "About",
+      "address": "Address",
+      "venue": "Venue",
+      "event_link": "Event Link"
+    },
+    "job": {
+      "job_location": "Job Location",
+      "job_description": "Job Description",
+      "key_skills": "Key Skills",
+      "end_date": "End Date",
+      "posted": "Posted",
+      "status": "Status",
+      "view_applicants": "View Applicants",
+      "view_detail": "View Detail",
+      "manage_jobs": "Manage-Jobs",
+      "edit_job": "Edit Job",
+      "reopen_job": "Reopen Job",
+      "deactivate_job": "Deactivate Job",
+      "archive_job": "Archive Job",
+      "active_job": "Active Job",
+      "delete_job": "Delete Job",
+      "salary": "Compensation",
+      "job_view": {
+        "job_title": "Job Title",
+        "company_name": "Company Name",
+        "salary_type": "Compensation Type",
+        "min": "Minimum",
+        "max": "Maximum",
+        "openings": "Openings",
+        "job_applicants": "Job Applicants",
+        "job_description": "Job Description",
+        "qualifications": "Qualifications",
+        "key_skills": "Key Skills",
+        "functional_area": "Functional Area",
+        "industry": "Industry",
+        "employment_type": "Employment Type",
+        "contact_person": "Contact Person",
+        "phone_number": "Phone Number",
+        "start_date": "Start Date",
+        "end_date": "End Date",
+        "venue": "Venue",
+        "company_website": "Company Website",
+        "company_details": "Company Details",
+        "Walk_in_details": "Walk-in Details"
+      },
+      "search_job": {
+        "education": "Education",
+        "Industry": "Industry"
+      }
+    },
+    "service": {
+      "heading": "Service Details",
+      "service_cost": "Service cost",
+      "location": "Location",
+      "view": "View",
+      "archive": "Archive",
+      "phone_number": "Phone number",
+      "description": "Description"
+    },
+    "ecommerce": {
+      "brand": "Brand",
+      "model": "Model",
+      "year_of_production": "Year of Production",
+      "condition": "Condition",
+      "price": "Price",
+      "location": "Location",
+      "sub_category": "Sub Category",
+      "product_type": "Product Type",
+      "brakes": "Brakes",
+      "color": "Color",
+      "engine_make": "Engine Make",
+      "engine_displacement": "Engine Displacement",
+      "engine_power_output": "Engine Power Output",
+      "fuel_capacity": "Fuel Capacity",
+      "fuel_type": "Fuel Type",
+      "gross_weight": "Gross Weight",
+      "height": "Height",
+      "width": "Width",
+      "load_capacity": "Load Capacity",
+      "mileage": "Mileage",
+      "net_weight": "Net Weight",
+      "suspension": "Suspension",
+      "transmission_type": "Transmission Type",
+      "wheel_base": "Wheel Base",
+      "description": "Description",
+      "sold_by": "Sold By",
+      "seller_rating": "Seller Rating",
+      "seller_location": "Location",
+      "length": "Length",
+      "engine_hours": "Engine Hours",
+      "no_of_miles": "No Of Miles",
+      "weight": "Weight"
+    },
+    "trip_planner": {
+      "Trip_Details": "Trip Details",
+      "load_number": "Load Number",
+      "Running_Status": "Running Status",
+      "Source": "Starting point",
+      "Destination": "Destination",
+      "Multiple_Destination": "Assorted Destination",
+      "finalDestination": "Landing Place",
+      "Depart_Date": "Depart Date",
+      "Arrive_Date": "Arrive Date",
+      "Alternate_Routes": "Alternate Routes",
+      "Name": "Name",
+      "Email": "Email",
+      "Phone_Number": "Phone Number",
+      "heading": "Driver Details",
+      "heading_2": "Another Driver Details",
+      "truck_details": {
+        "heading": "Truck Details",
+        "Nick_Name": "Nick Name",
+        "Brand": "Brand",
+        "Model_Number": "Model Number",
+        "Weight": "Weight",
+        "Height": "Height",
+        "Width": "Width",
+        "Power": "Power",
+        "Engine_Number": "Engine Number",
+        "Fuel_Type": "Fuel Type",
+        "Fuel_Capacity": "Fuel Capacity",
+        "Number_Of_Tyres": "Number Of Tyres",
+      
+        "Wheelbase": "Wheelbase"
+      },
+      "Trailer_Details": {
+        "heading": "Trailer Details",
+        "Nick_Name": "Nick Name",
+        "Trailer_Type": "Trailer Type",
+        "Height": "Height",
+        "Weight": "Weight",
+        "Width": "Width",
+        "Load_Capacity": "Load Capacity"
+      }
+    },
+    "fleet_manage": {
+      "Nick_Name": "Nick Name",
+      "Brand": "Brand",
+      "Model_Number": "Model Number",
+      "Weight": "Weight",
+      "Height": "Height",
+      "Width": "Width",
+      "Power": "Power",
+      "Engine_Number": "Engine Number",
+      "Fuel_Type": "Fuel Type",
+      "Fuel_Capacity": "Fuel Capacity",
+      "Number_Of_Tyres": "Number Of Tyres",
+      "Wheelbase": "Wheelbase",
+      "Trailer_Type": "Trailer Type",
+      "Load_Capacity": "Load Capacity"
+    },
+    "profile_view": {
+      "name": "Name",
+      "about": "About",
+      "email": "Email",
+      "city": "City",
+      "workplace": "Workplace"
+    }
+  },
+  "form_lables": {
+    "select_archived_status": "Select archived status",
+    "validFrom":"Valid From",
+    "validUpto":"Valid Upto",
+    "event": {
+      "event_name": "Event name",
+      "timezone": "Timezone",
+      "start_date": "Start date/Start time",
+      "end_date": "End date/Start time",
+      "speaker": "Speaker",
+      "Select_curr": "Select Currency",
+      "event_fee": "Event fee",
+      "visibility": "Visibility",
+      "location": "Location",
+      "is_virtual": "This is a virtual event",
+      "address": "Address",
+      "venue": "Venue",
+      "event_link": "Registration or broadcast link"
+    },
+    "job": {
+      "heading_create": "Post a Job",
+      "heading_edit": "Edit a Job",
+      "job_title": "Job Title",
+      "employment_type": "Employment Type",
+      "job_description": "Job Description",
+      "key_skills": "Key Skills",
+      "educational_qualification": "Educational Qualification",
+      "work_experience_years": "Work Experience (Years)",
+      "work_experience_months": "Work Experience (Months)",
+      "select_currency": "Select Currency",
+      "salary_range": "Compensation Range",
+      "salary_type": "Compensation Type",
+      "min_salary": "Minimum",
+      "max_salary": "Maximum",
+      "location": "Location",
+      "industry": "Industry",
+      "functional_area": "Functional Area",
+      "company_website": "Add Company Website",
+      "number_of_vacancies": "Number of Vacancies",
+      "company_name": "Company Name",
+      "start_date": "Start Date/Start Time",
+      "end_date": "End Date/End Time",
+      "contact_person": "Contact Person",
+      "phone_number": "Phone Number",
+      "venue": "Venue",
+      "company_details": "Company Details",
+      "address": "Address",
+      "include_walk_in": "Include walk-in details",
+      "search_job": {
+        "by_title": "Search by Title & Company",
+        "by_location": "Search by Location"
+      }
+    },
+    "service": {
+      "title": "Title",
+      "phone_number": "Phone Number",
+      "description": "Description",
+      "select_currency": "Select Currency",
+      "service_cost": "Service Cost",
+      "location": "Location",
+      "update_service": "update service"
+    },
+    "fleet_manager": {
+      "vehicle_type": "Vehicle Type",
+      "Nick_Name": "Nick Name",
+      "Brand": "Brand",
+      "Model_number": "Model number",
+      "Weight": "Weight(lbs)",
+      "Height": "Height(in)",
+      "Width": "Width(in)",
+      "Fuel_Type": "Fuel Type",
+      "Engine_number": "Engine number",
+      "Fuel_capacity": "Fuel capacity(gl)",
+      "Number_of_tyres": "Number of tyres",
+      "Number_Of_Other_Tyres": "Other",
+      "Wheelbase": "Wheelbase(in)",
+      "Power": "Power(hp)",
+      "Trailer_Type": "Trailer Type",
+      "Load_Capacity": "Load Capacity(lbs)"
+    },
+    "trip_planner": {
+      "add_truck": "Add Truck",
+      "search_truck": "Search Truck",
+      "Nick_Name": "Nick Name",
+      "Brand": "Brand",
+      "Model_Number": "Model Number",
+      "Weight": "Weight",
+      "Height": "Height",
+      "Width": "Width",
+      "Power": "Power",
+      "Engine_Number": "Engine Number",
+      "Fuel_Type": "Fuel Type",
+      "Fuel_Capacity": "Fuel Capacity",
+      "Number_Of_Tyres": "Number Of Tyres",
+      "Wheelbase": "Wheelbase",
+      "Add_Trailer": "Add Trailer",
+      "Search_Trailer": "Search Trailer",
+      "Trailer_Type": "Trailer Type",
+      "Load_Capacity": "Load Capacity",
+      "Source": "Starting point",
+      "Destination": "Final Destination",
+      "Date_Time": "Date & Time",
+      "Alternate_Routes": "Alternate Routes",
+      "Gross_Weight": "Gross Weight",
+      "Load_Number": "Load Number",
+      "Type": "Type",
+      "Skip_Driver": "Skip Driver Assignment",
+      "Add_Driver": "Add Driver",
+      "Search_First_Driver": "Search First Driver",
+      "Name": "Name",
+      "Phone_Number": "Phone Number",
+      "Email": "Email",
+      "Search_Second_Driver": "Search Second Driver"
+    },
+    "edit_profile": {
+      "Company_Name": "Company Name",
+      "Incorporation_Date": "Incorporation Date",
+      "Director_Name": "Director Name",
+      "First_Name": "First Name",
+      "Last_Name": "Last Name",
+      "Email": "Email",
+      "Phone_Number": "Phone Number",
+      "Address": "Address",
+      "Country": "Country",
+      "Postal_Code": "Postal Code",
+      "City": "City",
+      "State": "State",
+      "About_Company": "About Company",
+      "Gender": "Gender",
+      "Date_of_Birth": "Date of Birth",
+      "Corresponding_Address": "Corresponding Address",
+      "Permanent_Address": "Permanent Address",
+      "Workplace": "Workplace",
+      "Designation": "Designation",
+      "Educational_Qualification": "Educational Qualification",
+      "Key_Skills": "Key Skills",
+      "Marital_Status": "Marital Status",
+      "Experience": "Experience",
+      "monthExperience": "Month Experience",
+      "Languages_Known": "Languages Known",
+      "About": "About",
+      "Documents": "Documents",
+      "default_language": "Default Profile Display Language"
+    },
+    "change_pass": {
+      "heading": "Change Password",
+      "Old_Password": "Old Password",
+      "New_Password": "New Password",
+      "Confirm_Password": "Confirm Password"
+    },
+    "manage_team": {
+      "heading": "Invite Member",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "phone_num": "Phone Number",
+      "access_level": "Select Access Level"
+    },
+    "network": {
+      "group": {
+        "heading": "Create Group",
+        "group_name": "Group Name",
+        "group_type": "Group Type",
+        "description": "Description",
+        "Total_Members": "Total Members"
+      }
+    }
+  },
+  "notification": {
+    "Notification": "Notification",
+    "all": "All",
+    "unread": "Unread",
+    "mark_all": "Mark all as read"
+  },
+  "team_manage": {
+    "heading": "Manage Team",
+    "name": "Name",
+    "Email": "Email",
+    "access": "Access",
+    "phone": "Phone No.",
+    "trip_status": "Trip Status"
+  },
+  "profile_view": {
+    "Contact": "Contact",
+    "mail": "E-mail",
+    "Phone_Number": "Phone Number",
+    "Company_Info.": "Company Info.",
+    "Incorporation_Date": "Incorporation Date",
+    "Director_name": "Director name",
+    "Work": "Work",
+    "Qualifications": "Qualifications",
+    "Skills": "Skills",
+    "Languages": "Languages",
+    "Experience": "Experience",
+    "Documents": "Documents",
+    "See_All_Posts": " See All Posts",
+    "no_files": "No files have been uploaded",
+    "menu": {
+      "Edit_profile": "Edit profile",
+      "Activity_logs": "Activity logs",
+      "Change_password": "Change password",
+      "Leave_company": "Leave company",
+      "Delete_Account": "Delete account",
+      "Are_you_sure_want_to_delete_your_account": "Are you sure want to delete your account"
+    },
+    "companyName": "Company name"
+  },
+  "seller": {
+    "navigationSellerSideMenu": [
+      {
+        "navimg": "assets/dashboard.png",
+        "navimghov": "assets/dashboardhov.png",
+        "navlink": "/layout/e-commerce/dashboard",
+        "navitem": "Dashboard"
+      },
+      {
+        "navimg": "assets/product.png",
+        "navimghov": "assets/producthov.png",
+        "navlink": "/layout/e-commerce/manage-products-list",
+        "navitem": "Manage Products"
+      },
+      {
+        "navimg": "assets/question.png",
+        "navimghov": "assets/questionhov.png",
+        "navlink": "/layout/e-commerce/questions",
+        "navitem": "Q&A's"
+      },
+      {
+        "navimg": "assets/Master-settings.png",
+        "navimghov": "assets/Master-settingshov.png",
+        "navitem": "Master Setting",
+        "navdropdown": [
+          {
+            "navitem": "Brand List",
+            "navlink": "/layout/e-commerce/brand-list"
+          },
+          {
+            "navitem": "Category List",
+            "navlink": "/layout/e-commerce/category-list"
+          },
+          {
+            "navitem": "Model List",
+            "navlink": "/layout/e-commerce/model-list"
+          }
+        ]
+      },
+    
+      {
+        "navimg": "assets/support.png",
+        "navimghov": "assets/supporthov.png",
+        "navlink": "/chat-window",
+        "navitem": "Chat"
+      },
+      {
+        "navimg": "assets/ticketInactive.svg",
+        "navimghov": "assets/ticketActive.png",
+        "navlink": "/layout/e-commerce/my-tickets",
+        "navitem": "My Tickets"
+      }
+    ],
+    "My_Ratings": "My Ratings",
+    "Invite_Team": "Manage Team",
+    "Switch_to_company": "Switch to company",
+    "Logout": "Logout",
+    "Answered_Queries": "Answered Queries",
+    "Total_queries": "Total queries",
+    "UnAnswered_queries": "UnAnswered Queries",
+    "Queries": "Queries",
+    "product_list": {
+      "heading": "Manage Products",
+      "Search_category": "Search by category",
+      "Brand": "Brand",
+      "Condition": "Condition",
+      "Product_Number": "Product Number",
+      "Gross_weight": "Gross weight",
+      "Suspension": "Suspension"
+    },
+    "qes_ans": {
+      "Q&A": "Q&A's",
+      "Product_Name": "Product Name",
+      "Person_Name": "Person Name",
+      "Question": "Question",
+      "Action": "Action"
+    },
+    "product_view": {
+      "Brand": "Brand",
+      "Model": "Model",
+      "Year_of_production": "Year of production",
+      "Engine_make": "Engine make",
+      "Brakes": "Brakes",
+      "fuel_type": "Fuel type",
+      "Engine_power_output": "Engine power output",
+      "Engine_displacement": "Engine displacement",
+      "Sub_Category": "Sub Category",
+      "Listing_Type": "Listing Type",
+      "condition": "Condition",
+      "Miles_Driven": "Miles Driven",
+      "Engine_Hours": "Engine Hours",
+      "Location": "Location",
+      "Price": "Price",
+      "Color": "Color",
+      "width": "Width",
+      "height": "Height",
+      "length": "Length",
+      "mileage": "Mileage",
+      "suspension": "Suspension",
+      "transmission_type": "Transmission type",
+      "fuel_capacity": "fuel capacity",
+      "wheel_base": "wheel base",
+      "net_weight": "Net weight",
+      "Front_Axle_Weight": "Front Axle Weight",
+      "Rear_Axle_Weight": "Rear Axle Weight",
+      "description": "Description"
+    },
+    "brand": {
+      "heading": "Brand List",
+      "add_brand": "Add Brand",
+      "Total_Brands": "Total Brands",
+      "Brand_Name": "Brand Name",
+      "Brand_Logo": "Brand Logo",
+      "Status": "Status",
+      "form": {
+        "heading": "Add Brand",
+        "note": "Note:- All fields are mandatory marked as",
+        "Brand_Name": "Brand Name",
+        "Select_logo": "Select brand logo"
+      }
+    },
+    "category": {
+      "heading": "Category List",
+      "Add_Category": "Add Category",
+      "Total_Category": "Total Category",
+      "Category_Name": "Category Name",
+      "Parent_Category": "Parent Category",
+      "Status": "Status"
+    },
+    "model": {
+      "heading": "Model List",
+      "Add_Model": "Add Model",
+      "Total_Models": "Total Models",
+      "Brand_Name": "Brand Name",
+      "Model_Name": "Model Name",
+      "Status": "Status"
+    },
+    "suuport": {
+      "heading": "Contact Us"
+    },
+    "my_rating": {
+      "heading": "My Ratings",
+      "User_name": "User name",
+      "User_email": "User email",
+      "Rating": "Rating",
+      "Product_name": "Product name",
+      "Seller_name": "Seller name"
+    },
+    "manage_team": {
+      "heading": "Manage Team",
+      "Invite_Member": "Invite Member",
+      "Name": "Name",
+      "Email": "Email",
+      "Phone_Number": "Phone Number",
+      "Status": "Status",
+      "form": {
+        "First_Name": "First Name",
+        "Last_Name": "Last Name",
+        "Email": "Email",
+        "Phone_Number": "Phone Number",
+        "Access_Level": "Access Level",
+        "Cancel": "Cancel"
+      }
+    },
+    "add_truck": {
+      "heading": "Truck Information",
+      "vin": "vehicle identification number",
+      "Brand": "Brand",
+      "Model": "Model",
+      "Year_Of_Production": "Year Of Production",
+      "Engine_Make": "Engine Make",
+      "Brakes": "Brakes",
+      "Fuel_Type": "Fuel Type",
+      "Engine_Power_Output": "Engine Power Output",
+      "Engine_Displacement": "Engine Displacement",
+      "Product_Name": "Product Name",
+      "Sub_Category": "Sub Category",
+      "Listing_Type": "Listing Type",
+      "Condition": "Condition",
+      "Miles_Driven": "Miles Driven",
+      "Engine_Hours": "Engine Hours",
+      "Location": "Location",
+      "Select_Currency": "Select Currency",
+      "Price": "Price",
+      "Description": "Description",
+      "Color": "Color",
+      "Width": "Width",
+      "Height": "Height",
+      "Mileage": "Mileage",
+      "Suspension": "Suspension",
+      "Transmission_Type": "Transmission Type",
+      "Fuel_Capacity": "Fuel Capacity",
+      "Wheelbase": "Wheelbase",
+      "Net_Weight": "Net Weight",
+      "Front_Axle_Weight": "Front Axle Weight",
+      "Rear_Axle_Weight": "Rear Axle Weight",
+      "Drag_and_drop": "Drag and drop images to upload"
+    },
+    "add_trailer": {
+      "heading": "Trailer Information",
+      "vin": "vehicle identification number",
+      "Brand": "Brand",
+      "Model": "Model",
+      "Year_Of_Production": "Year Of Production",
+      "length": "Length",
+      "axles": "Axles",
+      "Product_Name": "Product Name",
+      "Sub_Category": "Sub Category",
+      "Listing_Type": "Listing Type",
+      "Condition": "Condition",
+      "Location": "Location",
+      "Select_Currency": "Select Currency",
+      "Price": "Price",
+      "Description": "Description",
+      "Width": "Width",
+      "Height": "Height",
+      "Suspension": "Suspension",
+      "wheels": "Wheels",
+      "Net_Weight": "Net Weight",
+      "Front_Axle_Weight": "Front Axle Weight",
+      "Rear_Axle_Weight": "Rear Axle Weight",
+      "Drag_and_drop": "Drag and drop images to upload"
+    },
+    "add_unit": {
+      "heading": "Tractor unit information",
+      "vin": "vehicle identification number",
+      "Brand": "Brand",
+      "Model": "Model",
+      "Year_Of_Production": "Year Of Production",
+      "Engine_Make": "Engine Make",
+      "Fuel_Type": "Fuel Type",
+      "Brakes": "Brakes",
+      "Engine_Power_Output": "Engine Power Output",
+      "Engine_Displacement": "Engine Displacement",
+      "Product_Name": "Product Name",
+      "Sub_Category": "Sub Category",
+      "Listing_Type": "Listing Type",
+      "Condition": "Condition",
+      "Miles_Driven": "Miles Driven",
+      "Engine_Hours": "Engine Hours",
+      "Location": "Location",
+      "Select_Currency": "Select Currency",
+      "Price": "Price",
+      "Description": "Description",
+      "Color": "Color",
+      "Width": "Width",
+      "Height": "Height",
+      "Mileage": "Mileage",
+      "Suspension": "Suspension",
+      "Transmission_Type": "Transmission Type",
+      "Rear_Axle_Weight": "Rear Axle Weight",
+      "Wheelbase": "Wheelbase",
+      "Net_Weight": "Net Weight",
+      "Front_Axle_Weight": "Front Axle Weight",
+      "Fuel_Capacity": "Fuel Capacity",
+      "Drag_and_drop": "Drag and drop images to upload"
+    },
+    "Upload_Images": "Upload Images",
+    "category_display": {
+      "category": "Category",
+      "heading": "What deal you want to display?"
+    }
+  },
+  "sub_plan": {
+    "heading": "Your Plans",
+    "des": "all of your subscribed are shown here.",
+    "features": "plan features",
+    "Purchased": "Purchased on",
+    "Expired": "Expired on",
+    "Total": "Total"
+  },
+  "home_trip_planner": {
+    "heading_1": "TRIP PLANNER",
+    "first_content": "The goal of truck route planning is to find the best route between two or more stops.<br> Optimized planning is crucial for journey to reduce costs , maximize efficiency ,<br> and to maintain healthy profit margins",
+    "heading_2": "FEATURES",
+    "second_content": "Trip planner providers you the best features , that allows you to be more efficient ,reduce cost, and to maintain healthy profit margins",
+    "second_content_features": {
+      "Waze_Map": "Waze Map",
+      "Trip_Plan": "Trip Plan",
+      "Markers": "Markers",
+      "Live_GPS": "Live GPS",
+      "Weather_Forecast": "Weather Forecast"
+    },
+    "cancel_Trip": "Cancel Trip",
+    "start_Trip": "start Trip",
+    "Are_you_sure_you_want_to_cancel_this_trip": "Are you sure you want to cancel this trip",
+    "Are_you_sure_to_mark_trip_as_Active": "Are you sure to mark trip as Active",
+    "heading_3": "Road Blockers",
+    "third_content": "Get real-time road and traffic updates through our interactive WAZE Map.",
+    "third_content_features": {
+      "Road_Object": "Road Object",
+      "Closure": "Closure",
+      "Crash": "Crash",
+      "Hazard": "Hazard",
+      "Police": "Police",
+      "Traffic": "Traffic",
+      "Road_Block": "Road Block",
+      "Weigh_Station": "Weigh Station",
+      "Roadside_Help": "Roadside Help",
+      "Roadside_work": "Roadside work",
+      "Staller_Vehicle": "Staller Vehicle"
+    },
+    "heading_4": "HAZMAT LOAD",
+    "forth_content": "Hazmat Load will help you with the routing that allows truck drivers to Navigate Safely and Reduce Risks on the Road and beware of the changes within the proposed route and make adjustments."
+  },
+  "price": "Price",
+  "Location": "Location",
+  "comment_edit_popup_heading": "Edit a comment",
+  "delete_cmnt": {
+    "heading": "Delete Comment",
+    "des": "Are you sure you want to Delete this Comment?"
+  },
+  "edit_group_post": "Edit a group post",
+  "applicants": {
+    "Name": "Name",
+    "Email": "Email",
+    "Phone_Number": "Phone Number",
+    "Resume_Description": "View",
+    "Action":"Action"
+  },
+  "gps_form": {
+    "show_weather": "Show weather forecast",
+    "All": "All",
+    "Snow": "Snow",
+    "Precipitation": "Precipitation",
+    "Freezing_Rain": "Freezing Rain",
+    "Thunderstorm": "Thunderstorm",
+    "Temperature": "Temperature",
+    "Origin": "Starting point",
+    "Destination": "Final Destination",
+    "ChooseDestination": "Choose Destination",
+    "Gross_Weight": "Gross Weight",
+    "Select_Truck": "Select Truck",
+    "Select_Trailer": "Select Trailer",
+    "Load_Type": "Load Type"
+  },
+  "Attach_Resume": "Attach Resume",
+  "Supported_formats": "Supported formats",
+  "formate": "docx,pdf and doc",
+  "brif_desc": "If you do not have a resume document, you may write your brief professional profile",
+  "here": "Here",
+  "Write_Profile": "Write Profile",
+  "You_are_not_logged_in": "You are not logged-in",
+  "test": "test",
+  "QuestionAnswer": {
+    "Answer_Question":"Answer Question",
+    "Question": "Question",
+    "Answer": "Answer"
+  },
+  "modal": {
+    "Add_Model":"Add Model",
+    "SelectBrand": "Select Brand",
+    "ModelName": "Model Name",
+    "noteText":"Note:- All fields are mandatory marked as"
+  },
+  "category": {
+    "Addcategory":"Add category",
+    "SelectCategory":"Select Category",
+    "Category/SubcategoryName": "Category/Sub category Name",
+    "noteText":"Note:- All fields are mandatory marked as"
+  },
+  "my-plan":"My Plan",
+  "profile":{
+    "profile":"Profile",
+    "Business_details":"Business details",
+    "Seller_Account":"Seller Account",
+    "SSN":"SSN or ITIN",
+    "Dob":"Date of Birth / Incorporation"
+  }
+}

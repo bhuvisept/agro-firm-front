@@ -1,0 +1,66 @@
+.cus-card-box {
+  background: url(../../assets/loginbg8.jpg) no-repeat center center / cover;
+    /* background: linear-gradient(135deg, #bd6772, #53223f); */
+    height: 180px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 5px 10px;
+  }
+  .chip {
+    width: 60px;
+    height: 45px;
+    background: linear-gradient(135deg, hsl(269, 54%, 87%) 0%, hsl(200, 64%, 89%) 44%, hsl(18, 55%, 94%) 100%);
+    border-radius: 8px;
+  }
+  .card-brand {
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 900;
+    color: #fff;
+  }
+  .w100 {
+    width: 100%;
+  }
+  .number {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #fff;
+    padding: 15px;
+  }
+  .number label {
+    font-size: 20px;
+  }
+  .card-holder {
+    width: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  input.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .cus-form-control {
+    background: none;
+    border: none;
+  }
+  .w50 {
+    width: 50% !important;
+  }
+  

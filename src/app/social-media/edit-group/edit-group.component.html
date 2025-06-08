@@ -1,0 +1,93 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="cus-m-t"></div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="modal-content">
+                    <form [formGroup]="editGroupForm">
+                        <div class="modal-header">
+                            <h4 class="modal-title">{{'myNetwork.grp_detail.edit_grp' | translate}}</h4>
+                        </div>
+                        <div class="modal-body p-0">
+                            <div class="row cus-upload">
+                                <div class="col-sm-12 cus-cover-img">
+                                    <div *ngIf="!this.uploadedCoverImage" class="banner-upload"> <img
+                                            *ngIf="!uploadedBannerImage" src="assets/Truck-banne-bg.png" width="100%"
+                                            height="350px" /> <img *ngIf="uploadedBannerImage"  
+                                            src="{{cover_img_path + uploadedBannerImage}}" width="100%"
+                                            height="300px" style="object-fit: cover;" /> </div>
+                                    <div *ngIf="this.uploadedCoverImage" class="aspect-ratio"> 
+                                        <img 
+                                            src="{{cover_img_path}}{{this.uploadedBannerImage}}" width="100%"
+                                            height="300px"  /> </div>
+                                    <div class="float-right cus-edit-cover-icon"> <input required type="file"
+                                            class="fa fa-pencil" (change)="uploadCoverImage($event)" title=""
+                                            accept="image/*" /> <span><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></span> </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="cus-profile-img">
+                                        <div *ngIf="!this.uploadedGroupImage"> <img *ngIf="!eventLogo"
+                                                src="assets/Truck-banne-profile.png" class="img-fluid" /> <img
+                                                *ngIf="eventLogo" src="{{group_img_url_group + uploadedGroupImage}}"
+                                                class="img-fluid" /> </div>
+                                        <div *ngIf="this.uploadedGroupImage"> <img
+                                                src="{{group_img_path}}{{this.uploadedGroupImage}}" class="img-fluid image" />
+                                        </div>
+                                        <div class="cus-edit-profile-icon"> <input required type="file"
+                                                class="fa fa-pencil" (change)="uploadGroupImage($event)" title=""
+                                                accept="image/*" /> <span><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12"> <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>{{'form_lables.network.group.group_name' | translate}}</mat-label> <input
+                                        type="text" formControlName="name" type="text" matInput
+                                        placeholder="{{'form_lables.network.group.group_name' | translate}}" required
+                                        maxlength="50" /> <mat-error
+                                        *ngIf="editGroupForm.get('name').hasError('required')">Please enter Group Name
+                                    </mat-error> </mat-form-field> </div>
+                            <div class="col-12 "> <mat-form-field appearance="fill" class="create_group">
+                                    <mat-label>{{'form_lables.network.group.group_type' | translate}}*</mat-label>
+                                    <mat-select formControlName="type" class="p-0" placeholder="select miles">
+                                        <mat-option *ngFor="let list of groupType"
+                                            value="{{list}}">{{list}}</mat-option> </mat-select> <mat-error
+                                        *ngIf="editGroupForm.get('type').hasError('required')">Please select Group Type
+                                    </mat-error> </mat-form-field> </div>
+                            <div class="col-sm-12"> <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>{{'form_lables.network.group.description' | translate}}</mat-label>
+                                    <textarea type="text" formControlName="description" type="text" matInput
+                                        placeholder="{{'form_lables.network.group.description' | translate}}" required
+                                        id="autoresizing" maxlength="2000"> </textarea> <mat-error
+                                        *ngIf="editGroupForm.get('description').hasError('required')">Please enter
+                                        Description </mat-error> </mat-form-field> </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-sm-6 text-right"> <button type="submit" class="btn cus-dash-form-btn"
+                                        (click)="updateGroupInfo()">{{'buttons.update' | translate}}</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

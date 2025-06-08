@@ -1,0 +1,119 @@
+<ngx-spinner>
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner><div class="d-flex justify-content-between m-b-2">
+  <h3 mat-dialog-title class="cus-color">Group Info</h3>
+  <button class="btn" (click)="closePage()"><i class="fa fa-times" aria-hidden="true"></i></button>
+</div>
+<div mat-dialog-content class="d-flex h50">
+  <div class="col-sm-6">
+    <div class="col-sm-12 form-group cus-img-group">
+      <img *ngIf="!groupImage && !newGroupImage" class="cus-logo-prev" style="max-width: 100px;" src="assets/Truck-banne-profile.png" />
+      <img *ngIf="groupImage && !newGroupImage" class="cus_group_img" [src]="grup_img_url + groupImage" />
+      <img *ngIf="newGroupImage" class="cus_group_img" [src]="grup_img_url + newGroupImage" />
+
+      <span class="cus-pro-upload cus-edit-profile-icon cus-upload-icon-outise-chat" *ngIf="(!onlyAdminUpdateInfo && isAdmin) || (onlyAdminUpdateInfo && isAdmin) || ( !onlyAdminUpdateInfo && !isAdmin)">
+        <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+        <input type="file" name="image" (change)="uploadImage($event)" class="cus-img-profile" required />
+      </span>
+    </div>
+    <mat-form-field class="example-full-width m-t-2 m-b-m" appearance="outline">
+      <mat-label class="cus-log-lab">Group Name</mat-label>
+      <input matInput [(ngModel)]="groupName" [disabled]="onlyAdminUpdateInfo && !isAdmin" (ngModelChange)="changeBtnStatus()" class="p-b-0" />
+    </mat-form-field>
+    <div class="col-sm-12 text-right" *ngIf="showUpdateBtn">
+      <button type="submit" (click)="updateGroupInfo()" style="margin-top: 0" class="btn cus-tm-btn">Save</button>
+    </div>
+    <hr class="m-t-1 m-b-1" />
+    <div class="col-sm-12 d-flex flex-column justify-content-around" style="height: 44%">
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Members</span> <span>{{ membersData.length }}</span>
+      </div>
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Created by</span> <span>{{ createdById == userInfo.userId ? 'You' : createdByName }}</span>
+      </div>
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Created date</span> <span>{{ createdByTime | date }} - {{ createdByTime | date: 'hh:mm a' }}</span>
+      </div>
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Only admins can message</span>
+        <span
+          ><mat-slide-toggle color="primary" *ngIf="!isAdmin" disabled [checked]="onlyAdminCanMessage"></mat-slide-toggle>
+          <mat-slide-toggle color="primary" *ngIf="isAdmin" (change)="updateGroupSettings('onlyAdminCanMessage', onlyAdminCanMessage)" [checked]="onlyAdminCanMessage"></mat-slide-toggle
+        ></span>
+      </div>
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Only admins can edit group info</span>
+        <span
+          ><mat-slide-toggle color="primary" *ngIf="!isAdmin" disabled [checked]="onlyAdminUpdateInfo"></mat-slide-toggle>
+          <mat-slide-toggle color="primary" *ngIf="isAdmin" (change)="updateGroupSettings('onlyAdminUpdateInfo', onlyAdminUpdateInfo)" [checked]="onlyAdminUpdateInfo"></mat-slide-toggle
+        ></span>
+      </div>
+      <div style="font-size: 13px" class="d-flex justify-content-between">
+        <span>Only admins can add/remove members</span>
+        <span
+          ><mat-slide-toggle color="primary" *ngIf="!isAdmin" disabled [checked]="onlyAdminCanAddOrRemove"></mat-slide-toggle>
+          <mat-slide-toggle color="primary" *ngIf="isAdmin" (change)="updateGroupSettings('onlyAdminCanAddOrRemove', onlyAdminCanAddOrRemove)" [checked]="onlyAdminCanAddOrRemove"></mat-slide-toggle
+        ></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6" *ngIf="!addParticipant">
+    <li class="cus-add-user-list" *ngIf="isAdmin || !onlyAdminCanAddOrRemove" (click)="getUserListToAdd()" style="margin: 2px 9px 9px 9px">
+      <i class="fa fa-plus m-l-1" aria-hidden="true"></i>
+      <p class="m-l-1">Add Participant</p>
+    </li>
+    <ul class="d-flex flex-column align-items-center user-list-scroll">
+      <li class="cus-add-user-list" *ngFor="let list of membersData; let i = index">
+        <img *ngIf="list.image" class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+        <img *ngIf="!list.image" class="radus-class img-fluid" src="assets/Truck-banne-profile.png" />
+        <div class="col-sm-10 d-flex justify-content-between p-r-0" id="groupUsers">
+          <p>{{ list.firstName + ' ' + list.lastName | titlecase }}</p>
+          <div class="d-flex flex-column align-items-end">
+            <p class="cus-admin-box" *ngIf="list.isAdmin">Group admin</p>
+            <p *ngIf="!list.isAdmin" class="cus-member-box">Member</p>
+            <button *ngIf="list.isMyself || isAdmin" class="cus-hover-button" mat-button [matMenuTriggerFor]="beforeMenu"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+            <!-- <button *ngIf="!list.isMyself && !isAdmin" class="cus-hover-button" style="line-height: 20px">&nbsp;</button> -->
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+              <button *ngIf="!list.isMyself && (isAdmin || onlyAdminCanAddOrRemove)" (click)="leaveOrRemoveFromGroup(list.user_id)" mat-menu-item style="font-size: 15px;" >Remove</button>
+              <button *ngIf="!list.isMyself && list.isAdmin && isAdmin" (click)="makeOrDismissAdmin('REMOVE', list.user_id, i)" mat-menu-item style="font-size: 15px;">Dismiss as admin</button>
+              <button *ngIf="!list.isMyself && !list.isAdmin && isAdmin" (click)="makeOrDismissAdmin('ADD', list.user_id, i)" mat-menu-item style="font-size: 15px;">Make group admin</button>
+              <button *ngIf="list.isMyself" (click)="leaveOrRemoveFromGroup(list.user_id)" mat-menu-item style="font-size: 15px;">Leave group</button>
+            </mat-menu>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6" *ngIf="addParticipant">
+    <li class="col-sm-12 text-left" style="margin: 0;list-style: none;">
+      <i (click)="addParticipant = !addParticipant" class="fa fa-arrow-left" style="cursor: pointer" aria-hidden="true"></i>
+    </li>
+    <ul class="d-flex flex-column align-items-center user-list-scroll">
+      <li class="cus-add-user-list" *ngFor="let list of userListForGroup; let i = index">
+        <img *ngIf="list.image" class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+        <img *ngIf="!list.image" class="radus-class img-fluid" src="assets/Truck-banne-profile.png" />
+        <div *ngIf="list.alreadyExist" class="col-sm-10 d-flex flex-column p-r-0">
+          <p>{{ list.firstName + ' ' + list.lastName | titlecase }}</p>
+          <span class="col-sm-12 cus-added-span">In group</span>
+        </div>
+        <div *ngIf="!list.alreadyExist" class="col-sm-10 d-flex justify-content-between p-r-0">
+          <p>{{ list.firstName + ' ' + list.lastName | titlecase }}</p>
+          <button class="btn cus-add_added-btn" (click)="addUserToGroup(list, i)">Add</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

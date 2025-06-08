@@ -1,0 +1,95 @@
+<ngx-spinner>
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<h3 *ngIf="openType != 'GROUP'" mat-dialog-title class="cus-color">{{ 'Chats.New_Conversation' | translate }}</h3>
+<h3 *ngIf="openType == 'GROUP'" mat-dialog-title class="cus-color">{{ 'form_lables.network.group.heading' | translate }}</h3>
+<!-- <div *ngIf="openType == 'INDIVIDUAL'" mat-dialog-content>
+  <div>
+    <ul class="d-flex flex-column w100">
+      <input type="text" placeholder="Search" [(ngModel)]="searchUser" class="form-control m-t-1 m-b-1" />
+      <li class="cus-add-user-list" *ngFor="let list of inviteList | filter: searchUser" (click)="selectedSingleUser(list)">
+        <img *ngIf="list.image" class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+        <img *ngIf="!list.image" class="radus-class img-fluid" src="assets/Truck-banne-profile.png" />
+        <div class="col-sm-10 row p-r-0">
+          <p class="p-2">{{ list.personName | titlecase }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> -->
+<div *ngIf="openType == 'INDIVIDUAL'" mat-dialog-content>
+  <div class="cus-add-user-chat">
+    <!-- <div class="cus-add-user-chat" infinite-scroll [infiniteScrollDistance]="modalScrollDistance" [infiniteScrollThrottle]="modalScrollThrottle" [scrollWindow]="false" (scrolled)="getNextUsers('USER')"> -->
+    <ul class="d-flex flex-column w100">
+      <input type="text" placeholder="Search" [(ngModel)]="searchUser" class="form-control m-t-1" />
+      <li class="cus-add-user-list" *ngFor="let list of inviteList | filter: searchUser" (click)="selectedSingleUser(list)">
+        <img *ngIf="list.image " class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+        <img *ngIf="!list.image " class="radus-class img-fluid" src="assets/clinic-img.png" />
+        <div  class="row p-r-0 m-l-1" style="width: 100%">
+          <p class="col-sm-12">{{ list.personName | titlecase }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="openType == 'SELLER'" mat-dialog-content>
+  <div class="cus-add-user-chat">
+    <!-- <div class="cus-add-user-chat" infinite-scroll [infiniteScrollDistance]="modalScrollDistance" [infiniteScrollThrottle]="modalScrollThrottle" [scrollWindow]="false" (scrolled)="getNextUsers('USER')"> -->
+    <ul class="d-flex flex-column w100">
+      <input type="text" placeholder="Search" [(ngModel)]="searchUser" class="form-control m-t-1" />
+      <li class="cus-add-user-list" *ngFor="let list of inviteList | filter: searchUser" (click)="selectedSingleUser(list)">
+        <img *ngIf="list.image " class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+        <img *ngIf="!list.image " class="radus-class img-fluid" src="assets/clinic-img.png" />
+        <div  class="row p-r-0 m-l-1" style="width: 100%">
+          <p class="col-sm-12">{{ list.personName | titlecase }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="d-flex flex-column" *ngIf="openType == 'GROUP'" mat-dialog-content>
+  <div class="d-flex row">
+    <div class="col-sm-6 d-flex flex-column justify-content-center">
+      <div class="form-group cus-img-group">
+        <img *ngIf="!uploadedImage" style="max-width: 100px" src="assets/Truck-banne-profile.png" /> <img *ngIf="uploadedImage" class="cus_group_img" [src]="grup_img_url + uploadedImage" />
+        <span class="cus-pro-upload cus-edit-profile-icon cus-upload-icon-outise-chat">
+          <span><i class="fa fa-pencil" aria-hidden="true"></i></span> <input type="file" name="image" (change)="uploadImage($event)" class="cus-img-profile" required />
+        </span>
+      </div>
+      <mat-form-field class="example-full-width m-t-2" appearance="outline">
+        <mat-label class="cus-log-lab">{{ 'form_lables.network.group.group_name' | translate }}</mat-label> <input matInput [(ngModel)]="groupName" class="p-b-0" />
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <div class="col-sm-12 cus-add-user-chat-group">
+        <ul class="d-flex flex-column w100">
+          <input type="text" placeholder="{{ 'buttons.search' | translate }}" [(ngModel)]="searchUser" class="form-control m-t-1 m-b-1" />
+          <li class="cus-add-user-list" *ngFor="let list of inviteList | filter: searchUser">
+            <mat-checkbox class="m-l-1 mr-1" [checked]="membersArr.includes(list._id)" (change)="selectedMultiple($event, list.userId)"></mat-checkbox>
+            <img *ngIf="list.image" class="radus-class img-fluid" style="border-radius: 50%" [src]="image_url + list.image" />
+            <img *ngIf="!list.image" class="radus-class img-fluid" src="assets/Truck-banne-profile.png" />
+            <div class="col-sm-10 row p-r-0">
+              <p class="p-2">{{ list.personName | titlecase }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 text-right">
+    <button type="submit" (click)="startNewConversation('GROUP')" class="btn cus-tm-btn">{{ 'buttons.create' | translate }}</button>
+    <button mat-dialog-close class="btn cus-tm-btn btn-close m-l-1">{{ 'buttons.cancel' | translate }}</button>
+  </div>
+</div>

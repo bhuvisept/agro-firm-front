@@ -1,0 +1,6 @@
+<div mat-dialog-title class="mb-2">{{ 'myNetwork.Delete_Post' | translate }}</div>
+<div mat-dialog-content>{{ 'myNetwork.delete_post_des' | translate }}</div>
+<div mat-dialog-actions>
+  <button class="btn common-btn" cdkFocusInitial (click)="deletePostList()">{{ 'buttons.yes' | translate }}</button>
+  <button class="btn common-btn ml-2" (click)="onNoClick()">{{ 'buttons.no' | translate }}</button>
+</div>

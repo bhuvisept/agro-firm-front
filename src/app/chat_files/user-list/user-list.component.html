@@ -1,0 +1,53 @@
+<div *ngIf="data.name === 'editGroup'">
+    <h4>{{data.data?.groupName}}</h4>
+    <div class="col-sm-12 cus-profile-outer-top" style="margin-top: 7%;">
+        <div class="cus-profile-outer-wrap">
+            <div class="cus-profile-img">
+                <div style="width: 100%; height: 100%;">
+                    <img *ngIf="!imagePath" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                    <img *ngIf="imagePath" src="{{ imgBaseUrlGroup + imagePath }}" class="img-fluid" />
+                </div>
+            </div>
+            <div class="cus-edit-profile-icon cus-upload-icon-outise comp-edit-icon">
+                <input required type="file" title="" class="fa fa-pencil" accept="image/png, image/jpeg"
+                    (click)="myInputFile.value = null" #myInputFile (change)="groupImage($event)" />
+                <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+            </div>
+        </div>
+
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="selectedGrpName" placeholder="Enter group name">
+    <button class="btn btn-danger mt-2"  (click)="onSubmit()">Submit</button>
+
+</div>
+
+<div *ngIf="data.name === 'memberList'">
+    <div>
+        <h3>Group Members</h3>
+    </div>
+    <ul *ngIf="groupMember?.length > 0">
+        <li *ngFor="let item of groupMember" class="mt-3">
+            <div class="row">
+                <div class="col-1">
+                    <img *ngIf="item.memberImage" class="round_img_profile" src="{{imgBaseUrl + item.memberImage}}" />
+                    <img *ngIf="!item.memberImage" class="round_img_profile" src="assets/Truck-banne-profile.png" />
+                </div>
+                <div class="col-5" *ngIf="item.memberPersonName">{{item.memberPersonName}}</div>
+                <div class="col-5" *ngIf="cheaked">
+                    <input type="checkbox" [checked]="removeMembers.includes(item.memberId)"
+                        (click)="removeMember(item.memberId)" />
+                </div>
+
+            </div>
+        </li>
+    </ul>
+    <div class="text-center" *ngIf="!groupMember?.length">
+        <img src="assets/spinnernew.gif" style="width: 20px;height: 20px;" />
+    </div>
+
+    <button (click)="removeCheak()" class="btn btn-danger m-2" *ngIf="groupMember?.length > 0">{{cheaked == false ?
+        'Remove Member' : 'Member list' }}</button>
+    <button (click)="removeUser()" class="btn btn-danger m-2" *ngIf="cheaked">Submit</button>
+
+
+</div>

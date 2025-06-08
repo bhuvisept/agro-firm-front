@@ -1,0 +1,107 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="col-sm-12 text-center mt-4 mb-2 mob-top-spc">
+  <h2 class="text-uppercase"> {{ 'homeLinks.Events' | translate }} </h2>
+  <span class="cus-tit-bor"></span>
+</div>
+<div class="container mb-4">
+  <div class="row cus-round-with-bg pl-3 pr-3 pb-3 pt-3 pt-sm-0">
+    <div class="col-sm-12">
+      <div class="cus-search-input row wt-100-on-mobile-flx">
+        <mat-form-field class="col-3 p-0 wt-100-on-mobile">
+          <div class="drop_down_design_active">
+            <mat-select [(ngModel)]="isDistance" placeholder="Select distance">
+              <mat-option *ngFor="let list of distanceArray" value="{{ list.value }}" >
+              {{ list.name }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </mat-form-field>
+        <input style='font-family: Roboto,Helvetica Neue,sans-serif' placeholder="Enter name" [(ngModel)]="searchText" autocomplete="off" class=" wt-100-on-mobile cus-input-with-round  cus-input col-sm-3 mr-0 ml-0 mt-4 mr-md-4 ml-md-4 mt-md-4" />
+        <div class="mt-4 cus-search-input wt-100-on-mobile-btn">
+          <button type="submit" class="btn" (click)="getEventlists(1)" >
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-res" label="Reset" title="Reset" (click)="resetbutton()"><i class="fa fa-refresh" title="reset"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-sx-6 mt-1" *ngFor="let cardList of eventLists | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index">
+      <div class="slide cus-round-with-bg m-2">
+        <div class="col-sm-12 p-0">
+          <a [routerLink]="['/pages/event-details', cardList._id]">
+            <img *ngIf="cardList.bannerImage == '' || cardList.bannerImage == null" src="assets/Truck-banne-bg.png" class="w-100 event-img " />
+            <img *ngIf="cardList.bannerImage != '' && cardList.bannerImage != null" src="{{ image_url_truck + cardList.bannerImage }}" class="w-100 event-img " />
+          </a>
+          <div class="d-flex cus-eve-tit-top">
+            <span>
+              <a class="cus-eve-tit" [routerLink]="['/pages/event-details', cardList._id]">
+                <h5 class=" text-capitalize ">{{ cardList.name | slice : 0:15}}</h5>
+              </a>
+            </span>
+            <span>
+              <span class=" mr-2">
+                <button *ngIf="cardList.isInterested == true" type="button"
+                  (click)="removeInterestedAttendee(cardList._id)">
+                  <i class="fa fa-star ml-2 text-warning" ></i>
+                </button>
+                <button *ngIf="cardList.isInterested == false" type="button"
+                  (click)="addInterestedAttendee(cardList._id)">
+                  <i class="far fa-star text-warning"></i> 
+                </button>
+              </span>
+              <span class=" ml-2">
+                <button *ngIf="cardList.isfavourite == false" type="button"
+                  (click)="addFavourite(cardList._id)">
+                  <i class="far fa-heart text-danger"></i>
+
+                </button>
+                <button *ngIf="cardList.isfavourite == true" type="button"
+                  (click)="removeFavourite(cardList._id)">
+                  <i class="fa fa-heart" style="color: red"></i>
+                </button>  
+              </span>
+            </span>
+          </div>
+          <div class=" moverspackers-blog-optionq pt-2 pb-2 col-sm-12">
+            <div class="cus-hei-even">
+              <p innerHtml="{{ cardList.description | slice: 0:60 }}"></p>
+            </div>
+            <p class="mt-2"> {{ cardList.startDate | date: 'MMM-dd-yyyy':'UTC' }}</p>
+            <p class="font-weight-bold p-0">{{ cardList.noOfAttendee }} interested {{ cardList.goingAttendee }} in going</p>
+            <div style="justify-content: center">
+              {{ cardList.countdown }}
+            </div>
+          </div>
+          <div class="interested btngroup mt-2 d-flex align-items-center">
+            <button class="common-btn"  (click)="BookEvent(cardList._id)"  *ngIf="cardList.isBooked == false" > {{ 'buttons.book_now' | translate }} </button>
+            <button class="common-btn"   *ngIf="cardList.isBooked == true" [disabled]='true'> {{ 'buttons.booked' | translate }}  </button>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="container" *ngIf="totalCount == 0">
+      <p class="text-center">{{ 'No_Records_Found' | translate }}</p>
+    </div>
+
+  <div class="text-center mainpagination m-auto col-sm-12" *ngIf="totalCount > itemsPerPage" >
+      <pagination-controls (pageChange)="savePageChanged($event)" class="custom-pagination-designe"></pagination-controls>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div>
+  </div>
+</ngx-spinner>
+<section class="cusMobSpc">
+
+<div class="cus-plan-list-data">
+  <div class="row">
+    <div class="col-sm-12 text-center mb-4 pt-2 pb-2">
+      <h2 class="text-uppercase"> My Installments </h2>
+      <p class="text-center">all of your installments are shown here.
+
+      </p>
+      <span class="cus-tit-bor"></span>
+    </div>
+
+  </div>
+  <div *ngIf="installmentData.length == 0"  style="text-align: center;">
+   <span>No Record Found</span>
+  </div>
+  <div class="row" *ngIf="installmentData.length>0">
+   <div class="col-sm-12 cus-plan-list p-4">
+    
+
+    <div *ngFor="let item of installmentData;let i = index;" style="margin-bottom: 20px;">
+      <button class="accordion px-2 p-1" (click)="toggleAccordian($event, i)">
+        <div class="d-flex flex-column ">
+          <div class="removeMinusIcon" *ngFor="let planName of item.subsPlans;let indexes = index;"> 
+            <span style="font-weight: 500; font-size: 15px;">Plan:- {{planName.description}}</span> <br> 
+            <span *ngIf="item.subsPlans.length-1 == indexes" style="font-weight: 500; font-size: 14px;">Total Installment:-  {{item.totalAmounts | currency}}</span></div>
+        </div>
+        <!-- <i class="fa fa-pencil"></i> -->
+      </button>
+      <div class="panel" hide="!item.isActive">
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let paymentData of item.paymentSchedule ;let i = index;">
+              <th scope="row">{{i+1}}</th>
+              <td>{{paymentData.date | date}}</td>
+              <td>{{paymentData.amount | currency}}</td>
+              <td *ngIf= "paymentData.status == 'paid'">Paid</td>
+              <td *ngIf= "paymentData.status == 'unpaid'">Un Paid</td>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+   </div>
+  </div>
+</div>
+
+
+  
+</section>
+<!-- || planData. -->

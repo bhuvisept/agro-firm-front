@@ -1,0 +1,417 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title">{{ 'seller.add_trailer.heading' | translate }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-cus-box cus-box-with-radio  cus-from-stapper">
+                        <mat-horizontal-stepper #stepper linear >
+                            <mat-step [stepControl]="formOne">
+                                <form [formGroup]="formOne">
+                                    <ng-template matStepLabel>VIN Details</ng-template>
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                          <mat-label>VIN ({{ 'seller.add_trailer.vin' | translate }}) </mat-label>
+                                          <mat-form-field>
+                                              <input type="text" formControlName="vin" matInput maxlength="17" [(ngModel)]="vincode" (focusout)="getVinCode(vincode)" 
+                                              (ngModelChange)="removeData($event)" [ngClass]="(isReadonlyVin == false)?'notChangeBG':'changeBG'" [readonly]="isReadonlyVin" [disabled]="isReadonlyVin"/>
+                                              <mat-error *ngIf="formOne.get('vin').hasError('required')"> Please enter vehicle identification number </mat-error>
+                                              <mat-error *ngIf="formOne.get('vin').hasError('pattern')"> Incorrect VIN number </mat-error>
+                                          </mat-form-field>
+                                      </div>
+                                      <div class="col-sm-12 text-right mt-4">
+                                          <a routerLink="../../manage-products-list" class="btn e-comm-btn">{{'buttons.back' | translate}}</a>
+                                          <button matStepperNext class="btn e-comm-btn ml-3">{{'buttons.Next' | translate}}</button>
+                                      </div>
+                                  </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formTwo">
+                                <form [formGroup]="formTwo">
+                                    <ng-template matStepLabel>Vehicle Details</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 cus-str-field">
+                                            <p>{{ 'seller.brand.form.note' | translate }} <span>*</span></p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                          <mat-label>{{ 'seller.add_trailer.Brand' | translate }}<span>*</span> </mat-label>
+                                          <mat-form-field class="example-full-width" *ngIf="!formTwo.value.brandName">
+                                              <mat-select formControlName="brandId" (valueChange)="getselectval($event)">
+                                                  <mat-option *ngFor="let list of brandList" [value]="list._id"
+                                                      (click)=getModelList(list._id) >
+                                                      {{ list.brand }}
+                                                  </mat-option>
+                                              </mat-select>
+                                              <mat-error *ngIf="formTwo.get('brandId').hasError('required')">Please select brand </mat-error>
+                                          </mat-form-field>
+                                          <mat-form-field *ngIf="formTwo.value.brandName">
+                                              <input type="text" formControlName="brandName" matInput
+                                                  onKeyPress="if(this.value.length==7) return false;"
+                                                  [ngClass]="(isReadonlyVin == false)?'notChangeBG':'changeBG'"
+                                                  [readonly]="isReadonlyVin" [disabled]="isReadonlyVin" />
+                                          </mat-form-field>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <mat-label>{{ 'seller.add_trailer.Model' | translate }}<span>*</span> </mat-label>
+                                          <mat-form-field class="example-full-width" *ngIf="!formTwo.value.modelName">
+                                              <mat-select formControlName="modelId">
+                                                  <mat-option *ngFor="let list of modelList" [value]="list._id">
+                                                      {{ list.title }}
+                                                  </mat-option>
+                                              </mat-select>
+                                              <mat-error *ngIf="formTwo.get('modelId').hasError('required')">Please select model </mat-error>
+                                          </mat-form-field>
+                                          <mat-form-field *ngIf="formTwo.value.modelName">
+                                              <input type="text" formControlName="modelName" matInput
+                                                  onKeyPress="if(this.value.length==7) return false;"
+                                                  [ngClass]="(isReadonlyVin == false)?'notChangeBG':'changeBG'"
+                                                  [readonly]="isReadonlyVin" [disabled]="isReadonlyVin" />
+                                          </mat-form-field>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <mat-label>{{ 'seller.add_trailer.Year_Of_Production' | translate }}<span>*</span> </mat-label>
+                                          <mat-form-field class="example-full-width" *ngIf="!isReadonlyVin == true">
+                                              <mat-select formControlName="productionYear" required  [ngClass]="(isReadonlyProYear == false)?'notChangeBG':'changeBG'" [readonly]="isReadonlyProYear" [disabled]="isReadonlyProYear">
+                                                <mat-option *ngFor="let list of timeDuration" [value]="list">{{ list }}</mat-option>
+                                              </mat-select>
+                                              <mat-error *ngIf="formTwo.get('productionYear').hasError('required')">
+                                                  Please select year of production </mat-error>
+                                          </mat-form-field>
+                                          <mat-form-field *ngIf="!isReadonlyVin == false">
+                                              <input type="text" formControlName="productionYear" matInput onKeyPress="if(this.value.length==7) return false;" [ngClass]="(isReadonlyProYear == false)?'notChangeBG':'changeBG'" [readonly]="isReadonlyProYear" [disabled]="isReadonlyProYear"/>
+                                          </mat-form-field>
+                                      </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.length' | translate }} </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="length" matInput
+                                                onKeyPress="if(this.value.length==6) return false;"
+                                                [ngClass]="(isReadonlyLength == false)?'notChangeBG':'changeBG'"
+                                                [disabled]="isReadonlyLength" readonly="formTwo.value.modelName ? true : false"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'In' : 'M' }}</span>
+                                                <mat-error *ngIf="formTwo.get('length').hasError('required')"> Please enter length </mat-error>
+                                                <mat-error *ngIf="formTwo.get('length').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.axles' | translate }} <span>*</span></mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="axles" matInput
+                                                required
+                                                onKeyPress="if(this.value.length==4) return false;"
+                                                [ngClass]="(isReadonlyAxles == false)?'notChangeBG':'changeBG'"
+                                                [disabled]="isReadonlyAxles" readonly="formTwo.value.modelName ? true : false"/>
+                                                <mat-error *ngIf="formTwo.get('axles').hasError('required')"> Please enter axles </mat-error>
+                                                <mat-error *ngIf="formTwo.get('axles').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-12 text-right mt-3">
+                                            <button mat-button matStepperPrevious class="btn e-comm-btn">{{'buttons.back' | translate}}</button>
+                                            <button matStepperNext class="btn e-comm-btn ml-3" (click)="nextData()">{{'buttons.Next' | translate}}</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formThree">
+                                <form [formGroup]="formThree">
+                                    <ng-template matStepLabel>Listing Details</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 cus-str-field">
+                                            <p>{{ 'seller.brand.form.note' | translate }} <span>*</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Product_Name' | translate }} <span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="text" formControlName="productName" matInput required maxlength="30"/>
+                                                <mat-error *ngIf="formThree.get('productName').hasError('required')"> Please enter product name </mat-error>
+                                                <mat-error *ngIf="formThree.get('productName').hasError('pattern')"> Please enter valid name </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Sub_Category' | translate }} <span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="subCategoryId" required>
+                                                    <mat-option *ngFor="let list of subCategoryList" [value]="list._id">
+                                                        {{ list.category_name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formThree.get('subCategoryId').hasError('required')"> Please select sub category </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Listing_Type' | translate }}<span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="productType">
+                                                    <mat-option *ngFor="let list of typeList" [value]="list.name">
+                                                        {{ list.name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formThree.get('productType').hasError('required')">
+                                                    Please select listing type</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Condition' | translate }} <span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="condition" required>
+                                                  <mat-option *ngFor="let list of conditionList" [value]="list.name">{{ list.name }}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formThree.get('condition').hasError('required')">
+                                                    Please select condition </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Location' | translate }} <span>*</span></mat-label>
+                                            <mat-form-field>
+                                                <input type="text" formControlName="location" matInput required  #search/>
+                                                <mat-error
+                                                    *ngIf="formThree.get('location').hasError('required')">
+                                                    Please select location </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Select_Currency' | translate }}  <span>*</span></mat-label>
+                                            <mat-form-field>
+                                                <mat-select  formControlName="currency" (ngModelChange)="chnageCurrency($event)">
+                                                    <mat-option *ngFor="let list of currency"  value="{{ list.currency }}" >
+                                                      {{ list.currency }}
+                                                    </mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formThree.get('currency').hasError('required')">Please select currency </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Price' | translate }} <span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="price" matInput required onKeyPress="if(this.value.length==6) return false;"/>
+                                                <mat-error *ngIf="formThree.get('price').hasError('required')"> Please enter price </mat-error>
+                                                <mat-error *ngIf="formThree.get('price').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-12 pro-description">
+                                            <mat-label class="mb-3 d-flex">{{ 'seller.add_trailer.Description' | translate }} <span>*</span></mat-label>
+                                            <ckeditor [editor]="editor" formControlName="description" required class="cus-job-diss"></ckeditor>
+                                            <mat-error *ngIf="formThree.get('description').hasError('required') && formThree.get('description').touched"> Please enter Description </mat-error>
+                                        </div>
+                                        <div class="col-sm-12 text-right mt-4">
+                                            <button mat-button matStepperPrevious class="btn e-comm-btn">{{'buttons.back' | translate}}</button>
+                                            <button mat-button (click)="nextData()" class="btn e-comm-btn ml-2">{{'buttons.Next' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formFour">
+                                <form [formGroup]="formFour">
+                                    <ng-template matStepLabel> Other Details</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Width' | translate }} </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="width" matInput onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'In' : 'M' }}</span>
+                                                <mat-error *ngIf="formFour.get('width').hasError('required')"> Please enter width </mat-error>
+                                                <mat-error *ngIf="formFour.get('width').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Height' | translate }} </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="height" matInput onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'In' : 'M' }}</span>
+                                                <mat-error *ngIf="formFour.get('height').hasError('required')"> Please enter height </mat-error>
+                                                <mat-error *ngIf="formFour.get('height').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Suspension' | translate }}  <span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="suspension" required>
+                                                  <mat-option *ngFor="let list of suspensionList" [value]="list.name">{{ list.name }}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formFour.get('suspension').hasError('required')">
+                                                    Please select suspension </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.wheels' | translate }}<span>*</span></mat-label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-select formControlName="wheels" required>
+                                                  <mat-option *ngFor="let list of wheelTypeList" [value]="list.name">{{ list.name }}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="formFour.get('wheels').hasError('required')">
+                                                    Please select wheels </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Net_Weight' | translate }}<span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="netWeight" matInput required  onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'Lbs' : 'KG' }}</span>
+                                                <mat-error *ngIf="formFour.get('netWeight').hasError('required')"> Please enter net weight </mat-error>
+                                                <mat-error *ngIf="formFour.get('netWeight').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Front_Axle_Weight' | translate }}<span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="grossWeight" matInput required onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'Lbs' : 'KG' }}</span>
+                                                <mat-error *ngIf="formFour.get('grossWeight').hasError('required')"> Please enter front axle weight </mat-error>
+                                                <mat-error *ngIf="formFour.get('grossWeight').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'seller.add_trailer.Rear_Axle_Weight' | translate }}<span>*</span> </mat-label>
+                                            <mat-form-field>
+                                                <input type="number" formControlName="loadCapacity" matInput required  onKeyPress="if(this.value.length==6) return false;"/>
+                                                <span class="cus-size-typ">{{truckParameter == 'USD' ? 'Lbs' : 'KG' }}</span>
+                                                <mat-error *ngIf="formFour.get('loadCapacity').hasError('required')"> Please enter rear axle weight </mat-error>
+                                                <mat-error *ngIf="formFour.get('loadCapacity').hasError('pattern')"> Please enter number only</mat-error>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <mat-label>{{ 'form_lables.select_archived_status' | translate }}</mat-label>
+                                            <mat-form-field>
+                                                <mat-select formControlName="isDeleted">
+                                                    <mat-option *ngFor="let status of deleteAction" [value]="status.value" >
+                                                        {{status.name}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-12 text-right">
+                                            <button mat-button matStepperPrevious class="btn e-comm-btn">{{'buttons.back' | translate}}</button>
+                                            <button mat-button matStepperNext class="btn e-comm-btn ml-2">{{'buttons.Next' | translate}}</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </mat-step>
+                            <mat-step [stepControl]="formFive">
+                                <form [formGroup]="formFive">
+                                    <ng-template matStepLabel> Upload Image</ng-template>
+                                    <div class="row">
+                                        <div class="col-sm-12 custom-dropzone p-0">
+                                            <div ngx-dropzone [accept]="'image/*'" (change)="fileChangeEvent($event)">
+                                                <ngx-dropzone-label>
+                                                    <div class="cus-img-upload">
+                                                        <div class="upload-icon"><i class="fas fa-cloud-upload"></i></div>
+                                                        <h2>{{ 'seller.add_trailer.Drag_and_drop' | translate }}</h2>
+                                                    </div>
+                                                </ngx-dropzone-label>
+                                            </div>
+                                            <div class="d-flex custom-dropzone-photo align-items-center justify-content-start">
+                                                <div *ngFor="let item of productImages; let i = index" class="col-sm-2">
+                                                    <div class="cus-close-crose" (click)="onRemove(item, i)" ><i class="far fa-times-circle"></i></div>
+                                                    <span>
+                                                        <img [src]="productImgPath+item" class="img-fluid"/>
+                                                    </span>
+                                                </div>
+
+                                                <div *ngFor="let item of ulpoadedFiles; let i = index" class="col-sm-2">
+                                                    <div class="cus-close-crose" (click)="onRemoveLocal(i)" ><i class="far fa-times-circle"></i></div>
+                                                    <span (click)="cropImage(item.imgId)">
+                                                        <img src="{{item.imgBase64}}" class="img-fluid"/>
+                                                    </span>
+                                                </div>
+                                              
+                                            </div>
+
+                                            <!-- <div class="d-flex justify-content-center align-items-center px-2" *ngIf="isLoading==true">
+                                                <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'" [value]="value" #spinner>
+                                                </mat-progress-bar>
+                                                <div class="mt-1" >{{spinner.value}}%</div>
+                                              </div> -->
+                                        </div>
+                                        <div class="col-sm-12 text-right mt-3">
+                                            <button mat-button matStepperPrevious class="btn e-comm-btn">{{'buttons.back' | translate}}</button>
+                                            <button class="btn e-comm-btn ml-2" (click)="onSelect($event)"
+                                                *ngIf="isMultiUploadImages">{{ 'seller.Upload_Images' | translate }}</button>
+                                            <button mat-button (click)="onSubmit()" class="btn e-comm-btn ml-2"
+                                                *ngIf="isUploadImages">{{'buttons.submit' | translate}}</button>
+                                        </div>
+                                    
+                                    </div>
+                                </form>
+                            </mat-step>
+                        </mat-horizontal-stepper>
+                    </div>
+                </div>
+                <section class="col-sm-12">
+                    <div>
+                        <!--popup modal-->
+                        <div class="backdrop" [ngStyle]="{'display':display}"></div>
+                        <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Image Cropper</h4>
+                                        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body" style="height: 450px; overflow-y: auto;">
+                                        <div class="image_cropper">
+                                            <image-cropper [imageChangedEvent]="imageChangedEvent"
+                                                            [cropperMinHeight]="500"
+                                                            [cropperMinWidth]="500"
+                                                            [cropperMaxHeight]="500"
+                                                            [cropperMaxWidth]="500"
+                                                            [hideResizeSquares]="true"
+
+                                                            [maintainAspectRatio]="true"
+                                                            [aspectRatio]="4 / 3"
+                                                            format="png"
+                                                            (imageCropped)="imageCropped($event)"
+                                                            (imageLoaded)="imageLoaded()"
+                                                            (cropperReady)="cropperReady()"
+                                                            (loadImageFailed)="loadImageFailed()" >
+                                            </image-cropper>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn e-comm-btn" (click)="SaveCropedImage()">Save</button>
+                                        <button type="button" class="btn e-comm-btn ml-2" (click)="onCloseHandled()">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

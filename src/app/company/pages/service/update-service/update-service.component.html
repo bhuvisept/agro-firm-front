@@ -1,0 +1,110 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="mine-mar-set bg">
+    <div class="container glass ">
+        <div _ngcontent-rvt-c16="" class="col-sm-12 text-center m-b-2">
+            <h2 _ngcontent-rvt-c16="" class="text-uppercase"> {{ 'form_lables.service.update_service' | translate }} </h2><span _ngcontent-rvt-c16=""
+                class="cus-tit-bor"></span>
+        </div>
+        <form [formGroup]="addservice" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.service.title' | translate }}</mat-label> <input matInput formControlName="serviceName" maxlength="50">
+                <mat-error *ngIf="addservice.get('serviceName').hasError('required')">Please enter service name
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="cus-pin-with-no">
+                <mat-label>{{ 'form_lables.service.phone_number' | translate }}</mat-label> <span class="cus-pin-code">+1</span> <input matInput
+                    formControlName="contactNumber" mask="(000) 000-0000" />
+                <mat-error *ngIf="addservice.get('contactNumber').hasError('required')">Please enter phone number
+                </mat-error>
+                <mat-error *ngIf="addservice.get('contactNumber').hasError('pattern')"> Please enter valid phone number
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.service.description' | translate }}</mat-label> <textarea matInput formControlName="description" id="autoresizing"
+                    maxlength="500"></textarea>
+                <mat-error *ngIf="addservice.get('description').hasError('required')">Please enter description
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.service.select_currency' | translate }}</mat-label>
+                <mat-select formControlName="currency" class="p-0" placeholder="select miles">
+                    <mat-option *ngFor="let list of currency" value="{{list.currency}}">{{list.currency}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="addservice.get('currency').hasError('required')">Please select currency </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.service.service_cost' | translate }}</mat-label> 
+                <input matInput formControlName="serviceCost" > 
+                <mat-error *ngIf="addservice.get('serviceCost').hasError('required')">Please enter service cost
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.select_archived_status' | translate }}</mat-label>
+                <mat-select formControlName="isDeleted" class="p-0" placeholder="select status">
+                    <mat-option *ngFor="let list of status" [value]="list.value">{{list.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="addservice.get('currency').hasError('required')">Please select currency </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{ 'form_lables.service.location' | translate }}</mat-label> <input type="text" formControlName="location" matInput required
+                    #search />
+                <mat-error *ngIf="addservice.get('location').hasError('required')">Please select location </mat-error>
+            </mat-form-field>
+            <div class="col-sm-4 cus-cover-img p-l-0 p-r-0">
+                <div *ngIf="!this.uploadedBannerImage"> <img *ngIf="!uploadedBannerImage"
+                        src="assets/Truck-banne-bg.png" width="100%" style="height: 300px;" /> <img 
+                        *ngIf="uploadedBannerImage " src="{{serviceImage}}{{this.uploadedBannerImage}}" width="100%"
+                        class="banner-common-height" /> </div>
+                <div *ngIf="this.uploadedBannerImage" style="height: 300px; overflow: hidden ;object-fit: cover;"> <img
+                        src="{{serviceImage}}{{this.uploadedBannerImage}}" width="100%" class="cfsac" 
+                        class="banner-common-height" /> </div>
+                <div class="float-right cus-edit-cover-icon"> <input required type="file" title="" class="fa fa-pencil"
+                        accept="image/*" (change)="fileChangeEvent($event)" (click)="InputFile.value=null" #InputFile
+                        accept="image/*" /> <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                    <div id='open-diaLog' data-toggle="modal" data-target="#banner-image-dialog"></div>
+                </div>
+            </div>
+            <div class="mt-5"> <button type="submit" class="btn common-btn"> {{ 'buttons.update' | translate }} </button> </div>
+        </form>
+    </div>
+</section>
+<div class="modal" id="banner-image-dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header"> <strong>
+                    <h5>Crop event Banner</h5>
+                </strong> <button type="button" class="close" data-dismiss="modal">&times;</button> </div>
+            <div class="modal-body ">
+                <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+                    <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                    </mat-progress-bar>
+                   </div>
+                <div #cropContainer class='image_cropper'
+                    style="display: block; width: 600px;max-height:60%; margin: auto;">
+                    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [aspectRatio]="8 / 3" [resizeToHeight]="300" format="png" (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                        (loadImageFailed)="loadImageFailed()"></image-cropper>
+                </div>
+            </div>
+            <div class='col-md-12 text-right mt-2 mb-2'> <button class='btn common-btn' data-dismiss="modal"
+                    (click)='uploadBannerImage()'>Upload</button> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-login-section d-flex justify-content-center align-items-center">
+    <div class="row cus-final-login">
+        <div class="d-flex align-items-center cus-mar-med" style="flex-direction: column; width: 100%"> <a
+                [routerLink]="['/']"><img src="assets/truck-logo.png" class="cus-login-logo" /></a>
+            <div style="width: 90%" *ngIf="successFlag==true" class='mt-4'>
+                <div class="row mt-2 mb-2">
+                    <div class="col-sm-12 text-center">
+                        <h4>{{message}}</h4>
+                    </div>
+                    <div class="col-sm-12 text-center mt-3"> <button class="btn cus-lg-btn"
+                            [routerLink]=' ["/login"] '>Login</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

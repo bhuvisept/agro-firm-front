@@ -1,0 +1,10 @@
+
+<div mat-dialog-content *ngIf="accessLevel =='COMPANY' || accessLevel =='SELLER' ">
+    <p class="text-center"> {{'plan_exceed.compny_exceed' | translate}} </p>
+    <p class="text-center">{{'plan_exceed.company_upgrade' | translate}}</p>
+</div>
+<div mat-dialog-content *ngIf="roleTitle == 'ENDUSER' ">
+  <p class="text-center">{{'plan_exceed.user_exceed' | translate}}</p>
+  <p class="text-center">{{'plan_exceed.user_upgrade' | translate}}</p>
+</div>
+

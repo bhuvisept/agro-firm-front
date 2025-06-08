@@ -1,0 +1,16 @@
+.cus-bottom p{
+    margin-bottom: 0px !important;
+}
+.cus-bottom .col-sm-3 p{
+    margin-bottom: 0px !important;
+    font-size: 12px;
+}
+.side-bar{
+    border-left: 2px solid !important;
+}
+.unReadNotification{
+    border-left: 4px solid #005aa4;
+}
+.cus-bottom li{
+    margin-bottom: 0.3em;
+}

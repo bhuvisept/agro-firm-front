@@ -1,0 +1,215 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-round-with-bg">
+    <div class="container "> <mat-horizontal-stepper #stepper (selectionChange)="sportHandler($event)"> <mat-step
+                [stepControl]="formGroup1">
+                <div class="row">
+                    <div class="col-sm-6"> <ng-template matStepLabel>Manage Team</ng-template> </div>
+                    <div class="col-sm-6 mt-3 text-right"> <button class="btn common-btn" (click)="openDialog()"><i
+                                class="fa fa-plus"></i>{{'buttons.invite_member' | translate}}</button> </div>
+                </div>
+                <div class="row mt-2 mb-2 hidden-phone">
+                    <div  class=" col-sm-12 cus-search-input search-filter-mobile">
+                        <div class="drop col-sm-2 pr-0 in-half "> <mat-form-field>
+                                <div class="cus-search-dropown"> <mat-select [(ngModel)]="isAccepted"> <mat-option
+                                            *ngFor="let list of invitationList"
+                                            [value]="list.value">{{list.show}}</mat-option> </mat-select> </div>
+                            </mat-form-field> </div>
+                            <div class="drop col-sm-3 pr-0 in-half "> <mat-form-field>
+                                <div class="cus-search-dropown"> <mat-select [(ngModel)]="isDeleted"> <mat-option
+                                            *ngFor="let list of deleteList"
+                                            [value]="list.value">{{list.show}}</mat-option> </mat-select> </div>
+                            </mat-form-field> </div>
+                        <div class="drop col-sm-2 in-half"> <mat-form-field>
+                                <div class="cus-search-dropown"> <mat-select [(ngModel)]="accessLevel"> <mat-option
+                                            *ngFor="let list of typeCategorie"
+                                            [value]="list.value">{{list.name}}</mat-option> </mat-select> </div>
+                            </mat-form-field> </div>
+                        <div class="col-sm-4 cus-search-input mt-3 pl-0"> <input type="text" autocomplete="off"
+                                [(ngModel)]="SearchText" placeholder="Search Email or Name" matInput /> <button
+                                class="btn" (click)="searchData()">&nbsp;<i class="fa fa-search down"></i></button>
+                            <button class="btn btn-res"> <i class="fa fa-refresh" style="font-size: 16px"
+                                    (click)="reset()" matTooltip="Reset"></i> </button> </div>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-2 visible-phone visible-phone-sx">
+                    <div class="cus-search-input search-filter-mobile">
+                        <div class="drop col-sm-6 pr-sm-0 in-half wt-100-on-mobile"> <mat-form-field>
+                                <div class="cus-search-dropown"> <mat-select [(ngModel)]="isAccepted"> <mat-option
+                                            *ngFor="let list of invitationList"
+                                            [value]="list.value">{{list.show}}</mat-option> </mat-select> </div>
+                            </mat-form-field> </div>
+                        <div class="drop col-sm-6 mt-3 mt-sm-0 in-half wt-100-on-mobile"> <mat-form-field>
+                                <div class="cus-search-dropown"> <mat-select [(ngModel)]="accessLevel"> <mat-option
+                                            *ngFor="let list of typeCategorie"
+                                            [value]="list.value">{{list.name}}</mat-option> </mat-select> </div>
+                            </mat-form-field> </div>
+                    </div>
+                    <div class="col-sm-12 cus-search-input sm-mt-4 mt-2"> <input type="text" autocomplete="off"
+                            [(ngModel)]="SearchText" placeholder="Search Email or Name" matInput />
+                        <div class=" mb-2 mb-sm-0 cus-search-input wt-100-on-mobile-btn"> <button class="btn"
+                                (click)="getDriversList(1)">&nbsp;<i class="fa fa-search down"></i></button> <button
+                                class="btn btn-res"> <i class="fa fa-refresh" style="font-size: 16px" (click)="reset()"
+                                    matTooltip="Reset"></i> </button> </div>
+                    </div>
+                </div>
+                <div class="modal-body col-sm-12" [ngClass]=" noData ? '' : 'scroller' ">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr >
+                                <th scope="col" style="font-weight: 500;">{{'manage_team.headings.name' | translate}}
+                                </th>
+                                <th scope="col" style="font-weight: 500;">{{'manage_team.headings.Email' | translate}}
+                                </th>
+                                <th scope="col" style="font-weight: 500;">{{'manage_team.headings.phone' | translate}}
+                                </th>
+                                <th scope="col" style="font-weight: 500;">{{'manage_team.headings.access' | translate}}
+                                </th>
+                                <th *ngIf="status=='accept'" scope="col" style="font-weight: 500;">
+                                    {{'manage_team.headings.joining_date' | translate}}</th>
+                                <th scope="col" *ngIf="status=='accept'" style="font-weight: 500;">
+                                    {{'manage_team.headings.documents' | translate}}</th>
+                                <th *ngIf="status=='accept'" scope="col" style="font-weight: 500;">
+                                    {{'manage_team.headings.action' | translate}}</th>
+                                    <th *ngIf="status=='decline'" scope="col" style="font-weight: 500;">
+                                        {{'manage_team.headings.action' | translate}}</th>
+                                    <th *ngIf="status=='pending'" scope="col" style="font-weight: 500;">
+                                        {{'manage_team.headings.action' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tr *ngIf="noData">
+                            <td class="text-center mt-2 ng-star-inserted" colspan="7">
+                                <p>{{'No_Records_Found' | translate}}</p>
+                            </td>
+                        </tr>
+                        <tbody>
+                            <!-- <tr
+                                *ngFor="let team of driverList | paginate:{itemsPerPage: itemsPerPage, currentPage: userListPage, totalItems: totalcount}; let i=index"> -->
+                                <tr
+                                 *ngFor="let team of driverList | paginate: { itemsPerPage: 10, currentPage: p }">
+
+                                <!-- <td>{{team.personName | slice:0:5}}</td> -->
+                                <td>{{team.personName}}</td>
+                                <!-- <td> <span [matTooltip]="team.email" matTooltipPosition="below">{{team.email | slice:0:10}}</span> </td> -->
+                                <td> <span>{{team.email}}</span> </td>
+                                <td>{{team.mobileNumber}}</td>
+                                <td>{{team.accessLevel | titlecase}}</td>
+                                <td *ngIf="team.dateOfJoining && status=='accept'">{{team.dateOfJoining | date:'MMM-d-y'
+                                    || '-'}}</td>
+                                <td *ngIf="status=='accept'">
+                                    <ng-container *ngIf="team.documents?.length ; else noDocs"> <span *ngFor='let docs of team.documents'> <a
+                                                target="_blank" title="{{docs?.name}}" href='{{docsfor}}{{docs?.fileName}}'
+                                                download="{{docs?.name}}"><i class="fa fa-file-archive-o mr-1" style="color: #009ad9;"></i></a>
+                                        </span> </ng-container>
+                                    <ng-template #noDocs> - </ng-template>
+                                </td>
+                                <td *ngIf="status=='accept' " class="text-center">
+                                    <i (click)='removeEmployee(team.companyId,team.driverId ,"REMOVE-USER",team.personName)'
+                                        class="fas fa-minus-circle" *ngIf="team.accessLevel=='DRIVER' "
+                                        style="font-size:20px ;color:#3777ac"></i> 
+                                    <i (click)='deleteEmployee(team.companyId,team.driverId ,"DELETE-USER",team.isDeleted)' class="fas fa-minus-circle" *ngIf="team.accessLevel!='DRIVER' " 
+                                        style="font-size:20px ;color:#6b6969"></i>
+                                      
+                                </td>
+                                <td *ngIf="status=='decline' " class="text-center">
+                                    <div style="display: flex; justify-content: space-between;" >
+                                        <div>
+                                          
+                                           <img src="./assets/resend-mail.png" (click)="resendInvite(team)" alt="" style="height:30px; width:30px;" matTooltip="Re-send Invitation" matTooltipPosition="right">
+                                            <!-- <i class="fa fa-plane ml-2"  style="font-size:20px ;color:#3777ac"></i>  -->
+                                        </div>
+                                    </div>
+                                    
+                                </td>
+                                <td *ngIf="status=='pending'&& team.isDeleted == false" class="text-center">
+                                        <div>
+                                            <img src="./assets/decline-mail.png" (click)="invitationDeleteByCompany(team.email)" alt="" style="height:30px; width:30px;" matTooltip="Decline Invitation" matTooltipPosition="right">
+                                            <!-- <i class="fa fa-close" (click)="invitationDeleteByCompany(team.email)" style="font-size:20px ;color:#3777ac"></i>  -->
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-8 m-auto text-center mt-3">
+                        <!-- <pagination-controls (pageChange)="savePageChangedList($event)" responsive="true" directionLinks="true">
+                        </pagination-controls>   -->
+                        <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+                    </div>
+                </div>
+            </mat-step> <mat-step [stepControl]="formGroup2">
+                <div class="row">
+                    <div class="col-6 "> <ng-template matStepLabel>Separated Employees</ng-template> </div>
+                </div>
+                <div class="row mt-2 mb-2 hidden-phone">
+                    <div class="cus-search-input search-filter-mobile">
+                        <div class="col-sm-12 cus-search-input ml-2 mt-3 pl-0"> <input type="text" autocomplete="off"
+                                [(ngModel)]="SearchText" placeholder="Search Name" matInput /> <button class="btn"
+                                (click)="companyLeftUsers(1)">&nbsp;<i class="fa fa-search down"></i></button> <button
+                                class="btn btn-res"> <i class="fa fa-refresh" style="font-size: 16px" (click)="Reset()"
+                                    matTooltip="Reset"></i> </button> </div>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-2 visible-phone visible-phone-sx">
+                    <div class="cus-search-input search-filter-mobile"> </div>
+                    <div class="col-sm-12 cus-search-input mt-sm-4 mt-2"> <input type="text" autocomplete="off"
+                            [(ngModel)]="SearchText" placeholder="Search Name" matInput />
+                        <div class="mt-4 mb-2 mb-sm-0 cus-search-input wt-100-on-mobile-btn"> <button class="btn"
+                                (click)="companyLeftUsers(1)">&nbsp;<i class="fa fa-search down"></i></button> <button
+                                class="btn btn-res"> <i class="fa fa-refresh" style="font-size: 16px" (click)="reset()"
+                                    matTooltip="Reset"></i> </button> </div>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="modal-body col-sm-12 " [ngClass]=" noRecordFound ? '' : 'scroller' ">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" style="font-weight: 500;">{{'manage_team.headings.name' |
+                                        translate}}</th>
+                                    <th scope="col" style="font-weight: 500;">{{'manage_team.headings.Email' |
+                                        translate}}</th>
+                                    <th scope="col" style="font-weight: 500;">{{'manage_team.headings.reason' |
+                                        translate}}</th>
+                                    <th scope="col" style="font-weight: 500;">{{'manage_team.headings.separation' |
+                                        translate}}</th>
+                                </tr>
+                            </thead>
+                            <tr *ngIf="noRecordFound">
+                                <td class="text-center mt-2 ng-star-inserted" colspan="7">
+                                    <p>{{'No_Records_Found' | translate}}</p>
+                                </td>
+                            </tr>
+                            <tbody>
+                                <!-- <tr *ngFor="let team of leftUsersList | paginate:{itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount}; let i=index"
+                                    class="text-center"> -->
+                                    <tr *ngFor="let team of leftUsersList | paginate: { itemsPerPage: 10, currentPage: p }">
+                                    <td class="py-4">{{team.firstName}}{{team.lastName}}</td>
+                                    <td class="py-4">{{team.email}}</td>
+                                    <td class="py-4">{{team.reason?team.reason:'N/A'}}</td>
+                                    <td class="py-4">{{team.createdAt | date: 'MMM-d-y':'UTC'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-8 m-auto text-center mt-3" >
+                            <!-- <pagination-controls (pageChange)="savePageChanged($event)" responsive="true" directionLinks="true">
+                            </pagination-controls>   -->
+                            <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+                         </div>
+                    </div>
+                </div>
+            </mat-step> </mat-horizontal-stepper> </div>
+</section>

@@ -1,0 +1,462 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+            <div class="truck">
+                <div class="truck-container"></div>
+                <div class="glases"></div>
+                <div class="bonet"></div>
+                <div class="base"></div>
+                <div class="base-aux"></div>
+                <div class="wheel-back"></div>
+                <div class="wheel-front"></div>
+                <div class="smoke"></div>
+            </div>
+        </div>
+    </div>
+</ngx-spinner>
+<div class="custom_form"> <a [routerLink]="['/home-page']"><img src="assets/truck-logo.png" alt="" class="w-100"></a>
+</div>
+<div class="main_section m-auto">
+    <div class="container">
+        <section class="cus-round-with-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 cus-dashbord cus-ds-main-bg">
+                        <form [formGroup]="updateCompanyProfileForm" *ngIf="roleName=='COMPANY'">
+                            <div class="modal-body p-0">
+                                <div class="row cus-upload">
+                                    <div class="col-sm-12 mx-3 mt-3">
+                                        <h3>Complete Your Profile</h3>
+                                    </div>
+                                    <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                                        <div class="banner-upload">
+                                            <div *ngIf="!uploadedBannerImage && !isLoadingBanner"> <img *ngIf="!bannerImage"
+                                                    src="assets/Truck-banne-bg.png" width="100%" height="300px" /> <img
+                                                    *ngIf="bannerImage" src="{{banner_img_path}}{{bannerImage}}"
+                                                    width="100%" height="300px" /> </div>
+                                                    <div class="col-12 d-flex justify-content-center align-items-center my-5" *ngIf="isLoadingBanner ">
+                                                        <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                                                        </mat-progress-bar>
+                                                       </div>
+                                            <div *ngIf="uploadedBannerImage && !isLoadingBanner"> <img
+                                                    src="{{banner_img_path}}{{uploadedBannerImage}}" width="100%"
+                                                    height="300px" /> </div>
+                                        </div>
+                                        <div class="float-right cus-edit-cover-icon"> <input required type="file"
+                                                class="fa fa-pencil" accept="image/png, image/jpeg" title=''
+                                                (click)="InputFile.value=null" #InputFile
+                                                (change)="fileChangeEvent($event)" /> <span><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></span>
+                                            <div id='open-diaLog' data-toggle="modal"
+                                                data-target="#banner-image-dialog"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="cus-profile-img">
+                                            <div *ngIf="!this.uploadedCompanyLogo && !isLoadingLogo"> <img *ngIf="!profileLogo"
+                                                    src="assets/Truck-banne-profile.png" class="img-fluid" /> <img
+                                                    *ngIf="profileLogo" src="{{companyLogo_path + profileLogo}}"
+                                                    class="img-fluid" /> </div>
+                                                    <div class="d-flex justify-content-center align-items-center" *ngIf="isLoadingLogo">
+                                                        <mat-spinner [diameter]="35"></mat-spinner>
+                                                       </div>
+                                            <div *ngIf="this.uploadedCompanyLogo && !isLoadingLogo"> <img
+                                                    src="{{image_enduser_profile}}{{this.uploadedCompanyLogo}}"
+                                                    class="img-fluid" /> </div>
+                                            <div> <img [src]="croppedLogo" class="img-fluid" /> </div>
+                                        </div>
+                                        <div class="cus-edit-profile-icon cus-upload-icon-outise comp-edit-icon"> <input
+                                                required type="file" class="fa fa-pencil" title=''
+                                                (click)="Input.value=null" #Input accept="image/png, image/jpeg"
+                                                (change)="logoChangeEvent($event)" /> <span><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></span>
+                                            <div id='open-diaLog-logo' data-toggle="modal"
+                                                data-target="#logo-image-dialog"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Company Name </mat-label> <input
+                                                type="text" formControlName="companyName" matInput
+                                                placeholder="Company Name" required maxlength="30" /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('companyName').hasError('required')">
+                                                Please enter company name </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('companyName').hasError('pattern')">
+                                                Please enter valid company name </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Incorporation Date</mat-label> <input
+                                                matInput readonly [matDatepicker]="picker"
+                                                placeholder="Incorporation Date" [max]='minBirth'
+                                                formControlName="incorporationDate" required /> <mat-datepicker-toggle
+                                                matSuffix [for]="picker"> </mat-datepicker-toggle> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('incorporationDate').hasError('required')">
+                                                Please enter incorporation date </mat-error> <mat-datepicker
+                                                #picker></mat-datepicker> </mat-form-field> </div>
+                                   
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>First Name </mat-label> <input type="text"
+                                                formControlName="firstName" type="text" matInput
+                                                placeholder="Contact Person" required maxlength="30" /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('firstName').hasError('required')">
+                                                Please enter first name </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('firstName').hasError('pattern')">
+                                                Please enter valid first name </mat-error> </mat-form-field> </div>
+
+
+                                                <div class="col-sm-6">
+                                                    <mat-form-field class="example-full-width" appearance="outline">
+                                                      <mat-label>Middle Name</mat-label>
+                                                      <input type="text" formControlName="middleName" type="text" matInput placeholder="Middle Name"  maxlength="30" />
+                                                    </mat-form-field>
+                                                  </div>
+
+
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Last Name </mat-label> <input type="text"
+                                                formControlName="lastName" type="text" matInput
+                                                placeholder="Contact Person" required maxlength="30" /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('lastName').hasError('required')">
+                                                Please enter last name </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('lastName').hasError('pattern')">
+                                                Please enter valid last name </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Email </mat-label> <input readonly
+                                                type="text" formControlName="email" matInput placeholder="Email Address"
+                                                required /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('email').hasError('required')">
+                                                Please enter email address </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('email').hasError('pattern')">
+                                                Please enter correct email </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width cus-pin-with-no"
+                                            appearance="outline"> <mat-label>Phone Number</mat-label> <span
+                                                class="cus-pin-code">+1</span> <input type="text"
+                                                formControlName="mobileNumber" matInput placeholder="Phone Number"
+                                                mask="(000) 000-0000" required /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('mobileNumber').hasError('required')">
+                                                Please enter phone number </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label class="cus-log-lab">Address</mat-label>
+                                            <input matInput formControlName="address" #Search /> </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Country </mat-label> <mat-select
+                                                formControlName="country" (valueChange)="getselectval($event)"
+                                                placeholder="Country" required> <mat-option
+                                                    *ngFor="let list of countryList" [value]="list._id"
+                                                    (click)="stateEmpty()">{{list.countryName}}</mat-option>
+                                            </mat-select> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('country').hasError('required')">
+                                                Please select country </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>Postal Code</mat-label> <input
+                                                formControlName="postalCode" type="text" matInput
+                                                placeholder="Postal code" [(ngModel)]="zipcode" required
+                                                (focusout)="getCityByZipcode()" /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('postalCode').hasError('required')">
+                                                Please enter postal code </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('postalCode').hasError('minlength')">
+                                                Minimum length should be 3 </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>City </mat-label> <input type="text"
+                                                formControlName="city" type="text" matInput placeholder="City" required
+                                                maxlength="80" /> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('city').hasError('required')">
+                                                Please select city </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-6"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>State </mat-label> <mat-select
+                                                formControlName="state" placeholder="State" required> <mat-option
+                                                    *ngFor="let list of stateList"
+                                                    [value]="list._id">{{list.stateName}}</mat-option> </mat-select>
+                                            <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('state').hasError('required')">
+                                                Please select state </mat-error> </mat-form-field> </div>
+                                    <div class="col-sm-12 abt-compny"> <mat-form-field class="example-full-width"
+                                            appearance="outline"> <mat-label>About Company </mat-label> <textarea
+                                                type="text" formControlName="aboutCompany" matInput
+                                                placeholder="About Company" required id="autoresizing" minlength="10"
+                                                maxlength="200"></textarea> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('aboutCompany').hasError('required')">
+                                                Please brief about your company </mat-error> <mat-error
+                                                *ngIf="updateCompanyProfileForm.get('aboutCompany').hasError('pattern')">
+                                                Please enter valid about company </mat-error> </mat-form-field> </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group text-center"> <button
+                                            class="btn btn-primary cus-dash-form-btn"
+                                            (click)="onSubmitCompanyProfileForm()">Submit</button> </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form [formGroup]="updateUserProfileForm" *ngIf="roleName=='ENDUSER'">
+                            <div class="row cus-upload">
+                                <div class="col-sm-10 mx-3 mt-3">
+                                    <h3>Complete Your Profile</h3>
+                                </div>
+                                <div class="col-sm-12 cus-cover-img p-l-0 p-r-0">
+                                    <div class="banner-upload">
+                                        <div *ngIf="!uploadedBannerImage && !isLoadingBanner"> <img *ngIf="!bannerImage"
+                                                src="assets/Truck-banne-bg.png" width="100%" height="300px" /> <img
+                                                *ngIf="bannerImage" src="{{banner_img_path}}{{bannerImage}}"
+                                                width="100%" height="300px" /> </div>
+                                                <div class="col-12 d-flex justify-content-center align-items-center my-5" *ngIf="isLoadingBanner ">
+                                                    <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                                                    </mat-progress-bar>
+                                                   </div>
+                                        <div *ngIf="uploadedBannerImage && !isLoadingBanner"> <img
+                                                src="{{banner_img_path}}{{uploadedBannerImage}}" width="100%"
+                                                height="300px" /> </div>
+                                    </div>
+                                    <div class="float-right cus-edit-cover-icon"> <input required type="file"
+                                            class="fa fa-pencil" accept="image/png, image/jpeg" title=''
+                                            (click)="InputFile.value=null" #InputFile
+                                            (change)="fileChangeEvent($event)" /> <span><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></span>
+                                        <div id='open-diaLog' data-toggle="modal" data-target="#banner-image-dialog">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="cus-profile-img mt-2 mb-1">
+                                        <div> <img *ngIf="!driverImage" src="assets/Truck-banne-profile.png"
+                                                class="img-fluid" /> <img *ngIf="driverImage"
+                                                src="{{image_enduser_profile + driverImage}}" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    <div class="cus-edit-profile-icon cus-upload-icon-outise" style="top: 60px;"> <input
+                                            required type="file" class="fa fa-pencil" title=''
+                                            (change)="logoChangeEvent($event)" (click)="InputFile.value=null" #InputFile
+                                            accept="image/png, image/jpeg" /> <span><i class="fa fa-pencil"
+                                                aria-hidden="true"></i></span>
+                                        <div id='open-diaLog-logo' data-toggle="modal" data-target="#logo-image-dialog">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>First Name</mat-label> <input type="text" formControlName="firstName"
+                                            matInput placeholder="Name" required maxlength="20" /> <mat-error
+                                            *ngIf="updateUserProfileForm.get('firstName').hasError('required')"> Please
+                                            enter first name </mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('firstName').hasError('pattern')"> Please
+                                            enter valid Name </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Last Name</mat-label> <input type="text" formControlName="lastName"
+                                            matInput placeholder="Name" required maxlength="20" /> <mat-error
+                                            *ngIf="updateUserProfileForm.get('lastName').hasError('required')"> Please
+                                            enter last name </mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('lastName').hasError('pattern')"> Please
+                                            enter valid Name </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Email Address</mat-label> <input readonly type="text"
+                                            formControlName="email" matInput placeholder="Email Address" required />
+                                        <mat-error *ngIf="updateUserProfileForm.get('email').hasError('required')">
+                                            Please enter Email address </mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('email').hasError('pattern')"> Please enter
+                                            correct email </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width cus-pin-with-no"
+                                        appearance="outline"> <mat-label>Phone Number</mat-label> <span
+                                            class="cus-pin-code">+1</span> <input type="text"
+                                            formControlName="mobileNumber" matInput placeholder="Phone Number"
+                                            mask="(000) 000-0000" required /> <mat-error
+                                            *ngIf="updateUserProfileForm.get('mobileNumber').hasError('required')">Please
+                                            enter phone number </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Gender</mat-label> <mat-select formControlName="gender"
+                                            placeholder="Gender"> <mat-option *ngFor="let list of genderList"
+                                                [value]="list.gender">{{list.gender}}</mat-option> </mat-select>
+                                    </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Date of Birth</mat-label> <input readonly matInput
+                                            [matDatepicker]="picker" placeholder="Date of Birth"
+                                            formControlName="dateOfBirth" [max]="minDateOfBirth" [disabled]="disabled"
+                                            required /> <mat-datepicker-toggle matSuffix [for]="picker">
+                                        </mat-datepicker-toggle> <mat-error
+                                            *ngIf="updateUserProfileForm.get('dateOfBirth').hasError('required')">
+                                            Please select date of birth </mat-error> <mat-datepicker
+                                            #picker></mat-datepicker> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label> Address</mat-label> <input type="text"
+                                            formControlName="permAddress" matInput placeholder="Address"
+                                            maxlength="75" /> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Mailing Address</mat-label> <input type="text"
+                                            formControlName="corrAddress" matInput placeholder="Mailing Address"
+                                            maxlength="75" /> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Workplace</mat-label> <input type="text" formControlName="workPlace"
+                                            matInput placeholder="Workplace" required maxlength="20" /> <mat-error
+                                            *ngIf="updateUserProfileForm.get('workPlace').hasError('required')"> Please
+                                            enter workplace </mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('workPlace').hasError('pattern')"> Please
+                                            enter valid workplace </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Designation</mat-label> <input type="text"
+                                            formControlName="designation" matInput placeholder="Designation" required
+                                            maxlength="20" /> <mat-error
+                                            *ngIf="updateUserProfileForm.get('designation').hasError('required')">
+                                            Please enter designation </mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('designation').hasError('pattern')"> Please
+                                            enter valid designation </mat-error> </mat-form-field> </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Educational Qualification </mat-label> <mat-select (selectionChange)="qualification($event)"
+                                            formControlName="qualification" [ngModel]="qualificationArrayView"
+                                            placeholder="Qualification" [ngModel]="qualificationArray" 
+                                            multiple> <mat-option *ngFor="let list of qualificationList"
+                                                [value]="list._id">{{list.qualification}}</mat-option> </mat-select>
+                                        <!-- <mat-error
+                                            *ngIf="updateUserProfileForm.get('qualification').hasError('required')">
+                                            Please select educational qualification </mat-error>  -->
+                                        </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6" *ngIf="isOtherSelected"> <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Other Qualification</mat-label> <input type="text"
+                                        formControlName="otherQualification" matInput placeholder="Other Qualification"
+                                        maxlength="75" /> </mat-form-field> </div>
+
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Key Skills</mat-label> <mat-select formControlName="skills"
+                                            (ngModelChange)="selectedSkills($event)" [(ngModel)]="skillsArray"
+                                            placeholder="Key Skills" multiple> <mat-option
+                                                *ngFor="let list of skillList"
+                                                [value]="list._id">{{list.skill}}</mat-option> </mat-select>
+                                    </mat-form-field> </div>
+
+                                    <div class="col-md-6" *ngIf="isOtherSkillSelected"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Other Skills</mat-label> 
+                                        <input type="text" formControlName="otherSkill" matInput placeholder="Skill"  maxlength="20" />
+                                      </mat-form-field> 
+                                      </div>
+
+                                <div class="col-md-6" *ngIf="userObj.userInfo.accessLevel !='SALESPERSON' "> 
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Marital Status</mat-label> <mat-select placeholder="Marital Status"
+                                            formControlName="maritalStatus"> <mat-option
+                                                *ngFor="let list of maritalStatus"
+                                                [value]="list.maritalStatus">{{list.maritalStatus}}</mat-option>
+                                        </mat-select> </mat-form-field> 
+                                    </div>
+
+                                        <!-- <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Experience</mat-label> 
+                                            <input type="text" formControlName="experience" matInput placeholder="Experience"  maxlength="20" required/>
+                                            <mat-error *ngIf="updateUserProfileForm.get('experience').hasError('required')"> Please fill experience</mat-error>
+                                          </mat-form-field> 
+                                          </div> -->
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Experience</mat-label> <mat-select placeholder="Experience" formControlName="experience" required>
+                                            <mat-option *ngFor="let list of experience" [value]="list.experience">{{list.experience}}years </mat-option>
+                                        </mat-select> <mat-error *ngIf="updateUserProfileForm.get('experience').hasError('required')"> Please
+                                            select experience</mat-error> </mat-form-field> </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" appearance="outline">
+                                        <!-- <mat-label>{{ 'form_lables.edit_profile.monthExperience' | translate }}</mat-label> -->
+                                        <mat-label>Month Experience</mat-label>
+                                        <mat-select placeholder="Months Experience" formControlName="monthsExperience" required>
+                                            <mat-option *ngFor="let list of minexperience" [value]="list.value">{{ list.value }} months </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="updateUserProfileForm.get('experience').hasError('required')"> Please select months
+                                            experience</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>Languages Known</mat-label> <mat-select formControlName="language"
+                                            multiple placeholder="Language Known"> <mat-option
+                                                *ngFor="let list of language"
+                                                [value]="list.language">{{list.language}}</mat-option> </mat-select>
+                                    </mat-form-field> </div>
+                                <div class="col-sm-12 abt-compny"> <mat-form-field class="example-full-width"
+                                        appearance="outline"> <mat-label>About</mat-label> <textarea type="text"
+                                            formControlName="aboutUser" matInput placeholder="About..." required
+                                            id="autoresizing" minlength="10" maxlength="250"></textarea> <mat-error
+                                            *ngIf="updateUserProfileForm.get('aboutUser').hasError('required')"> Please
+                                            brief about you</mat-error> <mat-error
+                                            *ngIf="updateUserProfileForm.get('aboutUser').hasError('pattern')"> Please
+                                            enter valid about </mat-error> </mat-form-field> </div>
+                                <div class="up_docs row" *ngIf='accessLevel=="DRIVER" '>
+                                    <div class="col-sm-12 cus_docs_head">
+                                        <h4 style='color:#5c5c5c'>Documents</h4>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 driver_docs "
+                                        *ngFor='let doctype of driverDocs; let i=index'>
+                                        <p class="m-0">{{doctype.name}}</p>
+                                        <div class="cus_section d-flex"> <button (click)='click(doctype.name)'
+                                                type="button" class="cus_driver_btn mr-2">{{!doctype.isDocs ? 'No file'
+                                                : 'Edit file'}}</button> <input type='{{doctype.type}}'
+                                                id='{{doctype.name}}' (click)="driverDocs.value=null" #driverDocs
+                                                (change)='uploadDriverDocument($event, doctype.name ,i)'
+                                                style="display:none;"> <span *ngIf='doctype.isDocs; else noDocs'><a
+                                                    target="_blank" href='{{docsData_url}}{{doctype.isDocs}}'
+                                                    download="{{doctype?.name}}"><i class="fa fa-file-archive-o"
+                                                        style="color: #009ad9;"></i> </a> </span> <ng-template #noDocs>
+                                                Choose file </ng-template> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group text-center mt-3"> <button
+                                            class="btn btn-primary cus-dash-form-btn"
+                                            (click)="onSubmitUserProfileForm()">Submit</button> </div>
+                                </div>
+                                <div class="col-md-12">&nbsp;</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal" id="banner-image-dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"> <strong>
+                        <h5>Edit Banner Image</h5>
+                    </strong> <button type="button" class="close" data-dismiss="modal">&times;</button> </div>
+                <div class="modal-body ">
+                    <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+                        <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                        </mat-progress-bar>
+                       </div>
+                    <div #cropContainer class='image_cropper'
+                        style="display: block; width: 600px;max-height:60%;margin-left: 71px;"> <image-cropper
+                            [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                            [cropperMinHeight]="10600" [cropperMinWidth]="10800" [cropperMaxHeight]="700"
+                            [cropperMaxWidth]="799" [aspectRatio]="8 / 3" [resizeToHeight]="300" format="png"
+                            (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"> </image-cropper>
+                    </div>
+                </div>
+                <div class='col-md-12 text-center mt-2 mb-2'> <button class='btn common-btn' data-dismiss="modal"
+                        (click)='uploadBannerImage()'>Upload</button> </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="logo-image-dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"> <strong>
+                        <h5>Edit Image</h5>
+                    </strong> <button type="button" class="close" data-dismiss="modal">&times;</button> </div>
+                <div class="modal-body ">
+                    <div class="d-flex justify-content-center align-items-center my-2" *ngIf="isLoading">
+                        <mat-progress-bar class="example-margin" [color]="'primary'" [mode]="'indeterminate'"  #spinner>
+                        </mat-progress-bar>
+                       </div>
+                    <div #cropContainer class='image_cropper'
+                        style="display: block; width: 600px;max-height:60%; margin-left: 71px;" class='text-center'>
+                        <image-cropper [imageChangedEvent]="logoChangedEvent" [maintainAspectRatio]="true"
+                            [roundCropper]='true' [cropperMinHeight]="10600" [cropperMinWidth]="10800"
+                            [cropperMaxHeight]="700" [cropperMaxWidth]="799" [aspectRatio]="4 / 4"
+                            [resizeToHeight]="300" format="png" (imageCropped)="logoCropped($event)"
+                            (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                            (loadImageFailed)="loadImageFailed()"> </image-cropper> </div>
+                </div>
+                <div class='col-md-12 text-center mt-2 mb-2'> <button class='btn btn-common '
+                        *ngIf='roleName !="ENDUSER"' data-dismiss="modal" (click)='uploadCompanyLogo()'>Upload</button>
+                    <button class='btn btn-common ' *ngIf='roleName=="ENDUSER"' data-dismiss="modal"
+                        (click)='uploadUserProfilrImage()'>Upload</button> </div>
+            </div>
+        </div>
+    </div>
+</div>

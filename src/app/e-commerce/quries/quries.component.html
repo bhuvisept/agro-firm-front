@@ -1,0 +1,86 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row pl-4 pr-4">
+                        <div class="col-sm-6 p-0">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Products Queries</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3 pl-4 pr-4 cus-box-with-radio cus-wrap-pro">
+                      <div class="col-sm-4 mb-4 p-0">
+                        <div class="cus-search-input">
+                          <input autocomplete="off" [(ngModel)]="search" class="mat-input-element"  matinput="" placeholder="Search by product & name " id="mat-input-3" aria-invalid="false" aria-required="false">
+                          <button class="btn" type="button" (click)="getProductQuriesList(1)"><i class="fa fa-search"></i></button>
+                          <button class="btn btn-res" label="Reset" title="Reset" (click)="reset()"> <i class="fa fa-refresh" title="reset"></i></button>
+                        </div>
+                      </div>
+                        <div class="col-sm-12 p-0">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Customer name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col" class="tab-dis">Description</th> 
+                                    <th scope="col">Action</th> 
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor ="let list of contactToSellerList | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index">
+                                    <td>{{ itemsPerPage * (page - 1) + i + 1 }}</td>
+                                    <td> <a [routerLink]='["/layout/e-commerce/product-view/"]+list.productId'>{{list.productName}}</a></td>
+                                    <td>{{list.name}}</td>
+                                    <td>{{list.email ? list.email:' N/A'}}</td>
+                                    <td>{{list.phone ? list.phone:' N/A'}}</td>
+                                    <td scope="col" class="tab-dis"> 
+                                      <span class="cus-ellipsis">{{list.description}}</span> 
+                                    </td>
+                                    <td class="text-center">
+                                      <i class="fa fa-eye" aria-hidden="true" title="view"></i>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <div *ngIf="totalCount > itemsPerPage" class="col-sm-12 text-center">
+                                <pagination-controls (pageChange)="pageChanged($event)"  responsive="true" directionLinks="true"></pagination-controls>
+                              </div>
+                              <div *ngIf='noRecordFound' class="col-sm-12 text-center">
+                                <p>No Records Found</p>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

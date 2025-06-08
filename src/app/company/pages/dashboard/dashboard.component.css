@@ -1,0 +1,68 @@
+:host::ng-deep.post_img_one {
+    max-height: 100% !important;
+   
+  }
+  
+  :host::ng-deep.post_img_two {
+    max-height: 100% !important;
+    
+  }
+  
+  :host::ng-deep.post_img_five img,
+  .post_img_one img,
+  .post_img_two img,
+  .post_img_three img {
+    min-height:100% !important;
+    /* aspect-ratio: 1/1; */
+    max-height: 100% !important;
+
+  }
+  
+  :host::ng-deep.post_img_four {
+    max-height: 100% !important;
+  }
+
+  :host::ng-deep.post_img_four img {
+    min-height: 100% !important;
+    max-height: 100% !important;
+
+  }
+  
+  :host::ng-deep.post_img_three {
+    align-items: center;
+    max-height: 100% !important;
+  }
+  
+  :host::ng-deep.post_img_five {
+    width: 33.33%;
+    border: 1px solid white;
+    max-height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .centered-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    /* border-bottom: 1px solid #b6b9bb; */
+  }
+
+
+    .cus-cart-tit-boxNews{
+      background: transparent;
+      -webkit-border-radius: 12px 12px 0 0;
+      -moz-border-radius: 12px 12px 0 0;
+      border-radius: 12px 12px 0 0;
+      text-align: center;
+      color: #000;
+      font-weight: 400;
+      margin: 0;
+      font-size: 18px;
+      text-transform: capitalize;
+      padding: 14px 16px;
+      letter-spacing: 0;
+      font-size: 17px;
+    }

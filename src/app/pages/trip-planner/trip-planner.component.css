@@ -1,0 +1,51 @@
+.bgimg {
+  background-image: url('../../../assets/BG.jpg');
+  background-position: center;
+  height: 600px;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.card {
+  background-color: transparent;
+}
+
+#gapbtw {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+@media (min-width: 320px) and (max-width: 995px) {
+  .hiddenimg {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 995px) {
+  .extrawidth {
+    width: 100%;
+  }
+
+  .extrawidth h5 {
+    font-size: 15px;
+  }
+
+  .widthintab {
+    width: 50%;
+  }
+}
+
+#gapbtw h5 {
+  font-size: 12px !important;
+}
+.card-title {
+  font-size: 13px;
+}
+
+.cus_imgers {
+  margin: auto;
+}

@@ -1,0 +1,33 @@
+.comp-logo{
+  width:50px;
+  margin: 10px 0;
+}
+.product-cus-box{
+    border-radius: 20px;
+    background: #fff;
+    padding: 25px;
+    margin: 0 3px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    overflow: hidden;
+  }
+  ul.seller-detail-review>li {
+    width: 49%;
+    display: inline-block;
+    margin: 8px 0;
+}
+ul.seller-detail-review>li>h6 {
+  width: 150px;
+  display: inline-block;font-size: 16px;
+}
+ul.seller-detail-review>li>span{
+color: #737070;font-size: 16px;
+display: inline-block;
+}
+.cus-seller-dob{
+  position: relative;
+}
+.cus-review p {
+  color: #212020 !important;
+}
+
+

@@ -1,0 +1,174 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-e-commerce-mail">
+    <div class="container-fluid">
+        <div class="row p-0">
+            <div class="col-sm-12 p-0">
+                <app-e-commerce-header></app-e-commerce-header>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-2 p-0">
+                <app-sidemenu></app-sidemenu>
+            </div>
+            <div class="col-sm-10 p-0">
+                <div class="cus-main-section p-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Update profile</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-cus-box cus-box-with-radio cus-from-stapper">
+                        <form [formGroup]="formTwo" class="cus-seller-check-opt">
+                            <ng-template matStepLabel>Seller Account</ng-template>
+                            <div class="row">
+                                <div class="col-sm-12 mb-3 cus-review">
+                                    <h4 class="mt-3 mb-3">Business details</h4>
+                                    <h5 class="m-0" >{{legalentity == "yes" ? 'Yes, my business is a legal entity.' : ' No, I manage my business as a sole proprietor or owner. ' }} </h5>
+                                    <p class="m-0" *ngIf='sellerData?.legalEntityOption'>{{sellerData?.legalEntityOption}} </p>
+                                </div>
+                                <div class="col-sm-6" *ngIf='sellerData?.companyName'>
+                                    <mat-label>Company Name <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="companyName"  matInput maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('companyName').hasError('required')"> Please enter company name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('companyName').hasError('pattern')"> Please enter valid company Name </mat-error>
+                                        
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>First Name <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="firstName"  matInput required
+                                            maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('firstName').hasError('required')"> Please enter first name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('firstName').hasError('pattern')"> Please enter valid first name </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>Last Name <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="lastName"  matInput required
+                                            maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('lastName').hasError('required')"> Please enter last name </mat-error>
+                                        <mat-error *ngIf="formTwo.get('lastName').hasError('pattern')"> Please enter valid last name </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>Email Address <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input readonly type="text" formControlName="email" matInput  required />
+                                        <mat-error *ngIf="formTwo.get('email').hasError('required')"> Please enter email address </mat-error>
+                                        <mat-error *ngIf="formTwo.get('email').hasError('pattern')"> Please enter correct email </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>Phone Number <span>*</span></mat-label>
+                                    <mat-form-field class="cus-pin-with-no">
+                                        <span class="cus-pin-code">+1</span>
+                                        <input type="text" formControlName="mobileNumber"  matInput mask="(000) 000-0000" required />
+                                        <mat-error *ngIf="formTwo.get('mobileNumber').hasError('required')">Please enter phone number </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6 cus-seller-dob">
+                                    <mat-label>Date of Birth / Incorporation <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input  matInput [matDatepicker]="picker"   [max]="minDateOfBirth"  formControlName="dateOfBirth" required />
+                                        <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+                                        <mat-error *ngIf="formTwo.get('dateOfBirth').hasError('required')"> Please select date </mat-error>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>SSN or ITIN </mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="ssn"  matInput maxlength="20" />
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6 pro-country">
+                                    <mat-label>Country <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="country"  (valueChange)="getselectval($event)" required>
+                                            <mat-option *ngFor="let list of countryList" [value]="list._id">
+                                                {{ list.countryName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('country').hasError('required')"> Pleas select country </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6 pro-country">
+                                    <mat-label>State <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="state"  required>
+                                            <mat-option *ngFor="let list of stateList" [value]="list._id">
+                                                {{ list.stateName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('state').hasError('required')"> Please select state </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>Postal Code <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input formControlName="postalCode" maxlength="6"  matInput [(ngModel)]="zipcode" required  (focusout)="getCityByZipcode()" />
+                                        <mat-error *ngIf="formTwo.get('postalCode').hasError('required')"> Please enter postal code </mat-error>
+                                        <mat-error *ngIf="formTwo.get('postalCode').hasError('minlength')"> Minimum length should be 3 </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>City <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="city"  type="text" matInput required maxlength="20" />
+                                        <mat-error *ngIf="formTwo.get('city').hasError('required')"> Please enter city </mat-error>
+                                        <mat-error *ngIf="formTwo.get('city').hasError('pattern')"> Please enter valid city </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <mat-label>Address <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <input type="text" formControlName="address"  matInput required maxlength="50" />
+                                        <mat-error *ngIf="formTwo.get('address').hasError('required')"> Please enter address </mat-error>
+                                        <mat-error *ngIf="formTwo.get('address').hasError('pattern')"> Please enter valid address </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-6">
+                                    <mat-label>Default Profile Display Language <span>*</span></mat-label>
+                                    <mat-form-field>
+                                        <mat-select formControlName="defaultLanguage" required>
+                                            <mat-option *ngFor="let list of defaultLanguages" [value]="list.code">
+                                                {{ list.language }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="formTwo.get('defaultLanguage').hasError('required')"> Pleas select default profile display language </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-12 text-right mt-3">
+                                    <a (click)='goBack()' class="btn common-btn" >Back</a>
+                                    <a  (click)='onSubmit() ' class="btn common-btn ml-3" >Submit</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,68 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 bg-nav">
+                <div class="bg-blue">
+                    <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#"> <img
+                                src="assets/truck-logo.png" style="width: 59px;"> </a> <button class="navbar-toggler"
+                            (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </button>
+                        <div class="nav_toggle_menu" id="navbarSupportedContent"
+                            [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+                            <ul class="navbar-nav">
+                                <li class="nav-item "> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/home-page']" routerLinkActive="active">{{'homeLinks.Home' | translate}}</a> </li>
+                                <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/about-us']" routerLinkActive="active">{{'homeLinks.About_us' | translate}}</a>
+                                </li>
+                                <li class="nav-item" *ngIf="isHR==false"> <a class="nav-link cool-link pb-1"
+                                        (click)="navToggle()" [routerLink]="['/pages/services']" routerLinkActive="active">{{'homeLinks.Services'
+                                        | translate}}</a> </li>
+                                <li class="nav-item" *ngIf="isChecked || !user"> <a class="nav-link cool-link pb-1"
+                                        [routerLink]="['/pages/trip-plan']" routerLinkActive="active">{{'homeLinks.Trip_planner' | translate}}</a>
+                                </li>
+                                <li class="nav-item"
+                                    *ngIf="isChecked==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
+                                        class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/events']" routerLinkActive="active">{{'homeLinks.Events' | translate}}</a> </li>
+                                <li class="nav-item"
+                                    *ngIf="isSeller==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
+                                        class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/e-commerce']" routerLinkActive="active">{{'homeLinks.E-Commerce' | translate}}</a>
+                                </li>
+                                <li class="nav-item"
+                                    *ngIf="isChecked==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
+                                        class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/search-job/jobs']" routerLinkActive="active">{{'homeLinks.Jobs' | translate}}</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/blogs']" routerLinkActive="active">{{'homeLinks.Blogs' | translate}}</a> </li>
+                                <li class="nav-item"> <a class="nav-link highlight cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/pricing-page']" routerLinkActive="active">{{'homeLinks.Pricing' | translate}}</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/contact-us']" routerLinkActive="active">{{'homeLinks.Contact_us' | translate}}</a>
+                                </li>
+                                <li class="nav-item" *ngIf="loggedOut==true"> <a class="nav-link cool-link pb-1"
+                                        (click)="checkProfileComplete()" >{{'homeLinks.My_account' | translate}}</a>
+                                </li>
+                                <li *ngIf="loggedOut==true"> <a class="nav-link cool-link pb-1"
+                                        (click)="logout()">{{'homeLinks.Logout' | translate}}</a> </li>
+                                <li class="nav-item mt-2 ml-2 comp-last-menu" *ngIf="loggedOut==false"
+                                    style="font-weight: 500;"> Account <ul class="cus-dropdown-list">
+                                        <li><a class="nav-link pb-1" [routerLink]="['/login']"><i class="far fa-sign-in"></i>
+                                                Login / Sign Up</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="navOverlay"></div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

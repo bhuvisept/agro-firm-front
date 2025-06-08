@@ -1,0 +1,98 @@
+<ngx-spinner class="cusSpinner">
+  <div class="loader-wrapper">
+    <div class="truck-wrapper">
+      <div class="truck">
+        <div class="truck-container"></div>
+        <div class="glases"></div>
+        <div class="bonet"></div>
+        <div class="base"></div>
+        <div class="base-aux"></div>
+        <div class="wheel-back"></div>
+        <div class="wheel-front"></div>
+        <div class="smoke"></div>
+      </div>
+    </div></div
+></ngx-spinner>
+<div class="cus-top-spc"></div>
+<section class="my-events my-jobs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-9 offset-sm-0 offset-md-3 cus-middelbar">
+        <div class="cus-round-with-bg row pt-3 pb-3 mt-3">
+          <mat-tab-group class="cus-mat-bg mt-2 col-12 pb-4" (selectedTabChange)="getTabChangeValue($event)">
+            <mat-tab label="Favorite">
+              <div *ngIf="favorite">
+                <ul>
+                  <li class="mt-2 mb-2 text-right">
+                    <button class="btn common-btn" (click)="showSubsPopUp()">{{ 'buttons.Post_job' | translate }}</button>
+                  </li>
+                  <li *ngFor="let item of savedJob | paginate : { itemsPerPage: 10, currentPage: Savedpage, totalItems: totalCountsav }; let i = index">
+                    <div class="mt-2">
+                      <h4 class="bl">
+                        <a [routerLink]="['/pages/search-job/view-job/', item.jobData._id]">{{ item.jobData.title | titlecase }}</a>
+                      </h4>
+                      <div class="location-list">
+                        <div>
+                          <span class="mt-2 font-five">{{ 'labels.job.job_description' | translate }}</span>
+                          <ul>
+                            <li><p class="card-text text-left" innerHtml="{{ item.jobData.description | slice : 0 : 150 }}"></p></li>
+                          </ul>
+                        </div>
+                        <div class="d-flex align-items-end col-sm-12 p-0">
+                          <span class="mr-auto">
+                            <span class="mt-2 font-five">{{ 'labels.job.key_skills' | translate }}</span>
+                            <ul class="key-skills skills mt-2 d-flex flex-wrap">
+                              <li *ngFor="let skills of item.jobData.skills">{{ skills.skill }}</li>
+                            </ul>
+                          </span>
+                          <span class="justify-content-end">
+                            <button type="submit" class="btn common-btn" (click)="unsaveJob(item.jobData._id)">{{ 'buttons.unfavorite_job' | translate }}</button>
+                          </span>
+                        </div>
+                        <hr />
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <p *ngIf="!isSavedJobsNoRecod" class="col-sm-12 text-center">{{ 'No_Records_Found' | translate }}</p>
+                <div *ngIf="totalCountsav > itemsPerPage" style="text-align: center" class="text-center"><pagination-controls (pageChange)="savePageChanged($event)"></pagination-controls></div></div
+            ></mat-tab>
+            <mat-tab label="Applied">
+              <div *ngIf="applied">
+                <ul>
+                  <li class="mt-2 mb-2 text-right">
+                    <button class="btn common-btn" (click)="showSubsPopUp()">{{ 'buttons.Post_job' | translate }}</button>
+                  </li>
+                  <li *ngFor="let item of appliedJoblist | paginate : { itemsPerPage: 10, currentPage: page, totalItems: totalCount }; let i = index">
+                    <div class="mt-2">
+                      <h4 class="bl">
+                        <a [routerLink]="['/pages/search-job/view-job/', item.jobData._id]">{{ item.jobData.title | titlecase }}</a>
+                      </h4>
+                      <div class="location-list">
+                        <span class="mt-2 font-five">{{ 'labels.job.job_description' | translate }}</span>
+                        <ul>
+                          <li><p class="card-text text-left" innerHtml="{{ item.jobData.description | slice : 0 : 150 }}"></p></li>
+                        </ul>
+                        <span class="mt-2 font-five">{{ 'labels.job.key_skills' | translate }}</span>
+                        <span>
+                          <ul class="key-skills skills mt-2 d-flex flex-wrap">
+                            <li *ngFor="let skills of item.skills">{{ skills.skill }}</li>
+                          </ul>
+                        </span>
+                        <hr />
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <p></p>
+                <p class="text-center" *ngIf="!isAppliedJobsNoRecod">{{ 'No_Records_Found' | translate }}</p>
+                <div *ngIf="totalCount > itemsPerPage" style="text-align: center">
+                  <pagination-controls (pageChange)="pageChanged($event)" responsive="true" directionLinks="true"> </pagination-controls>
+                </div></div
+            ></mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+<ngx-spinner class="cusSpinner">
+    <div class="loader-wrapper">
+        <div class="truck-wrapper">
+        <div class="truck">
+            <div class="truck-container"></div>
+            <div class="glases"></div>
+            <div class="bonet"></div>
+            <div class="base"></div>
+            <div class="base-aux"></div>
+            <div class="wheel-back"></div>
+            <div class="wheel-front"></div>
+            <div class="smoke"></div>
+        </div>
+        </div>
+    </div>
+</ngx-spinner>
+<section class="cus-pricing-page mob-top-spc">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center p-t-2">
+        <h2 class="text-uppercase mb-2"> {{ 'subscription_plan.heading' | translate }} </h2>
+      </div>
+      <div class="col-sm-1 mt-5 text-right" *ngIf="cartTotalList">
+          <a [routerLink]="['/pages/plan-cart']"> <i class="fa fa-shopping-cart" style="font-size:24px"></i><span class="cus-card-count">{{cartTotalList}}</span> </a>
+      </div>
+      <div class="col-12 d-flex align-items-center justify-content-center cusPlanTit">
+        <h3>{{ 'subscription_plan.select_plan' | translate }}</h3>
+        <div class="cus-select-plan">
+          <mat-form-field>
+            <mat-select [(ngModel)]="isSelectPlan" class="text-center" (selectionChange)="changePlanOption($event)">
+              <mat-option *ngFor="let list of planArray" value="{{ list.value }}" [disabled]="bookedPlan.includes(list.value)">{{ list.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>  
+      </div>
+      <div class="col-12 mt-4 mb-4">
+        <span class="cus-tit-bor"></span>
+      </div>
+      <!-- {{this.isSelectPlan}} -->
+      <div class="col-sm-12 text-center mb-4 pt-1 pb-4">
+        <h2 class="text-uppercase mb-2">{{isSelectPlan}}</h2>
+        <div class="cus-select-plan-opt">
+          <button type="button" class="btn text-uppercase" [ngClass]="singleClass ? 'active' : 'noActive'" (click)="planMonthOption($event)">monthly</button>
+          <button type="button"  class="btn text-uppercase" [ngClass]="singleClass ? 'noActive' : 'active'" (click)="planAnnialOption($event)">Yearly</button>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <form [formGroup]="firstFormGroup" class="row cusPlanPage">
+          <div class="col-sm-12 d-flex align-items-center justify-content-center">
+            <div class="cus-plan-wrap col-sm-4"  *ngFor="let list of newPlanList ;let i = index" [ngClass]="list.plan_name == 'BASIC' ? 'cus-basic' : 'cus-premium'">
+              <div class="set-width text-center" >
+                <h4 class="text-center cus-recom" *ngIf="list.plan_name == 'PREMIUM' ">RECOMMENDED</h4>
+                <h3 class="text-center">{{ list.plan_name | titlecase }}</h3>
+                <div class="text-center cus-pric-plan">
+                  <div class="cus-discount-price d-flex align-items-center justify-content-center" *ngIf="list.planPrice >1">
+                    <span class="cus-syb">$</span>
+                    <span class="cus-currency"> {{list.planPrice}}</span>
+                  </div>
+                  <div class="cus-final-price d-flex align-items-center justify-content-center">
+                    <span class="cus-syb">$</span>
+                    <span class="cus-currency"> {{list.finalPrice}}</span>
+                </div>
+                </div>
+                <div class="cus-plan-option text-center mb-5">
+                  <ul>
+                    <li *ngFor="let feature of list.features; ">
+                      <span class="float-left">
+                        <img src="assets/checked.png" />
+                        {{ feature.keyName | titlecase }}
+                      </span>
+                      <span class="float-right">
+                        {{ feature.keyValue }}
+                      </span>
+                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="pri-plan-grp text-center">
+                  <a *ngIf="list.inCart == true" class="pricing-button btn text-uppercase" routerLink="/pages/plan-cart"> {{ 'buttons.buy_now' | translate }}</a>
+                  <a  *ngIf="list.inCart == false" class="pricing-button btn text-uppercase" (click)='buyNow(list)'>{{ 'buttons.buy_now' | translate }}</a>
+                  <a *ngIf="list.inCart == false" class="pricing-button btn text-uppercase" (click)='addToCart(list,i)'>{{ 'buttons.add_cart' | translate }}</a>
+                  <a *ngIf="list.inCart == true" class="pricing-button cus-go-cart btn text-uppercase" routerLink="/pages/plan-cart">{{ 'buttons.go_cart' | translate }}</a>
+                </div>
+              </div>
+            </div>
+            <div class="cus-plan-wrap col-sm-4" *ngIf="isCustomPlanVisible">
+              <div class="set-width">
+                <h3 class="text-center text-capitalize">custom</h3>
+                <div class="text-center cus-pric-plan">
+                  <div class="text-color">
+                    <span class="currency">-</span>
+                    <!-- <span class="">{{ list.cost }}</span> -->
+                  </div>
+                </div>
+                <div class="cus-plan-option text-center mb-5">
+                  <p class="cus-cont-data"> {{ 'subscription_plan.get_cutom_plan' | translate }} </p>
+                </div>
+                <div class="pri-plan-grp text-center">
+                  <!-- <a class="pricing-button btn text-uppercase" (click)='buyNow()'>Buy now</a> -->
+                  <a class="pricing-button btn text-uppercase" routerLink="/pages/contact-us">{{ 'buttons.contact_us' | translate }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <mat-horizontal-stepper #stepper style="width: 100%">
+        <mat-step [stepControl]="firstFormGroup"> -->
+          
+        <!-- </mat-step> -->
+        <!-- <mat-step [stepControl]="secondFormGroup"></mat-step> -->
+      <!-- </mat-horizontal-stepper> -->
+    </div>
+  </div>
+</section>
