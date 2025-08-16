@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr'
 import { genralConfig } from '../constant/genral-config.constant'
 import { GeneralServiceService } from '../core/general-service.service'
 import { SharedService } from '../service/shared.service'
-import { ProfileRedirectComponent } from '../profile-redirect/profile-redirect.component'
 import { MatDialog } from '@angular/material'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast'
 
@@ -163,11 +162,7 @@ export class LoginComponent implements OnInit {
               // console.log(result,"333333333333")
               this.spinner.hide()
               let loginData = result['data']
-              this.dialog.open(ProfileRedirectComponent, {
-                width: '450px',
-                data: { Data: loginData, returnTo: this.returnUrl, Ip: this.ipAddress, Source: this.source },
-                panelClass: 'open-login-dialog',
-              })
+              
               return
             }
             // this.spinner.hide()

@@ -7,9 +7,7 @@ import { genralConfig } from 'src/app/constant/genral-config.constant'
 import { GeneralServiceService } from 'src/app/core/general-service.service'
 import { environment } from 'src/environments/environment'
 import { OwlOptions } from 'ngx-owl-carousel-o'
-import { EventBookDialogComponent } from '../../event-book-dialog/event-book-dialog.component'
 import { MatDialog } from '@angular/material'
-import { PromosPopupComponent } from 'src/app/pages/promos-popup/promos-popup.component'
 
 @Component({
   selector: 'app-home-page',
@@ -97,9 +95,7 @@ export class HomePageComponent implements OnInit {
     } else return (this.cheak = false)
   }
 
-  openPromo() {
-    this.dialog.open(PromosPopupComponent, {data: {promoList:this.promoList,panelClass: 'cus_promo_box' }})
-  }
+ 
 
   sliders() {
     let obj = { isDeleted: false, isActive: true }
@@ -315,25 +311,7 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-  bookEvent(id) {
-    this.dialog
-      .open(EventBookDialogComponent, { width: '500px', data: { jobId: id } })
-      .afterClosed()
-      .subscribe((result) => {
-        if (result) {
-          let data = { userId: this.userId, eventId: id, userName: this.userDatause.userInfo.personName, userImage: this.userDatause.userInfo.image }
-          this.spinner.show()
-          this._generalService.bookedEvent(data).subscribe((res) => {
-            this.spinner.hide()
-            if (res && res.code == genralConfig.statusCode.ok) {
-              this.toastr.success('Event Successfully Booked')
-              this.getEventlists()
-            } else this.toastr.error(res.message)
-            this.spinner.hide()
-          })
-        }
-      })
-  }
+
   openPromoCode() {
     this._generalService.promoCodesList({ userId: this.userId }).subscribe(
       (res) => {

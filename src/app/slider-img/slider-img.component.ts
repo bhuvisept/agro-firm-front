@@ -8,9 +8,7 @@ import { genralConfig } from '../constant/genral-config.constant'
 import { GeneralServiceService } from '../core/general-service.service'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { ToastrService } from 'ngx-toastr'
-import { EditCommentComponent } from '../edit-comment/edit-comment.component'
-import { DeleteCommentConfirmationComponent } from '../delete-comment-confirmation/delete-comment-confirmation.component'
-var leo_filter = require('leo-profanity')
+
 @Component({
   selector: 'app-slider-img',
   templateUrl: './slider-img.component.html',
@@ -163,7 +161,7 @@ export class SliderImgComponent implements OnInit {
     if (!text) return false
     else {
       this.RePostCommentForm.reset()
-      text = leo_filter.clean(text)
+      // text = leo_filter.clean(text)
       data = { postId: this.allData._id, commentId: this.rePostID, comment: text, userId: this.loggedInUser, userName: this.userObj.userInfo.personName, userImage: this.userObj.userInfo.image }
     }
 
@@ -202,7 +200,7 @@ export class SliderImgComponent implements OnInit {
     else {
       // this.index = i
       this.createPostCommentForm.reset()
-      text = leo_filter.clean(text)
+      
       data = { userId: this.userObj.userInfo._id, postId: this.allData._id, comment: text, userName: this.userObj.userInfo.personName, userImage: this.loggedIn }
     }
 
@@ -232,41 +230,8 @@ export class SliderImgComponent implements OnInit {
       () => this.toastr.warning('Server Error')
     )
   }
-  editComment(comment, type) {
-    this.dialog
-      .open(EditCommentComponent, { width: '600px', data: { postId: this.allData._id, userId: this.loggedInUser, commentId: comment } })
-      .afterClosed()
-      .subscribe((result) => {
-        if (result && result.comment) {
-          if (type == 'COMMENT') {
-            comment.comment = result.comment
-            comment.isEdited = true
-          } else {
-            comment.comment = result.comment
-            comment.comment.isEdited = true
-          }
-        }
-      })
-  }
-  deleteComment(Commentindex, comment, type) {
-    const dialogRef = this.dialog.open(DeleteCommentConfirmationComponent, { width: '450px', data: { postId: this.allData._id, userId: this.loggedInUser, commentId: comment[Commentindex]._id } })
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result && result.apiHit) {
-        if (type == 'COMMENT') {
-          this.allData.totalCommentWithReComment--
-          this.allData.totalComment--
-          this.commentslist()
-          comment.splice(Commentindex, 1)
-        } else {
-         
-          this.allData.totalCommentWithReComment--
-          this.allData.totalComment--
-          this.commentslist()
-          comment.splice(Commentindex, 1)
-        }
-      }
-    })
-  }
+
+ 
   getPostCommentList() {
     let data = { userId: this.userObj.userInfo._id, postId: this.allData._id, count: 3 }
     this._generalService.getPostLikeDetails(data).subscribe(

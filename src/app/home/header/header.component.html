@@ -1,10 +1,26 @@
 <header>
     <div class="container">
+        <div class="row topbar">
+            <ul class="right-list">
+                <li>{{currentDate | date: 'fullDate'}}</li>
+                <li><i class="fa fa-phone fa-lg"></i>&nbsp;76963 31125</li>
+                <li><i class="fa fa-envelope fa-lg"></i>&nbsp;info@gaurimataagrofirm.com</li>
+                
+            </ul>
+            <div>
+            <div class="font-set teo footer_icon"> 
+                <a href="#" target="_blank"> <i class="fab fa-facebook fa-lg"></i></a> 
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                <a href="#" target="_blank"> <i class="fab fa-instagram"></i></a> 
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a> 
+            </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 bg-nav">
                 <div class="bg-blue">
                     <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#"> <img
-                                src="assets/truck-logo.png" style="width: 59px;"> </a> <button class="navbar-toggler"
+                                src="assets/Gauri_mata_new.png" style="width: 120px;"> </a> <button class="navbar-toggler"
                             (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
                             <div class="bar1"></div>
                             <div class="bar2"></div>
@@ -19,43 +35,19 @@
                                         [routerLink]="['/pages/about-us']" routerLinkActive="active">{{'homeLinks.About_us' | translate}}</a>
                                 </li>
                                 <li class="nav-item" *ngIf="isHR==false"> <a class="nav-link cool-link pb-1"
-                                        (click)="navToggle()" [routerLink]="['/pages/services']" routerLinkActive="active">{{'homeLinks.Services'
+                                        (click)="navToggle()" [routerLink]="['/pages/services']" routerLinkActive="active">{{'homeLinks.Our_Products'
                                         | translate}}</a> </li>
-                                <li class="nav-item" *ngIf="isChecked || !user"> <a class="nav-link cool-link pb-1"
-                                        [routerLink]="['/pages/trip-plan']" routerLinkActive="active">{{'homeLinks.Trip_planner' | translate}}</a>
-                                </li>
+                                
                                 <li class="nav-item"
                                     *ngIf="isChecked==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
                                         class="nav-link cool-link pb-1" (click)="navToggle()"
                                         [routerLink]="['/pages/events']" routerLinkActive="active">{{'homeLinks.Events' | translate}}</a> </li>
-                                <li class="nav-item"
-                                    *ngIf="isSeller==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
-                                        class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/e-commerce']" routerLinkActive="active">{{'homeLinks.E-Commerce' | translate}}</a>
-                                </li>
-                                <li class="nav-item"
-                                    *ngIf="isChecked==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
-                                        class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/search-job/jobs']" routerLinkActive="active">{{'homeLinks.Jobs' | translate}}</a>
-                                </li>
+                                
                                 <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/blogs']" routerLinkActive="active">{{'homeLinks.Blogs' | translate}}</a> </li>
-                                <li class="nav-item"> <a class="nav-link highlight cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/pricing-page']" routerLinkActive="active">{{'homeLinks.Pricing' | translate}}</a>
-                                </li>
+                                        [routerLink]="['/pages/blogs']" routerLinkActive="active">{{'homeLinks.Gallery' | translate}}</a> </li>
+                               
                                 <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
                                         [routerLink]="['/pages/contact-us']" routerLinkActive="active">{{'homeLinks.Contact_us' | translate}}</a>
-                                </li>
-                                <li class="nav-item" *ngIf="loggedOut==true"> <a class="nav-link cool-link pb-1"
-                                        (click)="checkProfileComplete()" >{{'homeLinks.My_account' | translate}}</a>
-                                </li>
-                                <li *ngIf="loggedOut==true"> <a class="nav-link cool-link pb-1"
-                                        (click)="logout()">{{'homeLinks.Logout' | translate}}</a> </li>
-                                <li class="nav-item mt-2 ml-2 comp-last-menu" *ngIf="loggedOut==false"
-                                    style="font-weight: 500;"> Account <ul class="cus-dropdown-list">
-                                        <li><a class="nav-link pb-1" [routerLink]="['/login']"><i class="far fa-sign-in"></i>
-                                                Login / Sign Up</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>

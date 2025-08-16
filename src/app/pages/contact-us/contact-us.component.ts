@@ -5,7 +5,6 @@ import { GeneralServiceService } from 'src/app/core/general-service.service'
 import { genralConfig } from 'src/app/constant/genral-config.constant';
 import { MatDialog } from '@angular/material';
 import {ToastrService} from 'ngx-toastr'
-import {QueryFormConfirmationDialogComponent} from '../../../app/query-form-confirmation-dialog/query-form-confirmation-dialog.component'
 
 @Component({
   selector: 'app-contact-us',
@@ -84,9 +83,7 @@ export class ContactUsComponent implements OnInit {
       this.service.contactUs(this.contact.value).subscribe((res)=>{
         if(res['code']==200){
           this.contact.reset()
-          const dialogRef = this.dialog.open(QueryFormConfirmationDialogComponent, {
-            width: '550px',
-          });
+          
           this.spinner.hide();
         }else{
           this.spinner.hide()

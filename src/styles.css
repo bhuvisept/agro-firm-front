@@ -165,7 +165,7 @@ p {
 }
 
 .p-t-3 {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 .p-b-3 {
@@ -469,11 +469,7 @@ img.cus-left-img {
   float: left;
 }
 
-/* / / Signup CSS starts from here / / */
-.cus-signup-section {
-  background: url('assets/low_poly_banner_design_2807.jpg') no-repeat center center / cover;
-  height: 100vh;
-}
+
 
 .cus-signup-section > .cus-inner-login-wraper {
   max-width: 950px;
@@ -481,10 +477,7 @@ img.cus-left-img {
 
 /* / / Forgot password CSS starts from here / / */
 
-.cus-forgot-section {
-  background: url('assets/low_poly_banner_design_2807.jpg') no-repeat left top / cover;
-  height: 100vh;
-}
+
 
 .cus-forgot {
   background-color: white;
@@ -993,7 +986,7 @@ section.about {
 }
 
 .shipping {
-  background: url('assets/shipping-experince.jpg') no-repeat center center / cover;
+  background: url() no-repeat center center / cover;
   height: 76vh;
   text-align: center;
   color: #fff;
@@ -1454,35 +1447,6 @@ section.job-search {
   overflow-y: auto !important;
 }
 
-/* job view end */
-
-/* salary component start  */
-.salary {
-  background: url('assets/salry.jpg') no-repeat center center / cover;
-  height: 455px;
-  margin-top: 6%;
-}
-
-.salary .discover {
-  padding: 35px 0 60px 0;
-  background: #ffffff;
-  border-radius: 14px;
-  margin: 139px 0;
-  text-align: center;
-  border: 1px solid #a7a2a2;
-}
-
-.salary .discover .fa {
-  font-size: 24px;
-}
-
-.salary .discover button.btn.btn-primary {
-  margin: 0px 0 0 0;
-  background: #135fa5;
-  border-radius: 11px;
-  color: #ffffff;
-  padding: 9px 104px;
-}
 
 .popular .analyst h4 {
   display: contents;
@@ -3220,15 +3184,14 @@ button.btn.cus-tm-btn {
 }
 
 .common-btn {
-  color: #33465e !important;
+  color: #FFF !important;
   border-radius: 50px;
   padding: 8px 23px;
-  background-color: #4498e6;
   border: 1px solid white;
   border-radius: 15px;
   -webkit-filter: drop-shadow(-4.243px -4.243px 3px rgba(255, 255, 255, 0.5)) drop-shadow(4.243px 3.243px 3px rgba(171, 194, 212, 0.3));
   filter: drop-shadow(-4.243px -4.243px 3px rgba(255, 255, 255, 0.5)) drop-shadow(4.243px 3.243px 3px rgba(171, 194, 212, 0.3));
-  background-color: #e7edf2;
+  background-color: #439041;
   border: none;
   text-transform: capitalize;
   cursor: pointer;
@@ -3897,12 +3860,12 @@ li.min-p p {
 
 .btn.common-btn,
 .btn.common-btn:hover {
-  color: #070707 !important;
+  color: #FFF !important;
   font-size: 14px;
 }
 
 .common-btn:hover {
-  color: #005aa4 !important;
+  color: #aab1b7 !important;
 }
 
 .cus-event-slider .owl-stage {
@@ -4407,17 +4370,7 @@ ul.flex-ul {
   display: none !important;
 }
 
-.outer-wrap {
-  background: url(assets/animationDashBg.jpg) no-repeat;
-  background-size: 100% 530px;
-  background-position: top center;
-  background-blend-mode: overlay;
-  height: 530px;
-  overflow: hidden;
-  padding: 0;
-  margin: 10px 0 30px 0;
-  position: relative;
-}
+
 
 .wrap {
   position: absolute;
@@ -4641,11 +4594,7 @@ ul.cus-productGrowth-info > li > span > p:last-child {
   background: rgba(255, 255, 255, 0.96);
 }
 
-/* Saller Product Listing */
-.searchbar {
-  background: url(assets/product-search.png) no-repeat center center;
-  min-height: 500px;
-}
+
 
 .cus-AddPro-btn {
   background: #fff;
@@ -5473,7 +5422,7 @@ span.cus-pin-code {
   line-height: 50px;
   font-size: 16px;
   color: #000;
-  left: 8px;
+  left: 50px;
 }
 
 .cus-from-stapper .cus-pin-with-no input {
@@ -8087,7 +8036,7 @@ ul.cus-post-dropdown-menu.show {
   background-color: rgba(240, 240, 240, 0.5);
 }
 
-.truck-wrapper {
+.agri-wrapper {
   height: 200px;
   width: 200px;
   border: 4px solid #005aa4;

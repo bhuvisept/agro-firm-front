@@ -6,8 +6,6 @@ import { environment } from 'src/environments/environment'
 import { SharedService } from 'src/app/service/shared.service'
 import { Router } from '@angular/router'
 import { MatDialog } from '@angular/material'
-import { LoginDialogComponent } from 'src/app/pages/login-dialog/login-dialog.component'
-import { PlanConfirmationDialogComponent } from 'src/app/plan-confirmation-dialog/plan-confirmation-dialog.component'
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
@@ -170,21 +168,8 @@ export class SidemenuComponent implements OnInit {
     }
   }
 
-  showDialog() {
-    this.dialog.open(LoginDialogComponent, { width: '500px', data: 'PLANFEATURE' })
-  }
 
-  gpsPlan() {
-    let servicesPlanInfo = this.userPlanData.filter((planDtl) => planDtl.plan == 'GPS')
-    if (!servicesPlanInfo.length) {
-      this.dialog.open(PlanConfirmationDialogComponent, {
-        width: '550px',
-        data: 'GPS',
-      })
-    } else {
-      this.router.navigate(['/layout/gps'])
-    }
-  }
+  
 
   getCompany() {
     let data = { companyId: this.userObj.userInfo._id }

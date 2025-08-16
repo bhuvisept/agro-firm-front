@@ -3,10 +3,8 @@ import { Router } from '@angular/router'
 import { GeneralServiceService } from 'src/app/core/general-service.service'
 import { SharedService } from 'src/app/service/shared.service'
 import { ToastrService } from 'ngx-toastr'
-import { LoginDialogComponent } from 'src/app/pages/login-dialog/login-dialog.component'
 import { MatDialog } from '@angular/material'
 import { TranslateService } from '@ngx-translate/core'
-import { SocketService } from 'src/app/chat_files/socket-service/socket.service'
 import { environment } from 'src/environments/environment'
 @Component({
   selector: 'app-header',
@@ -16,6 +14,7 @@ import { environment } from 'src/environments/environment'
 export class HeaderComponent implements OnInit {
   isSalesperson: boolean
   paymentToken: any
+  currentDate : any
   // @HostListener('window:storage')
   // onStorageChange() {
   //   let userData = JSON.parse(localStorage.getItem('truckStorage'))
@@ -45,7 +44,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    private SocketService: SocketService,
     private dialog: MatDialog,
     private toastr: ToastrService,
     private sharedService: SharedService,
@@ -57,6 +55,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentDate = new Date();
     this.userData = JSON.parse(localStorage.getItem('truckStorage'))
     if (this.userData && this.userData.userInfo.roleId.roleTitle == 'COMPANY') {
       this.getCompany()
@@ -70,11 +69,8 @@ export class HeaderComponent implements OnInit {
       this.user = this.userData.userInfo.roleId.roleTitle
       this.checkProfileStatus = this.userData.userInfo.profileComplete
       this.paymentToken = this.userData.userInfo.paymentToken
-      this.SocketService.initSocket(this.loggedIn)
-      if (this.userData.userInfo.roleId.roleTitle != 'SELLER') {
-        this.notifyUser()
-        // this.removeMarketSocket()
-      }
+      
+      
     }
 
     if (this.userData && this.userData.userInfo.roleId.roleTitle == 'SELLER') {
@@ -224,12 +220,7 @@ export class HeaderComponent implements OnInit {
   // type_id
 
   /** NOTIFICATION  */
-  notifyUser() {
-    this.SocketService.getNotfication().subscribe((res) => {
-     
-      this.NotificationCheak(res)
-    })
-  }
+ 
   NotificationCheak(data) {
     this.notificationBox = new Notification(data.title, {
       body: data.message,

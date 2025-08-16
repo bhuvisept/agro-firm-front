@@ -5,8 +5,8 @@
   margin-bottom: 45px;
 }
 .cus-form-left-bg {
-  background: url('../../../assets/contact_us.png') no-repeat left top;
-  min-height: 500px;
+  background: #439041 no-repeat left top;
+  min-height: 400px;
   margin: 15px 0;
   border-radius: 15px;
   overflow: hidden;
@@ -39,7 +39,7 @@ ul.cus-cont-address li {
 }
 ul.cus-cont-socialMedia {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 5%;
 }
 ul.cus-cont-socialMedia > li > a {
@@ -63,7 +63,7 @@ ul.cus-cont-socialMedia > li > a {
 .heading_text,
 .query,
 .under_line {
-  color: #0059a3 !important;
+  color: #439041 !important;
 }
 .query {
   font-weight: 600;
@@ -89,4 +89,7 @@ ul.cus-cont-socialMedia > li > a {
   border-radius: 39px;
   padding: 0 15px;
   width: 100%;
+}
+.envelope-icon {
+  color: #439041;   /* change envelope to green */
 }

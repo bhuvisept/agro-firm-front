@@ -4,7 +4,7 @@ import { genralConfig } from "src/app/constant/genral-config.constant";
 import { environment } from "src/environments/environment";
 import { Router } from '@angular/router'
 import { GeneralServiceService } from 'src/app/core/general-service.service'
-import { LoginDialogComponent } from 'src/app/pages/login-dialog/login-dialog.component';
+/*import { LoginDialogComponent } from 'src/app/pages/login-dialog/login-dialog.component';*/
 import { MatDialog } from '@angular/material';
 
 @Component({
@@ -48,24 +48,17 @@ export class FooterComponent implements OnInit {
     });
   }
   compservices =[
-    {serTlt:'Event', serLink:'/pages/events'}, 
-    {serTlt:'Job', serLink:'/pages/search-job/jobs'}, 
-    {serTlt:'Ecommerce', serLink:'/pages/e-commerce'}, 
-    {serTlt:'Services', serLink:'/pages/services'},
-    {serTlt:'FAQ', serLink:'/pages/faq'}
+    {serTlt:'News & Event', serLink:'/pages/events'}, 
+    {serTlt:'Gallery', serLink:'/pages/e-commerce'}, 
+    {serTlt:'Our Products', serLink:'/pages/services'},
   ]
 
-  goToTrip(){
+  /*goToTrip(){
     if(this.user && this.userData.userInfo.roleId.roleTitle == 'COMPANY'){
       this.router.navigate(['/layout/myaccount/trip-planner'])
     }else{
       this.router.navigate(['/signup/company-signup'])
-
-      // this.dialog.open(LoginDialogComponent,{
-      //   width: '500px',
-      //   data: 'SHOWCOMPANY'
-      // })
     }
-  }
+  }*/
 
 }
