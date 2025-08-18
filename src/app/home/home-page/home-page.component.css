@@ -28,11 +28,11 @@ a {
 }
 .nav-link,
 .navbar-brand {
-  color: #0275d8;
+  color: #439041;
 }
 .nav-link:hover,
 .navbar-brand:hover {
-  color: #014c8c;
+  color: #1111;
 }
 .topnav .w3-bar a[href^='/bootstrap/bootstrap_ver.asp'] {
   background-color: #4caf50 !important;
@@ -110,11 +110,12 @@ section.dashboard {
   margin-top: 13px;
 }
 .cus-blog-slider .item-box-blog {
-  border: 1px solid #dadada;
+  border: 1.5px solid #439041;
   text-align: center;
   z-index: 4;
   padding: 10px;
   height: 100%;
+  border-radius: 15px 15px 15px 15px;
 }
 .col-md-9.event,
 .event {
@@ -557,3 +558,27 @@ input.fa.fa-edit:focus {
     height: 105px;
   }
 }
+.media {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.feature-box-image {
+    overflow: hidden;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+}
+.feature-box-title{
+    color: #393186;
+}
+.img-fluid {
+    width: 100px;
+    height: 110px;
+}
+

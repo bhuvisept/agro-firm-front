@@ -24,17 +24,20 @@ export class HomePageComponent implements OnInit {
     autoHeight: true,
     autoWidth: true,
     autoplayTimeout: 1000,
+    navSpeed: 1,
     responsive: { 0: { items: 1, nav: false }, 600: { items: 2 }, 1000: { items: 3 }, 1366: { items: 3, margin: 10 } },
   }
 
   blogCustomOptions: OwlOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     center: true,
     nav: true,
     dots: false,
-    autoHeight: true,
+    autoHeight: false,
     autoWidth: true,
+    autoplayTimeout: 2000,
+    navSpeed: 400,
     margin: 10,
     responsive: { 0: { items: 1, nav: false, autoplay: true }, 567: { items: 1, nav: false, autoplay: true }, 767: { items: 2, nav: false, autoplay: true }, 1000: { items: 3 }, 1366: { items: 3 } },
   }
@@ -48,7 +51,8 @@ export class HomePageComponent implements OnInit {
   exampleTime: any = []
   imgLocation: any
   public image_url_truck = environment.URLHOST + '/uploads/event/image/thumbnail/'
-  slider_url = environment.URLHOST + '/uploads/slider/image/thumbnail/'
+  // slider_url = environment.URLHOST + '/uploads/slider/image/thumbnail/'
+  slider_url = environment.URLHOST + '/assets/'
   sliderList: any
   records: boolean
   interested = genralConfig.Interested
@@ -56,15 +60,17 @@ export class HomePageComponent implements OnInit {
   userDatause: any
   book: any
   cheak: boolean = false
-  blogList: any
+  productList: any
+  serviceList : any
   public BLOGIMAGE = environment.URLHOST + '/uploads/blog/thumbnail/'
+  product_img_url = environment.URLHOST + '/assets/products/'
+  service_img_url = environment.URLHOST + '/assets/services/'
   totalCount: any
   blogListTotalCount: any
   sliderArrow = false
   userAgent = navigator
-  accessLevel: any
-  eventAccess = ['COMPANY', 'HR', 'SELLER', 'SALESPERSON', 'DISPATCHER']
-  promoList: any[]=[]
+  
+  
   constructor(
     private spinner: NgxSpinnerService,
     private router: Router,
@@ -80,19 +86,74 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
-    this.userDatause = JSON.parse(localStorage.getItem('truckStorage'))
-    if (this.userDatause && this.userDatause.userInfo) {
-      this.userId = this.userDatause.userInfo._id
-      this.roleTitle = this.userDatause.userInfo.roleId.roleTitle
-      this.accessLevel = this.userDatause.userInfo.accessLevel
-    }
-    this.getBloglists()
-    this.sliders()
-    this.openPromoCode()
-    if (this.roleTitle !== 'COMPANY') {
-      this.getEventlists()
-      return (this.cheak = true)
-    } else return (this.cheak = false)
+    
+    //this.getBloglists()
+    //this.sliders()
+    this.serviceList = [
+      {
+        "_id":1,
+        "image":"dron.png",
+        "title":"High Tech Farming ",
+      },
+      {
+        "_id":1,
+        "image":"kisan_seva.jpeg",
+        "title":"Kisan Seva Kendra",
+      },
+      {
+        "_id":1,
+        "image":"kisan_seva.jpeg",
+        "title":"Agriculture Magazine",
+      },
+    ]
+    this.productList = [
+      {
+        "_id":1,
+        "image":"borers.jpg",
+        "title":"Product 1",
+        "description":"Dummy text Dummy text Dummy text Dummy text"
+      },
+       {
+        "_id":1,
+        "image":"Fungicides.jpg",
+        "title":"Product 1",
+        "description":"Dummy text Dummy text Dummy text Dummy text"
+      },
+       {
+        "_id":1,
+        "image":"Herbicides.jpg",
+        "title":"Product 1",
+        "description":"Dummy text Dummy text Dummy text Dummy text"
+      },
+      {
+        "_id":1,
+        "image":"plan5.jpg",
+        "title":"Product 1",
+        "description":"Dummy text Dummy text Dummy text Dummy text"
+      }
+    ];
+    this.sliderList = [
+      {
+        "alt":"Jitendra",
+        "title" : "Jitenra",
+        "url" : "footer_background_new.png"
+      },
+      {
+        "alt":"Jitendra",
+        "title" : "Jitenra",
+        "url" : "slider1.jpg"
+      },
+      {
+        "alt":"Jitendra",
+        "title" : "Jitenra",
+        "url" : "slider2.jpg"
+      },{
+        "alt":"Jitendra",
+        "title" : "Jitenra",
+        "url" : "slider4.jpg"
+      }
+  ]
+   
   }
 
  
@@ -170,121 +231,17 @@ export class HomePageComponent implements OnInit {
     this.spinner.show()
     this._generalService.homePageBlogs(obj).subscribe((result) => {
       if (result['code'] == genralConfig.statusCode.ok) {
-        this.blogList = result['data']
-        this.blogListTotalCount = result['totalCount']
+        // this.blogList = result['data']
+        // this.blogListTotalCount = result['totalCount']
       }
       this.spinner.hide()
     })
   }
-  addInterestedAttendee(eventId: any) {
-    if (this.userId != null) {
-      this.spinner.show()
-      let data = {
-        userId: this.userId,
-        eventId: eventId,
-      }
-      this._generalService.addInterestedAttendee(data).subscribe(
-        (res) => {
-          if (res['code'] == genralConfig.statusCode.ok) {
-            this.getEventlists()
-            this.toastr.success(res['message'])
-          } else this.toastr.warning(res['message'])
-          this.spinner.hide()
-        },
-        () => {
-          this.toastr.warning('Something went wrong')
-          this.spinner.hide()
-        }
-      )
-    } else {
-      this.toastr.warning('You have to log-In first.')
-      window.scroll(0, 0)
-    }
-  }
 
-  removeInterestedAttendee(eventId: any) {
-    if (this.userId != null) {
-      this.spinner.show()
-      let data = {
-        userId: this.userId,
-        eventId: eventId,
-      }
-      this._generalService.removeInterestedAttendee(data).subscribe(
-        (res) => {
-          if (res['code'] == genralConfig.statusCode.ok) {
-            this.getEventlists()
-            this.toastr.success(res['message'])
-            this.spinner.hide()
-          } else {
-            this.spinner.hide()
-            this.toastr.warning(res['message'])
-          }
-        },
-        () => {
-          this.toastr.warning('Something went wrong')
-          this.spinner.hide()
-        }
-      )
-    } else {
-      this.router.navigateByUrl('login')
-    }
-  }
 
-  addFavourite(eventId: any) {
-    if (this.userId != null) {
-      this.spinner.show()
-      let data = {
-        userId: this.userId,
-        eventId: eventId,
-      }
-      this._generalService.addFavouriteEvent(data).subscribe(
-        (res) => {
-          if (res['code'] == genralConfig.statusCode.ok) {
-            this.getEventlists()
-            this.toastr.success(res['message'])
-            this.spinner.hide()
-          } else {
-            this.spinner.hide()
-            this.toastr.warning(res['message'])
-          }
-        },
-        () => {
-          this.toastr.warning('Something went wrong')
-          this.spinner.hide()
-        }
-      )
-    } else {
-      this.toastr.warning('You have to log-In first.')
-      window.scroll(0, 0)
-    }
-  }
-  removeFavourite(eventId: any) {
-    if (this.userId != null) {
-      this.spinner.show()
-      let data = {
-        userId: this.userId,
-        eventId: eventId,
-      }
-      this._generalService.removeFavouriteEvent(data).subscribe(
-        (res) => {
-          if (res['code'] == genralConfig.statusCode.ok) {
-            this.getEventlists()
-            this.toastr.success(res['message'])
-            this.spinner.hide()
-          } else {
-            this.spinner.hide()
-            this.toastr.warning(res['message'])
-          }
-        },
-        () => {
-          this.toastr.warning('Something went wrong')
-          this.spinner.hide()
-        }
-      )
-    } else {
-      this.router.navigateByUrl('login')
-    }
-  }
+
+
+
 
   setTimer(time) {
     setInterval(() => {
@@ -311,19 +268,4 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-
-  openPromoCode() {
-    this._generalService.promoCodesList({ userId: this.userId }).subscribe(
-      (res) => {
-        if (res['code'] == 200) {
-          this.spinner.hide()
-          this.promoList = res['data']
-        }
-      },
-      () => {
-        this.toastr.error('Something went wrong')
-        this.spinner.hide()
-      }
-    )
-  }
 }

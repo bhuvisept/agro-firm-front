@@ -10,23 +10,18 @@
     "read_more": "Read More",
     "contact_us": "contact us",
     "buy_now": "buy now",
-    "add_cart": "add to cart",
-    "go_cart": "go to cart",
     "send_message": "send message",
-    "favorited": "Favorited",
-    "unfavorite_job": "Unfavorite Job",
     "cancel": "Cancel",
     "yes": "Yes",
     "no": "No"
   },
-  "applicants":{
-    "Name":"User Name",
+  "applicants": {
+    "Name": "User Name",
     "Email": "Email",
-    "Phone_Number":"Contact Number",
-    "detail":"Description",
+    "Phone_Number": "Contact Number",
+    "detail": "Description",
     "Please_enter_description": "Please enter description"
   },
- 
   "homeLinks": {
     "Home": "Home",
     "About_us": "About us",
@@ -38,61 +33,40 @@
     "My_account": "My account"
   },
   "homeContent": {
-    "we_give": "WE GIVE YOU <span class='text-primary'>THE BEST</span>",
-    "content_1": "Mytruck.one is the one stop solution to all the needs of trucking industry from buying a truck to assisting your driver with various route facilities like tracking, weather forecast & markers on route.",
-    "content_2": "Mytruck.one platform is designed to provide various services like Finding & Posting Jobs, Organizing Events,Trip Planning, Fleet Management, Route Weather, E-commerce of Truck & Truck parts & Social media services for all stakeholders in the industry.",
-    "fourContent": {
-      "first": "E-commerce",
-      "first_des": "A place where you can find & post deals to buy/sell truck, truck parts & accessories.",
-      "second": "Jobs & Events",
-      "second_des": "Here you can catch & provide the lucrative jobs & trending events of trucking industry.",
-      "third": "Trip planner",
-      "third_des": " Best web & app platform to plan the suitable truck routes & navigation on maps for your drivers.",
-      "forth": "Networking",
-      "forth_des": " An Interface to connect, chat & share your thoughts, activities & moments with your dearest ones in the form of media as well."
-    },
+    "our_presence": "Our  <span class='text-primary'>Presence</span>",
+    "content_1": "At GAURI MATA AGRI FARMER , we are committed to transforming agriculture into a sustainable, innovative, and future-ready industry. With deep roots in traditional farming and a strong focus on modern technology, we work tirelessly to provide quality solutions that empower farmers, strengthen communities, and ensure food security.",
+    "content_2": "Our journey began with a simple vision — to bridge the gap between traditional farming practices and modern agricultural innovations. Today, we stand as a trusted partner for farmers, agri-businesses, and stakeholders who share our belief that agriculture is not just an industry, but the backbone of our nation..",
     "download_app": "Download The App Now",
-    "download_des": "A trucking platform including resource gathering, event organizing, shopping and specially to assist drivers with all the vital information of truck routes navigations.",
+    "download_des": "At GAURI MATA AGRI FARMER , we are committed to transforming agriculture into a sustainable, innovative, and future-ready industry.",
     "who_we": "WHO WE <span class='text-primary'>ARE</span> ",
-    "who_we_des": " Mytruck.one facilitates you with wide range of services pertaining to truck , trailer and truck accessories.Here you can search and choose truck services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to truck and add services offered too."
+    "who_we_des": " Mytruck.one facilitates you with wide range of services pertaining to truck , trailer and truck accessories.Here you can search and choose truck services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to truck and add services offered too.",
+    "Our_Products" : "Our Products",
+    "services" : "Our Services",
+    "event_news" : "Events & News"
   },
   "About_us_sec": {
     "heading": "ABOUT-US",
     "content_1_a": "At GAURI MATA AGRI FARMER , we are committed to transforming agriculture into a sustainable, innovative, and future-ready industry. With deep roots in traditional farming and a strong focus on modern technology, we work tirelessly to provide quality solutions that empower farmers, strengthen communities, and ensure food security.",
     "content_1_b": "Our journey began with a simple vision — to bridge the gap between traditional farming practices and modern agricultural innovations. Today, we stand as a trusted partner for farmers, agri-businesses, and stakeholders who share our belief that agriculture is not just an industry, but the backbone of our nation.",
-    "What_We_Do_Heading" : "What We Do",
-     "our_mision" : "Our Mission",
-     "our_vision": "Our Mision"
+    "What_We_Do_Heading": "What <span class='text-primary'>We Do</span>",
+    "our_mision": "Our <span class='text-primary'>Mission</span>",
+    "our_vision": "Our <span class='text-primary'>Vision</span>",
+    "our_vision_desc": "To be a leading agriculture firm recognized for sustainable practices, innovation, and a positive impact on society and the environment.",
+    "our_mission_desc": "To revolutionize agriculture by combining innovation with tradition,ensuring food security, farmer prosperity, and a healthier planet."
   },
   "footer": {
     "content": "WOULD YOU LIKE TO KNOW MORE ABOUT OUR SERVICES?",
     "sub_cnt": "We are always waiting with pleasure to hear your valuable queries",
     "about_us": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    "address1":"Gauri Mata Agri Farmer Company Ltd.,",
+    "address1": "Gauri Mata Agri Farmer Company Ltd.,",
     "address2": "Nayakhera , District Datia 458880"
   },
-  "activity": "Activity",
-  "wish_list": "My wishlist",
   "contact_us": {
-    "heading": "Just write us here!",   
+    "heading": "Just write us here!",
     "side_items": {
       "head": "Contact Information",
       "sub_head": "Fill up the form and our team will get back to you within 24 hours"
     }
-  },
-
-  "home_trip_planner": {
-    "heading_1": "TRIP PLANNER",
-    "first_content": "The goal of truck route planning is to find the best route between two or more stops.<br> Optimized planning is crucial for journey to reduce costs , maximize efficiency ,<br> and to maintain healthy profit margins",
-    "heading_2": "FEATURES",
-    "second_content": "Trip planner providers you the best features , that allows you to be more efficient ,reduce cost, and to maintain healthy profit margins",
-    "second_content_features": {
-      "Waze_Map": "Waze Map",
-      "Trip_Plan": "Trip Plan",
-      "Markers": "Markers",
-      "Live_GPS": "Live GPS",
-      "Weather_Forecast": "Weather Forecast"
-    }
-    
   }
+ 
 }

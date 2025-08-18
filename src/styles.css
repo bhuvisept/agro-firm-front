@@ -93,7 +93,7 @@ h1 {
 h2 {
   font-size: 36px;
   line-height: 56px;
-  color: #1c1c1c;
+  color: #439041;
   position: relative;
 }
 
@@ -3646,7 +3646,7 @@ select.goog-te-combo.btn.common-btn {
   justify-content: center;
   border-radius: 100px !important;
   font-size: 0 !important;
-  background: #d6d6d6 !important;
+  background: #439041 !important;
 }
 
 .up-coming .owl-next,
@@ -6780,10 +6780,11 @@ ul#message-list > li.receiver {
     padding: 15px 0 !important;
   }
 
-  .blogimg,
-  .blogimg img {
+  .carouselimg,
+  .carouselimg img {
     height: 140px !important;
     width: 100%;
+    border-radius: 15px 15px 15px 15px;
   }
 
   .minebtn {
@@ -8541,4 +8542,13 @@ ul.cus-post-dropdown-menu.show {
 
 .me-2 {
   margin-right: 0.4em;
+}
+.text-primary {
+    color: #439041 !important;
+}
+.w-50 {
+    width: 80% !important;
+}
+.ha-ihe-fig {
+    border-radius: 15px 15px 15px 15px;
 }
