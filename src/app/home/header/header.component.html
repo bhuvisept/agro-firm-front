@@ -5,23 +5,26 @@
                 <li>{{currentDate | date: 'fullDate'}}</li>
                 <li><i class="fa fa-phone fa-lg"></i>&nbsp;76963 31125</li>
                 <li><i class="fa fa-envelope fa-lg"></i>&nbsp;info@gaurimataagrofirm.com</li>
-                
+
             </ul>
             <div>
-            <div class="font-set teo footer_icon"> 
-                <a href="#" target="_blank"> <i class="fab fa-facebook fa-lg"></i></a> 
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a> 
-                <a href="#" target="_blank"> <i class="fab fa-instagram"></i></a> 
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a> 
-            </div>
+                <div class="font-set teo footer_icon">
+                    <a href="#" target="_blank"> <i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"> <i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <select name="select_language"  id="select_language" (change) = "useLanguage($event.target.value)" class="form-control">
+                        <option *ngFor="let option of languages" [value]="option.code">{{option.name}}</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 bg-nav">
                 <div class="bg-blue">
                     <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#"> <img
-                                src="assets/Gauri_mata_new.png" style="width: 120px;"> </a> <button class="navbar-toggler"
-                            (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
+                                src="assets/Gauri_mata_new.png" style="width: 120px;"> </a> <button
+                            class="navbar-toggler" (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
                             <div class="bar1"></div>
                             <div class="bar2"></div>
                             <div class="bar3"></div>
@@ -30,24 +33,28 @@
                             [ngClass]="navOpen ? 'navOpen' : 'navClose'">
                             <ul class="navbar-nav">
                                 <li class="nav-item "> <a class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/home-page']" routerLinkActive="active">{{'homeLinks.Home' | translate}}</a> </li>
+                                        [routerLink]="['/home-page']" routerLinkActive="active">{{'homeLinks.Home' |
+                                        translate}}</a> </li>
                                 <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/about-us']" routerLinkActive="active">{{'homeLinks.About_us' | translate}}</a>
+                                        [routerLink]="['/pages/about-us']"
+                                        routerLinkActive="active">{{'homeLinks.About_us' | translate}}</a>
                                 </li>
-                                <li class="nav-item" *ngIf="isHR==false"> <a class="nav-link cool-link pb-1"
-                                        (click)="navToggle()" [routerLink]="['/pages/services']" routerLinkActive="active">{{'homeLinks.Our_Products'
+                                <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/services']"
+                                        routerLinkActive="active">{{'homeLinks.Our_Products'
                                         | translate}}</a> </li>
-                                
-                                <li class="nav-item"
-                                    *ngIf="isChecked==false && isHR==false && isDispatcher==false && !isSalesperson"> <a
-                                        class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/events']" routerLinkActive="active">{{'homeLinks.Events' | translate}}</a> </li>
-                                
+
                                 <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/blogs']" routerLinkActive="active">{{'homeLinks.Gallery' | translate}}</a> </li>
-                               
+                                        [routerLink]="['/pages/events']" routerLinkActive="active">{{'homeLinks.Events'
+                                        | translate}}</a> </li>
+
                                 <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
-                                        [routerLink]="['/pages/contact-us']" routerLinkActive="active">{{'homeLinks.Contact_us' | translate}}</a>
+                                        [routerLink]="['/pages/blogs']" routerLinkActive="active">{{'homeLinks.Gallery'
+                                        | translate}}</a> </li>
+
+                                <li class="nav-item"> <a class="nav-link cool-link pb-1" (click)="navToggle()"
+                                        [routerLink]="['/pages/contact-us']"
+                                        routerLinkActive="active">{{'homeLinks.Contact_us' | translate}}</a>
                                 </li>
                             </ul>
                         </div>

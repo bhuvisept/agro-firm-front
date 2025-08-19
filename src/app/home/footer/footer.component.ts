@@ -53,12 +53,6 @@ export class FooterComponent implements OnInit {
     {serTlt:'Our Products', serLink:'/pages/services'},
   ]
 
-  /*goToTrip(){
-    if(this.user && this.userData.userInfo.roleId.roleTitle == 'COMPANY'){
-      this.router.navigate(['/layout/myaccount/trip-planner'])
-    }else{
-      this.router.navigate(['/signup/company-signup'])
-    }
-  }*/
+ 
 
 }

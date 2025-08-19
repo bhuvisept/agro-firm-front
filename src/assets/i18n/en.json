@@ -28,9 +28,7 @@
     "Our_Products": "Our Products",
     "Gallery": "Gallery",
     "Events": "News & Events",
-    "Contact_us": "Contact us",
-    "Logout": "Logout",
-    "My_account": "My account"
+    "Contact_us": "Contact us"
   },
   "homeContent": {
     "our_presence": "Our  <span class='text-primary'>Presence</span>",

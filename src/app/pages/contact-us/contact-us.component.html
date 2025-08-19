@@ -48,24 +48,24 @@
                             <div class="col-sm-6"> <mat-label style="color: #000;">{{ 'applicants.Name' | translate }}</mat-label> <mat-form-field
                                     class="example-full-width" appearance="fill"> <input formControlName='name'
                                         autocomplete="off" matInput placeholder="abc" maxlength="30"> <mat-error
-                                        *ngIf="contact.get('name').hasError('required')">Please enter name </mat-error>
-                                    <mat-error *ngIf="contact.get('name').hasError('pattern')"> Please enter valid name
+                                        *ngIf="contact.get('name').hasError('required')">{{ 'applicants.enter_name' | translate }}</mat-error>
+                                    <mat-error *ngIf="contact.get('name').hasError('pattern')">{{ 'applicants.valid_name' | translate }} 
                                     </mat-error> </mat-form-field> </div>
                             <div class='col-sm-6'> <mat-label style="color: #000;">{{ 'applicants.Email' | translate }}</mat-label> <mat-form-field
                                     class="example-full-width" appearance="fill"> <input formControlName='email'
                                         autocomplete="off" matInput placeholder="abc@gmail.com"> <mat-error
                                         style="font-size:15px"
                                         *ngIf="contact.get('email').hasError('required') && contact.get('email').touched">
-                                        <small>Please enter email</small> </mat-error> <mat-error style="font-size:15px"
-                                        *ngIf="contact.get('email').hasError('pattern')"> <small> Please enter valid
-                                            email</small> </mat-error> </mat-form-field> </div>
+                                        <small>{{ 'applicants.enter_email' | translate }}</small> </mat-error> <mat-error style="font-size:15px"
+                                        *ngIf="contact.get('email').hasError('pattern')"> 
+                                        <small> {{ 'applicants.valid_email' | translate }}</small> </mat-error> </mat-form-field> </div>
                             <div class='col-sm-6'> <mat-label style="color: #000;">{{ 'applicants.Phone_Number' | translate }}</mat-label>
                                 <mat-form-field class="example-full-width cus-pin-with-no" appearance="fill"> 
                                     <span
                                         class="cus-pin-code">+91</span> <input type="text" placeholder="000 000-0000"
                                         formControlName='phone' mask="000000-0000" autocomplete="off" matInput>
                                     <mat-error style="font-size:15px" *ngIf="contact.get('phone').hasError('pattern')">
-                                        <small> Please enter valid phone number</small> </mat-error> </mat-form-field>
+                                        <small> {{ 'applicants.valid_Number' | translate }}</small> </mat-error> </mat-form-field>
                             </div>
                           
                             <div class='col-sm-12 mb-2 mt-2'>
