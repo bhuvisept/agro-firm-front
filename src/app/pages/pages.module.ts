@@ -25,9 +25,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { MatStepperModule } from '@angular/material/stepper';
+import { GalleryComponent } from './gallery/gallery.component';
+import { OurProductsComponent } from './our-products/our-products.component';
+import { NewsEventComponent } from './news-event/news-event.component';
 
 @NgModule({
-  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent],
+  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent, GalleryComponent, OurProductsComponent, NewsEventComponent],
   imports: [
     CommonModule,
     NgxMaskModule,

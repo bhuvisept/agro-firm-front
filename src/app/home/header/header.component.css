@@ -182,20 +182,6 @@ img.cus-logo {
     border-bottom: 2px solid transparent;
 }
 
-/* .cool-link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #000;
-    transition: width .3s
-}
-
-.cool-link:hover::after {
-    width: 100%;
-    transition: width .3s
-} */
-
 
 .cool-link:hover {
     border-bottom: 2px solid black;
@@ -251,9 +237,9 @@ background-color: green;
       padding: 0;
       display: flex;
       font-size: 15px;
-      gap: 20px;
+      gap: 10px;
       justify-content: flex-end;
-      padding-left: 40px;
+      padding-left: 10px;
     }
 
     .right-list li {
