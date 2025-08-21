@@ -1,0 +1,17 @@
+<div class="wrap">
+  <button mat-icon-button class="close" (click)="close()" aria-label="Close">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <button mat-icon-button class="nav prev" (click)="prev()" aria-label="Previous">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <img class="photo" [src]="current?.src" [alt]="current?.alt || 'image'" />
+
+  <button mat-icon-button class="nav next" (click)="next()" aria-label="Next">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+
+  <div class="caption" *ngIf="current?.alt">{{ current.alt }}</div>
+</div>

@@ -1,8 +1,11 @@
 <section class="mob-top-spc">
-<div class="container">
-<p>gallery works!</p>
-</div>
+    <div class="container">
+        <h2>Image Gallery</h2>
+        <mat-grid-list cols="4" rowHeight="160px" gutterSize="12px" class="grid" *ngIf="images && images.length">
+            <mat-grid-tile *ngFor="let img of images; let i = index">
+                <img class="thumb" [src]="img.thumb || img.src" [alt]="img.alt || 'image'" (click)="open(i)"
+                    loading="lazy" />
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
 </section>
-
-
-

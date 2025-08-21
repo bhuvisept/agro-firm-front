@@ -8552,3 +8552,8 @@ ul.cus-post-dropdown-menu.show {
 .ha-ihe-fig {
     border-radius: 15px 15px 15px 15px;
 }
+
+.lightbox-backdrop { background: rgba(0,0,0,0.92) !important; }
+.lightbox-panel .mat-dialog-container {
+  padding: 0 !important; background: transparent !important; box-shadow: none !important; overflow: hidden !important;
+}

@@ -28,9 +28,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { GalleryComponent } from './gallery/gallery.component';
 import { OurProductsComponent } from './our-products/our-products.component';
 import { NewsEventComponent } from './news-event/news-event.component';
+import { LightboxDialogComponent } from './lightbox-dialog/lightbox-dialog.component';
 
 @NgModule({
-  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent, GalleryComponent, OurProductsComponent, NewsEventComponent],
+  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent, GalleryComponent, OurProductsComponent, NewsEventComponent, LightboxDialogComponent],
   imports: [
     CommonModule,
     NgxMaskModule,
@@ -88,7 +89,7 @@ import { NewsEventComponent } from './news-event/news-event.component';
   ],
   providers:[SharedService,GeneralServiceService,NgxSpinnerService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents : [ ],
+  entryComponents : [LightboxDialogComponent ],
   exports : []
 })
 export class PagesModule { }
