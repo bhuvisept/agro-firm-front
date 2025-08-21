@@ -1,1 +1,22 @@
-<p>news-event works!</p>
+<section class="cus-home-qequest">
+    <div class="container">
+
+        <h2>News Update</h2>
+        <section class="news-container">
+            <div class="news-item" *ngFor="let news of newsList; let i = index" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+                <!-- Image -->
+                <div class="news-image">
+                    <img [src]="news.image" [alt]="news.title">
+                </div>
+
+                <!-- Content -->
+                <div class="news-text">
+                    <h2>{{ news.title }}</h2>
+                    <p>{{ news.description }}</p>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</section>

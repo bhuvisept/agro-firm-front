@@ -15,10 +15,10 @@ interface GalleryImage {
 })
 export class GalleryComponent implements OnInit {
    images: GalleryImage[] = [
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Field' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Irrigation' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Harvest' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Agri-tech' }
+    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Jitendra' },
+    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Neha' },
+    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhavya' },
+    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhuvi' }
   ];
   constructor(private dialog: MatDialog) {}
 
