@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LightboxDialogComponent } from '../lightbox-dialog/lightbox-dialog.component';
+import { environment } from 'src/environments/environment';
 
 interface GalleryImage {
   src: string;
@@ -14,11 +15,12 @@ interface GalleryImage {
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
+  gallery_url = environment.URLHOST + '/uploads/gallery/'
    images: GalleryImage[] = [
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Jitendra' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Neha' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhavya' },
-    { src: 'assets/gallery/1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhuvi' }
+    { src: this.gallery_url+'1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Jitendra' },
+    { src: this.gallery_url+'1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Neha' },
+    { src: this.gallery_url+'1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhavya' },
+    { src: this.gallery_url+'1.jpg', thumb: 'https://picsum.photos/300/200?image=10', alt: 'Bhuvi' }
   ];
   constructor(private dialog: MatDialog) {}
 

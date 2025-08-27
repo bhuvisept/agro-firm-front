@@ -1,7 +1,9 @@
 <section class="cus-home-qequest">
-    <div class="container">
-
-        <h2>News Update</h2>
+    <div class="container mt-4">
+        <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
+            <h2 class="text-uppercase">{{'news_event' | translate}}</h2> <span class="cus-tit-bor"></span>
+        </div>
+        <!-- <h2 class="h2 text-dark" [innerHtml]="'news_event' | translate"> </h2> -->
         <section class="news-container">
             <div class="news-item" *ngFor="let news of newsList; let i = index" [ngClass]="{ 'reverse': i % 2 !== 0 }">
                 <!-- Image -->

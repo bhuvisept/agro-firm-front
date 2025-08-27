@@ -50,9 +50,12 @@ export class HomePageComponent implements OnInit {
   eventLists: any = []
   exampleTime: any = []
   imgLocation: any
-  public image_url_truck = environment.URLHOST + '/uploads/event/image/thumbnail/'
-  // slider_url = environment.URLHOST + '/uploads/slider/image/thumbnail/'
-  slider_url = environment.URLHOST + '/assets/'
+  slider_url = environment.URLHOST + '/uploads/slider/'
+  product_img_url = environment.URLHOST + '/uploads/products/'
+  service_img_url = environment.URLHOST + '/uploads/services/'
+
+  public BLOGIMAGE = environment.URLHOST + '/uploads/blog/thumbnail/'
+  // product_img_url = environment.URLHOST + '/uploads/products/'
   sliderList: any
   records: boolean
   interested = genralConfig.Interested
@@ -61,16 +64,14 @@ export class HomePageComponent implements OnInit {
   book: any
   cheak: boolean = false
   productList: any
-  serviceList : any
-  public BLOGIMAGE = environment.URLHOST + '/uploads/blog/thumbnail/'
-  product_img_url = environment.URLHOST + '/assets/products/'
-  service_img_url = environment.URLHOST + '/assets/services/'
+  serviceList: any
+
   totalCount: any
   blogListTotalCount: any
   sliderArrow = false
   userAgent = navigator
-  
-  
+
+
   constructor(
     private spinner: NgxSpinnerService,
     private router: Router,
@@ -86,77 +87,77 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
-    
+
     //this.getBloglists()
     //this.sliders()
     this.serviceList = [
       {
-        "_id":1,
-        "image":"dron.png",
-        "title":"High Tech Farming ",
+        "_id": 1,
+        "image": "dron.png",
+        "title": "High Tech Farming ",
       },
       {
-        "_id":1,
-        "image":"kisan_seva.jpeg",
-        "title":"Kisan Seva Kendra",
+        "_id": 1,
+        "image": "kisan_seva.jpeg",
+        "title": "Kisan Seva Kendra",
       },
       {
-        "_id":1,
-        "image":"kisan_seva.jpeg",
-        "title":"Agriculture Magazine",
+        "_id": 1,
+        "image": "kisan_seva.jpeg",
+        "title": "Agriculture Magazine",
       },
     ]
     this.productList = [
       {
-        "_id":1,
-        "image":"borers.jpg",
-        "title":"Product 1",
-        "description":"Dummy text Dummy text Dummy text Dummy text"
-      },
-       {
-        "_id":1,
-        "image":"Fungicides.jpg",
-        "title":"Product 1",
-        "description":"Dummy text Dummy text Dummy text Dummy text"
-      },
-       {
-        "_id":1,
-        "image":"Herbicides.jpg",
-        "title":"Product 1",
-        "description":"Dummy text Dummy text Dummy text Dummy text"
+        "_id": 1,
+        "image": "borers.jpg",
+        "title": "Product 1",
+        "description": "Dummy text Dummy text Dummy text Dummy text"
       },
       {
-        "_id":1,
-        "image":"plan5.jpg",
-        "title":"Product 1",
-        "description":"Dummy text Dummy text Dummy text Dummy text"
+        "_id": 1,
+        "image": "Fungicides.jpg",
+        "title": "Product 1",
+        "description": "Dummy text Dummy text Dummy text Dummy text"
+      },
+      {
+        "_id": 1,
+        "image": "Herbicides.jpg",
+        "title": "Product 1",
+        "description": "Dummy text Dummy text Dummy text Dummy text"
+      },
+      {
+        "_id": 1,
+        "image": "plan5.jpg",
+        "title": "Product 1",
+        "description": "Dummy text Dummy text Dummy text Dummy text"
       }
     ];
     this.sliderList = [
       {
-        "alt":"Jitendra",
-        "title" : "Jitenra",
-        "url" : "footer_background_new.png"
+        "alt": "Jitendra",
+        "title": "Jitenra",
+        "url": "424a449a-1f4c-4ecd-a710-27d35bd9b37d-1631861006351_about1.jpg"
       },
       {
-        "alt":"Jitendra",
-        "title" : "Jitenra",
-        "url" : "slider1.jpg"
+        "alt": "Jitendra",
+        "title": "Jitenra",
+        "url": "slider1.jpg"
       },
       {
-        "alt":"Jitendra",
-        "title" : "Jitenra",
-        "url" : "slider2.jpg"
-      },{
-        "alt":"Jitendra",
-        "title" : "Jitenra",
-        "url" : "slider4.jpg"
+        "alt": "Jitendra",
+        "title": "Jitenra",
+        "url": "slider2.jpg"
+      }, {
+        "alt": "Jitendra",
+        "title": "Jitenra",
+        "url": "slider4.jpg"
       }
-  ]
-   
+    ]
+
   }
 
- 
+
 
   sliders() {
     let obj = { isDeleted: false, isActive: true }
@@ -226,23 +227,6 @@ export class HomePageComponent implements OnInit {
       )
     }
   }
-  getBloglists() {
-    let obj = { isDeleted: false, isActive: 'true' }
-    this.spinner.show()
-    this._generalService.homePageBlogs(obj).subscribe((result) => {
-      if (result['code'] == genralConfig.statusCode.ok) {
-        // this.blogList = result['data']
-        // this.blogListTotalCount = result['totalCount']
-      }
-      this.spinner.hide()
-    })
-  }
-
-
-
-
-
-
   setTimer(time) {
     setInterval(() => {
       time.forEach((element, index) => {

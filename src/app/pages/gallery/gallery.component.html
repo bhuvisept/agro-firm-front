@@ -1,6 +1,11 @@
 <section class="mob-top-spc">
-    <div class="container">
-        <h2>Image Gallery</h2>
+    <div class="container mt-4">
+        <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
+            <h2 class="text-uppercase">{{'gallery' | translate}}</h2> <span class="cus-tit-bor"></span>
+        </div>
+        <!-- <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
+            <h2 class="text-uppercase">{{'gallery' | translate}}</h2> <span class="cus-tit-bor"></span>
+        </div> -->
         <mat-grid-list cols="4" rowHeight="160px" gutterSize="12px" class="grid" *ngIf="images && images.length">
             <mat-grid-tile *ngFor="let img of images; let i = index">
                 <img class="thumb" [src]="img.thumb || img.src" [alt]="img.alt || 'image'" (click)="open(i)"

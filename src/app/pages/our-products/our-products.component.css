@@ -1,0 +1,30 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 items per row */
+    gap: 5px;
+    margin: 20px;
+    /* margin from outer div/page */
+    padding: 10px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card {
+    display: flex;
+    margin: 12px;
+
+}
+
+mat-card {
+    border: 1px solid #439041;
+    /* light gray border */
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    /* soft shadow */
+    margin: 5px;
+    /* optional: remove default shadow */
+}

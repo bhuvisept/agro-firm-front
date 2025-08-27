@@ -1,5 +1,8 @@
 {
   "Price": "Price",
+  "news_event": "News & Events",
+  "our_products": "Our Products",
+  "gallery": "Image Gallery",
   "No_Records_Found": "No Records Found",
   "Read_more": "Read more",
   "buttons": {

@@ -48,7 +48,8 @@
                         <div class="item-box-blog">
                             <div class="carouselimg"> <a routerLink="/pages/blogs-details/{{list._id}}"> <img
                                         loading="lazy" *ngIf="!list.image" src="assets/blogone.jpg" alt=""> <img
-                                        loading="lazy" *ngIf="list.image" src="{{product_img_url}}{{list.image}}" alt="">
+                                        loading="lazy" *ngIf="list.image" src="{{product_img_url + list.image}}" alt="">
+                                        <!-- {product_img_url}}{{list.image}} -->
                                 </a> </div>
                             <h5 class="mt-3 font-weight-bolder"> <a
                                     routerLink="/pages/blogs-details/{{list._id}}">{{list.title | titlecase | slice:
@@ -84,7 +85,7 @@
                     <div class="media">
                         <div class="media-icon-part carouselimg">
                             <div class="feature-box-image rounded-circle fbox-img-overlay-zoomin">
-                                <img   class="img-fluid" src="{{service_img_url}}{{list.image}}" alt="{{list.title}}">
+                                <img   class="img-fluid" src="{{service_img_url+list.image}}" alt="{{list.title}}">
                             </div>
                         </div>
                         <div class="media-body">
