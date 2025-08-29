@@ -70,32 +70,32 @@ export class SidemenuComponent implements OnInit {
         this.profileCompleted = Math.round(parseFloat(localStorage.getItem('progressBar')))
       }
     })
-    this.SharedService.getHeader().subscribe((res: any) => {
-      if (res && res.personName) {
-        this.loggedImage = res.image
-        this.ROLETITLE = res.roleId.roleTitle
-        this.imagePath = this.Userprofile
-        this.loggedUser = res.roleId.roleTitle == 'ENDUSER' ? res.personName : res.companyName
-      } else {
-        if (this.userObj && this.userObj.userInfo) {
-          if (this.userObj.userInfo.roleId.roleTitle == 'ENDUSER') {
-            this.getUserProfileDetails()
+    // this.SharedService.getHeader().subscribe((res: any) => {
+    //   if (res && res.personName) {
+    //     this.loggedImage = res.image
+    //     this.ROLETITLE = res.roleId.roleTitle
+    //     this.imagePath = this.Userprofile
+    //     this.loggedUser = res.roleId.roleTitle == 'ENDUSER' ? res.personName : res.companyName
+    //   } else {
+    //     if (this.userObj && this.userObj.userInfo) {
+    //       if (this.userObj.userInfo.roleId.roleTitle == 'ENDUSER') {
+    //         this.getUserProfileDetails()
 
-            this.loggedUser = this.userObj.userInfo.personName
-          }
-          if (this.userObj.userInfo.roleId.roleTitle == 'COMPANY') {
-            this.getCompany()
-            this.loggedUser = this.userObj.userInfo.companyName ? this.userObj.userInfo.companyName : this.userObj.companyName
-          }
-          if (this.userObj.userInfo.roleId.roleTitle == 'SELLER') {
-            this.loggedUser = this.userObj.userInfo.sellerName
-          }
-          this.ROLETITLE = this.userObj.userInfo.roleId.roleTitle
-          // this.loggedImage = this.userObj.userInfo.image;
-          this.imagePath = this.Userprofile
-        }
-      }
-    })
+    //         this.loggedUser = this.userObj.userInfo.personName
+    //       }
+    //       if (this.userObj.userInfo.roleId.roleTitle == 'COMPANY') {
+    //         this.getCompany()
+    //         this.loggedUser = this.userObj.userInfo.companyName ? this.userObj.userInfo.companyName : this.userObj.companyName
+    //       }
+    //       if (this.userObj.userInfo.roleId.roleTitle == 'SELLER') {
+    //         this.loggedUser = this.userObj.userInfo.sellerName
+    //       }
+    //       this.ROLETITLE = this.userObj.userInfo.roleId.roleTitle
+    //       // this.loggedImage = this.userObj.userInfo.image;
+    //       this.imagePath = this.Userprofile
+    //     }
+    //   }
+    // })
   }
   //Full Menu TS Json Company Role Menu
   navigationCompanySideMenu = [
@@ -147,63 +147,63 @@ export class SidemenuComponent implements OnInit {
     { navimg: 'fas fa-ticket-alt', navlink: '/layout/myaccount/manage-team', navitem: 'My Tickets' },
 
   ]
-  changeEvent(event) {
-    if (!event) {
-      let data = {
-        oldRoleId: this.userObj.userInfo.roleId._id,
-        userId: this.userObj.userInfo._id,
-        roleTitle: 'SELLER',
-      }
-      this.spinner.show()
-      this._generalService.changeRole(data).subscribe((res) => {
-        if (res['code'] == 200) {
-          localStorage.clear()
-          localStorage.setItem('truckStorage', JSON.stringify(res['data']))
-          this.router.navigate(['/layout/e-commerce/dashboard'])
-          this.spinner.hide()
-        } else {
-          this.spinner.hide()
-        }
-      })
-    }
-  }
+  // changeEvent(event) {
+  //   if (!event) {
+  //     let data = {
+  //       oldRoleId: this.userObj.userInfo.roleId._id,
+  //       userId: this.userObj.userInfo._id,
+  //       roleTitle: 'SELLER',
+  //     }
+  //     this.spinner.show()
+  //     this._generalService.changeRole(data).subscribe((res) => {
+  //       if (res['code'] == 200) {
+  //         localStorage.clear()
+  //         localStorage.setItem('truckStorage', JSON.stringify(res['data']))
+  //         this.router.navigate(['/layout/e-commerce/dashboard'])
+  //         this.spinner.hide()
+  //       } else {
+  //         this.spinner.hide()
+  //       }
+  //     })
+  //   }
+  // }
 
 
   
 
-  getCompany() {
-    let data = { companyId: this.userObj.userInfo._id }
-    this._generalService.getCompanyDetails(data).subscribe(
-      (response) => {
-        if (response['code'] == 200) {
-          this.loggedUser = response['data'].companyName
-          this.loggedImage = response['data'].companyLogo
-        } else {
-          this.toastr.warning('', response['message'])
-        }
-      },
-      () => {
-        this.toastr.warning('Something went wrong')
-      }
-    )
-  }
+  // getCompany() {
+  //   let data = { companyId: this.userObj.userInfo._id }
+  //   this._generalService.getCompanyDetails(data).subscribe(
+  //     (response) => {
+  //       if (response['code'] == 200) {
+  //         this.loggedUser = response['data'].companyName
+  //         this.loggedImage = response['data'].companyLogo
+  //       } else {
+  //         this.toastr.warning('', response['message'])
+  //       }
+  //     },
+  //     () => {
+  //       this.toastr.warning('Something went wrong')
+  //     }
+  //   )
+  // }
 
-  getUserProfileDetails() {
-    let data = {
-      endUserId: this.userObj.userInfo._id,
-    }
-    this._generalService.getEndUserDetails(data).subscribe(
-      (response) => {
-        if (response['code'] == 200) {
-          this.loggedUser = response['data'].personName
-          this.loggedImage = response['data'].image
-        } else {
-          this.toastr.warning('', response['message'])
-        }
-      },
-      () => {
-        this.toastr.warning('Something went wrong')
-      }
-    )
-  }
+  // getUserProfileDetails() {
+  //   let data = {
+  //     endUserId: this.userObj.userInfo._id,
+  //   }
+  //   this._generalService.getEndUserDetails(data).subscribe(
+  //     (response) => {
+  //       if (response['code'] == 200) {
+  //         this.loggedUser = response['data'].personName
+  //         this.loggedImage = response['data'].image
+  //       } else {
+  //         this.toastr.warning('', response['message'])
+  //       }
+  //     },
+  //     () => {
+  //       this.toastr.warning('Something went wrong')
+  //     }
+  //   )
+  // }
 }

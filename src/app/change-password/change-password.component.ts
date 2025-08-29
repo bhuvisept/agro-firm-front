@@ -83,20 +83,20 @@ export class ChangePasswordComponent implements OnInit {
       this.eyeN = 'fa fa-eye'
     }
   }
-  submitData() {
-    if (this.changePasswordForm.valid) {
-      this.changePasswordForm.value.id = this.userId
-      this.spinner.show()
-      this.service.chnagePassword(this.changePasswordForm.value).subscribe(
-        (res) => {
-          if (res['code'] == 200) {
-            this.toatsr.success(res['message'])
-            this.router.navigate(['/layout/myaccount/dashboard'])
-          } else this.toatsr.warning(res['message'])
-          this.spinner.hide()
-        },
-        () => this.spinner.hide()
-      )
-    }
-  }
+  // submitData() {
+  //   if (this.changePasswordForm.valid) {
+  //     this.changePasswordForm.value.id = this.userId
+  //     this.spinner.show()
+  //     this.service.chnagePassword(this.changePasswordForm.value).subscribe(
+  //       (res) => {
+  //         if (res['code'] == 200) {
+  //           this.toatsr.success(res['message'])
+  //           this.router.navigate(['/layout/myaccount/dashboard'])
+  //         } else this.toatsr.warning(res['message'])
+  //         this.spinner.hide()
+  //       },
+  //       () => this.spinner.hide()
+  //     )
+  //   }
+  // }
 }

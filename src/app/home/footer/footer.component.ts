@@ -39,13 +39,13 @@ export class FooterComponent implements OnInit {
   getBloglists() {
     let obj = { isDeleted: false, isActive: 'true' };
     this.spinner.show();
-    this._generalService.homePageBlogs(obj).subscribe((result) => {
-      if (result['code'] == genralConfig.statusCode.ok) {
-        this.blogList = result['data']
-        } else {
-        this.spinner.hide();
-      }
-    });
+    // this._generalService.homePageBlogs(obj).subscribe((result) => {
+    //   if (result['code'] == genralConfig.statusCode.ok) {
+    //     this.blogList = result['data']
+    //     } else {
+    //     this.spinner.hide();
+    //   }
+    // });
   }
   compservices =[
     {serTlt:'News & Event', serLink:'/pages/events'}, 

@@ -50,7 +50,7 @@ export class HomePageComponent implements OnInit {
   eventLists: any = []
   exampleTime: any = []
   imgLocation: any
-  slider_url = environment.URLHOST + '/uploads/slider/'
+  slider_url = environment.URLHOST + '/uploads/slider_bkp/'
   product_img_url = environment.URLHOST + '/uploads/products/'
   service_img_url = environment.URLHOST + '/uploads/services/'
 

@@ -1,24 +1,36 @@
 <section class="cus-home-qequest">
     <div class="container mt-4">
         <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
-            <h2 class="text-uppercase">{{'news_event' | translate}}</h2> <span class="cus-tit-bor"></span>
+            <h2 class="text-uppercase">{{'news_event' | translate}}</h2>
+            <span class="cus-tit-bor"></span>
         </div>
         <!-- <h2 class="h2 text-dark" [innerHtml]="'news_event' | translate"> </h2> -->
         <section class="news-container">
-            <div class="news-item" *ngFor="let news of newsList; let i = index" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+            <div class="news-item"
+                *ngFor="let news of results | paginate: { itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalCount }; let i = index"
+                [ngClass]="{ 'reverse': i % 2 !== 0 }">
                 <!-- Image -->
                 <div class="news-image">
-                    <img [src]="news.image" [alt]="news.title">
+                    <img src="{{news_image_url+news.image}}" [alt]="news.title">
                 </div>
-
                 <!-- Content -->
                 <div class="news-text">
-                    <h2>{{ news.title }}</h2>
-                    <p>{{ news.description }}</p>
+                    <h2 [innerHtml]="news.name"></h2>
+                    <div class="news-meta">
+                        <small>Created by: {{ news.firstName[0] }} | {{ news.created_at | date:'dd MMM yyyy' }}</small>
+                    </div>
+                    <p>
+                        {{ limitWords(news.description, 50) }}
+                        <a routerLink="/pages/news-detail/{{news._id}}" class="common-btn">
+                           <strong> {{'buttons.read_more' | translate}} ...</strong>
+                        </a></p>
                 </div>
             </div>
         </section>
 
-
+        <div class="text-center mainpagination m-auto col-sm-12" *ngIf="totalCount > itemsPerPage">
+            <pagination-controls (pageChange)="savePageChanged($event)"
+                class="custom-pagination-designe"></pagination-controls>
+        </div>
     </div>
 </section>

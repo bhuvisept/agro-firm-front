@@ -17,8 +17,7 @@
 
 .news-image img {
   width: 200px;
-  height: 150px;
-  max-width: 400px;
+  height: 113px;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
@@ -30,8 +29,8 @@
 .news-text h2 {
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: #2c3e50;
+  /* margin-bottom: 10px; */
+  color: #000;
 }
 
 .news-text p {
@@ -49,6 +48,14 @@
   }
 
   .news-image img {
-    max-width: 200px;
+    width: 200px;
+    height: 113px;
   }
 }
+.news-meta small {
+  font-size: 10px;
+  color: #000; /* optional: lighter text */
+  display: block;
+  margin-top: 5px;
+}
+

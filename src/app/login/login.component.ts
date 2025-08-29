@@ -131,146 +131,146 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  submitData(data: any) {
+  // submitData(data: any) {
     
-    if (this.loginForm.valid) {
-      this.loginForm.value.source = this.source
-      this.loginForm.value.lan = this.lng
-      this.loginForm.value.lat = this.lat
+  //   if (this.loginForm.valid) {
+  //     this.loginForm.value.source = this.source
+  //     this.loginForm.value.lan = this.lng
+  //     this.loginForm.value.lat = this.lat
 
-      this.loginForm.value.clientIp = this.ipAddress
-      this.loginForm.value.loginDate = new Date()
-    this.spinner.show()
-      this._generalService.userLogin(this.loginForm.value).subscribe(
-        (result) => {
-          this.spinner.hide()
+  //     this.loginForm.value.clientIp = this.ipAddress
+  //     this.loginForm.value.loginDate = new Date()
+  //   this.spinner.show()
+  //     this._generalService.userLogin(this.loginForm.value).subscribe(
+  //       (result) => {
+  //         this.spinner.hide()
 
-          if (result['code'] == 200) {
-            this._generalService.addUser(result['data'].userInfo._id)
-            localStorage.removeItem('truckStorage')
-            localStorage.removeItem('ipAddress')
-            localStorage.removeItem('source')
-            localStorage.removeItem('truck_userId')
-            localStorage.removeItem('truck_userName')
-            localStorage.removeItem('progressBar')
-            if (result['data'].companyName) {
-              // console.log(result,"222222222222")
-              result['data'].userInfo['companyName'] = result['data'].companyName
-            }
+  //         if (result['code'] == 200) {
+  //           this._generalService.addUser(result['data'].userInfo._id)
+  //           localStorage.removeItem('truckStorage')
+  //           localStorage.removeItem('ipAddress')
+  //           localStorage.removeItem('source')
+  //           localStorage.removeItem('truck_userId')
+  //           localStorage.removeItem('truck_userName')
+  //           localStorage.removeItem('progressBar')
+  //           if (result['data'].companyName) {
+  //             // console.log(result,"222222222222")
+  //             result['data'].userInfo['companyName'] = result['data'].companyName
+  //           }
 
-            if (result['data'].multipleRole.length > 1) {
-              // console.log(result,"333333333333")
-              this.spinner.hide()
-              let loginData = result['data']
+  //           if (result['data'].multipleRole.length > 1) {
+  //             // console.log(result,"333333333333")
+  //             this.spinner.hide()
+  //             let loginData = result['data']
               
-              return
-            }
-            // this.spinner.hide()
-            this.successMsg = 'Reset password link has been sent to your email address'
-            this.isSuccess = true
-            // this.spinner.hide()
-            let user = result.data.userInfo.roleId.roleTitle
-            let userAccess = result.data.userInfo.accessLevel
-            let roleTitle = result.data.userInfo.accessLevel
-            let UserData = {
-              token: result['data'].token,
-              firstName: result['data'].userInfo.personName,
-              image: result['data'].userInfo.image,
-              userId: result['data'].userInfo._id,
-              email: result['data'].userInfo.email,
-            }
+  //             return
+  //           }
+  //           // this.spinner.hide()
+  //           this.successMsg = 'Reset password link has been sent to your email address'
+  //           this.isSuccess = true
+  //           // this.spinner.hide()
+  //           let user = result.data.userInfo.roleId.roleTitle
+  //           let userAccess = result.data.userInfo.accessLevel
+  //           let roleTitle = result.data.userInfo.accessLevel
+  //           let UserData = {
+  //             token: result['data'].token,
+  //             firstName: result['data'].userInfo.personName,
+  //             image: result['data'].userInfo.image,
+  //             userId: result['data'].userInfo._id,
+  //             email: result['data'].userInfo.email,
+  //           }
 
-            // return
-            // result['data'].userInfo.tripplan = this.TRIPPLAN
-            console.log(result['data'])
+  //           // return
+  //           // result['data'].userInfo.tripplan = this.TRIPPLAN
+  //           console.log(result['data'])
             
-            localStorage.setItem('truckStorage', JSON.stringify(result['data']))
-            localStorage.setItem('ipAddress', this.ipAddress)
-            localStorage.setItem('source', this.source)
+  //           localStorage.setItem('truckStorage', JSON.stringify(result['data']))
+  //           localStorage.setItem('ipAddress', this.ipAddress)
+  //           localStorage.setItem('source', this.source)
 
-            localStorage.setItem('truck_userId', result['data'].userInfo._id)
-            localStorage.setItem('truck_userName', result['data'].userInfo.personName)
-            localStorage.setItem('progressBar', result['data'].userInfo.progressBar)
-            this.roleName = result['data'].userInfo.roleId.roleTitle
+  //           localStorage.setItem('truck_userId', result['data'].userInfo._id)
+  //           localStorage.setItem('truck_userName', result['data'].userInfo.personName)
+  //           localStorage.setItem('progressBar', result['data'].userInfo.progressBar)
+  //           this.roleName = result['data'].userInfo.roleId.roleTitle
 
-            this.toastr.success('', result['message'])
+  //           this.toastr.success('', result['message'])
            
-            if (result['data'].userInfo.paymentToken != null && result['data'].userInfo.paymentToken != '' && result['data'].userInfo.profileComplete) {
-              this.spinner.hide()
-              return this.router.navigate(['/payment'])
-            }
-            if (this.roleName === 'SELLER') {
-              this.spinner.hide()
+  //           if (result['data'].userInfo.paymentToken != null && result['data'].userInfo.paymentToken != '' && result['data'].userInfo.profileComplete) {
+  //             this.spinner.hide()
+  //             return this.router.navigate(['/payment'])
+  //           }
+  //           if (this.roleName === 'SELLER') {
+  //             this.spinner.hide()
 
-              if (result['data'].userInfo.profileComplete) {
-                this.router.navigate(['/layout/e-commerce/dashboard'])
-              } else {
-                this.router.navigate(['/layout/e-commerce'])
-              }
-            } else if (this.returnUrl != undefined && (userAccess == 'ENDUSER' || userAccess == 'DRIVER' || (userAccess == 'COMPANY' && this.module == 'e-commerce'))) {
-              this.spinner.hide()
-              this.router.navigateByUrl(this.returnUrl)
+  //             if (result['data'].userInfo.profileComplete) {
+  //               this.router.navigate(['/layout/e-commerce/dashboard'])
+  //             } else {
+  //               this.router.navigate(['/layout/e-commerce'])
+  //             }
+  //           } else if (this.returnUrl != undefined && (userAccess == 'ENDUSER' || userAccess == 'DRIVER' || (userAccess == 'COMPANY' && this.module == 'e-commerce'))) {
+  //             this.spinner.hide()
+  //             this.router.navigateByUrl(this.returnUrl)
 
-              // window.history.back();
-            } else if (result['data'].userInfo.profileComplete) {
-              this.spinner.hide()
-              this.router.navigate(['/layout/myaccount/dashboard'])
-            } else {
-              this.spinner.hide()
-              this.router.navigate(['/set-profile'])
-            }
+  //             // window.history.back();
+  //           } else if (result['data'].userInfo.profileComplete) {
+  //             this.spinner.hide()
+  //             this.router.navigate(['/layout/myaccount/dashboard'])
+  //           } else {
+  //             this.spinner.hide()
+  //             this.router.navigate(['/set-profile'])
+  //           }
 
-            if (user == 'ENDUSER' && roleTitle == 'SALESPERSON') {
-              this.spinner.hide()
-              if (result['data'].userInfo.profileComplete) {
-                this.router.navigate(['/layout/e-commerce/dashboard'])
-              } else {
-                this.router.navigate(['/set-profile'])
-              }
-            }
+  //           if (user == 'ENDUSER' && roleTitle == 'SALESPERSON') {
+  //             this.spinner.hide()
+  //             if (result['data'].userInfo.profileComplete) {
+  //               this.router.navigate(['/layout/e-commerce/dashboard'])
+  //             } else {
+  //               this.router.navigate(['/set-profile'])
+  //             }
+  //           }
 
-            if (user == 'ENDUSER' && roleTitle == 'DISPATCHER') {
-              this.spinner.hide()
-              if (result['data'].userInfo.profileComplete) {
-                this.router.navigate(['/layout/myaccount/trip-planner'])
-              } else {
-                this.router.navigate(['/set-profile'])
-              }
-            }
+  //           if (user == 'ENDUSER' && roleTitle == 'DISPATCHER') {
+  //             this.spinner.hide()
+  //             if (result['data'].userInfo.profileComplete) {
+  //               this.router.navigate(['/layout/myaccount/trip-planner'])
+  //             } else {
+  //               this.router.navigate(['/set-profile'])
+  //             }
+  //           }
 
-            // if( user =='ENDUSER' && roleTitle == 'HR'){
-            //   if(result['data'].userInfo.profileComplete) {
-            //     this.router.navigate(['/layout/myaccount/team-manager'])
-            //   }else{
-            //     this.router.navigate(['/set-profile'])
-            //   }
-            // }
-            this.sharedService.setUserData(UserData.firstName)
-            this.sharedService.setHeader(UserData)
-          } else if (result['code'] == 555) {
-            this.spinner.hide()
-            this.resetkey = result['data'].resetkey
-            this.router.navigate(['/verify-otp/' + this.resetkey])
-          } else {
-            this.spinner.hide()
-            this.toastr.warning('', result['message'])
-          }
-        },
-        (error) => {
-          this.spinner.hide()
-          this.toastr.error('', 'Something went wrong')
-        }
-      )
-    } else {
-      if (this.loginForm.value.recaptchaReactive == '') {
-      this.spinner.hide()
-        this.validRecaptcha = true
-      } else {
-      this.spinner.hide()
-        this.validRecaptcha = false
-      }
-      this._generalService.markFormGroupTouched(this.loginForm)
-      this.spinner.hide()
-    }
-  }
+  //           // if( user =='ENDUSER' && roleTitle == 'HR'){
+  //           //   if(result['data'].userInfo.profileComplete) {
+  //           //     this.router.navigate(['/layout/myaccount/team-manager'])
+  //           //   }else{
+  //           //     this.router.navigate(['/set-profile'])
+  //           //   }
+  //           // }
+  //           this.sharedService.setUserData(UserData.firstName)
+  //           this.sharedService.setHeader(UserData)
+  //         } else if (result['code'] == 555) {
+  //           this.spinner.hide()
+  //           this.resetkey = result['data'].resetkey
+  //           this.router.navigate(['/verify-otp/' + this.resetkey])
+  //         } else {
+  //           this.spinner.hide()
+  //           this.toastr.warning('', result['message'])
+  //         }
+  //       },
+  //       (error) => {
+  //         this.spinner.hide()
+  //         this.toastr.error('', 'Something went wrong')
+  //       }
+  //     )
+  //   } else {
+  //     if (this.loginForm.value.recaptchaReactive == '') {
+  //     this.spinner.hide()
+  //       this.validRecaptcha = true
+  //     } else {
+  //     this.spinner.hide()
+  //       this.validRecaptcha = false
+  //     }
+  //     this._generalService.markFormGroupTouched(this.loginForm)
+  //     this.spinner.hide()
+  //   }
+  // }
 }

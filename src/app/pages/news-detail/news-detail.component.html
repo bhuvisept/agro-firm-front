@@ -1,0 +1,33 @@
+<section class="cus-home-qequest">
+    <div class="container mt-4">
+        <section class="news-container">
+            <div class="col-sm-12 text-right mb-2 pt-2 pb-2">
+                <a routerLink="/pages/news-events" class="common-btn">
+                    Back
+                </a>
+            </div>
+
+            <div class="news-item">
+                <!-- Image -->
+                <!-- <div class="news-image">
+                    <img src="{{news_image_url+eventData.image}}" [alt]="eventData.name">
+                </div> -->
+                <!-- Content -->
+                <div class="news-text">
+                    <h2 [innerHtml]="eventData.name"></h2>
+                    <div class="news-meta">
+                        <small>Created by: {{ eventData.firstName[0] }} | {{ eventData.created_at | date:'dd MMM yyyy'
+                            }}</small>
+                    </div>
+                    <div class="news-image  text-center">
+                        <img src="{{news_image_url+eventData.image}}" [alt]="eventData.name">
+                    </div>
+                    <p [innerHtml]="eventData.description">
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</section>

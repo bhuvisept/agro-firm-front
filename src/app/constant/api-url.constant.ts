@@ -47,7 +47,7 @@ export class ApiUrlConstant {
   }
 
   public static get VIEWEVENT(): string {
-    return this.appUrl + '/api/v1/event/viewEvent'
+    return this.appUrl + '/api/v1/event/viewEventDetail'
   }
 
 

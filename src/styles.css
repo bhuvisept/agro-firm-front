@@ -3185,8 +3185,9 @@ button.btn.cus-tm-btn {
 
 .common-btn {
   color: #FFF !important;
+  font-size: 12px;
   border-radius: 50px;
-  padding: 8px 23px;
+  padding: 5px 15px;
   border: 1px solid white;
   border-radius: 15px;
   -webkit-filter: drop-shadow(-4.243px -4.243px 3px rgba(255, 255, 255, 0.5)) drop-shadow(4.243px 3.243px 3px rgba(171, 194, 212, 0.3));
