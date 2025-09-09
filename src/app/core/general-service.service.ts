@@ -109,5 +109,8 @@ export class GeneralServiceService {
   contactUs(data: any) {
     return this.http.post(ApiUrlConstant.CONTACTUS, data)
   }
+    getCategoryList(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.GETCATEGORYLIST, data)
+  }
 
 }

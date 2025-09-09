@@ -18,7 +18,11 @@ const routes: Routes = [
       { path: 'our-gallery', component: GalleryComponent, },
       { path: 'product', component: OurProductsComponent, },
       { path: 'news-events', component: NewsEventComponent, },
-      { path: 'news-detail/:id', component: NewsDetailComponent }
+      { path: 'news-detail/:id', component: NewsDetailComponent },
+      // { path: 'ecommerce', loadChildren: () => import('./jobs/jobs.module').then((m) => m.JobsModule) },
+      { path : 'ecommerce',loadChildren: () => import('./ecommerce/ecommerce.module').then((m)=>m.EcommerceModule)}
+      // { path ; 'ecommerce',loadChildren:()=> import('./ecommerce/ecommerce-routing.module').then(m)=>m.ECommerceModule),data:{breadcrumb}}
+      // { path: 'ecommerce', loadChildren: () => import('./ecommerce/ecommerce-routing.module').then(m)=>m.ECommerceModule),data:{breadcrumb}},
 
     ],
   },

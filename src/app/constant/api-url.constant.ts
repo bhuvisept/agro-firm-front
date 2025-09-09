@@ -79,6 +79,9 @@ export class ApiUrlConstant {
   public static get CONTACTUS(): string {
     return this.appUrl + '/api/v1/otherservices/savecontactusdata'
   }
+   public static get GETCATEGORYLIST(): string {
+    return this.appUrl + '/api/v1/category/list'
+  }
 
 }
 

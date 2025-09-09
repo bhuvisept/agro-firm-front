@@ -1519,7 +1519,7 @@ section.job-search {
 
 /* / / Login CSS starts from here / / */
 .cus-login-section {
-  background: url('assets/loginbg8.jpg') no-repeat center center / cover;
+  background: url() no-repeat center center / cover;
   height: 100vh;
 }
 
@@ -5519,7 +5519,7 @@ span.cus-pin-code {
   color: red !important;
 }
 
-/* adarsh */
+
 .square {
   display: none !important;
 }
@@ -5676,7 +5676,6 @@ ul#message-list > li.receiver {
   color: #000 !important;
 }
 
-/* apply-job added by adarsh 29-11-2021*/
 .aply-job-edtr .ck .ck-editor__main {
   max-height: 280px;
   overflow-y: scroll;
@@ -5807,7 +5806,6 @@ ul#message-list > li.receiver {
   overflow-y: auto !important;
 }
 
-/* added by adarsh header ui switch 03-12-2021 */
 .switch-seller span.switch.switch-medium.switch-labeled.checked,
 .switch-seller span.switch.switch-medium.switch-labeled {
   width: 100px !important;
@@ -5843,7 +5841,7 @@ ul#message-list > li.receiver {
   font-weight: 500 !important;
 }
 
-/* added by adarsh 06-12-2021 */
+
 .switch-company span.switch.switch-medium.switch-labeled.checked,
 .switch-company span.switch.switch-medium.switch-labeled {
   width: 100px !important;
@@ -7853,8 +7851,6 @@ ul#message-list > li.receiver {
   display: none !important;
 }
 
-/* header css by adarsh 24-12-2021 */
-
 .cus_menu_heading {
   position: absolute;
   width: 175px !important;
@@ -7864,7 +7860,7 @@ ul#message-list > li.receiver {
   z-index: 1 !important;
 }
 
-/* contact us form css added by adarsh 27-01-2022 */
+
 
 .contact_us .mat-form-field-appearance-fill .mat-form-field-flex {
   background: #ff000000 !important;

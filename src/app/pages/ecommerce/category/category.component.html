@@ -1,0 +1,33 @@
+
+<section class="mob-top-spc">
+    <div class="container mt-4">
+       <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
+            <h2 class="text-uppercase">{{'ecommerce.Category' | translate}}</h2> 
+            <span class="cus-tit-bor"></span>
+        </div>
+    </div>
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col-sm-12"> 
+                <div class="cus-from-stapper"> 
+                    <div class="row"> 
+                        <div class="col-sm-12"> 
+                            <div class="row mt-1 mb-1"> 
+                                <div *ngFor="let list of categoriesList; let i=index" class="col-sm-3 cus-slt-cat"> 
+                                    <label for="{{list._id}}" > 
+                                        <input id="{{list._id}}" [value]='list._id' type="radio" name="list" (click)="getValue(list)"> 
+                                        <img *ngIf="!list.image" src="assets/no_image.jpg"/> 
+                                        <img *ngIf="list.image" src="{{category_image_url + list.image}}" /> 
+                                        <span class="cus-bk-bg"></span> 
+                                    </label> 
+                                    <div class="text-center cus-slt-cat-tit text-capitalize">{{list.category_name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</section>

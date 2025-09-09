@@ -110,12 +110,23 @@ section.dashboard {
   margin-top: 13px;
 }
 .cus-blog-slider .item-box-blog {
-  border: 1.5px solid #439041;
+  border: 1.8px solid #439041;
+  text-align: center;
+  z-index: 4;
+  padding-bottom: 10px;
+  height: 100%;
+  border-radius: 15px 15px 15px 15px;
+}
+.cus-blog-slider .item-box-service {
+  border: 1.8px solid #439041;
   text-align: center;
   z-index: 4;
   padding: 10px;
   height: 100%;
   border-radius: 15px 15px 15px 15px;
+}
+.sliderimg{
+  border-radius: 15px 15px 0px 0px;
 }
 .col-md-9.event,
 .event {
@@ -581,4 +592,5 @@ input.fa.fa-edit:focus {
     width: 100px;
     height: 110px;
 }
+
 

@@ -7,7 +7,7 @@
         <div class="carousel-inner">
             <div *ngFor="let slide of sliderList; let i=index" class="carousel-item" [ngClass]="{active: i===0}"> <a
                     routerLink="/{{slide.routeLink}}">
-                    <img loading="lazy" src="{{slider_url + slide.url}}" alt="{{slide.alt}}" title="{{slide.title}}"
+                    <img  loading="lazy" src="{{slider_url + slide.url}}" alt="{{slide.title}}" title="{{slide.title}}"
                         width="1100" height="500" class="example" /> </a>
             </div>
         </div>
@@ -37,7 +37,7 @@
     </div>
 </section>
 <section class="up-coming">
-   <div class="container p-t-2 p-b-2" > <!-- *ngIf="blogListTotalCount > 3"-->
+   <div class="container p-t-2 p-b-2" > 
         <div class="col-sm-12 text-center m-b-2">
             <h2 class="text-uppercase font-weight-bolder"> {{'homeContent.Our_Products' | translate}} </h2> <span class="cus-tit-bor"></span>
         </div>
@@ -46,20 +46,13 @@
                 <ng-container *ngFor="let list of productList">
                     <ng-template carouselSlide>
                         <div class="item-box-blog">
-                            <div class="carouselimg"> <a routerLink="/pages/blogs-details/{{list._id}}"> <img
-                                        loading="lazy" *ngIf="!list.image" src="assets/blogone.jpg" alt=""> <img
-                                        loading="lazy" *ngIf="list.image" src="{{product_img_url + list.image}}" alt="">
-                                        <!-- {product_img_url}}{{list.image}} -->
+                            <div class="carouselimg"> <a routerLink="/pages/blogs-details/{{list._id}}"> 
+                                <img loading="lazy" class="sliderimg" *ngIf="!list.image" src="assets/blogone.jpg" alt=""> 
+                                <img loading="lazy" class="sliderimg" *ngIf="list.image" src="{{product_img_url + list.image}}" alt="">
                                 </a> </div>
                             <h5 class="mt-3 font-weight-bolder"> <a
                                     routerLink="/pages/blogs-details/{{list._id}}">{{list.title | titlecase | slice:
                                     0:50}}</a> </h5>
-                            <!-- <div class="cus-blog-dis">
-                                <p innerHtml="{{list.description | slice: 0:100}}"></p>
-                            </div> -->
-                            <!-- <div class="mt-3 cus-blog-link"> <a routerLink="/pages/blogs-details/{{list._id}}">Read
-                                    More <div class="mt-1 d-inline"> <span> >> </span> </div></a> 
-                            </div> -->
                         </div>
                     </ng-template>
                 </ng-container>
@@ -75,13 +68,7 @@
         </div>
        <div class="row">
             <div *ngFor="let list of serviceList" class="col-md-4">
-                <div class="item-box-blog">
-                    <!-- <div class="carouselimg"> 
-                        <a routerLink="/pages/blogs-details/{{list._id}}"> 
-                            <img loading="lazy" *ngIf="!list.image" src="assets/blogone.jpg" alt=""> 
-                            <img loading="lazy" *ngIf="list.image" src="{{product_img_url}}{{list.image}}" alt="">
-                        </a> 
-                    </div> -->
+                <div class="item-box-service">
                     <div class="media">
                         <div class="media-icon-part carouselimg">
                             <div class="feature-box-image rounded-circle fbox-img-overlay-zoomin">
@@ -112,22 +99,19 @@
         </div>
         <div class="col-sm-12 cus-slt-cat p-4 cus-blog-slider mb-0">
             <owl-carousel-o [options]="blogCustomOptions">
-                <ng-container *ngFor="let slide of blogList">
+                <ng-container *ngFor="let events of eventLists">
                     <ng-template carouselSlide>
                         <div class="item-box-blog">
-                            <div class="blogimg"> <a routerLink="/pages/blogs-details/{{slide._id}}"> <img
-                                        loading="lazy" *ngIf="!slide.image" src="assets/blogone.jpg" alt=""> <img
-                                        loading="lazy" *ngIf="slide.image" src="{{BLOGIMAGE}}{{slide.image}}" alt="">
-                                </a> </div>
-                            <h5 class="mt-3 font-weight-bolder"> <a
-                                    routerLink="/pages/blogs-details/{{slide._id}}">{{slide.title | titlecase | slice:
-                                    0:50}}</a> </h5>
-                            <div class="cus-blog-dis">
-                                <p innerHtml="{{slide.description | slice: 0:100}}"></p>
+                            <div class="blogimg"> <a routerLink="/pages/news-detail/{{events._id}}"> 
+                                <img loading="lazy" class="sliderimg" *ngIf="!events.image" src="assets/blogone.jpg" alt=""> 
+                                        <img loading="lazy" class="sliderimg" *ngIf="events.image" src="{{EVENTIMAGE}}{{events.image}}" alt="">
+                                </a> 
                             </div>
-                            <div class="mt-3 cus-blog-link"> 
-                                <a routerLink="/pages/blogs-details/{{slide._id}}">Read
-                                    More <div class="mt-1 d-inline"> <span> >> </span> </div>
+                            <h5 class="mt-3 font-weight-bolder"> 
+                                <a routerLink="/pages/news-detail/{{events._id}}">{{events.name}}</a> </h5>
+                            <div class="mt-1 cus-blog-link"> 
+                                <a routerLink="/pages/news-detail/{{events._id}}" class="common-btn">
+                                    {{'buttons.read_more' | translate}} ... <div class="mt-1 d-inline"></div>
                                 </a> 
                             </div>
                         </div>

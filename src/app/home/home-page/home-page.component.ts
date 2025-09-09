@@ -50,12 +50,10 @@ export class HomePageComponent implements OnInit {
   eventLists: any = []
   exampleTime: any = []
   imgLocation: any
-  slider_url = environment.URLHOST + '/uploads/slider_bkp/'
+  slider_url = environment.URLHOST + '/uploads/slider/image/'
   product_img_url = environment.URLHOST + '/uploads/products/'
   service_img_url = environment.URLHOST + '/uploads/services/'
-
-  public BLOGIMAGE = environment.URLHOST + '/uploads/blog/thumbnail/'
-  // product_img_url = environment.URLHOST + '/uploads/products/'
+  public EVENTIMAGE = environment.URLHOST + '/uploads/event/thumbnail/'
   sliderList: any
   records: boolean
   interested = genralConfig.Interested
@@ -87,9 +85,8 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
-
-    //this.getBloglists()
-    //this.sliders()
+    this.sliders();
+    this.getEventlists();
     this.serviceList = [
       {
         "_id": 1,
@@ -133,27 +130,6 @@ export class HomePageComponent implements OnInit {
         "description": "Dummy text Dummy text Dummy text Dummy text"
       }
     ];
-    this.sliderList = [
-      {
-        "alt": "Jitendra",
-        "title": "Jitenra",
-        "url": "424a449a-1f4c-4ecd-a710-27d35bd9b37d-1631861006351_about1.jpg"
-      },
-      {
-        "alt": "Jitendra",
-        "title": "Jitenra",
-        "url": "slider1.jpg"
-      },
-      {
-        "alt": "Jitendra",
-        "title": "Jitenra",
-        "url": "slider2.jpg"
-      }, {
-        "alt": "Jitendra",
-        "title": "Jitenra",
-        "url": "slider4.jpg"
-      }
-    ]
 
   }
 
@@ -165,7 +141,8 @@ export class HomePageComponent implements OnInit {
     this._generalService.sliders(obj).subscribe((result) => {
       if (result.code == 200) {
         this.spinner.hide()
-        this.sliderList = result.data
+        this.sliderList = result.data;
+        console.log("this.sliderList ",this.sliderList)
         setTimeout(() => {
           if (this.sliderList.length) {
             this.records = false
@@ -180,14 +157,8 @@ export class HomePageComponent implements OnInit {
     })
   }
   getEventlists() {
-    if (this.userId != null) {
-      let data = {
-        searchType: 'UPCOMING',
-        visibility: 'Public',
-        userId: this.userId ? this.userId : null,
-        roleTitle: this.roleTitle ? this.roleTitle : null,
-        isActive: 'true',
-      }
+    // if (this.userId != null) {
+      let data = {isActive: 'true'}
       this.spinner.show()
       this._generalService.homePageEvents(data).subscribe(
         (response) => {
@@ -196,7 +167,7 @@ export class HomePageComponent implements OnInit {
             this.eventLists.forEach((element) => {
               this.exampleTime.push(element.startDate)
             })
-            this.setTimer(this.exampleTime)
+            // this.setTimer(this.exampleTime)
             this.spinner.hide()
           }
         },
@@ -205,51 +176,8 @@ export class HomePageComponent implements OnInit {
           this.spinner.hide()
         }
       )
-    } else {
-      this.spinner.show()
-      let data = { searchType: 'UPCOMING', visibility: 'Public' }
-      this._generalService.eventList(data).subscribe(
-        (response) => {
-          if (response['code'] == 200) {
-            this.eventLists = response['data']
-            this.eventLists = this.eventLists.map((ele) => ele.description.item.replace(/<(.|\n)*?>/g, ''))
-            this.eventLists.forEach((element) => {
-              this.exampleTime.push(element.startDate)
-            })
-            this.setTimer(this.exampleTime)
-            this.spinner.hide()
-          }
-        },
-        (error) => {
-          this.toastr.show(error, 'Network Error')
-          this.spinner.hide()
-        }
-      )
-    }
+    // } 
   }
-  setTimer(time) {
-    setInterval(() => {
-      time.forEach((element, index) => {
-        let eventSDate = element
-        this.newDateFormat = this.pipe.transform(eventSDate, 'EEEE, MMMM d, y, h: mm: ss a zzzz')
-        this.demoDate = new Date(this.newDateFormat).getTime()
-        var now = new Date().getTime()
-        var distance = this.demoDate - now
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24))
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
-        this.countDownDate = days + ' days ' + hours + ' hours ' + minutes + ' min ' + seconds + ' sec '
-        this.eventLists[index].countdown = this.countDownDate
-        if (distance < 0) {
-          if (new Date(this.eventLists[index].endDate) > new Date()) {
-            this.eventLists[index].countdown = 'On-going'
-          } else {
-            this.eventLists[index].countdown = 'Expired !'
-          }
-        }
-      })
-    })
-  }
+ 
 
 }
