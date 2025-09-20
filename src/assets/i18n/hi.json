@@ -80,6 +80,10 @@
     "Please_enter_description": "कृपया विवरण दर्ज करें"
   },
   "ecommerce": {
-    "Category": "उत्पाद श्रेणियां"
+    "Category": "उत्पाद श्रेणियां",
+    "norecordfound":"कोई रिकॉर्ड नहीं मिला",
+    "description":"विवरण",
+    "highlight":"प्रमुखता से दिखाना",
+    "productnumber":"उत्पाद संख्या"
   }
 }

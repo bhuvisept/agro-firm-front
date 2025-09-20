@@ -45,7 +45,9 @@ export class ApiUrlConstant {
   public static get GETHOMEEVENTlIST(): string {
     return this.appUrl + '/api/v1/event/homePageEvents'
   }
-
+  public static get LATESTPRODUCTS(): string {
+    return this.appUrl + '/api/v1/product/LatestProduct'
+  }
   public static get VIEWEVENT(): string {
     return this.appUrl + '/api/v1/event/viewEventDetail'
   }
@@ -79,8 +81,14 @@ export class ApiUrlConstant {
   public static get CONTACTUS(): string {
     return this.appUrl + '/api/v1/otherservices/savecontactusdata'
   }
-   public static get GETCATEGORYLIST(): string {
+  public static get GETCATEGORYLIST(): string {
     return this.appUrl + '/api/v1/category/list'
+  }
+  public static get GETPRODUCTLIST(): string {
+    return this.appUrl + '/api/v1/product/list'
+  }
+  public static get GETPRODUCTDETAIL(): string {
+    return this.appUrl + '/api/v1/product/productviewDetails'
   }
 
 }

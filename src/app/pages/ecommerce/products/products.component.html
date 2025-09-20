@@ -1,0 +1,43 @@
+<section class="cus-home-qequest">
+    <div class="container mt-4">
+        <section class="news-container">
+            <div class="col-sm-12 text-right mb-2 pt-2 pb-2">
+                <a routerLink="/pages/ecommerce" class="common-btn">
+                    {{'buttons.back' | translate}}
+                </a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="cus-from-stapper">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div *ngIf='noRecordFound==0'>
+                                        <p class="cus-no-recod">{{'ecommerce.norecordfound' | translate}}....</p>
+                                    </div>
+                                    <div class="row mt-1 mb-1">
+                                        <div *ngFor="let list of productList; let i=index" class="col-sm-2 cus-slt-cat">
+                                            <label for="{{list._id}}">
+                                                <img *ngIf="!list.images" src="assets/no_image.jpg" />
+                                                <img *ngIf="list.images" src="{{product_image_url + list.images[0].name}}" />
+                                                <span class="cus-bk-bg"></span>
+                                            </label>
+                                            <div class="text-center cus-slt-cat-tit text-capitalize">
+                                                <a class="nav-link cool-link pb-1"
+                                                    routerLink='/pages/ecommerce/product-view/{{list._id}}'>
+                                                    {{list.productName}}
+                                                </a>
+                                                <!-- <a routerLink="/pages/blogs-details/{{list._id}}">{{list.productName | titlecase }}</a> </h5> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

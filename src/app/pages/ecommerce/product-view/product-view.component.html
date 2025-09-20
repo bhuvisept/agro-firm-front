@@ -1,0 +1,84 @@
+<ngx-spinner
+  bdColor="rgba(0,0,0,0.3)"
+  size="medium"
+  color="#439041"
+  type="ball-spin-clockwise"
+  [fullScreen]="true">
+</ngx-spinner>
+
+<div class='container'>
+    <div class="col-sm-12 mob-top-spc">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/pages/ecommerce">Category</a></li>
+                <li class="breadcrumb-item"><a
+                        routerLink="/pages/ecommerce/products-list/{{productData.categoryId}}">{{productData.categoryName}}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">{{productData.productName}}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class='product-view '>
+    <div class='container'>
+        <div class='product-cus-box cus-box-with-radio row'>
+            <div class='col-sm-6 pl-0'>
+                <div class="row cus-box-with-radio cus-preview-pic">
+                    <div class="cus-preview-pic preview-pic tab-content col-sm-12 p-0">
+                        <img *ngIf='!productImages?.length' src="assets/no-product-img.jpg">
+                        <!-- <div *ngIf="productImages?.length > 0">
+                            <img src="{{product_image_url+productImages[0].name}}" [alt]="productData.productName">
+                        </div> -->
+                        <div class="tab-pane active fade show">
+                            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-6 inner-product-cus-box cus-box-with-radio container'>
+                <div class='detail-list'>
+                    <div class='row'>
+                        <div class='col-sm-11'>
+                            <h3 class='prod-name justify-content-left text-capitalize'>
+                                {{productData.productName?productData.productName:'-'}}
+                            </h3>
+                        </div>
+                        <div class='col-sm-12'>
+                            <strong class="small-strong"> {{ 'ecommerce.productnumber' | translate }}:</strong>
+                            <p class="cus-product-description d-inline">
+                                {{ productData.productNumber }}
+                            </p>
+                        </div>
+                        <div class='col-sm-12'>
+                            <strong class="small-strong"> {{ 'ecommerce.Category' | translate }}:</strong>
+                            <p class="cus-product-description d-inline">
+                                {{ productData.categoryName }}
+                            </p>
+                        </div>
+                        <div class='prod-detail col-sm-12'>
+                            <ul>
+                                <li>
+                                    <div class='mt-2'> <strong>{{'ecommerce.highlight' | translate}}:</strong>
+                                        <table *ngIf="productData.product_unit.length" class="table">
+                                            <tr *ngFor="let units of productData.product_unit">
+
+                                                <td>{{units.product_unit_value}} {{units.product_unit | titlecase}}</td>
+                                                <td>{{units.product_price | currency:'INR':'symbol':'1.2-2'}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class='mt-2'> <strong>{{'ecommerce.description' | translate}}:</strong>
+                                        <p class="cus-product-description"
+                                            innerHtml="{{productData.description?productData.description:'-'}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

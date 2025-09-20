@@ -25,7 +25,8 @@ export class HomePageComponent implements OnInit {
     autoWidth: true,
     autoplayTimeout: 1000,
     navSpeed: 1,
-    responsive: { 0: { items: 1, nav: false }, 600: { items: 2 }, 1000: { items: 3 }, 1366: { items: 3, margin: 10 } },
+    margin: 5,
+    responsive: { 0: { items: 1, nav: false }, 600: { items: 2 }, 1000: { items: 4 }, 1366: { items: 4, margin: 10 } },
   }
 
   blogCustomOptions: OwlOptions = {
@@ -38,8 +39,42 @@ export class HomePageComponent implements OnInit {
     autoWidth: true,
     autoplayTimeout: 2000,
     navSpeed: 400,
+    margin: 5,
+    responsive: { 0: { items: 1, nav: false, autoplay: true }, 567: { items: 1, nav: false, autoplay: true }, 767: { items: 2, nav: false, autoplay: true }, 1000: { items: 4 }, 1366: { items: 4 } },
+  }
+  customOptions1: any = {
+    loop: true,
     margin: 10,
-    responsive: { 0: { items: 1, nav: false, autoplay: true }, 567: { items: 1, nav: false, autoplay: true }, 767: { items: 2, nav: false, autoplay: true }, 1000: { items: 3 }, 1366: { items: 3 } },
+    nav: true,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1   // mobile
+      },
+      600: {
+        items: 2   // tablet
+      },
+      1000: {
+        items: 4   // desktop
+      }
+    }
+  }
+  customOptions2: any = {
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1   // mobile
+      },
+      600: {
+        items: 2   // tablet
+      },
+      1000: {
+        items: 4   // desktop
+      }
+    }
   }
 
   demoDate: any = Date
@@ -51,7 +86,7 @@ export class HomePageComponent implements OnInit {
   exampleTime: any = []
   imgLocation: any
   slider_url = environment.URLHOST + '/uploads/slider/image/'
-  product_img_url = environment.URLHOST + '/uploads/products/'
+  product_img_url = environment.URLHOST + '/uploads/product/thumbnail_150X120/'
   service_img_url = environment.URLHOST + '/uploads/services/'
   public EVENTIMAGE = environment.URLHOST + '/uploads/event/thumbnail/'
   sliderList: any
@@ -87,6 +122,7 @@ export class HomePageComponent implements OnInit {
     window.scroll(0, 0)
     this.sliders();
     this.getEventlists();
+    this.getLatestProducts();
     this.serviceList = [
       {
         "_id": 1,
@@ -104,37 +140,34 @@ export class HomePageComponent implements OnInit {
         "title": "Agriculture Magazine",
       },
     ]
-    this.productList = [
-      {
-        "_id": 1,
-        "image": "borers.jpg",
-        "title": "Product 1",
-        "description": "Dummy text Dummy text Dummy text Dummy text"
-      },
-      {
-        "_id": 1,
-        "image": "Fungicides.jpg",
-        "title": "Product 1",
-        "description": "Dummy text Dummy text Dummy text Dummy text"
-      },
-      {
-        "_id": 1,
-        "image": "Herbicides.jpg",
-        "title": "Product 1",
-        "description": "Dummy text Dummy text Dummy text Dummy text"
-      },
-      {
-        "_id": 1,
-        "image": "plan5.jpg",
-        "title": "Product 1",
-        "description": "Dummy text Dummy text Dummy text Dummy text"
-      }
-    ];
+    // this.productList = [
+    //   {
+    //     "_id": 1,
+    //     "image": "borers.jpg",
+    //     "title": "Product 1",
+    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //   },
+    //   {
+    //     "_id": 1,
+    //     "image": "Fungicides.jpg",
+    //     "title": "Product 1",
+    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //   },
+    //   {
+    //     "_id": 1,
+    //     "image": "Herbicides.jpg",
+    //     "title": "Product 1",
+    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //   },
+    //   {
+    //     "_id": 1,
+    //     "image": "plan5.jpg",
+    //     "title": "Product 1",
+    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //   }
+    // ];
 
   }
-
-
-
   sliders() {
     let obj = { isDeleted: false, isActive: true }
     this.spinner.show()
@@ -142,7 +175,7 @@ export class HomePageComponent implements OnInit {
       if (result.code == 200) {
         this.spinner.hide()
         this.sliderList = result.data;
-        console.log("this.sliderList ",this.sliderList)
+        console.log("this.sliderList ", this.sliderList)
         setTimeout(() => {
           if (this.sliderList.length) {
             this.records = false
@@ -158,26 +191,40 @@ export class HomePageComponent implements OnInit {
   }
   getEventlists() {
     // if (this.userId != null) {
-      let data = {isActive: 'true'}
-      this.spinner.show()
-      this._generalService.homePageEvents(data).subscribe(
-        (response) => {
-          if (response['code'] == 200) {
-            this.eventLists = response['data']
-            this.eventLists.forEach((element) => {
-              this.exampleTime.push(element.startDate)
-            })
-            // this.setTimer(this.exampleTime)
-            this.spinner.hide()
-          }
-        },
-        (error) => {
-          this.toastr.show(error, 'Network Error')
+    let data = { isActive: 'true' }
+    this.spinner.show()
+    this._generalService.homePageEvents(data).subscribe(
+      (response) => {
+        if (response['code'] == 200) {
+          this.eventLists = response['data']
+          // this.eventLists.forEach((element) => {
+          //   this.exampleTime.push(element.startDate)
+          // })
+          // this.setTimer(this.exampleTime)
           this.spinner.hide()
         }
-      )
+      },
+      (error) => {
+        this.toastr.show(error, 'Network Error')
+        this.spinner.hide()
+      }
+    )
     // } 
   }
- 
+  getLatestProducts() {
+    this.spinner.show()
+    this._generalService.latestProducts({}).subscribe(
+      (response) => {
+        if (response['code'] == 200) {
+          this.productList = response['data']
+          this.spinner.hide()
+        }
+      },
+      (error) => {
+        this.toastr.show(error, 'Network Error')
+        this.spinner.hide()
+      }
+    )
+  }
 
 }

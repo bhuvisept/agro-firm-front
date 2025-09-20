@@ -6,6 +6,10 @@ import { ToastrService } from 'ngx-toastr'
 import { MatDialog } from '@angular/material'
 import { TranslateService } from '@ngx-translate/core'
 
+/** FOR LANGUAGE  */
+import { LanguageService } from 'src/app/service/language.service'
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -26,12 +30,9 @@ export class HeaderComponent implements OnInit {
     private toastr: ToastrService,
     private sharedService: SharedService,
     private router: Router,
-    private _generalService: GeneralServiceService
+    private _generalService: GeneralServiceService,
+    private languageService: LanguageService
   ) {
-    //console.log("Before selected = ",this.default_language)
-    // console.log("after selected = ",this.default_language)
-    //   translate.setDefaultLang('hi')
-    //translate.addLangs(['en', 'hi'])
   }
   ngOnInit() {
     this.currentDate = new Date();
@@ -41,6 +42,9 @@ export class HeaderComponent implements OnInit {
   }
 
   useLanguage(langCode) {
+     // Notify other components
+    this.languageService.changeLanguage(langCode);
+    
     this.default_language = langCode;
     this.translate.setDefaultLang(langCode || 'hi');
   }

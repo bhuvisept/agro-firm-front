@@ -3706,7 +3706,11 @@ a.cus-eve-tit > h5 {
 }
 
 .cus-no-recod {
-  font-size: 15px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: red !important;
+  vertical-align:baseline;
 }
 
 .trip-info div#cdk-overlay-0 {
@@ -6781,8 +6785,8 @@ ul#message-list > li.receiver {
 
   .carouselimg,
   .carouselimg img {
-    height: 140px !important;
-    width: 100%;
+    height: 120px !important;
+    width: 150px;
     border-radius: 15px 15px 15px 15px;
   }
 
@@ -8554,3 +8558,5 @@ ul.cus-post-dropdown-menu.show {
 .lightbox-panel .mat-dialog-container {
   padding: 0 !important; background: transparent !important; box-shadow: none !important; overflow: hidden !important;
 }
+
+

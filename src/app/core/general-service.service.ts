@@ -78,7 +78,9 @@ export class GeneralServiceService {
   homePageEvents(data: any): Observable<any> {
     return this.http.post(ApiUrlConstant.GETHOMEEVENTlIST, data)
   }
-
+  latestProducts(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.LATESTPRODUCTS, data)
+  }
   eventView(data: any): Observable<any> {
     return this.http.post(ApiUrlConstant.VIEWEVENT, data)
   }
@@ -109,8 +111,14 @@ export class GeneralServiceService {
   contactUs(data: any) {
     return this.http.post(ApiUrlConstant.CONTACTUS, data)
   }
-    getCategoryList(data: any): Observable<any> {
+  getCategoryList(data: any): Observable<any> {
     return this.http.post(ApiUrlConstant.GETCATEGORYLIST, data)
+  }
+  getProductList(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.GETPRODUCTLIST, data)
+  }
+  getProductDetail(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.GETPRODUCTDETAIL, data)
   }
 
 }

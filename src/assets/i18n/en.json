@@ -70,7 +70,11 @@
     }
   },
   "ecommerce": {
-    "Category": "Product Categories"
+    "Category": "Product Categories",
+    "norecordfound":"No Records Found",
+    "description":"Description",
+    "highlight":"Highlight",
+    "productnumber":"Product Number"
   }
  
 }
