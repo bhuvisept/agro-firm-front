@@ -70,7 +70,15 @@ export class GeneralServiceService {
     return this.http.post(ApiUrlConstant.CHECKTOKEN, data)
   }
 
-
+  ourServicesHome(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.OURSERVICESHOME, data)
+  }
+  serviceView(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.VIEWSERVICE, data)
+  }
+  serviceList(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.GETSERVICElIST, data)
+  }
 
   eventList(data: any): Observable<any> {
     return this.http.post(ApiUrlConstant.GETEVENTlIST, data)
@@ -119,6 +127,9 @@ export class GeneralServiceService {
   }
   getProductDetail(data: any): Observable<any> {
     return this.http.post(ApiUrlConstant.GETPRODUCTDETAIL, data)
+  }
+   getGalleryList(data: any): Observable<any> {
+    return this.http.post(ApiUrlConstant.GETGALLERYLIST, data)
   }
 
 }

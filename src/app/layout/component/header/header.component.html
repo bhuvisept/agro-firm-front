@@ -1,8 +1,8 @@
 <ngx-spinner class="cusSpinner">
   <div class="loader-wrapper">
-    <div class="truck-wrapper">
-      <div class="truck">
-        <div class="truck-container"></div>
+    <div class="gaurimata-wrapper">
+      <div class="gaurimata">
+        <div class="gaurimata-container"></div>
         <div class="glases"></div>
         <div class="bonet"></div>
         <div class="base"></div>
@@ -18,7 +18,7 @@
   <section *ngIf="ROLETITLE != 'SELLER'" class="cus-nav">
     <div class="container">
       <nav class="navbar navbar-expand-lg cus-befor-login-nav navbar-light">
-        <a class="navbar-brand cus-logo" [routerLink]="['/home-page']"><img src="assets/truck-logo.png" /></a>
+        <a class="navbar-brand cus-logo" [routerLink]="['/home-page']"><img src="assets/Gauri_mata_new.png" /></a>
         <button class="navbar-toggler" (click)="navToggle()" [ngClass]="navOpen ? 'navOpen' : 'navClose'">
           <div class="bar1"></div>
           <div class="bar2"></div>
@@ -41,7 +41,7 @@
                   <li *ngFor="let item of notificationsLists" style="cursor: pointer" (click)="reDirect(item)">
                     <div class="d-flex align-items-center">
                       <div>
-                        <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" /> <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                        <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" /> <img src="assets/gaurimata-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
                       </div>
                       <span>
                         <p *ngIf="item.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
@@ -131,7 +131,7 @@
                 <ul class="dropdown-menu cus-noti-drop">
                   <li *ngFor="let list of notificationsLists" class="d-flex justify-content-start align-items-center p-2" (click)="reDirect(list)">
                     <span class="mr-2">
-                      <img *ngIf="!receiverImage" src="assets/Truck-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
+                      <img *ngIf="!receiverImage" src="assets/gaurimata-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
                     </span>
                     <span>
                       <p *ngIf="list.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
@@ -180,7 +180,7 @@
                 <ul class="dropdown-menu cus-noti-drop">
                   <li *ngFor="let list of notificationsLists" class="d-flex justify-content-start align-items-center p-2" (click)="reDirect(list)">
                     <span class="mr-2">
-                      <img *ngIf="!receiverImage" src="assets/Truck-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
+                      <img *ngIf="!receiverImage" src="assets/gaurimata-banne-profile.png" width="25px" /> <img *ngIf="receiverImage" src="{{ endUser + receiverImage }}" width="25px" />
                     </span>
                     <span>
                       <p *ngIf="list.title" class="m-0 text-capitalize" style="font-size: 12px; line-height: normal">
@@ -268,7 +268,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="cus-dash-logo text-left col-sm-6">
-          <a routerLink="/home-page"> <img src="assets/truck-logo.png" class="profilephoto" /> </a>
+          <a routerLink="/home-page"> <img src="assets/Gauri_mata_new.png" class="profilephoto" /> </a>
         </div>
         <div class="col-sm-6 p-0 text-right">
           <ul class="d-flex align-items-center justify-content-end">
@@ -286,7 +286,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <img [src]="endUser + item.senderImage" class="roundImg" *ngIf="item.senderImage" />
-                        <img src="assets/Truck-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
+                        <img src="assets/gaurimata-banne-profile.png" class="roundImg" *ngIf="!item.senderImage" />
                       </div>
                       <div class="row" style="margin-left: 10px;">
                         <p class="m-0">
@@ -305,7 +305,7 @@
             <li class="nav-item">
               <div class="dropdown profile-updation">
                 <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-                  <span class="account-user-avatar ml-1"> <img src="assets/truck-logo.png" alt="user-image" class="rounded-circle mr-2" width="28px" /> </span>
+                  <span class="account-user-avatar ml-1"> <img src="assets/Gauri_mata_new.png" alt="user-image" class="rounded-circle mr-2" width="28px" /> </span>
                   <span>
                     <span class="account-user-name">{{ sellerData }}</span>
                   </span>

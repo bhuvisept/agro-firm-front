@@ -38,7 +38,9 @@ export class ApiUrlConstant {
   public static get CHECKTOKEN(): string {
     return this.appUrl + '/api/v1/user/checkToken'
   }
-
+  public static get GETSERVICElIST(): string {
+    return this.appUrl + '/api/v1/service/allServices'
+  }
   public static get GETEVENTlIST(): string {
     return this.appUrl + '/api/v1/event/allEvents'
   }
@@ -48,6 +50,13 @@ export class ApiUrlConstant {
   public static get LATESTPRODUCTS(): string {
     return this.appUrl + '/api/v1/product/LatestProduct'
   }
+  public static get OURSERVICESHOME(): string {
+    return this.appUrl + '/api/v1/service/ourServicesHome'
+  }
+  public static get VIEWSERVICE(): string {
+    return this.appUrl + '/api/v1/service/viewServiceDetail'
+  }
+
   public static get VIEWEVENT(): string {
     return this.appUrl + '/api/v1/event/viewEventDetail'
   }
@@ -79,7 +88,7 @@ export class ApiUrlConstant {
   }
 
   public static get CONTACTUS(): string {
-    return this.appUrl + '/api/v1/otherservices/savecontactusdata'
+    return this.appUrl + '/api/v1/emailservices/savecontactusdata'
   }
   public static get GETCATEGORYLIST(): string {
     return this.appUrl + '/api/v1/category/list'
@@ -89,6 +98,9 @@ export class ApiUrlConstant {
   }
   public static get GETPRODUCTDETAIL(): string {
     return this.appUrl + '/api/v1/product/productviewDetails'
+  }
+   public static get GETGALLERYLIST(): string {
+    return this.appUrl + '/api/v1/galleryImage/images'
   }
 
 }

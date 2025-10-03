@@ -1,3 +1,10 @@
+<ngx-spinner
+  bdColor="rgba(0,0,0,0.3)"
+  size="medium"
+  color="#439041"
+  type="ball-spin-clockwise"
+  [fullScreen]="true">
+</ngx-spinner>
 <section class="banner">
     <div id="demo" class="carousel slide" data-ride="carousel" *ngIf="sliderList?.length">
         <ul class="carousel-indicators">
@@ -80,12 +87,12 @@
                         </div>
                         <div class="media-body">
                             <h4 class="feature-box-title">
-                                <a href="/nova-agritech/services/agriclinic-magazine/" title="{{list.title}}" target="_blank">
-                                    {{list.title}}
+                                <a routerLink="/pages/our-service-detail/{{list._id}}" title="{{list.name}}" >
+                                    {{list.name}}
                                 </a>
                             </h4>
                             <div class="feature-box-btn">
-                                <a class="minebtn bg-none" href="/nova-agritech/services/agriclinic-magazine/" title="Know more">
+                                <a class="minebtn bg-none" routerLink="/pages/our-service-detail/{{list._id}}" title="Know more">
                                     Know more
                                 </a>
                             </div>

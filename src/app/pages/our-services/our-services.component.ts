@@ -10,13 +10,12 @@ import { LanguageService } from 'src/app/service/language.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-news-event',
-  templateUrl: './news-event.component.html',
-  styleUrls: ['./news-event.component.css']
+  selector: 'app-our-services',
+  templateUrl: './our-services.component.html',
+  styleUrls: ['./our-services.component.css']
 })
-
-export class NewsEventComponent implements OnInit {
-  news_image_url = environment.URLHOST + '/uploads/event/thumbnail/'
+export class OurServicesComponent implements OnInit {
+  service_image_url = environment.URLHOST + '/uploads/services/thumbnail/'
   userId: any;
   results: any;
   totalCount: number
@@ -34,38 +33,35 @@ export class NewsEventComponent implements OnInit {
     private toastr: ToastrService,
     private pipe: DatePipe,
     private languageService: LanguageService
-
   ) { }
 
   ngOnInit() {
     this.currentLang = this.languageService.getCurrentLanguage();
-    this.getEventlists(1,this.currentLang);
+    this.getServicesList(1, this.currentLang);
     this.langSub = this.languageService.currentLanguage$.subscribe(lang => {
       if (lang !== this.currentLang) {
         this.currentLang = lang;
-       this.getEventlists(1,this.currentLang);
+        this.getServicesList(1, this.currentLang);
       }
     });
-
-
     window.scroll(0, 0);
-  }
 
+  }
   limitWords(text: string, limit: number = 20): string {
     if (!text) return '';
     const plain = text.replace(/<[^>]+>/g, ''); // strip HTML
     const words = plain.split(/\s+/);
     return words.length > limit ? words.slice(0, limit).join(' ') + ' ' : plain;
   }
-
-  getEventlists(page,lang: string) {
+   getServicesList(page,lang: string) {
     let data = {isActive: 'true', page: page,title:lang}
     this.spinner.show()
-    this._generalService.eventList(data).subscribe(
+    this._generalService.serviceList(data).subscribe(
       (response) => {
         console.log("RES ", response);
         if (response['code'] == 200) {
           this.results = response['data']
+        
           this.totalCount = response['totalCount']
           setTimeout(() => {
             this.spinner.hide();
@@ -79,7 +75,7 @@ export class NewsEventComponent implements OnInit {
     )
   }
   savePageChanged(element) {
-     this.getEventlists(element,this.currentLang);
+     this.getServicesList(element,this.currentLang);
     this.page = element
   }
 

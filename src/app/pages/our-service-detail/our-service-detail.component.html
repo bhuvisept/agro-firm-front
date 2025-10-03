@@ -10,22 +10,22 @@
     <div class="container mt-4">
         <section class="news-container">
             <div class="col-sm-12 text-right mb-2 pt-2 pb-2">
-                <a routerLink="/pages/news-events" class="common-btn">
+                <a routerLink="/pages/our-services" class="common-btn">
                    {{'buttons.back' | translate}}
                 </a>
             </div>
 
             <div class="news-item">
                 <div class="news-text">
-                    <h2 [innerHtml]="eventData.name"></h2>
+                    <h2 [innerHtml]="serviceData.name"></h2>
                     <div class="news-meta">
-                        <small>Created by: {{ eventData.firstName[0] }} | {{ eventData.created_at | date:'dd MMM yyyy'
+                        <small>Created by: {{ serviceData.firstName[0] }} | {{ serviceData.created_at | date:'dd MMM yyyy'
                             }}</small>
                     </div>
                     <div class="news-image  text-center">
-                        <img src="{{news_image_url+eventData.image}}" [alt]="eventData.name">
+                        <img src="{{service_image_url+serviceData.image}}" [alt]="serviceData.name">
                     </div>
-                    <p [innerHtml]="eventData.description">
+                    <p [innerHtml]="serviceData.description">
                     </p>
                 </div>
             </div>

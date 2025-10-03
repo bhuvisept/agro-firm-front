@@ -1,3 +1,23 @@
+<ngx-spinner
+  bdColor="rgba(0,0,0,0.3)"
+  size="medium"
+  color="#439041"
+  type="ball-spin-clockwise"
+  [fullScreen]="true">
+</ngx-spinner>
+<div class='container'>
+    <div class="col-sm-12 mob-top-spc">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/pages/ecommerce">{{'ecommerce.Category' | translate}}</a></li>
+                <li class="breadcrumb-item"><a
+                        routerLink="/pages/ecommerce">{{productList[0].category_name}}</a>
+                </li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">{{productData.productName}}</li> -->
+            </ol>
+        </nav>
+    </div>
+</div>
 <section class="cus-home-qequest">
     <div class="container mt-4">
         <section class="news-container">

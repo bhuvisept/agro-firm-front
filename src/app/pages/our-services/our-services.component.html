@@ -8,7 +8,7 @@
 <section class="mob-top-spc">
     <div class="container mt-4">
         <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
-            <h2 class="text-uppercase">{{'ecommerce.Category' | translate}}</h2>
+            <h2 class="text-uppercase">{{'homeLinks.our-services' | translate}}</h2>
             <span class="cus-tit-bor"></span>
         </div>
     </div>
@@ -19,15 +19,15 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="row mt-1 mb-1">
-                                <div *ngFor="let list of categoriesList; let i=index" class="col-sm-3 cus-slt-cat">
-                                    <label for="{{list._id}}">
+                                <div *ngFor="let list of results; let i=index" class="col-sm-2 cus-slt-cat">
+                                    <label>
                                         <img *ngIf="!list.image" src="assets/no_image.jpg" />
-                                        <img *ngIf="list.image" src="{{category_image_url + list.image}}" />
+                                        <img *ngIf="list.image" src="{{service_image_url + list.image}}" width="200px;" />
                                         <span class="cus-bk-bg"></span>
                                     </label>
-                                    <div class="text-center cus-slt-cat-tit text-capitalize">
-                                        <a class="nav-link cool-link pb-1" routerLink='/pages/ecommerce/products/{{list._id}}'>
-                                            {{list.category_name}}
+                                    <div class="text-left cus-slt-cat-tit text-capitalize">
+                                        <a class="nav-link cool-link pb-1" routerLink='/pages/our-service-detail/{{list._id}}'>
+                                            {{list.name}}
                                         </a>
                                     </div>
                                 </div>

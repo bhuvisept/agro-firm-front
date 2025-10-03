@@ -4390,15 +4390,15 @@ ul.flex-ul {
   width: 150px;
 }
 
-.truck-img {
+.gaurimata-img {
   bottom: -200px;
   left: -150px;
   z-index: 3;
-  animation: truck 10s linear infinite;
+  animation: gaurimata 10s linear infinite;
   width: 490px;
 }
 
-@keyframes truck {
+@keyframes gaurimata {
   40%,
   75% {
     left: 20%;
@@ -5026,8 +5026,8 @@ span.cus-aro {
 }
 
 .cus-slt-cat {
-  padding: 15px 15px 5px 15px;
-  margin: 10px 50px 40px 10px;
+  padding: 15px 10px 5px 15px;
+  margin: 10px 50px 20px 5px;
   transition: all 0.5s ease;
 }
 
@@ -6002,7 +6002,7 @@ ul#message-list > li.receiver {
     height: 430px;
   }
 
-  .truck-img {
+  .gaurimata-img {
     bottom: -180px;
     width: 450px;
   }
@@ -6412,7 +6412,7 @@ ul#message-list > li.receiver {
     height: 280px;
   }
 
-  .truck-img {
+  .gaurimata-img {
     bottom: -140px;
     width: 340px;
   }
@@ -7554,7 +7554,7 @@ ul#message-list > li.receiver {
     height: 160px;
   }
 
-  .truck-img {
+  .gaurimata-img {
     bottom: -100px;
     width: 220px;
   }
@@ -8054,7 +8054,7 @@ ul.cus-post-dropdown-menu.show {
   box-shadow: inset 0px 0px 10px 4px rgba(0, 0, 0, 0.3), inset 0px 0px 5px 0px #2f628d;
 }
 
-.truck-wrapper:after {
+.gaurimata-wrapper:after {
   content: 'Loading...';
   font-size: 20px;
   position: absolute;
@@ -8073,7 +8073,7 @@ ul.cus-post-dropdown-menu.show {
   animation: bg 3s linear infinite;
 }
 
-.truck {
+.gaurimata {
   height: 110px;
   width: 150px;
   position: absolute;
@@ -8082,7 +8082,7 @@ ul.cus-post-dropdown-menu.show {
   transform: translateX(-50%);
 }
 
-.truck > .truck-container {
+.gaurimata > .gaurimata-container {
   background: rgb(175, 189, 195);
   background: -moz-linear-gradient(-45deg, rgba(175, 189, 195, 1) 0%, rgba(175, 189, 195, 1) 50%, rgba(143, 163, 173, 1) 51%, rgba(143, 163, 173, 1) 100%);
   background: -webkit-linear-gradient(-45deg, rgba(175, 189, 195, 1) 0%, rgba(175, 189, 195, 1) 50%, rgba(143, 163, 173, 1) 51%, rgba(143, 163, 173, 1) 100%);
@@ -8096,7 +8096,7 @@ ul.cus-post-dropdown-menu.show {
   animation: container 0.4s linear infinite;
 }
 
-.truck > .glases {
+.gaurimata > .glases {
   background: rgb(40, 181, 245);
   background: -moz-linear-gradient(-45deg, rgba(40, 181, 245, 1) 0%, rgba(40, 181, 245, 1) 50%, rgba(2, 153, 227, 1) 52%, rgba(2, 153, 227, 1) 100%);
   background: -webkit-linear-gradient(-45deg, rgba(40, 181, 245, 1) 0%, rgba(40, 181, 245, 1) 50%, rgba(2, 153, 227, 1) 52%, rgba(2, 153, 227, 1) 100%);
@@ -8113,7 +8113,7 @@ ul.cus-post-dropdown-menu.show {
   animation: updown-half 0.4s linear infinite;
 }
 
-.truck > .glases:after {
+.gaurimata > .glases:after {
   content: '';
   display: block;
   background-color: #fbd734;
@@ -8128,7 +8128,7 @@ ul.cus-post-dropdown-menu.show {
   border-top-left-radius: 0px;
 }
 
-.truck > .glases:before {
+.gaurimata > .glases:before {
   content: '';
   display: block;
   background-color: #f9bf2c;
@@ -8140,7 +8140,7 @@ ul.cus-post-dropdown-menu.show {
   border-top-right-radius: 4px;
 }
 
-.truck > .bonet {
+.gaurimata > .bonet {
   background-color: #f9bf2c;
   position: absolute;
   width: 124px;
@@ -8151,7 +8151,7 @@ ul.cus-post-dropdown-menu.show {
   animation: updown 0.4s linear infinite;
 }
 
-.truck > .bonet:after {
+.gaurimata > .bonet:after {
   content: '';
   display: block;
   background: rgb(255, 255, 255);
@@ -8167,7 +8167,7 @@ ul.cus-post-dropdown-menu.show {
   border-top-left-radius: 4px;
 }
 
-.truck > .base {
+.gaurimata > .base {
   position: absolute;
   background-color: #445a64;
   width: 106px;
@@ -8178,7 +8178,7 @@ ul.cus-post-dropdown-menu.show {
   animation: updown 0.4s linear infinite;
 }
 
-.truck > .base:before {
+.gaurimata > .base:before {
   content: '';
   display: block;
   background-color: #e54a18;
@@ -8190,7 +8190,7 @@ ul.cus-post-dropdown-menu.show {
   border-bottom-left-radius: 4px;
 }
 
-.truck > .base:after {
+.gaurimata > .base:after {
   content: '';
   display: block;
   background-color: RGB(84, 110, 122);
@@ -8203,7 +8203,7 @@ ul.cus-post-dropdown-menu.show {
   z-index: -1;
 }
 
-.truck > .base-aux {
+.gaurimata > .base-aux {
   width: 82px;
   height: 8px;
   background-color: #f9bf2c;
@@ -8214,16 +8214,16 @@ ul.cus-post-dropdown-menu.show {
   animation: updown 0.4s linear infinite;
 }
 
-.truck > .wheel-back {
+.gaurimata > .wheel-back {
   left: 20px;
 }
 
-.truck > .wheel-front {
+.gaurimata > .wheel-front {
   left: 95px;
 }
 
-.truck > .wheel-back,
-.truck > .wheel-front {
+.gaurimata > .wheel-back,
+.gaurimata > .wheel-front {
   border-radius: 100%;
   position: absolute;
   background: rgb(84, 110, 122);
@@ -8237,8 +8237,8 @@ ul.cus-post-dropdown-menu.show {
   animation: spin 0.6s linear infinite;
 }
 
-.truck > .wheel-back:before,
-.truck > .wheel-front:before {
+.gaurimata > .wheel-back:before,
+.gaurimata > .wheel-front:before {
   content: '';
   border-radius: 100%;
   left: 5px;
@@ -8278,7 +8278,7 @@ ul.cus-post-dropdown-menu.show {
   }
 }
 
-.truck > .smoke {
+.gaurimata > .smoke {
   position: absolute;
   background-color: #afbdc3;
   border-radius: 100%;
@@ -8290,7 +8290,7 @@ ul.cus-post-dropdown-menu.show {
   opacity: 0;
 }
 
-.truck > .smoke:after {
+.gaurimata > .smoke:after {
   content: '';
   position: absolute;
   background-color: RGB(143, 163, 173);
@@ -8301,7 +8301,7 @@ ul.cus-post-dropdown-menu.show {
   left: 4px;
 }
 
-.truck > .smoke:before {
+.gaurimata > .smoke:before {
   content: '';
   position: absolute;
   background-color: RGB(143, 163, 173);

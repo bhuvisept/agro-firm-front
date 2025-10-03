@@ -28,6 +28,7 @@
   "homeLinks": {
     "Home": "Home",
     "About_us": "About us",
+    "our-services": "Our Services",
     "Our_Products": "Our Products",
     "Gallery": "Gallery",
     "Events": "News & Events",
@@ -40,10 +41,10 @@
     "download_app": "Download The App Now",
     "download_des": "At GAURI MATA AGRI FARMER , we are committed to transforming agriculture into a sustainable, innovative, and future-ready industry.",
     "who_we": "WHO WE <span class='text-primary'>ARE</span> ",
-    "who_we_des": " Mytruck.one facilitates you with wide range of services pertaining to truck , trailer and truck accessories.Here you can search and choose truck services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to truck and add services offered too.",
-    "Our_Products" : "Our Products",
-    "services" : "Our Services",
-    "event_news" : "Events & News"
+    "who_we_des": " GAURI facilitates you with wide range of services pertaining to GAURI , trailer and gaurimata accessories.Here you can search and choose gaurimata services as per your load requirement. It is an incomparable platform designed with novelty , its uniqueness lies in its futuristic approach as here you can post a job, schedule events related to gaurimata and add services offered too.",
+    "Our_Products": "Our Products",
+    "services": "Our Services",
+    "event_news": "Events & News"
   },
   "About_us_sec": {
     "heading": "ABOUT-US",
@@ -53,7 +54,8 @@
     "our_mision": "Our <span class='text-primary'>Mission</span>",
     "our_vision": "Our <span class='text-primary'>Vision</span>",
     "our_vision_desc": "To be a leading agriculture firm recognized for sustainable practices, innovation, and a positive impact on society and the environment.",
-    "our_mission_desc": "To revolutionize agriculture by combining innovation with tradition,ensuring food security, farmer prosperity, and a healthier planet."
+    "our_mission_desc": "To revolutionize agriculture by combining innovation with tradition,ensuring food security, farmer prosperity, and a healthier planet.",
+     "our_team": "Our <span class='text-primary'>Team</span>"
   },
   "footer": {
     "content": "WOULD YOU LIKE TO KNOW MORE ABOUT OUR SERVICES?",
@@ -71,10 +73,9 @@
   },
   "ecommerce": {
     "Category": "Product Categories",
-    "norecordfound":"No Records Found",
-    "description":"Description",
-    "highlight":"Highlight",
-    "productnumber":"Product Number"
+    "norecordfound": "No Records Found",
+    "description": "Description",
+    "highlight": "Highlight",
+    "productnumber": "Product Number"
   }
- 
 }

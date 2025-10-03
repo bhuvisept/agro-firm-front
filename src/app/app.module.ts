@@ -42,7 +42,7 @@ import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaFormsM
 import { MatRadioModule } from '@angular/material/radio'
 import { CarouselModule } from 'ngx-owl-carousel-o'
 import { ImageCropperModule } from 'ngx-image-cropper'
-import { SliderImgComponent } from './slider-img/slider-img.component'
+import { SliderImgComponent } from './slider-img___/slider-img.component'
 import { ChangePasswordComponent } from './change-password/change-password.component'
 import { FileUploadModule } from 'ng2-file-upload'
 import { PagesModule } from '../app/pages/pages.module'

@@ -11,6 +11,6 @@ export class LayoutComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.userInfo = JSON.parse(localStorage.getItem('truckStorage'))
+    this.userInfo = JSON.parse(localStorage.getItem('gauriStorage'))
   }
 }

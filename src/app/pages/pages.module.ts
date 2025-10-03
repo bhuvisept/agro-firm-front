@@ -30,9 +30,11 @@ import { OurProductsComponent } from './our-products/our-products.component';
 import { NewsEventComponent } from './news-event/news-event.component';
 import { LightboxDialogComponent } from './lightbox-dialog/lightbox-dialog.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { OurServiceDetailComponent } from './our-service-detail/our-service-detail.component';
+import { OurServicesComponent } from './our-services/our-services.component';
 
 @NgModule({
-  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent, GalleryComponent, OurProductsComponent, NewsEventComponent, LightboxDialogComponent, NewsDetailComponent],
+  declarations: [AboutUsComponent, PagesComponent,  ContactUsComponent, GalleryComponent, OurProductsComponent, NewsEventComponent, LightboxDialogComponent, NewsDetailComponent, OurServiceDetailComponent, OurServicesComponent],
   imports: [
     CommonModule,
     NgxMaskModule,

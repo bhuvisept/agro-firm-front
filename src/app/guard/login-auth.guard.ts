@@ -11,7 +11,7 @@ export class LoginAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.userInfo = JSON.parse(localStorage.getItem('truckStorage'))
+      this.userInfo = JSON.parse(localStorage.getItem('gauriStorage'))
 
 
       if(this.userInfo && this.userInfo['token'] && this.userInfo.userInfo._id ){

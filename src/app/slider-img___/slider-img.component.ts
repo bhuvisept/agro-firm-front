@@ -80,7 +80,7 @@ export class SliderImgComponent implements OnInit {
 
   ngOnInit() {
     console.log("data",this.data.allData)
-    this.userObj = JSON.parse(localStorage.getItem('truckStorage'))
+    this.userObj = JSON.parse(localStorage.getItem('gauriStorage'))
     this.loggedInUser = this.userObj.userInfo._id
     this.userImage = this.userObj.userInfo.image
     this.loggedIn = this.userObj.userInfo.image

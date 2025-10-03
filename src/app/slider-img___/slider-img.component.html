@@ -1,8 +1,8 @@
 <ngx-spinner class="cusSpinner">
   <div class="loader-wrapper">
-    <div class="truck-wrapper">
-      <div class="truck">
-        <div class="truck-container"></div>
+    <div class="gaurimata-wrapper">
+      <div class="gaurimata">
+        <div class="gaurimata-container"></div>
         <div class="glases"></div>
         <div class="bonet"></div>
         <div class="base"></div>
@@ -25,7 +25,7 @@
             <a routerLink="/layout/social-media/connection-profileview/{{ allData.userData?._id }}"
               *ngIf="allData.userData?._id !== loggedInUser">
               <div>
-                <img *ngIf="!allData.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                <img *ngIf="!allData.userData?.image" src="assets/gaurimata-banne-profile.png" class="img-fluid" />
                 <img *ngIf="allData.userData?.image" src="{{ postProfile + allData.userData.image }}"
                   class="img-fluid" />
               </div>
@@ -33,7 +33,7 @@
             <a routerLink="/layout/myaccount/my-profile" *ngIf="allData.userData?._id == loggedInUser">
               <div>
 
-                <img *ngIf="!allData.userData?.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                <img *ngIf="!allData.userData?.image" src="assets/gaurimata-banne-profile.png" class="img-fluid" />
                 <img *ngIf="allData.userData?.image" src="{{ postProfile + allData.userData.image }}"
                   class="img-fluid" />
               </div>
@@ -76,7 +76,7 @@
             <div class="col-sm-1">
               <div class="pro-round-img">
                 <div>
-                  <img *ngIf="!allData.orignalPostData.userData?.image" src="assets/Truck-banne-profile.png"
+                  <img *ngIf="!allData.orignalPostData.userData?.image" src="assets/gaurimata-banne-profile.png"
                     class="profilephoto" />
                   <img *ngIf="allData.orignalPostData.userData?.image"
                     src="{{ postProfile + allData.orignalPostData.userData?.image }}" class="img-fluid" />
@@ -171,7 +171,7 @@
           <div class="row d-flex justify-content-center align-items-center cus-border-top">
             <div class="col-1 mr-2">
               <div class="pro-round-img cmt-pro-round-img">
-                <div><img *ngIf="!loggedIn" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img
+                <div><img *ngIf="!loggedIn" src="assets/gaurimata-banne-profile.png" class="img-fluid" /> <img
                     *ngIf="loggedIn" src="{{ postProfile + loggedIn }}" class="img-fluid" /></div>
               </div>
             </div>
@@ -192,7 +192,7 @@
             <div class="row cus_comment_sec">
               <div class="col-sm-1 col-xs-2 mr-4">
                 <div class="cus-com-img-network cmt-pro-round-img">
-                  <img *ngIf="!list.image" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img
+                  <img *ngIf="!list.image" src="assets/gaurimata-banne-profile.png" class="img-fluid" /> <img
                     *ngIf="list.image" src="{{ postProfile + list.image }}" class="img-fluid" />
                 </div>
               </div>
@@ -232,7 +232,7 @@
                 <div class="row cus_comment_sec mt-1" *ngFor="let Relist of list.reCommentArr; let reIndex = index">
                   <div class="col-sm-1 col-xs-2 mr-4">
                     <div class="cus-com-img-network cmt-pro-round-img">
-                      <img *ngIf="!Relist.image" src="assets/Truck-banne-profile.png" class="img-fluid" />
+                      <img *ngIf="!Relist.image" src="assets/gaurimata-banne-profile.png" class="img-fluid" />
                       <img *ngIf="Relist.image" src="{{ postProfile + Relist.image }}" class="img-fluid" />
                     </div>
                   </div>
@@ -280,7 +280,7 @@
                   *ngIf="reCommentForm === list._id">
                   <div class="col-sm-1 col-xs-2 mr-2">
                     <div class="pro-round-img cmt-pro-round-img">
-                      <img *ngIf="!userImage" src="assets/Truck-banne-profile.png" class="img-fluid" /> <img
+                      <img *ngIf="!userImage" src="assets/gaurimata-banne-profile.png" class="img-fluid" /> <img
                         *ngIf="userImage" src="{{ postProfile + userImage }}" class="img-fluid" />
                     </div>
                   </div>
@@ -321,7 +321,7 @@
          margin-right: 5px;
          border: 1px solid #d9d9d9;
          border-radius: 50%;">
-          <img *ngIf="!item.image" src="assets/Truck-banne-profile.png" style="width: 40px;
+          <img *ngIf="!item.image" src="assets/gaurimata-banne-profile.png" style="width: 40px;
          height: 40px;
          margin-right: 5px;
          border: 1px solid #d9d9d9;

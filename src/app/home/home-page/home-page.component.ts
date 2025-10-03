@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment'
 import { OwlOptions } from 'ngx-owl-carousel-o'
 import { MatDialog } from '@angular/material'
 
+import { LanguageService } from 'src/app/service/language.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -104,6 +107,9 @@ export class HomePageComponent implements OnInit {
   sliderArrow = false
   userAgent = navigator
 
+  currentLang: string;
+  langSub: Subscription;
+
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -113,67 +119,55 @@ export class HomePageComponent implements OnInit {
     private pipe: DatePipe,
     private dialog: MatDialog,
     private ngZone: NgZone,
-    private changeDetector: ChangeDetectorRef
+    private changeDetector: ChangeDetectorRef,
+    private languageService: LanguageService
   ) {
     setTimeout(() => this.ngZone.run(() => this.changeDetector.detectChanges()))
   }
 
   ngOnInit() {
+    this.currentLang = this.languageService.getCurrentLanguage();
+
+    this.langSub = this.languageService.currentLanguage$.subscribe(lang => {
+      if (lang !== this.currentLang) {
+        this.currentLang = lang;
+        this.getEventlists(this.currentLang);
+        this.getLatestProducts(this.currentLang);
+        this.getOurServices(this.currentLang);
+      }
+    });
+
     window.scroll(0, 0)
     this.sliders();
-    this.getEventlists();
-    this.getLatestProducts();
-    this.serviceList = [
-      {
-        "_id": 1,
-        "image": "dron.png",
-        "title": "High Tech Farming ",
-      },
-      {
-        "_id": 1,
-        "image": "kisan_seva.jpeg",
-        "title": "Kisan Seva Kendra",
-      },
-      {
-        "_id": 1,
-        "image": "kisan_seva.jpeg",
-        "title": "Agriculture Magazine",
-      },
-    ]
-    // this.productList = [
+    this.getEventlists(this.currentLang);
+    this.getLatestProducts(this.currentLang);
+    this.getOurServices(this.currentLang);
+    // this.serviceList = [
     //   {
     //     "_id": 1,
-    //     "image": "borers.jpg",
-    //     "title": "Product 1",
-    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //     "image": "dron.png",
+    //     "title": "High Tech Farming ",
     //   },
     //   {
     //     "_id": 1,
-    //     "image": "Fungicides.jpg",
-    //     "title": "Product 1",
-    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //     "image": "kisan_seva.jpeg",
+    //     "title": "Kisan Seva Kendra",
     //   },
     //   {
     //     "_id": 1,
-    //     "image": "Herbicides.jpg",
-    //     "title": "Product 1",
-    //     "description": "Dummy text Dummy text Dummy text Dummy text"
+    //     "image": "kisan_seva.jpeg",
+    //     "title": "Agriculture Magazine",
     //   },
-    //   {
-    //     "_id": 1,
-    //     "image": "plan5.jpg",
-    //     "title": "Product 1",
-    //     "description": "Dummy text Dummy text Dummy text Dummy text"
-    //   }
-    // ];
+    // ]
+
 
   }
   sliders() {
-    let obj = { isDeleted: false, isActive: true }
+    let obj = { isActive: true }
     this.spinner.show()
     this._generalService.sliders(obj).subscribe((result) => {
       if (result.code == 200) {
-        this.spinner.hide()
+        // this.spinner.hide()
         this.sliderList = result.data;
         console.log("this.sliderList ", this.sliderList)
         setTimeout(() => {
@@ -189,19 +183,16 @@ export class HomePageComponent implements OnInit {
       }
     })
   }
-  getEventlists() {
-    // if (this.userId != null) {
-    let data = { isActive: 'true' }
+  getEventlists(lang: string) {
+    let data = { isActive: 'true', title: lang }
     this.spinner.show()
     this._generalService.homePageEvents(data).subscribe(
       (response) => {
         if (response['code'] == 200) {
           this.eventLists = response['data']
-          // this.eventLists.forEach((element) => {
-          //   this.exampleTime.push(element.startDate)
-          // })
-          // this.setTimer(this.exampleTime)
-          this.spinner.hide()
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 2000);
         }
       },
       (error) => {
@@ -211,13 +202,34 @@ export class HomePageComponent implements OnInit {
     )
     // } 
   }
-  getLatestProducts() {
+  getLatestProducts(lang: string) {
     this.spinner.show()
-    this._generalService.latestProducts({}).subscribe(
+    this._generalService.latestProducts({ title: lang }).subscribe(
       (response) => {
         if (response['code'] == 200) {
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 200000);
           this.productList = response['data']
-          this.spinner.hide()
+          
+        }
+      },
+      (error) => {
+        this.toastr.show(error, 'Network Error')
+        this.spinner.hide()
+      }
+    )
+  }
+  getOurServices(lang: string){
+    this.spinner.show()
+    this._generalService.ourServicesHome({ title: lang }).subscribe(
+      (response) => {
+        if (response['code'] == 200) {
+          setTimeout(() => {
+            this.spinner.hide();
+          }, 200000);
+          this.serviceList = response['data']
+          
         }
       },
       (error) => {

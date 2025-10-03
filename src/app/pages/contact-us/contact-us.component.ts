@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { GeneralServiceService } from 'src/app/core/general-service.service'
 import { genralConfig } from 'src/app/constant/genral-config.constant';
-import { MatDialog } from '@angular/material';
+// import { MatDialog } from '@angular/material';
 import {ToastrService} from 'ngx-toastr'
 
 @Component({
@@ -12,26 +12,12 @@ import {ToastrService} from 'ngx-toastr'
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-  selectOption = [
-      {value:'SUBSCRIPTION PLAN', name:"Subscription Plan"},
-      {value:'OTHER', name:"Other"}
-  ]
-  planList = [
-    {value:'ECOMMERCE', name:"E-Commerce"},
-    {value:'EVENT', name:"Event"},
-    {value:'JOB', name:"Job"},
-    {value:'SERVICE', name:"Services"},
-    {value:'TRIP PLANNER', name:"Trip Planner"},
-    {value:'WEATHER', name:"Weather"}
-  ]
+ 
   selectedsss = []
   contact= new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern(genralConfig.pattern.NAME), Validators.pattern(genralConfig.pattern.BACKSPACE), Validators.pattern(genralConfig.pattern.WHITESPACE)]),
     email: new FormControl('', [Validators.required, Validators.pattern(genralConfig.pattern.EMAIL)]),
     phone:new FormControl('',[Validators.pattern(genralConfig.pattern.PHONE_NO)]) ,
-    queryType:new FormControl('',[Validators.required]),
-    companyName:new FormControl(''),
-    planOption:new FormControl(''),
     description:new FormControl('',[Validators.required]),
   })
   isSelectOption: any;
@@ -40,7 +26,7 @@ export class ContactUsComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr:ToastrService,
     private service :GeneralServiceService, 
-    private dialog: MatDialog
+    // private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -73,17 +59,13 @@ export class ContactUsComponent implements OnInit {
       this.contact.controls['name'].markAsTouched()
       this.contact.controls['email'].markAsTouched()
       this.contact.controls['phone'].markAsTouched()
-      this.contact.controls['companyName'].markAsTouched()
-      this.contact.controls['queryType'].markAsTouched()
-      this.contact.controls['planOption'].markAsTouched()
       this.contact.controls['description'].markAsTouched()
     }
     if(this.contact.valid){
       this.spinner.show();
       this.service.contactUs(this.contact.value).subscribe((res)=>{
         if(res['code']==200){
-          this.contact.reset()
-          
+          this.contact.reset()          
           this.spinner.hide();
         }else{
           this.spinner.hide()

@@ -1,16 +1,41 @@
+<ngx-spinner
+  bdColor="rgba(0,0,0,0.3)"
+  size="medium"
+  color="#439041"
+  type="ball-spin-clockwise"
+  [fullScreen]="true">
+</ngx-spinner>
 <section class="mob-top-spc">
     <div class="container mt-4">
         <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
             <h2 class="text-uppercase">{{'gallery' | translate}}</h2> <span class="cus-tit-bor"></span>
         </div>
-        <!-- <div class="col-sm-12 text-center mb-2 pt-2 pb-2">
-            <h2 class="text-uppercase">{{'gallery' | translate}}</h2> <span class="cus-tit-bor"></span>
-        </div> -->
-        <mat-grid-list cols="4" rowHeight="160px" gutterSize="12px" class="grid" *ngIf="images && images.length">
-            <mat-grid-tile *ngFor="let img of images; let i = index">
-                <img class="thumb" [src]="img.thumb || img.src" [alt]="img.alt || 'image'" (click)="open(i)"
-                    loading="lazy" />
-            </mat-grid-tile>
-        </mat-grid-list>
+         <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cus-from-stapper">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div *ngFor="let img of galleriesList; let i = index" class="col-sm-3 cus-slt-cat">
+                                    <label >
+                                        <img *ngIf="!img.url" src="assets/no_image.jpg" />
+                                        <img *ngIf="img.url" src="{{gallery_url}}{{img.url}}" style="width:300px;" (click)="open(i)"/>
+                                        <span class="cus-bk-bg"></span>
+                                    </label>
+                                    <div class="text-center cus-slt-cat-tit text-capitalize">
+                                        <!-- <a class="nav-link cool-link pb-1" routerLink='/pages/ecommerce/products/'> -->
+                                            {{img.name}}
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
     </div>
 </section>

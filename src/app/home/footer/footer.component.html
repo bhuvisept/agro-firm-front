@@ -32,7 +32,7 @@
                 <div class="col-md-3 col-sm-6">
                     <h5 class="mt-3">{{'Services' | translate}}</h5>
                     <ul class="cus-foot-services">
-                        <li *ngFor="let list of compservices"> <a routerLink="{{list.serLink}}">{{list.serTlt}}</a> </li>
+                        <li *ngFor="let list of compservices"> <a routerLink="{{list.serLink}}">{{list.serTlt | translate }}</a> </li>
                         
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                     <h5 class="mt-3">{{'news_event' | translate}}</h5>
                     <div class="row cus-foot-blog-link" *ngFor="let list of eventLists | slice: 0:3">
                         <div class="col-sm-9 col-sx-9"> 
-                            <a routerLink="/pages/news-detail   /{{list._id}}">
+                            <a routerLink="/pages/news-detail/{{list._id}}">
                                 <p innerHtml="{{list.name}}"></p>
                             </a> 
                         </div>

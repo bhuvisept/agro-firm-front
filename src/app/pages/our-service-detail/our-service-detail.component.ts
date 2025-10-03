@@ -9,18 +9,17 @@ import { LanguageService } from 'src/app/service/language.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-news-detail',
-  templateUrl: './news-detail.component.html',
-  styleUrls: ['./news-detail.component.css']
+  selector: 'app-our-service-detail',
+  templateUrl: './our-service-detail.component.html',
+  styleUrls: ['./our-service-detail.component.css']
 })
-export class NewsDetailComponent implements OnInit {
-  eventId: any;
-  eventData: any;
-  news_image_url = environment.URLHOST + '/uploads/event/'
+export class OurServiceDetailComponent implements OnInit {
+  serviceId: any;
+  serviceData: any;
+  service_image_url = environment.URLHOST + '/uploads/services/'
 
   currentLang: string;
   langSub: Subscription;
-
   constructor(
     private _generalService: GeneralServiceService,
     private spinner: NgxSpinnerService,
@@ -35,24 +34,24 @@ export class NewsDetailComponent implements OnInit {
     this.langSub = this.languageService.currentLanguage$.subscribe(lang => {
       if (lang !== this.currentLang) {
         this.currentLang = lang;
-        this.getEventDetail(this.eventId, this.currentLang);
+        this.getServiceDetail(this.serviceId, this.currentLang);
       }
     });
 
     this.route.params.subscribe(param => {
-      this.eventId = param.id;
-      if (this.eventId) {
-        this.getEventDetail(this.eventId, this.currentLang);
+      this.serviceId = param.id;
+      if (this.serviceId) {
+        this.getServiceDetail(this.serviceId, this.currentLang);
       } else {
       }
     })
     window.scroll(0, 0);
   }
-  getEventDetail(eventId, lang: string) {
-    this._generalService.eventView({ eventId: eventId, title: lang }).subscribe(result => {
+  getServiceDetail(serviceId, lang: string) {
+    this._generalService.serviceView({ serviceId: serviceId, title: lang }).subscribe(result => {
       this.spinner.show()
       if (result['code'] === 200) {
-        this.eventData = result['data'][0];
+        this.serviceData = result['data'][0];
         setTimeout(() => {
           this.spinner.hide();
         }, 2000);
@@ -60,6 +59,7 @@ export class NewsDetailComponent implements OnInit {
         this.spinner.hide();
       }
     });
+
   }
 
 }

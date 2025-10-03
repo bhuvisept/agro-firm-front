@@ -23,5 +23,33 @@
         <p>{{'About_us_sec.our_mission_desc' | translate}}</p>
         <h2 class="h2 text-dark" [innerHtml]="'About_us_sec.our_vision' | translate"> </h2>
         <p>{{'About_us_sec.our_vision_desc' | translate}}</p>
+
+        <h2 class="h2 text-dark" [innerHtml]="'About_us_sec.our_team' | translate"> </h2>
+       <div class="row">
+            <div class="col-sm-12">
+                <div class="cus-from-stapper">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div *ngFor="let img of teamsList; let i = index" class="col-sm-2 cus-slt-cat">
+                                    <label >
+                                        <img *ngIf="!img.image" src="assets/no_image.jpg" />
+                                        <img *ngIf="img.image" src="{{img.image}}" style="width:210px;"/>
+                                        <span class="cus-bk-bg"></span>
+                                    </label>
+                                    <div class="text-left cus-slt-cat-tit text-capitalize">                                     
+                                        {{img.person_name}}                                       
+                                    </div>
+                                    <div class="text-left cus-slt-cat-tit">                                     
+                                        {{img.Designation}}                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>

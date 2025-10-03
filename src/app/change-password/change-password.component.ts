@@ -40,7 +40,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userObj = JSON.parse(localStorage.getItem('truckStorage'))
+    this.userObj = JSON.parse(localStorage.getItem('gauriStorage'))
     this.userId = this.userObj.userInfo._id
     let pass = new FormControl('', [Validators.required, Validators.minLength(genralConfig.pattern.PASSWORDMINLENGTH), Validators.pattern(genralConfig.pattern.PASSWORD)])
     let confirmPass = new FormControl('', [Validators.required, CustomValidators.equalTo(pass)])

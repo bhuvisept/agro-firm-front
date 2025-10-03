@@ -44,7 +44,6 @@ export class CategoryComponent implements OnInit {
         this.currentLang = lang;
         this.categoryList(lang);
       }
-
     });
   }
   categoryList(lang: string) {
@@ -52,7 +51,9 @@ export class CategoryComponent implements OnInit {
     this.spinner.show()
     this._generalService.getCategoryList(data).subscribe((res) => {
       if (res['code'] == genralConfig.statusCode.ok) {
-        this.spinner.hide()
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 2000);
         this.categoriesList = res['data']
         window.scroll(0, 0)
       } else {

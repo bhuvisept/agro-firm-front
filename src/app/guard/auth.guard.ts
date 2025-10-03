@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      this.userInfo = JSON.parse(localStorage.getItem('truckStorage'))
+      this.userInfo = JSON.parse(localStorage.getItem('gauriStorage'))
 
       if(this.userInfo && this.userInfo.userInfo){
         return true;

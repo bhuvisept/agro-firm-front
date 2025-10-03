@@ -7,6 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 // import { DatePipe } from '@angular/common'
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery'
 
+import { LanguageService } from 'src/app/service/language.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -24,20 +27,31 @@ export class ProductViewComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[]
   galleryImages: NgxGalleryImage[]
 
+  currentLang: string;
+  langSub: Subscription;
+
   constructor(
     private _generalService: GeneralServiceService,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit() {
+    this.currentLang = this.languageService.getCurrentLanguage();
+    this.langSub = this.languageService.currentLanguage$.subscribe(lang => {
+      console.log("SELECTED LANGUAGE IS ,",lang)
+      if (lang !== this.currentLang) {   
+        this.currentLang = lang;
+       this.getProductDetail(this.productId,lang);
+      }
+    });
     this.route.params.subscribe(param => {
       this.productId = param.id;
-      // console.log(" this.eventId ", this.eventId)
       if (this.productId) {
-        this.getProductDetail(this.productId);
+        this.getProductDetail(this.productId,this.currentLang);
       } else {
       }
     })
@@ -72,26 +86,23 @@ export class ProductViewComponent implements OnInit {
     this.galleryImages = []
     window.scroll(0, 0);
   }
-  getProductDetail(productId) {
+  getProductDetail(productId,lang: string) {
     this.spinner.show()
-    this._generalService.getProductDetail({ _id: productId }).subscribe(result => {
-
+    this._generalService.getProductDetail({ _id: productId,title:lang }).subscribe(result => {
       if (result['code'] === 200) {
         this.productData = result['data'];
         this.productImages = this.productData.images;
-
         if (result['data'].images) {
           for (let images of result['data'].images) {
             this.galleryImages.push({ small: this.productImgPath + images.name, medium: this.product_image_url + images.name, big: this.productImgPathLarge + images.name })
           }
         }
-
-        console.log("this.galleryImages ==", this.galleryImages)
         setTimeout(() => {
           this.spinner.hide();
         }, 2000);
-      } else { }
-      // this.spinner.hide();
+      } else {
+        this.spinner.hide();
+       }
     });
   }
 

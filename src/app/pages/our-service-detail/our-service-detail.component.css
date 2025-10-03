@@ -1,0 +1,9 @@
+.news-item { display: flex; /* align-items: flex-start; */ /* keeps content aligned at the top */ gap: 20px; /* spacing between image and text */ flex-wrap: wrap; } 
+.news-image img {
+     width: 450px; /* adjust as per design */ 
+     height: auto; 
+     border-radius: 8px; 
+     object-fit: cover; 
+     margin-bottom: 10px; 
+     flex: 0 0 250px 
+} .news-text { flex: 1; /* take remaining space */ } .news-text h2 { margin-top: 0; } .news-meta { margin-bottom: 10px; color: #666; font-size: 14px; }
