@@ -130,5 +130,8 @@ export class LoginComponent implements OnInit {
       this.eye = 'fa fa-eye'
     }
   }
+  submitData(event){
+
+  }
 
 }

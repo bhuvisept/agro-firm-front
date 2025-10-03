@@ -80,31 +80,31 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 
-  // submitData() {
-  //   if (this.resetForm.valid) {
-  //     this.resetForm.value.token = this.token
-  //     this.spinner.show()
-  //     this._generalService.resetPassword(this.resetForm.value).subscribe(
-  //       (result) => {
-  //         if (result['code'] == 200) {
-  //           this.spinner.hide()
-  //           this.toastr.success('', result['message'])
-  //           this.router.navigate(['/login'])
-  //         } else {
-  //           this.toastr.warning('', result['message'])
-  //           this.spinner.hide()
-  //           this.router.navigate(['/expired-invitation'])
-  //         }
-  //       },
-  //       (error) => {
-  //         this.spinner.hide()
-  //         this.toastr.error('', 'Something went wrong')
-  //       }
-  //     )
-  //   } else {
-  //     this._generalService.markFormGroupTouched(this.resetForm)
-  //   }
-  // }
+  submitData() {
+    if (this.resetForm.valid) {
+      this.resetForm.value.token = this.token
+      this.spinner.show()
+      this._generalService.resetPassword(this.resetForm.value).subscribe(
+        (result) => {
+          if (result['code'] == 200) {
+            this.spinner.hide()
+            this.toastr.success('', result['message'])
+            this.router.navigate(['/login'])
+          } else {
+            this.toastr.warning('', result['message'])
+            this.spinner.hide()
+            this.router.navigate(['/expired-invitation'])
+          }
+        },
+        (error) => {
+          this.spinner.hide()
+          this.toastr.error('', 'Something went wrong')
+        }
+      )
+    } else {
+      // this._generalService.markFormGroupTouched(this.resetForm)
+    }
+  }
 
   tokenCheck(){
     let data={

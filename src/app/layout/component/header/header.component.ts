@@ -68,6 +68,9 @@ export class HeaderComponent implements OnInit {
   navToggle() {
     this.navOpen = !this.navOpen
   }
+  reDirect(item){
+
+  }
 
 
 
